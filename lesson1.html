@@ -3,28 +3,118 @@
 <!-- 1. METADATA & EXERCISES -->
 <script type="application/json" id="lesson-data">
     {
-        "title": "Bienvenue",
-        "desc": "Palabras esenciales para empezar.",
-        "icon": "fa-handshake",
+        "title": "Bienvenue a Paris (Emily's Version)",
+        "desc": "La guía de supervivencia para no hacer enojar a Sylvie el primer día.",
+        "icon": "fa-wine-glass",
         "vocabulary": [
-            { "fr": "Bonjour", "es": "Hola / Buenos días" },
-            { "fr": "Bonsoir", "es": "Buenas tardes / noches" },
-            { "fr": "Salut", "es": "Hola (Informal)" },
-            { "fr": "Merci", "es": "Gracias" }
+            { "fr": "Bonjour", "es": "Hola / Buenos días (La llave mágica)" },
+            { "fr": "Bonsoir", "es": "Buenas noches (Úsalo en fiestas)" },
+            { "fr": "Salut", "es": "Hola / Chau (Solo para amigos como Mindy)" },
+            { "fr": "Enchanté(e)", "es": "Encantado/a (Ideal para clientes)" },
+            { "fr": "S'il vous plaît", "es": "Por favor" },
+            { "fr": "Désolé(e)", "es": "Lo siento (Tu palabra más usada)" },
+            { "fr": "À demain", "es": "Hasta mañana" },
+            { "fr": "Un café, s'il vous plaît", "es": "Un café, por favor" }
         ],
         "exercises": [
-            { "q": "Saludo formal de día:", "a": "bonjour", "hint": "Todo el día" },
-            { "q": "Saludo informal:", "a": "salut", "hint": "Amigos" }
+            { "q": "Entras a la oficina y ves a Sylvie. ¿Qué dices?", "a": "bonjour", "hint": "Formal y obligatorio" },
+            { "q": "Te encuentras con Gabriel en el pasillo de tu edificio. ¿Qué dices?", "a": "salut", "hint": "Informal y coqueto" },
+            { "q": "Llegas a una fiesta de Savoir a las 20:00. Dices:", "a": "bonsoir", "hint": "Saludo de noche" },
+            { "q": "Chocas con alguien en la calle por mirar el móvil. Dices:", "a": "pardon", "hint": "O 'Désolé'" },
+            { "q": "Te presentan a Antoine Lambert. Tú respondes:", "a": "enchantée", "hint": "Mucho gusto (femenino)" },
+            { "q": "¿Cómo pides algo educadamente?", "a": "s'il vous plaît", "hint": "La palabra mágica" }
         ]
     }
     </script>
     
     <!-- 2. CONTENT (HTML) -->
-    <div id="lesson-content">
-        <p>En Francia, saludar es considerado un arte.</p>
-        <h2>Vocabulario Clave</h2>
-        <ul class="bg-white p-4 rounded-lg border-l-4 border-frBlue shadow-sm">
-            <li><strong>Bonjour</strong>: El saludo universal.</li>
-            <li><strong>Bonsoir</strong>: Se utiliza a partir de las 18:00.</li>
+    <div id="lesson-content" class="space-y-6 text-gray-800">
+        
+        <!-- Intro Section -->
+        <div class="bg-pink-50 p-4 rounded-lg border-l-4 border-pink-500">
+            <h2 class="text-xl font-bold text-pink-600 mb-2">Ringarde o Respetada?</h2>
+            <p>Escucha, Emily. En Chicago, entras a una reunión y vas directo al grano. <strong>En París, eso es un crimen.</strong></p>
+            <p class="mt-2">El "Bonjour" no es solo un saludo; es el código de acceso. Si entras a una tienda o a la oficina y no lo dices con confianza, eres invisible (o peor, maleducada). Antes de vender tu idea de marketing, tienes que vender tu educación.</p>
+        </div>
+    
+        <!-- Expanded Vocabulary Context -->
+        <h3>Vocabulario para sobrevivir en Savoir</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white p-4 shadow rounded-md">
+                <h4 class="font-bold text-frBlue">Bonjour vs Bonsoir</h4>
+                <p class="text-sm mt-1">Es simple: Si hay sol, <em>Bonjour</em>. Si estás tomando una copa de Champère, <em>Bonsoir</em>. El cambio ocurre mágicamente alrededor de las 18:00 o 19:00.</p>
+            </div>
+            <div class="bg-white p-4 shadow rounded-md">
+                <h4 class="font-bold text-frRed">Salut (¡Cuidado!)</h4>
+                <p class="text-sm mt-1">Significa "Hola" y "Adiós". Pero <strong>nunca</strong> lo uses con Sylvie o un cliente. Solo para Mindy, Gabriel o Camille. Es el equivalente verbal a un choque de puños.</p>
+            </div>
+            <div class="bg-white p-4 shadow rounded-md">
+                <h4 class="font-bold text-gray-700">Enchanté(e)</h4>
+                <p class="text-sm mt-1">Añade una 'e' al final si lo escribes (porque eres mujer). Es la forma elegante de decir "Nice to meet you". Úsalo y quizás Luc te respete un poco más.</p>
+            </div>
+            <div class="bg-white p-4 shadow rounded-md">
+                <h4 class="font-bold text-gray-700">Désolé / Pardon</h4>
+                <p class="text-sm mt-1">Vas a cometer errores culturales. Muchos. Aprende a disculparte rápido. <em>Pardon</em> es para cuando chocas con alguien, <em>Désolé</em> es cuando sientes algo emocionalmente o cometes un error.</p>
+            </div>
+        </div>
+    
+        <hr class="my-6 border-gray-300">
+    
+        <!-- Reading Section with Reveal -->
+        <h3>Lectura: Misión Boulangerie</h3>
+        <p class="mb-2 text-sm text-gray-600">Emily intenta comprar un Pain au Chocolat sin usar el traductor del móvil.</p>
+        
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <p class="italic font-serif text-lg leading-relaxed text-center">
+                "Bonjour, madame. <br>
+                Un pain au chocolat, s'il vous plaît. <br>
+                Et un café noir. <br>
+                Merci beaucoup. Au revoir !"
+            </p>
+            
+            <details class="mt-4">
+                <summary class="cursor-pointer text-blue-600 font-semibold hover:text-blue-800 focus:outline-none">
+                    👉 Toca para ver la traducción (La verdad)
+                </summary>
+                <div class="mt-2 p-2 bg-white rounded text-gray-700 text-sm border border-gray-200">
+                    <p><strong>Traducción:</strong> "Buenos días, señora. Un croissant de chocolate, por favor. Y un café negro. Muchas gracias. ¡Adiós!"</p>
+                    <p class="mt-2 text-xs text-gray-500">*Nota: Si te olvidas del "Bonjour", te darán el pan duro de ayer.*</p>
+                </div>
+            </details>
+        </div>
+    
+        <hr class="my-6 border-gray-300">
+    
+        <!-- Speaking Section -->
+        <h3>Expresión Oral: ¡Actúa!</h3>
+        <p>No seas tímida. Practica en voz alta (hazlo frente al espejo antes de salir a la calle):</p>
+        
+        <ul class="space-y-3 mt-4">
+            <li class="flex items-start">
+                <span class="bg-frRed text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 flex-shrink-0">1</span>
+                <div>
+                    <strong>Escenario: La Oficina.</strong>
+                    <p class="text-sm">Entras y ves a Julien. Di un <em>"Bonjour"</em> firme y profesional. No sonrías demasiado, es muy americano.</p>
+                </div>
+            </li>
+            <li class="flex items-start">
+                <span class="bg-frRed text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 flex-shrink-0">2</span>
+                <div>
+                    <strong>Escenario: La Cita.</strong>
+                    <p class="text-sm">Gabriel te trae un plato especial. Míralo a los ojos y di: <em>"Merci, c'est gentil"</em> (Gracias, es amable).</p>
+                </div>
+            </li>
+            <li class="flex items-start">
+                <span class="bg-frRed text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 flex-shrink-0">3</span>
+                <div>
+                    <strong>Escenario: El Metro.</strong>
+                    <p class="text-sm">Pisas a alguien. Rápido, di: <em>"Pardon !"</em></p>
+                </div>
+            </li>
         </ul>
+        
+        <div class="mt-6 p-3 bg-yellow-100 rounded text-center text-sm">
+            <strong>💡 Tip de Influencer:</strong> Grábate diciendo estas frases. Si suenas como si tuvieras una papa caliente en la boca, vas por buen camino con el acento francés.
+        </div>
+    
     </div>
