@@ -1,0 +1,246 @@
+<!-- AUTO-DETECTABLE LESSON FILE -->
+
+<!-- 1. METADATA & EXERCISES -->
+<script type="application/json" id="lesson-data">
+    {
+        "title": "Lección 18: Quejas, Alergias y Tipos de Restaurante",
+        "desc": "Aprende a devolver un plato frío con elegancia, explicar que eres celíaco o vegano, y distinguir por fin entre un Bistró, una Brasserie y un Café.",
+        "icon": "fa-exclamation-circle",
+        "vocabulary": [
+            { "fr": "Je suis allergique à...", "es": "Soy alérgico a..." },
+            { "fr": "C'est froid / C'est chaud", "es": "Está frío / Está caliente" },
+            { "fr": "Ce n'est pas ce que j'ai commandé", "es": "Esto no es lo que pedí" },
+            { "fr": "Il y a une erreur", "es": "Hay un error" },
+            { "fr": "Sans gluten", "es": "Sin gluten" },
+            { "fr": "Ccacahuètes / Noix", "es": "Cacahuetes / Nueces" },
+            { "fr": "Fruits de mer", "es": "Mariscos" },
+            { "fr": "La sauce à part", "es": "La salsa aparte (muy difícil de conseguir en Francia)" },
+            { "fr": "Trop salé / Trop sucré", "es": "Demasiado salado / Demasiado dulce" },
+            { "fr": "Excusez-nous", "es": "Discúlpenos (para llamar al camarero por un problema)" },
+            { "fr": "Une Brasserie", "es": "Cervecería/Restaurante grande (comida clásica todo el día)" },
+            { "fr": "Un Bistrot", "es": "Pequeño restaurante informal (menú limitado)" },
+            { "fr": "Un Café", "es": "Para bebidas y snacks ligeros (Croque-Monsieur)" },
+            { "fr": "Un Restaurant Gastronomique", "es": "Alta cocina (muy formal)" },
+            { "fr": "Je ne mange pas de porc", "es": "No como cerdo" },
+            { "fr": "Est-ce qu'il y a du lait ?", "es": "¿Lleva leche?" },
+            { "fr": "Piquant / Épicé", "es": "Picante / Especiado" },
+            { "fr": "Il manque...", "es": "Falta... (ej: falta un cuchillo)" },
+            { "fr": "Le sel et le poivre", "es": "La sal y la pimienta" },
+            { "fr": "Changer mon plat", "es": "Cambiar mi plato" },
+            { "fr": "Désolé", "es": "Lo siento (respuesta del camarero)" },
+            { "fr": "La cuisson n'est pas bonne", "es": "La cocción no es correcta" }
+        ],
+        "exercises": [
+            { "q": "Tienes una intolerancia al gluten. Preguntas al camarero:", "a": "c'est sans gluten ?", "hint": "Usa 'C'est...' para preguntar sobre el plato." },
+            { "q": "Te traen pollo, pero pediste pescado. Dices: 'Excusez-moi...'", "a": "ce n'est pas ce que j'ai commandé", "hint": "Frase larga: Esto no es lo que yo he pedido." },
+            { "q": "Estás en un lugar enorme, ruidoso, con camareros de blanco y marisco, abierto a las 4pm. Es una...", "a": "brasserie", "hint": "No es un bistró ni un café." },
+            { "q": "La sopa está helada (y debería ser caliente). Te quejas diciendo: 'La soupe...'", "a": "est froide", "hint": "Usa el femenino de frío." },
+            { "q": "¿Cómo pides que pongan la salsa en un recipiente separado?", "a": "la sauce à part", "hint": "Literalmente 'la salsa a parte'." }
+        ]
+    }
+    </script>
+    
+    <!-- 2. CONTENT (HTML) -->
+    <div id="lesson-content" class="space-y-10 text-gray-800 font-sans leading-relaxed">
+    
+        <!-- MODULE 1: THE CONTEXT -->
+        <section>
+            <div class="bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-600 shadow-sm">
+                <h2 class="text-2xl font-bold text-indigo-700 mb-3">1. No todos los restaurantes son iguales</h2>
+                <p class="mb-3">Antes de entrar a comer, debes saber dónde te estás metiendo. En París, la nomenclatura importa:</p>
+                <ul class="list-disc list-inside mt-2 space-y-2 ml-4">
+                    <li><strong>Le Café:</strong> Principalmente para beber. La comida se limita a sándwiches (Croque-Monsieur), ensaladas simples y desayunos.</li>
+                    <li><strong>Le Bistrot:</strong> Pequeño, íntimo, a menudo dirigido por una familia. Menú escrito en pizarra, cocina casera, horarios estrictos de comida (12:00-14:00 y 19:30-22:00).</li>
+                    <li><strong>La Brasserie:</strong> Instituciones grandes y bulliciosas (como <em>La Coupole</em>). Sirven comida alsaciana (chucrut), mariscos y carnes todo el día (servicio continuo). Es el lugar para comer a las 4 de la tarde.</li>
+                    <li><strong>Le Restaurant:</strong> Término reservado para lugares más formales, manteles blancos, varios platos y precios más altos.</li>
+                </ul>
+                <p class="mt-3 text-sm text-gray-600 italic"><strong>Nota cultural sobre "La Sauce à Part":</strong> En EE.UU. es normal pedir el aderezo aparte. En Francia, esto ofende al chef. La salsa es parte integral del plato. Si tienes que pedirlo, hazlo con mucha humildad.</p>
+            </div>
+        </section>
+        
+        <!-- MODULE 2: GRAMMAR DEEP DIVE -->
+        <section>
+            <h3 class="text-xl font-bold text-gray-800 border-b-2 border-frRed inline-block mb-4">2. Estructuras: Quejas y Restricciones</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dietary Restrictions -->
+                <div class="bg-white p-4 rounded shadow border border-gray-200">
+                    <h4 class="text-lg font-bold text-frBlue mb-2 text-center">RESTRICTIONS (Dietas)</h4>
+                    <p class="text-sm text-gray-500 mb-2 text-center">Usa "Je suis..." o "Je ne mange pas..."</p>
+                    <table class="w-full text-sm">
+                        <tr class="border-b">
+                            <td class="py-2 font-semibold">Alergia</td>
+                            <td class="py-2">Je suis <strong>allergique</strong> aux noix.</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-semibold">Vegetariano</td>
+                            <td class="py-2">Je suis <strong>végétarien(ne)</strong>.</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-semibold">Prohibición</td>
+                            <td class="py-2">Je <strong>ne mange pas</strong> de porc.</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 font-semibold">Pregunta</td>
+                            <td class="py-2">C'est <strong>sans</strong> gluten ?</td>
+                        </tr>
+                    </table>
+                </div>
+    
+                <!-- Handling Problems -->
+                <div class="bg-white p-4 rounded shadow border border-gray-200">
+                    <h4 class="text-lg font-bold text-pink-500 mb-2 text-center">PROBLÈMES (Quejas)</h4>
+                    <p class="text-sm text-gray-500 mb-2 text-center">Empieza siempre con "Excusez-moi..."</p>
+                    <table class="w-full text-sm">
+                        <tr class="border-b">
+                            <td class="py-2 font-semibold">Temperatura</td>
+                            <td class="py-2">Mon plat est <strong>froid</strong>.</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-semibold">Error</td>
+                            <td class="py-2">Ce n'est pas ce que j'ai commandé.</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-semibold">Faltante</td>
+                            <td class="py-2">Il <strong>manque</strong> une serviette.</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 font-semibold">Carne</td>
+                            <td class="py-2">La viande est <strong>trop cuite</strong>.</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    
+        <!-- MODULE 3: READING COMPREHENSION (LONG) -->
+       <section>
+            <h3 class="text-xl font-bold text-gray-800 border-b-2 border-frRed inline-block mb-4">
+                3. Lectura: Une Brasserie Parisienne
+            </h3>
+
+            <p class="mb-4 text-gray-600">
+                En esta lectura final del bloque, Emily acompaña a Mindy a una famosa <em>Brasserie</em>. Mindy, siendo muy particular con su comida, pone a prueba la paciencia del camarero francés. Observa cómo Emily intenta suavizar la situación usando fórmulas de cortesía.
+            </p>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-300 font-serif leading-loose">
+
+                <p>Mindy y Emily entran en "Le Grand Comptoir". Es un lugar inmenso, con techos altos, espejos dorados y camareros corriendo con bandejas llenas de marisco. Son las 3 de la tarde, una hora en la que los bistrós normales están cerrados, pero la Brasserie sigue sirviendo.</p>
+
+                <p>Se sientan en una banqueta de cuero rojo. Un camarero con un bigote impecable y aspecto severo se acerca.</p>
+
+                <p><strong>Serveur:</strong> <em>Bonjour mesdames. Vous désirez boire quelque chose pour commencer ?</em></p>
+
+                <p><strong>Mindy:</strong> (En inglés) I want a Diet Coke with lots of ice, please.</p>
+
+                <p>Emily traduce rápidamente, sabiendo que el "mucho hielo" es raro en Francia.</p>
+
+                <p><strong>Emily:</strong> <em>Un Coca Zéro avec beaucoup de glaçons, s'il vous plaît. Et pour moi, un verre de Chablis.</em></p>
+
+                <p>Llegan las bebidas. El vaso de Mindy tiene exactamente dos cubitos de hielo. Mindy suspira pero decide mirar el menú.</p>
+
+                <p><strong>Mindy:</strong> Okay, quiero esta ensalada César, pero no quiero anchoas, quiero el pollo muy hecho, y quiero la salsa en un tazón aparte porque estoy a dieta.</p>
+
+                <p>Emily se pone nerviosa. Sabe que esto es un dolor de cabeza para la cocina.</p>
+
+                <p><strong>Emily:</strong> <em>Monsieur ? Nous sommes prêtes.</em></p>
+
+                <p><strong>Serveur:</strong> <em>Je vous écoute.</em></p>
+
+                <p><strong>Emily:</strong> <em>Alors, je vais prendre le saumon. Et pour mon amie... la salade César. Mais elle a quelques demandes spéciales. Elle est... euh... un peu difficile.</em></p>
+
+                <p><strong>Serveur:</strong> (Levantando una ceja) <em>C'est-à-dire ?</em></p>
+
+                <p><strong>Emily:</strong> <em>Pas d'anchois, s'il vous plaît. Et est-ce que c'est possible d'avoir la sauce à part ?</em></p>
+
+                <p><strong>Serveur:</strong> <em>La sauce à part ? Mais Madame, le chef mélange la sauce en cuisine pour que la salade soit parfaite. Sans sauce, c'est juste de la laitue.</em></p>
+
+                <p><strong>Emily:</strong> <em>Je sais, je suis désolée. Mais elle insiste.</em></p>
+
+                <p><strong>Serveur:</strong> <em>Bon. Je vais demander au chef, mais je ne promets rien.</em></p>
+
+                <p>Veinte minutos después, llegan los platos. La ensalada de Mindy tiene la salsa mezclada. Mindy mira el plato con horror.</p>
+
+                <p><strong>Mindy:</strong> Emily! I can't eat this. It's swimming in dressing.</p>
+
+                <p>Emily tiene que llamar al camarero de nuevo. Es el momento más temido.</p>
+
+                <p><strong>Emily:</strong> <em>Excusez-moi, Monsieur. Il y a un petit problème.</em></p>
+
+                <p><strong>Serveur:</strong> <em>Oui ?</em></p>
+
+                <p><strong>Emily:</strong> <em>Nous avons demandé la sauce à part. Mon amie ne peut pas manger ça.</em></p>
+
+                <p>El camarero mira el plato, suspira profundamente (el famoso suspiro francés) y asiente.</p>
+
+                <p><strong>Serveur:</strong> <em>C'est une erreur de la cuisine. Malheureusement, c'est le coup de feu (hora pico). Je vais changer l'assiette, mais ça va prendre dix minutes.</em></p>
+
+                <p><strong>Emily:</strong> <em>Merci beaucoup, Monsieur. C'est très gentil.</em></p>
+
+                <p>Cuando el camarero se va, Emily mira a Mindy.</p>
+
+                <p><strong>Emily:</strong> La próxima vez, vamos a McDonald's. Ahí te entienden mejor.</p>
+
+            </div>
+
+            <!-- Interactive Translation Toggle -->
+            <details class="mt-4 bg-white p-4 rounded shadow-sm group">
+                <summary class="cursor-pointer text-indigo-600 font-semibold flex items-center justify-between">
+                    <span>🔍 Vocabulario y Análisis de la Situación</span>
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+
+                <div class="mt-4 text-sm text-gray-700 space-y-2 border-t pt-3">
+                    <p><strong>Le coup de feu:</strong> Literalmente "el disparo". Es la expresión que usan los camareros para referirse al momento de máximo estrés en la cocina, cuando todos los pedidos llegan a la vez.</p>
+                    <p><strong>Beaucoup de glaçons:</strong> En Europa, las bebidas no se sirven heladas como en EE.UU. Pedir "mucho hielo" a menudo resulta en recibir 2 o 3 cubitos en lugar de 1. Es cultural.</p>
+                    <p><strong>La diplomacia de Emily:</strong> Nota cómo Emily usa <em>"Je suis désolée"</em> (Lo siento) y <em>"C'est très gentil"</em> (Es muy amable de su parte) para calmar al camarero. Si hubiera exigido el cambio con arrogancia, el camarero podría haber sido mucho menos cooperativo.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- MODULE 4: ACTIVE WRITING/THINKING -->
+        <section>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">4. Práctica de Resolución de Conflictos</h3>
+            <p class="mb-4">El objetivo es solucionar el problema sin ser "el turista grosero". Resuelve:</p>
+            
+            <div class="space-y-4">
+                <div class="bg-red-50 p-4 rounded border border-red-200">
+                    <strong>Situación A: La cuchara perdida.</strong>
+                    <br>Te traen la sopa, pero no tienes cuchara. El camarero pasa rápido.
+                    <br><span class="text-gray-500 text-sm">Levanta la mano levemente y di: <em>"Excusez-moi, il me manque une cuillère, s'il vous plaît."</em></span>
+                </div>
+                <div class="bg-red-50 p-4 rounded border border-red-200">
+                    <strong>Situación B: Demasiado picante.</strong>
+                    <br>No puedes comer picante. Estás en un restaurante asiático en París. Antes de pedir, ¿qué preguntas?
+                    <br><span class="text-gray-500 text-sm">Pregunta: <em>"Est-ce que c'est épicé / piquant ?"</em> Si dicen que sí, pide: <em>"Pas piquant, s'il vous plaît."</em></span>
+                </div>
+                <div class="bg-red-50 p-4 rounded border border-red-200">
+                    <strong>Situación C: Cuenta errónea.</strong>
+                    <br>Te han cobrado 2 cafés y solo tomaste 1.
+                    <br><span class="text-gray-500 text-sm">Señala la línea en la cuenta y di: <em>"Je crois qu'il y a une erreur. Nous avons pris seulement un café."</em> (Creo que hay un error. Tomamos solo un café).</span>
+                </div>
+            </div>
+        </section>
+    
+        <!-- MODULE 5: ORAL EXPRESSION -->
+        <section>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">5. Laboratorio de Pronunciación</h3>
+            <p>Palabras difíciles pero necesarias para quejarte o pedir cosas específicas.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center mt-4">
+                <div class="p-4 bg-white shadow rounded-full w-full aspect-square flex flex-col justify-center items-center">
+                    <strong class="text-xl text-frBlue block mb-2">CUI-LLÈRE</strong>
+                    <span class="text-xs text-gray-500">Cuchara. Sonido /kui-yèr/. La 'UI' es rápida, como el sonido de una puerta chirriando.</span>
+                </div>
+                <div class="p-4 bg-white shadow rounded-full w-full aspect-square flex flex-col justify-center items-center">
+                    <strong class="text-xl text-frRed block mb-2">AL-LER-GIQUE</strong>
+                    <span class="text-xs text-gray-500">Alérgico. La G es suave como en "Je". /a-ler-jik/.</span>
+                </div>
+                <div class="p-4 bg-white shadow rounded-full w-full aspect-square flex flex-col justify-center items-center">
+                    <strong class="text-xl text-gray-800 block mb-2">BRAS-SE-RIE</strong>
+                    <span class="text-xs text-gray-500">Cuidado con la R francesa. No digas "Braseri". La E final no suena. /bras-ri/.</span>
+                </div>
+            </div>
+        </section>
+    
+    </div>
