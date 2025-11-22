@@ -12,8 +12,6 @@ mira el contenido y la estructura de una leccionX.html:
             { "fr": "Je vais très bien, merci", "es": "Estoy muy bien, gracias" },
             { "fr": "Je vous présente...", "es": "Le presento a... (Formal)" },
             { "fr": "Enchanté de faire votre connaissance", "es": "Encantado de conocerle" },
-            { "fr": "Vous", "es": "Usted / Vosotros (Formal o Plural)" },
-            { "fr": "Tu", "es": "Tú (Informal)" },
             { "fr": "Bonne journée", "es": "Que tenga un buen día (Despedida)" },
             { "fr": "À tout à l'heure", "es": "Hasta luego (Nos vemos en un rato)" }
         ],
@@ -98,45 +96,78 @@ mira el contenido y la estructura de una leccionX.html:
         </section>
     
         <!-- MODULE 3: READING COMPREHENSION (LONG) -->
-        <section>
-            <h3 class="text-xl font-bold text-gray-800 border-b-2 border-frRed inline-block mb-4">3. Lectura: Le Vernissage (La Inauguración)</h3>
-            <p class="mb-4 text-gray-600">Lee el siguiente guion detenidamente. Emily asiste a una galería de arte con Julien. Presta atención a cómo cambia el lenguaje según con quién hablan.</p>
-    
+       <section>
+            <h3 class="text-xl font-bold text-gray-800 border-b-2 border-frRed inline-block mb-4">
+                3. Lectura: Le Vernissage (La Inauguración)
+            </h3>
+
+            <p class="mb-4 text-gray-600">
+                Lee el siguiente guion extendido. Emily y Julien asisten a la inauguración de una exposición en una prestigiosa galería parisina. 
+                Observa cómo cambian el registro lingüístico y la etiqueta cuando Emily pasa de hablar con Julien a dirigirse al famoso diseñador de alta costura Pierre Cadault.
+                Presta atención especialmente a las diferencias entre el lenguaje informal y el formal.
+            </p>
+
             <div class="bg-gray-50 p-6 rounded-lg border border-gray-300 font-serif leading-loose">
-                <p><strong>Julien:</strong> Emily, regarde. C'est Pierre Cadault, le célèbre créateur.</p>
-                <p><strong>Emily:</strong> Oh mon dieu! Je dois lui parler. (Emily se acerca) <em>Salut Pierre ! Ça va ?</em></p>
-                <p><strong>Julien:</strong> (Susurrando con pánico) <em>Non, non, non ! Pas "Salut" !</em></p>
-                <p><strong>Pierre Cadault:</strong> (Mirándola con desprecio) Pardon ? On se connaît, mademoiselle ?</p>
-                <p><strong>Emily:</strong> Oh, désolée ! Je veux dire... <em>Bonsoir, Monsieur Cadault.</em> Je suis Emily, de l'agence Savoir.</p>
-                <p><strong>Pierre Cadault:</strong> Ah, l'Américaine. Bonsoir. Vous appréciez l'art ?</p>
-                <p><strong>Emily:</strong> Oui, beaucoup. C'est magnifique. <em>Comment allez-vous</em> ce soir ?</p>
-                <p><strong>Pierre Cadault:</strong> Fatigué. Mais l'art n'attend pas. Enchanté de faire votre connaissance, Emily.</p>
-                <p><strong>Emily:</strong> Le plaisir est pour moi. Au revoir, Monsieur.</p>
+
+                <p><strong>Julien:</strong> Emily, regarde autour de toi. Toute la haute société est ici ce soir. Et là-bas… regarde bien… c’est Pierre Cadault, le créateur le plus respecté de Paris.</p>
+
+                <p><strong>Emily:</strong> (Con los ojos muy abiertos) ¿Ese es Pierre Cadault? ¡No puedo creerlo! Julien, tengo que hablarle. Es una oportunidad única.</p>
+
+                <p><strong>Julien:</strong> D’accord, pero por favor… recuerda lo que te expliqué sobre el “vous”…</p>
+
+                <p><strong>Emily:</strong> (Avanzando con confianza hacia Pierre) <em>Salut Pierre ! Ça va ?</em></p>
+
+                <p><strong>Julien:</strong> (Susurrando desesperado desde atrás) <em>Non, Emily… pas comme ça…</em></p>
+
+                <p><strong>Pierre Cadault:</strong> (Girándose lentamente, con una expresión mezcla de sorpresa y desagrado) Pardon ? On se connaît, mademoiselle ?</p>
+
+                <p><strong>Emily:</strong> (Congelada por un segundo) Oh… lo siento muchísimo. Quería decir… <em>Bonsoir, Monsieur Cadault.</em> Soy Emily, de la agencia Savoir. Es un honor conocerlo.</p>
+
+                <p><strong>Pierre Cadault:</strong> (Ajustándose las gafas) Ah, l’Américaine de Savoir… Bonsoir. Dites-moi, vous intéressez-vous à l’art contemporain ?</p>
+
+                <p><strong>Emily:</strong> Oui, bien sûr. Cette exposition est magnifique. Me encanta cómo la luz cambia el carácter de cada obra. <em>Comment allez-vous</em> este soir, Monsieur ?</p>
+
+                <p><strong>Pierre Cadault:</strong> (Más relajado, pero todavía distante) Fatigué, comme toujours… mais l’art n’attend pas. C’est un plaisir de faire votre connaissance, Emily.</p>
+
+                <p><strong>Emily:</strong> El placer es mío, de verdad. Gracias por su tiempo. <em>Au revoir, Monsieur Cadault.</em></p>
+
+                <p><strong>Julien:</strong> (Apareciendo a su lado en cuanto Pierre se aleja) Emily… ¡eso fue casi un infarto para mí! Pero… lo arreglaste bien al final.</p>
+
+                <p><strong>Emily:</strong> (Suspirando con alivio) Ya lo sé… pero “vous” y “tu” son una pesadilla. De verdad pensé que iba a reírse de mí.</p>
+
+                <p><strong>Julien:</strong> Tranquila, c’est Paris. Aquí todos cometen errores… pero no todos se recuperan tan rápido como tú.</p>
+
             </div>
-    
+
             <!-- Interactive Translation Toggle -->
             <details class="mt-4 bg-white p-4 rounded shadow-sm group">
                 <summary class="cursor-pointer text-indigo-600 font-semibold flex items-center justify-between">
                     <span>🔍 Análisis del texto y Traducción</span>
                     <span class="group-open:rotate-180 transition-transform">▼</span>
                 </summary>
+
                 <div class="mt-4 text-sm text-gray-700 space-y-2 border-t pt-3">
-                    <p><strong>El Error de Emily:</strong> Ella dijo "Salut" y "Ça va" a una leyenda de la moda. Es como darle una palmada en la espalda a la Reina de Inglaterra.</p>
-                    <p><strong>La Corrección:</strong> Cambió a "Bonsoir, Monsieur" y "Comment allez-vous". Notarás que Pierre usa "Vous" con ella todo el tiempo.</p>
+
+                    <p><strong>El error de Emily:</strong> Trató a Pierre Cadault como a un amigo cercano: “Salut” y “Ça va”. En Francia, saludar así a una figura famosa o de alto estatus es extremadamente informal.</p>
+
+                    <p><strong>La corrección:</strong> Emily cambia rápidamente a “Bonsoir, Monsieur” y “Comment allez-vous ?”. Observa que Pierre mantiene siempre el uso de “vous”, señalando distancia y respeto.</p>
+
                     <hr class="my-2">
-                    <p><strong>Traducción completa:</strong></p>
+
+                    <p><strong>Traducción parcial:</strong></p>
                     <ul class="pl-4 list-disc">
-                        <li><em>Julien:</em> Emily, mira. Es Pierre Cadault, el famoso diseñador.</li>
-                        <li><em>Emily:</em> ¡Oh Dios mío! Debo hablarle. ¡Hola Pierre! ¿Qué tal?</li>
-                        <li><em>Julien:</em> ¡No, no no! ¡"Hola" (informal) no!</li>
-                        <li><em>Pierre:</em> ¿Perdón? ¿Nos conocemos, señorita?</li>
-                        <li><em>Emily:</em> ¡Oh, lo siento! Quiero decir... Buenas noches, Sr. Cadault. Soy Emily, de la agencia Savoir.</li>
-                        <li><em>Pierre:</em> Ah, la americana. Buenas noches. ¿Aprecia usted el arte?</li>
+                        <li><em>Julien:</em> Emily, mira a tu alrededor. Toda la alta sociedad está aquí. Y allí… es Pierre Cadault.</li>
+                        <li><em>Emily:</em> ¡Debo hablarle! ¡Hola Pierre! ¿Qué tal?</li>
+                        <li><em>Julien:</em> ¡No así!</li>
+                        <li><em>Pierre:</em> ¿Nos conocemos, señorita?</li>
+                        <li><em>Emily:</em> Buenas noches, señor Cadault. Soy Emily, de Savoir.</li>
+                        <li><em>Pierre:</em> ¿Le interesa el arte contemporáneo?</li>
+                        <li><em>Emily:</em> Sí, mucho. ¿Cómo está esta noche?</li>
                     </ul>
                 </div>
             </details>
         </section>
-    
+
         <!-- MODULE 4: ACTIVE WRITING/THINKING -->
         <section>
             <h3 class="text-xl font-bold text-gray-800 mb-4">4. Práctica de Situaciones</h3>
@@ -178,6 +209,18 @@ mira el contenido y la estructura de una leccionX.html:
     </div>
 
 
-    Respeta ese formata para generar las lecciones de esos temas. Cada leccion debe durar mucho (40min):
+Respeta ese formata para generar las lecciones de esos temas. Cada leccion debe durar mucho (40min). 
+El texto de lectura debe ser de 400 palabras. En cuanto al vocabulario, si el tema de la leccion es adecuado, 
+agregar mucho vocabulario (15-25), por ejemplo profesiones. No incluye vocabulario muy obvio (pronombre ...) :
 
-    
+Los temas que generar son:
+XXX
+Empieza con la primera
+
+Para no repetir lo que ya contienen las demas lecciones, aqui el resumen de las leciones pasadas:
+XXX
+
+
+
+
+
