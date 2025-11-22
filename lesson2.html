@@ -1,26 +1,140 @@
+<!-- LECCION: DIA 2 -->
+
+<!-- 1. METADATA & EXERCISES -->
 <script type="application/json" id="lesson-data">
     {
-        "title": "Le Verbe Être",
-        "desc": "El verbo fundamental.",
-        "icon": "fa-archway",
+        "title": "Día 2: El Verbo Avoir y Necesidades",
+        "desc": "En Francia no 'estás' hambriento, 'tienes' hambre. Aprende el verbo Avoir, la edad y las sensaciones.",
+        "icon": "fa-utensils",
         "vocabulary": [
-            { "fr": "Je suis", "es": "Yo soy" },
-            { "fr": "Tu es", "es": "Tú eres" },
-            { "fr": "Il est", "es": "Él es" }
+            { "fr": "J'ai", "es": "Yo tengo" },
+            { "fr": "Tu as", "es": "Tú tienes" },
+            { "fr": "Il a / Elle a", "es": "Él tiene / Ella tiene" },
+            { "fr": "J'ai faim", "es": "Tengo hambre" },
+            { "fr": "J'ai soif", "es": "Tengo sed" },
+            { "fr": "J'ai froid", "es": "Tengo frío" },
+            { "fr": "Quel âge avez-vous ?", "es": "¿Qué edad tiene usted?" },
+            { "fr": "J'ai 25 ans", "es": "Tengo 25 años" }
         ],
         "exercises": [
-            { "q": "Je ____ content.", "a": "suis", "hint": "1ra persona" },
-            { "q": "Tu ____ ici.", "a": "es", "hint": "2da persona" }
+            { "q": "Traduce: 'Tengo hambre'.", "a": "j'ai faim", "hint": "Usa el verbo Avoir (J'ai...)" },
+            { "q": "Mindy tiene 22 años. En francés: 'Mindy ___ 22 ans'.", "a": "a", "hint": "Conjugación Avoir (Ella)" },
+            { "q": "Negación: 'Je ___ suis ___ fatigué'.", "a": "ne pas", "hint": "La estructura es Ne + Verbo + Pas" },
+            { "q": "¿Cómo dices 'Tenéis frío' (Vosotros)?", "a": "vous avez froid", "hint": "Conjugación Vous" },
+            { "q": "Verdadero o Falso: Se dice 'Je suis chaud' para 'Tengo calor'.", "a": "falso", "hint": "¡Cuidado! 'Je suis chaud' tiene connotación sexual. Se dice 'J'ai chaud'." }
         ]
     }
     </script>
     
-    <div id="lesson-content">
-        <p>El verbo <strong>Être</strong> (Ser/Estar) es irregular.</p>
-        <table class="conjugation-table">
-            <tr><th>Pronombre</th><th>Verbo</th></tr>
-            <tr><td>Je</td><td>suis</td></tr>
-            <tr><td>Tu</td><td>es</td></tr>
-            <tr><td>Il</td><td>est</td></tr>
-        </table>
+    <!-- 2. CONTENT (HTML) -->
+    <div id="lesson-content" class="space-y-10 text-gray-800 font-sans leading-relaxed">
+    
+        <!-- MODULE 1: THE CONTEXT -->
+        <section>
+            <div class="bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-600 shadow-sm">
+                <h2 class="text-2xl font-bold text-indigo-700 mb-3">1. Tener vs. Ser: Un peligro cultural</h2>
+                <p class="mb-3">Aquí hay una trampa gigante. En español decimos "Estoy hambriento" o "Tengo hambre". En inglés "I am hungry". Pero en francés, las sensaciones físicas son <strong>posesiones</strong>, no estados de ser.</p>
+                <p>Si dices <em>"Je suis chaud"</em> traduciendo literalmente "Estoy caliente (tengo calor)", ¡estás diciendo que estás excitado sexualmente! 😳</p>
+                <p>Para sensaciones físicas y edad, <strong>SIEMPRE</strong> usamos el verbo <strong>AVOIR</strong> (Tener).</p>
+                <ul class="list-disc list-inside mt-2 space-y-2 ml-4">
+                    <li><strong>Bien:</strong> J'ai chaud (Tengo calor).</li>
+                    <li><strong>Bien:</strong> J'ai 20 ans (Tengo 20 años).</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- MODULE 2: GRAMMAR DEEP DIVE -->
+        <section>
+            <h3 class="text-xl font-bold text-gray-800 border-b-2 border-frRed inline-block mb-4">2. Conjugación de AVOIR</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-4 rounded shadow border border-gray-200">
+                    <h4 class="text-lg font-bold text-frBlue mb-2 text-center">AFIRMATIVO (Tener)</h4>
+                    <table class="w-full text-sm">
+                        <tr class="border-b"><td class="py-2 font-semibold">J'ai</td><td class="py-2">Yo tengo</td></tr>
+                        <tr class="border-b"><td class="py-2 font-semibold">Tu as</td><td class="py-2">Tú tienes</td></tr>
+                        <tr class="border-b"><td class="py-2 font-semibold">Il a</td><td class="py-2">Él tiene</td></tr>
+                        <tr class="border-b"><td class="py-2 font-semibold">Nous avons</td><td class="py-2">Nosotros tenemos</td></tr>
+                        <tr class="border-b"><td class="py-2 font-semibold">Vous avez</td><td class="py-2">Ud(s) tienen</td></tr>
+                        <tr><td class="py-2 font-semibold">Ils ont</td><td class="py-2">Ellos tienen</td></tr>
+                    </table>
+                </div>
+    
+                <div class="bg-white p-4 rounded shadow border border-gray-200">
+                    <h4 class="text-lg font-bold text-pink-500 mb-2 text-center">NEGATIVO (No tener)</h4>
+                    <p class="text-xs mb-2 text-gray-500">Estructura: Sujeto + <strong>ne</strong> + VERBO + <strong>pas</strong></p>
+                    <table class="w-full text-sm">
+                        <tr class="border-b"><td class="py-2 font-semibold">Je n'ai pas</td><td class="py-2">No tengo</td></tr>
+                        <tr class="border-b"><td class="py-2 font-semibold">Tu n'as pas</td><td class="py-2">No tienes</td></tr>
+                        <tr class="border-b"><td class="py-2 font-semibold">Il n'a pas</td><td class="py-2">No tiene</td></tr>
+                    </table>
+                    <p class="text-xs mt-2 bg-yellow-100 p-1">Nota: 'Ne' se convierte en 'N'' ante vocal.</p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- MODULE 3: READING COMPREHENSION -->
+        <section>
+            <h3 class="text-xl font-bold text-gray-800 border-b-2 border-frRed inline-block mb-4">3. Lectura: Le Restaurant</h3>
+            <p class="mb-4 text-gray-600">Mindy y Emily están en un restaurante. Mindy se queja (una actividad muy francesa).</p>
+    
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-300 font-serif leading-loose">
+                <p><strong>Mindy:</strong> Oh là là, <em>j'ai très faim</em>. Où est le serveur ?</p>
+                <p><strong>Emily:</strong> Patience. Il arrive. Tu veux de l'eau ?</p>
+                <p><strong>Mindy:</strong> Non, <em>je n'ai pas soif</em>. Je veux du vin. Et toi ?</p>
+                <p><strong>Emily:</strong> <em>J'ai un peu froid</em>. Nous pouvons changer de table ?</p>
+                <p><strong>Mindy:</strong> Emily, tu es à Paris. Les terrasses sont froides. Regarde le menu.</p>
+                <p><strong>Emily:</strong> D'accord. Ah ! Le serveur. Monsieur, s'il vous plaît !</p>
+            </div>
+    
+            <details class="mt-4 bg-white p-4 rounded shadow-sm group">
+                <summary class="cursor-pointer text-indigo-600 font-semibold flex items-center justify-between">
+                    <span>🔍 Vocabulario Clave</span>
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="mt-4 text-sm text-gray-700 space-y-2 border-t pt-3">
+                    <ul class="pl-4 list-disc">
+                        <li><strong>J'ai très faim:</strong> Tengo mucha hambre.</li>
+                        <li><strong>Je n'ai pas soif:</strong> No tengo sed.</li>
+                        <li><strong>J'ai froid:</strong> Tengo frío.</li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+    
+        <!-- MODULE 4: ACTIVE WRITING/THINKING -->
+        <section>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">4. Práctica de Situaciones</h3>
+            
+            <div class="space-y-4">
+                <div class="bg-yellow-50 p-4 rounded border border-yellow-200">
+                    <strong>Situación A:</strong> Conoces a un niño pequeño en el parque.
+                    <br><span class="text-gray-500 text-sm">Pregúntale su edad (usando Tu) y responde que tú tienes 20/30 años.</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded border border-red-200">
+                    <strong>Situación B:</strong> Estás en la oficina y el aire acondicionado está muy fuerte.
+                    <br><span class="text-gray-500 text-sm">Dile a tu colega: "¡Tengo frío!"</span>
+                </div>
+            </div>
+        </section>
+    
+        <!-- MODULE 5: ORAL EXPRESSION -->
+        <section>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">5. Laboratorio de Pronunciación</h3>
+            <p>La distinción entre "Ellos son" (Être) y "Ellos tienen" (Avoir) es vital.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center mt-4">
+                <div class="p-6 bg-white shadow rounded-lg border-l-4 border-blue-500">
+                    <strong class="text-xl text-gray-800 block mb-2">ILS SONT (Ellos son)</strong>
+                    <span class="text-sm text-gray-600">Sonido S suave como una serpiente.</span>
+                    <br><code class="text-lg font-bold text-blue-600">Il-Sson</code>
+                </div>
+                <div class="p-6 bg-white shadow rounded-lg border-l-4 border-red-500">
+                    <strong class="text-xl text-gray-800 block mb-2">ILS ONT (Ellos tienen)</strong>
+                    <span class="text-sm text-gray-600">Liaison fuerte. Suena como una 'Z' vibrante de abeja.</span>
+                    <br><code class="text-lg font-bold text-red-600">Il-Zon</code>
+                </div>
+            </div>
+        </section>
+    
     </div>

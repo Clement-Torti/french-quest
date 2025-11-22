@@ -21,25 +21,29 @@
         }
     </script>
 
-    <style>
-        .perspective-1000 { perspective: 1000px; }
-        .transform-style-3d { transform-style: preserve-3d; }
-        .backface-hidden { backface-visibility: hidden; }
-        .rotate-y-180 { transform: rotateY(180deg); }
-        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #002654; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
-        
-        /* Lesson Content Styles */
-        .lesson-content h2 { color: #002654; font-weight: 700; margin-top: 1.5em; margin-bottom: 0.5em; font-size: 1.25em; }
-        .lesson-content p { margin-bottom: 1em; line-height: 1.8; color: #374151; }
-        .lesson-content ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1em; }
-        .lesson-content strong { color: #ED2939; font-weight: 700; }
-        .lesson-content .conjugation-table { width: 100%; border-collapse: collapse; margin: 1em 0; font-size: 0.9em; }
-        .lesson-content .conjugation-table td, .lesson-content .conjugation-table th { border: 1px solid #e5e7eb; padding: 8px; }
-        .lesson-content .conjugation-table th { background-color: #f3f4f6; color: #002654; }
-    </style>
+<style>
+    .perspective-1000 { perspective: 1000px; }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    .loader { border: 4px solid #f3f3f3; border-top: 4px solid #002654; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    
+    /* Animations */
+    @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+    .animate-slide-in { animation: slideIn 0.4s ease-out forwards; }
+    
+    /* Content Styles */
+    .lesson-step h2 { color: #002654; font-weight: 700; margin-bottom: 0.5em; font-size: 1.5em; font-family: 'Merriweather', serif; }
+    .lesson-step p { margin-bottom: 1em; line-height: 1.8; color: #374151; font-size: 1.1rem; }
+    .lesson-step ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1em; }
+    .lesson-step strong { color: #ED2939; font-weight: 700; }
+    
+    /* Tables */
+    .conjugation-table { width: 100%; border-collapse: collapse; margin: 1em 0; }
+    .conjugation-table td, .conjugation-table th { border: 1px solid #e5e7eb; padding: 10px; }
+    .conjugation-table th { background-color: #f3f4f6; color: #002654; }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-800 h-screen flex flex-col overflow-hidden">
 
@@ -64,301 +68,363 @@
             <p class="text-gray-500 mt-2">Detecting lessons...</p>
         </div>
     </main>
-
     <script>
         const app = {
             container: document.getElementById('app-container'),
             modules: [],
             progress: JSON.parse(localStorage.getItem('acad_progress') || '[]'),
             userVocab: JSON.parse(localStorage.getItem('acad_user_vocab') || '[]'),
-            currentLessonData: null,
-            // Define the remote base URL
-            baseUrl: 'https://clement-torti.github.io/french-quest/',
-
+            baseUrl: 'https://clement-torti.github.io/french-quest/', 
+            
+            // State
+            lessonSteps: [],
+            currentStepIdx: 0,
+            currentLessonMeta: null,
+            
+            // Review State
+            reviewDeck: [],
+            reviewIndex: 0,
+    
             async init() {
                 await this.discoverModules();
-                // Re-draw path on window resize to keep lines connected
                 window.addEventListener('resize', () => this.drawMapPath());
             },
-
-            // --- AUTO DISCOVERY ENGINE (REMOTE) ---
+    
+            // --- 1. DISCOVERY ---
             async discoverModules() {
                 let id = 1;
-                let keepSearching = true;
-
-                while (keepSearching) {
-                    // Construct the remote URL
+                let searching = true;
+                while (searching) {
                     const url = `${this.baseUrl}lesson${id}.html`;
-                    
                     try {
-                        const response = await fetch(url);
-                        
-                        if (response.ok) {
-                            const text = await response.text();
+                        const res = await fetch(url);
+                        if (res.ok) {
+                            const text = await res.text();
                             const parser = new DOMParser();
                             const doc = parser.parseFromString(text, 'text/html');
                             const jsonScript = doc.getElementById('lesson-data');
-                            
                             if (jsonScript) {
                                 const data = JSON.parse(jsonScript.textContent);
-                                this.modules.push({
-                                    id: id,
-                                    filename: url, // Store the full remote URL
-                                    title: data.title,
-                                    icon: data.icon || 'fa-book',
-                                    desc: data.desc
-                                });
+                                this.modules.push({ id: id, url: url, ...data });
                             }
                             id++;
-                        } else {
-                            // 404 or other error stops the search
-                            keepSearching = false;
-                        }
-                    } catch (e) {
-                        console.warn("Scanner stopped:", e);
-                        keepSearching = false;
-                    }
+                        } else { searching = false; }
+                    } catch (e) { searching = false; }
                 }
-                
-                if (this.modules.length === 0) {
-                    this.container.innerHTML = `<div class="p-10 text-center text-red-500 font-bold">No lessons found at remote URL.<br>${this.baseUrl}</div>`;
-                } else {
-                    this.renderMap();
-                }
+                if (this.modules.length === 0) this.container.innerHTML = `<div class="p-10 text-center">No lessons found.</div>`;
+                else this.renderMap();
             },
-
-            // --- MAP ---
+    
+            // --- 2. MAP RENDERING ---
             renderMap() {
-                let htmlNodes = '';
-                this.modules.forEach((mod, idx) => {
-                    const isCompleted = this.progress.includes(mod.id);
-                    const isNext = !isCompleted && (idx === 0 || this.progress.includes(this.modules[idx-1].id));
-                    const isLocked = !isCompleted && !isNext;
+                let nodes = '';
+                this.modules.forEach((mod, i) => {
+                    const isDone = this.progress.includes(mod.id);
+                    const isNext = !isDone && (i === 0 || this.progress.includes(this.modules[i-1].id));
+                    const locked = !isDone && !isNext;
+                    const offset = i % 2 === 0 ? '-translate-x-12' : 'translate-x-12';
+                    const colorClass = locked ? 'bg-gray-200 text-gray-400 border-gray-300' : (isDone ? 'bg-gold text-white border-yellow-600' : 'bg-frBlue text-white border-blue-900 animate-pulse');
                     
-                    // Zig-zag offset
-                    const offset = (idx % 2 === 0) ? '-translate-x-12' : 'translate-x-12';
-                    
-                    let btnClass = isLocked ? "bg-gray-200 text-gray-400 border-gray-300 cursor-not-allowed" : (isCompleted ? "bg-gold text-white border-yellow-500 shadow-lg" : "bg-frBlue text-white border-blue-800 shadow-xl animate-pulse");
-                    let icon = isLocked ? "fa-lock" : (isCompleted ? "fa-check" : mod.icon);
-
-                    htmlNodes += `
-                        <div class="flex flex-col items-center mb-16 relative z-10 w-full pointer-events-none">
-                            <div class="pointer-events-auto flex flex-col items-center transform transition-transform duration-300 ${offset}" id="node-${idx}">
-                                ${!isLocked ? `<div class="mb-2 text-xs font-bold text-frBlue uppercase tracking-wider bg-white/90 px-3 py-1 rounded shadow-sm backdrop-blur-sm border border-gray-100">${mod.title}</div>` : ''}
-                                
-                                <button onclick="${isLocked ? '' : `app.loadLesson(${mod.id}, '${mod.filename}')`}" 
-                                    class="w-20 h-20 rounded-full flex flex-col items-center justify-center text-3xl transition-all hover:scale-110 hover:-translate-y-1 border-b-4 ${btnClass}">
-                                    <i class="fa-solid ${icon}"></i>
-                                </button>
-                                
-                                <!-- Lesson Number Badge -->
-                                <div class="mt-2 bg-white text-gray-500 text-[10px] font-black px-2 py-1 rounded-full border border-gray-200 shadow-sm uppercase tracking-widest">
-                                    Leçon ${mod.id}
-                                </div>
-                            </div>
+                    nodes += `
+                    <div class="flex flex-col items-center mb-20 relative z-10 pointer-events-none w-full">
+                        <div class="pointer-events-auto flex flex-col items-center transition-transform duration-300 ${offset}" id="node-${i}">
+                            ${!locked ? `<div class="mb-2 bg-white/90 backdrop-blur px-3 py-1 rounded shadow text-xs font-bold text-frBlue uppercase tracking-wider">${mod.title}</div>` : ''}
+                            <button onclick="${locked ? '' : `app.loadLesson(${i})`}" 
+                                class="w-20 h-20 rounded-full text-3xl border-b-4 shadow-xl hover:scale-110 transition-all active:translate-y-1 ${colorClass}">
+                                <i class="fa-solid ${isDone ? 'fa-check' : (mod.icon || 'fa-star')}"></i>
+                            </button>
                         </div>
-                    `;
+                    </div>`;
                 });
-
                 this.container.innerHTML = `
-                    <div class="min-h-full py-12 relative overflow-x-hidden animate-fade-in">
-                        <!-- SVG Container for the curvy line -->
-                        <svg id="map-svg" class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none overflow-visible">
-                            <path id="map-path" d="" stroke="#cbd5e1" stroke-width="4" fill="none" stroke-dasharray="8 8" stroke-linecap="round" />
-                        </svg>
-
-                        <i class="fa-solid fa-tower-eiffel absolute bottom-0 left-4 text-[150px] text-gray-200 opacity-40 z-0"></i>
-                        
-                        <div class="max-w-md mx-auto relative z-10 flex flex-col items-center w-full">
-                            ${htmlNodes}
-                        </div>
-                    </div>
-                `;
-
-                // Calculate and draw the line after the HTML renders
+                    <div class="min-h-full py-12 relative overflow-x-hidden bg-[#fdfbf7]">
+                        <svg id="map-svg" class="absolute inset-0 w-full h-full pointer-events-none"><path id="map-path" d="" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8 8" stroke-linecap="round"/></svg>
+                        <div class="max-w-md mx-auto flex flex-col items-center">${nodes}</div>
+                    </div>`;
                 setTimeout(() => this.drawMapPath(), 50);
             },
-
-            // New helper to calculate positions and draw the curve
+    
             drawMapPath() {
-                const svg = document.getElementById('map-svg');
                 const path = document.getElementById('map-path');
-                if (!svg || !path || this.modules.length < 2) return;
-
-                // Get container offset to calculate relative coordinates
-                const containerRect = this.container.getBoundingClientRect();
+                if(!path || this.modules.length < 2) return;
+                const contRect = this.container.getBoundingClientRect();
                 let d = '';
-
-                for (let i = 0; i < this.modules.length - 1; i++) {
-                    const currNode = document.getElementById(`node-${i}`);
-                    const nextNode = document.getElementById(`node-${i+1}`);
-
-                    if (currNode && nextNode) {
-                        // Get center positions of the buttons
-                        const r1 = currNode.getBoundingClientRect();
-                        const r2 = nextNode.getBoundingClientRect();
-
-                        // Calculate relative to the container scroll area
-                        const startX = r1.left + r1.width / 2;
-                        const startY = r1.top + r1.height / 2 - containerRect.top + this.container.scrollTop;
-                        
-                        const endX = r2.left + r2.width / 2;
-                        const endY = r2.top + r2.height / 2 - containerRect.top + this.container.scrollTop;
-
-                        // Create a Bezier curve (C)
-                        const cp1X = startX; 
-                        const cp1Y = startY + (endY - startY) * 0.5; 
-                        const cp2X = endX; 
-                        const cp2Y = startY + (endY - startY) * 0.5;
-
-                        if (i === 0) d += `M ${startX} ${startY} `;
-                        d += `C ${cp1X} ${cp1Y}, ${cp2X} ${cp2Y}, ${endX} ${endY} `;
-                    }
+                for(let i=0; i<this.modules.length-1; i++) {
+                    const curr = document.getElementById(`node-${i}`).getBoundingClientRect();
+                    const next = document.getElementById(`node-${i+1}`).getBoundingClientRect();
+                    const x1 = curr.left + curr.width/2;
+                    const y1 = curr.top + curr.height/2 - contRect.top + this.container.scrollTop;
+                    const x2 = next.left + next.width/2;
+                    const y2 = next.top + next.height/2 - contRect.top + this.container.scrollTop;
+                    if(i===0) d += `M ${x1} ${y1} `;
+                    d += `C ${x1} ${y1 + (y2-y1)/2}, ${x2} ${y1 + (y2-y1)/2}, ${x2} ${y2} `;
                 }
                 path.setAttribute('d', d);
             },
-
-            // --- LESSON LOADER ---
-            async loadLesson(id, url) {
+    
+            // --- 3. LESSON ENGINE ---
+            async loadLesson(index) {
+                const mod = this.modules[index];
                 this.container.innerHTML = `<div class="h-full flex items-center justify-center"><div class="loader"></div></div>`;
-
                 try {
-                    const response = await fetch(url);
-                    const htmlText = await response.text();
+                    const res = await fetch(mod.url);
+                    const html = await res.text();
                     const parser = new DOMParser();
-                    const doc = parser.parseFromString(htmlText, 'text/html');
-
-                    const parsedData = JSON.parse(doc.getElementById('lesson-data').textContent);
-                    const contentHtml = doc.getElementById('lesson-content').innerHTML;
-
-                    this.currentLessonData = { ...parsedData, id: id, content: contentHtml };
-                    this.renderLessonUI();
-                } catch (error) {
-                    console.error(error);
-                    this.container.innerHTML = `<p class="text-center p-10 text-red-500">Error loading lesson from remote server.</p>`;
+                    const doc = parser.parseFromString(html, 'text/html');
+                    
+                    const contentDiv = doc.getElementById('lesson-content');
+                    let sections = Array.from(contentDiv.querySelectorAll('section'));
+                    if(sections.length === 0) sections = [contentDiv];
+                    const readSteps = sections.map(s => ({ type: 'read', html: s.innerHTML }));
+                    
+                    const data = JSON.parse(doc.getElementById('lesson-data').textContent);
+                    const quizSteps = (data.exercises || []).map(ex => ({ type: 'quiz', ...ex }));
+    
+                    this.lessonSteps = [...readSteps, ...quizSteps];
+                    this.currentLessonMeta = { ...data, id: mod.id };
+                    this.currentStepIdx = 0;
+                    this.renderStep();
+                } catch(e) { console.error(e); }
+            },
+    
+            renderStep() {
+                if (this.currentStepIdx >= this.lessonSteps.length) {
+                    this.prepareEndReview(); // CAMBIO: Ir al repaso en lugar de finalizar directamente
+                    return;
                 }
-            },
-
-            renderLessonUI() {
-                const data = this.currentLessonData;
-                this.currentLessonState = new Array(data.exercises.length).fill(false);
-
-                const exHtml = data.exercises.map((ex, i) => `
-                    <div class="bg-white p-6 rounded-xl shadow-card border-l-4 border-gray-200 mb-4 transition-colors duration-300" id="card-${i}">
-                        <p class="font-bold text-gray-700 mb-2">${ex.q}</p>
-                        <div class="flex gap-2">
-                            <input type="text" id="input-${i}" class="flex-1 border rounded p-2 outline-none focus:border-frBlue" placeholder="...">
-                            <button onclick="app.checkAnswer(${i}, '${ex.a}')" class="bg-frBlue text-white px-4 py-2 rounded font-bold uppercase text-xs shadow-btn active:translate-y-1 active:shadow-none">OK</button>
-                        </div>
-                        <div id="feedback-${i}" class="hidden mt-2 text-sm font-bold"></div>
-                        ${ex.hint ? `<p class="text-xs text-gray-400 mt-1">Pista: ${ex.hint}</p>` : ''}
-                    </div>
-                `).join('');
-
-                this.container.innerHTML = `
-                    <div class="bg-frCream min-h-full flex flex-col animate-fade-in">
-                        <div class="bg-frBlue text-white p-8 relative shadow-lg">
-                            <button onclick="app.renderMap()" class="absolute top-4 left-4 opacity-70 hover:opacity-100"><i class="fa-solid fa-arrow-left"></i></button>
-                            <h1 class="text-3xl font-serif font-bold mt-4">${data.title}</h1>
-                            <p class="text-blue-100 text-sm mt-2">${data.desc}</p>
-                        </div>
-                        <div class="max-w-2xl mx-auto w-full p-6 pb-20">
-                            <article class="bg-white p-8 rounded-lg shadow-sm font-serif text-gray-700 lesson-content mb-8">
-                                ${data.content}
-                            </article>
-                            <h3 class="font-bold text-frBlue mb-4 uppercase tracking-widest text-sm">Pratique</h3>
-                            ${exHtml}
-                            <div id="completion-msg" class="hidden mt-8 text-center bg-white p-6 rounded-xl shadow-lg border-t-4 border-gold">
-                                <div class="inline-block bg-green-100 text-green-800 px-6 py-2 rounded-full font-bold mb-4 border border-green-200">
-                                    <i class="fa-solid fa-check"></i> Lección Completada
-                                </div>
-                                <p class="text-sm text-gray-500 mb-4">¡Vocabulario guardado!</p>
-                                <button onclick="app.renderFlashcards()" class="bg-gold text-white font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-yellow-600 transition animate-bounce">
-                                    Ir a Repasar <i class="fa-solid fa-layer-group ml-2"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            },
-
-            checkAnswer(idx, correct) {
-                const input = document.getElementById(`input-${idx}`);
-                const feedback = document.getElementById(`feedback-${idx}`);
-                const card = document.getElementById(`card-${idx}`);
+    
+                const step = this.lessonSteps[this.currentStepIdx];
+                const progress = ((this.currentStepIdx + 0.5) / this.lessonSteps.length) * 100;
                 
-                if (input.value.trim().toLowerCase() === correct.toLowerCase()) {
-                    card.classList.remove('border-gray-200'); card.classList.add('border-green-500', 'bg-green-50');
-                    feedback.innerHTML = `<span class="text-green-600">Correct!</span>`; feedback.classList.remove('hidden');
-                    input.disabled = true;
-                    this.currentLessonState[idx] = true;
-                    this.checkCompletion();
-                } else {
-                    input.classList.add('bg-red-50');
-                    feedback.innerHTML = `<span class="text-red-500">Inténtalo de nuevo</span>`; feedback.classList.remove('hidden');
-                    setTimeout(() => input.classList.remove('bg-red-50'), 500);
-                }
-            },
-
-            checkCompletion() {
-                if (this.currentLessonState.every(v => v === true)) {
-                    const lessonId = this.currentLessonData.id;
-                    if (!this.progress.includes(lessonId)) {
-                        this.progress.push(lessonId);
-                        localStorage.setItem('acad_progress', JSON.stringify(this.progress));
-                        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#002654', '#ED2939', '#D4AF37'] });
-                    }
-                    if (this.currentLessonData.vocabulary) {
-                        let existing = this.userVocab.map(v => v.fr);
-                        this.currentLessonData.vocabulary.forEach(w => {
-                            if (!existing.includes(w.fr)) this.userVocab.push(w);
-                        });
-                        localStorage.setItem('acad_user_vocab', JSON.stringify(this.userVocab));
-                    }
-                    document.getElementById('completion-msg').classList.remove('hidden');
-                    document.getElementById('completion-msg').scrollIntoView({ behavior: 'smooth' });
-                }
-            },
-
-            // --- FLASHCARDS ---
-            renderFlashcards() {
-                if (this.userVocab.length === 0) {
-                    this.container.innerHTML = `<div class="h-full flex flex-col items-center justify-center p-6 text-center animate-fade-in">
-                        <h2 class="text-2xl font-bold text-frBlue mb-2">Tu mazo está vacío</h2>
-                        <button onclick="app.renderMap()" class="bg-frBlue text-white px-6 py-3 rounded-lg font-bold mt-4">Ir al Mapa</button>
-                    </div>`;
-                    return;
-                }
-                this.sessionQueue = [...this.userVocab].sort(() => Math.random() - 0.5);
-                this.currentCardIdx = 0;
-                this.renderCardGameUI();
-            },
-
-            renderCardGameUI() {
-                if (this.currentCardIdx >= this.sessionQueue.length) {
-                    this.container.innerHTML = `<div class="h-full flex flex-col items-center justify-center bg-frBlue text-white"><h2 class="text-3xl font-bold">¡Repaso terminado!</h2><button onclick="app.renderMap()" class="mt-6 bg-white/20 px-6 py-3 rounded-lg">Volver</button></div>`;
-                    return;
-                }
-                const word = this.sessionQueue[this.currentCardIdx];
-                this.container.innerHTML = `
-                    <div class="h-full flex flex-col bg-gray-100 relative">
-                        <div class="p-4 flex justify-between items-center"><button onclick="app.renderMap()"><i class="fa-solid fa-xmark text-xl"></i></button><div class="text-xs font-bold">${this.currentCardIdx + 1}/${this.sessionQueue.length}</div></div>
-                        <div class="flex-1 flex items-center justify-center perspective-1000">
-                            <div class="w-80 h-80 relative transform-style-3d transition-transform duration-500 cursor-pointer group" onclick="this.classList.toggle('rotate-y-180')">
-                                <div class="absolute inset-0 bg-white rounded-xl shadow-xl flex items-center justify-center backface-hidden border-2 border-white"><h2 class="text-3xl font-serif font-bold text-frBlue">${word.fr}</h2></div>
-                                <div class="absolute inset-0 bg-frBlue rounded-xl shadow-xl flex items-center justify-center backface-hidden rotate-y-180 border-4 border-white"><h2 class="text-2xl font-serif font-bold text-white">${word.es}</h2></div>
+                const isStart = this.currentStepIdx === 0;
+                const navBtn = isStart 
+                    ? `<button onclick="app.renderMap()" class="text-gray-400 hover:text-frRed transition w-8"><i class="fa-solid fa-xmark text-2xl"></i></button>`
+                    : `<button onclick="app.prevStep()" class="text-gray-400 hover:text-frBlue transition w-8"><i class="fa-solid fa-arrow-left text-2xl"></i></button>`;
+    
+                let html = `
+                    <div class="h-full flex flex-col bg-frCream">
+                        <div class="px-4 py-6 flex items-center gap-4 max-w-2xl mx-auto w-full">
+                            ${navBtn}
+                            <div class="flex-1 h-4 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                                <div class="h-full bg-green-500 transition-all duration-500 ease-out" style="width: ${progress}%"></div>
                             </div>
                         </div>
-                        <div class="p-6 bg-white flex gap-4 justify-center"><button onclick="app.nextCard(false)" class="text-frRed font-bold">Mal</button><button onclick="app.nextCard(true)" class="text-green-600 font-bold">Bien</button></div>
+                        
+                        <div class="flex-1 overflow-y-auto px-6 pb-24 animate-step">
+                            <div class="max-w-2xl mx-auto w-full h-full flex flex-col justify-center min-h-[60vh]">
+                `;
+    
+                if (step.type === 'read') {
+                    html += `
+                        <div class="lesson-section bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                            ${step.html}
+                        </div>
+                    `;
+                } else if (step.type === 'quiz') {
+                    html += `
+                        <h2 class="text-2xl font-bold text-frBlue mb-6 font-serif">Comment dit-on...</h2>
+                        <div class="bg-white p-8 rounded-2xl shadow-card border border-gray-100 mb-4">
+                            <p class="text-xl italic text-gray-600 mb-6 font-serif">"${step.q}"</p>
+                            <textarea id="inp-quiz" class="w-full p-4 text-lg border-2 border-gray-200 rounded-xl focus:border-frBlue focus:outline-none transition bg-gray-50" rows="2" placeholder="Tapez en français..."></textarea>
+                        </div>
+                        <div id="feedback" class="hidden rounded-xl p-4 font-bold text-center"></div>
+                    `;
+                }
+    
+                html += `
+                            </div>
+                        </div>
+                        <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 z-50">
+                            <div class="max-w-2xl mx-auto">
+                                ${step.type === 'read' 
+                                    ? `<button onclick="app.nextStep()" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-[0_4px_0_0_rgba(0,0,0,0.3)] active:shadow-none active:translate-y-1 transition uppercase tracking-wider">Continuer</button>`
+                                    : `<button id="btn-check" onclick="app.checkAnswer('${step.a.replace(/'/g,"\\'")}')" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl shadow-[0_4px_0_0_rgba(21,128,61,1)] active:shadow-none active:translate-y-1 transition uppercase tracking-wider">Vérifier</button>
+                                       <button id="btn-next" onclick="app.nextStep()" class="hidden w-full bg-green-500 text-white font-bold py-4 rounded-xl shadow-[0_4px_0_0_rgba(21,128,61,1)] active:shadow-none active:translate-y-1 transition uppercase tracking-wider">Continuer</button>`
+                                }
+                            </div>
+                        </div>
+                    </div>
+                `;
+                this.container.innerHTML = html;
+                if(step.type === 'quiz') setTimeout(() => document.getElementById('inp-quiz').focus(), 100);
+            },
+    
+            prevStep() {
+                if (this.currentStepIdx > 0) {
+                    this.currentStepIdx--;
+                    this.renderStep();
+                }
+            },
+    
+            checkAnswer(correct) {
+                const inp = document.getElementById('inp-quiz');
+                const feed = document.getElementById('feedback');
+                const btnCheck = document.getElementById('btn-check');
+                const btnNext = document.getElementById('btn-next');
+                
+                const user = inp.value.trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+                const ans = correct.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+    
+                if (user === ans) {
+                    inp.classList.add('border-green-500', 'bg-green-50');
+                    inp.classList.remove('border-gray-200');
+                    feed.innerHTML = `<div class="flex items-center justify-center gap-2 text-green-700"><i class="fa-solid fa-circle-check text-xl"></i> <span>Excellent !</span></div>`;
+                    feed.className = "mb-4 rounded-xl p-4 font-bold text-center bg-green-100 animate-bounce";
+                    const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3');
+                    audio.volume = 0.3; audio.play().catch(e=>{});
+                    btnCheck.classList.add('hidden');
+                    btnNext.classList.remove('hidden');
+                } else {
+                    inp.classList.add('border-frRed', 'bg-red-50', 'animate-pulse');
+                    feed.innerHTML = `<div class="text-frRed mb-1">Réponse correcte :</div><div class="text-gray-800 text-lg">${correct}</div>`;
+                    feed.className = "mb-4 rounded-xl p-4 font-bold text-center bg-red-100";
+                    feed.classList.remove('hidden');
+                }
+            },
+    
+            nextStep() { this.currentStepIdx++; this.renderStep(); },
+    
+            // --- 4. END LESSON & MANDATORY REVIEW ---
+    
+            prepareEndReview() {
+                // 1. Guardar nuevas palabras de esta lección en el vocabulario global AHORA
+                // para que aparezcan en el repaso inmediato.
+                if (this.currentLessonMeta.vocabulary) {
+                    const existing = this.userVocab.map(v => v.fr);
+                    this.currentLessonMeta.vocabulary.forEach(w => {
+                        if(!existing.includes(w.fr)) this.userVocab.push(w);
+                    });
+                    localStorage.setItem('acad_user_vocab', JSON.stringify(this.userVocab));
+                }
+    
+                // 2. Preparar mazo de 40 cartas aleatorias
+                if (this.userVocab.length === 0) {
+                    this.completeLesson(); // Si no hay vocabulario, finalizar directo.
+                    return;
+                }
+    
+                // Barajar y coger 40
+                this.reviewDeck = [...this.userVocab].sort(() => Math.random() - 0.5).slice(0, 40);
+                this.reviewIndex = 0;
+    
+                // 3. Mostrar pantalla de transición
+                this.container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center bg-frBlue text-white p-8 text-center animate-slide-in">
+                        <i class="fa-solid fa-brain text-6xl mb-6 text-gold animate-pulse"></i>
+                        <h2 class="text-3xl font-serif font-bold mb-4">Repaso Final</h2>
+                        <p class="text-lg mb-8 max-w-md">Para completar la lección, debes repasar ${this.reviewDeck.length} palabras de tu vocabulario.</p>
+                        <button onclick="app.renderReviewCard()" class="bg-gold text-frBlue font-bold py-3 px-8 rounded-xl shadow-lg hover:scale-105 transition">Comenzar Repaso</button>
                     </div>
                 `;
             },
-
-            nextCard(known) {
-                if (!known) this.sessionQueue.push(this.sessionQueue[this.currentCardIdx]);
-                this.currentCardIdx++;
-                this.renderCardGameUI();
-            }
+    
+            renderReviewCard() {
+                // Si terminamos las 40 cartas
+                if (this.reviewIndex >= this.reviewDeck.length) {
+                    this.completeLesson();
+                    return;
+                }
+    
+                const word = this.reviewDeck[this.reviewIndex];
+                const progress = ((this.reviewIndex) / this.reviewDeck.length) * 100;
+    
+                this.container.innerHTML = `
+                    <div class="h-full flex flex-col bg-gray-100">
+                        <div class="bg-frBlue p-4 text-white flex justify-between items-center">
+                            <span class="font-bold text-gold">REPASO OBLIGATORIO</span>
+                            <span class="text-sm">${this.reviewIndex + 1} / ${this.reviewDeck.length}</span>
+                        </div>
+                        <div class="h-1 w-full bg-gray-300">
+                            <div class="h-full bg-gold transition-all" style="width: ${progress}%"></div>
+                        </div>
+                        
+                        <div class="flex-1 flex items-center justify-center perspective-1000 cursor-pointer group p-4" onclick="document.querySelector('.card-inner').classList.toggle('rotate-y-180')">
+                            <div class="card-inner w-full max-w-xs h-80 relative transform-style-3d transition-transform duration-500">
+                                <!-- Front -->
+                                <div class="absolute inset-0 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden border-b-4 border-gray-200 p-6 text-center">
+                                    <span class="text-xs uppercase tracking-widest text-gray-400 mb-2">Français</span>
+                                    <h2 class="text-3xl font-serif font-bold text-frBlue">${word.fr}</h2>
+                                    <p class="mt-4 text-gray-400 text-sm">(Toca para voltear)</p>
+                                </div>
+                                <!-- Back -->
+                                <div class="absolute inset-0 bg-frBlue rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden rotate-y-180 text-white border-b-4 border-blue-900 p-6 text-center">
+                                    <span class="text-xs uppercase tracking-widest text-blue-300 mb-2">Español</span>
+                                    <h2 class="text-3xl font-serif font-bold">${word.es}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 bg-white border-t border-gray-200">
+                            <button onclick="app.nextReviewCard()" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-[0_4px_0_0_rgba(0,0,0,0.3)] active:shadow-none active:translate-y-1 transition uppercase tracking-wider">Siguiente</button>
+                        </div>
+                    </div>`;
+            },
+    
+            nextReviewCard() {
+                this.reviewIndex++;
+                this.renderReviewCard();
+            },
+    
+            completeLesson() {
+                // Guardar progreso de lección completada (Unlock map)
+                const id = this.currentLessonMeta.id;
+                if(!this.progress.includes(id)) {
+                    this.progress.push(id);
+                    localStorage.setItem('acad_progress', JSON.stringify(this.progress));
+                }
+    
+                confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+    
+                this.container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center bg-frCream p-6 text-center animate-step">
+                        <div class="w-32 h-32 bg-gold rounded-full flex items-center justify-center shadow-lg mb-6 text-5xl text-white"><i class="fa-solid fa-trophy"></i></div>
+                        <h2 class="text-3xl font-serif font-bold text-frBlue mb-2">¡Lección Completada!</h2>
+                        <p class="text-gray-500 mb-8">Contenido + Repaso de vocabulario finalizado.</p>
+                        <div class="w-full max-w-sm space-y-4">
+                            <button onclick="app.renderMap()" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-lg active:transform active:scale-95 transition">Volver al Mapa</button>
+                        </div>
+                    </div>`;
+            },
+            
+            // --- 5. VOLUNTARY FLASHCARDS (Menu Button) ---
+            renderFlashcards() {
+                if(this.userVocab.length === 0) {
+                    this.container.innerHTML = `<div class="h-full flex items-center justify-center flex-col"><p>Pas de vocabulaire.</p><button class="mt-4 text-frBlue font-bold" onclick="app.renderMap()">Retour</button></div>`;
+                    return;
+                }
+                // Reutilizamos lógica pero sin obligatoriedad de terminar
+                this.deck = [...this.userVocab].sort(()=>Math.random()-0.5);
+                this.cardIdx = 0;
+                this.renderVoluntaryCard();
+            },
+            
+            renderVoluntaryCard() {
+                if(this.cardIdx >= this.deck.length) {
+                    this.container.innerHTML = `<div class="h-full flex items-center justify-center flex-col bg-frBlue text-white"><h2 class="text-2xl font-bold mb-4">Révisions terminées !</h2><button onclick="app.renderMap()" class="bg-white/20 px-6 py-3 rounded-lg">Retour</button></div>`;
+                    return;
+                }
+                const word = this.deck[this.cardIdx];
+                this.container.innerHTML = `
+                    <div class="h-full flex flex-col bg-gray-100">
+                        <div class="p-4"><button onclick="app.renderMap()"><i class="fa-solid fa-xmark text-gray-400 text-2xl"></i></button></div>
+                        <div class="flex-1 flex items-center justify-center perspective-1000 cursor-pointer group" onclick="document.querySelector('.card-inner').classList.toggle('rotate-y-180')">
+                            <div class="card-inner w-72 h-80 relative transform-style-3d transition-transform duration-500">
+                                <div class="absolute inset-0 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden border-b-4 border-gray-200">
+                                    <span class="text-xs uppercase tracking-widest text-gray-400 mb-2">Français</span>
+                                    <h2 class="text-3xl font-serif font-bold text-frBlue">${word.fr}</h2>
+                                </div>
+                                <div class="absolute inset-0 bg-frBlue rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden rotate-y-180 text-white border-b-4 border-blue-900">
+                                    <span class="text-xs uppercase tracking-widest text-blue-300 mb-2">Español</span>
+                                    <h2 class="text-3xl font-serif font-bold">${word.es}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-8 flex gap-4 justify-center">
+                            <button onclick="app.nextVoluntaryCard()" class="bg-white border-2 border-gray-200 px-8 py-3 rounded-xl font-bold text-gray-600 w-full">Suivant</button>
+                        </div>
+                    </div>`;
+            },
+            nextVoluntaryCard() { this.cardIdx++; this.renderVoluntaryCard(); }
         };
         app.init();
     </script>
