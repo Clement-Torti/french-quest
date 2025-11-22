@@ -121,7 +121,7 @@
                 this.modules.forEach((mod, i) => {
                     const isDone = this.progress.includes(mod.id);
                     const isNext = !isDone && (i === 0 || this.progress.includes(this.modules[i-1].id));
-                    const locked = !isDone && !isNext;
+                    const locked = false; //!isDone && !isNext;
                     const offset = i % 2 === 0 ? '-translate-x-12' : 'translate-x-12';
                     const colorClass = locked ? 'bg-gray-200 text-gray-400 border-gray-300' : (isDone ? 'bg-gold text-white border-yellow-600' : 'bg-frBlue text-white border-blue-900 animate-pulse');
                     
