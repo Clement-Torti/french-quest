@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'Académie - Aprende y Repasa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>L'Académie - Mobile</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -22,52 +22,64 @@
     </script>
 
 <style>
+    /* Mobile optimization: Prevent pull-to-refresh on mobile */
+    body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; }
+    
     .perspective-1000 { perspective: 1000px; }
     .transform-style-3d { transform-style: preserve-3d; }
     .backface-hidden { backface-visibility: hidden; }
     .rotate-y-180 { transform: rotateY(180deg); }
+    
     .loader { border: 4px solid #f3f3f3; border-top: 4px solid #002654; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     
-    /* Animations */
-    @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
-    .animate-slide-in { animation: slideIn 0.4s ease-out forwards; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-slide-in { animation: slideIn 0.3s ease-out forwards; }
     
     /* Content Styles */
-    .lesson-step h2 { color: #002654; font-weight: 700; margin-bottom: 0.5em; font-size: 1.5em; font-family: 'Merriweather', serif; }
-    .lesson-step p { margin-bottom: 1em; line-height: 1.8; color: #374151; font-size: 1.1rem; }
-    .lesson-step ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1em; }
+    .lesson-step h2 { color: #002654; font-weight: 700; margin-bottom: 0.5em; font-size: 1.25em; font-family: 'Merriweather', serif; }
+    @media(min-width: 640px) { .lesson-step h2 { font-size: 1.5em; } }
+    
+    .lesson-step p { margin-bottom: 1em; line-height: 1.6; color: #374151; font-size: 1rem; }
+    @media(min-width: 640px) { .lesson-step p { font-size: 1.1rem; line-height: 1.8; } }
+
+    .lesson-step ul { list-style-type: disc; padding-left: 1.2em; margin-bottom: 1em; }
     .lesson-step strong { color: #ED2939; font-weight: 700; }
     
-    /* Tables */
-    .conjugation-table { width: 100%; border-collapse: collapse; margin: 1em 0; }
-    .conjugation-table td, .conjugation-table th { border: 1px solid #e5e7eb; padding: 10px; }
+    /* Tables mobile friendly */
+    .conjugation-table { width: 100%; border-collapse: collapse; margin: 1em 0; font-size: 0.9rem; }
+    .conjugation-table td, .conjugation-table th { border: 1px solid #e5e7eb; padding: 6px; }
     .conjugation-table th { background-color: #f3f4f6; color: #002654; }
+    
+    /* Prevent iOS zoom on inputs */
+    textarea, input { font-size: 16px !important; }
 </style>
 </head>
-<body class="bg-gray-50 text-gray-800 h-screen flex flex-col overflow-hidden">
+<body class="bg-gray-50 text-gray-800 h-[100dvh] flex flex-col overflow-hidden">
 
     <!-- NAVBAR -->
-    <nav class="bg-frBlue text-white shadow-lg z-50 relative">
-        <div class="max-w-5xl mx-auto px-4 h-16 flex justify-between items-center">
-            <div class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition" onclick="app.renderMap()">
-                <i class="fa-solid fa-landmark text-gold text-2xl"></i>
-                <h1 class="font-bold text-lg tracking-wider uppercase">L'Académie</h1>
+    <nav class="bg-frBlue text-white shadow-lg z-50 relative shrink-0">
+        <div class="max-w-5xl mx-auto px-4 h-14 flex justify-between items-center">
+            <div class="flex items-center gap-2 cursor-pointer active:opacity-70 transition" onclick="app.renderMap()">
+                <i class="fa-solid fa-landmark text-gold text-xl"></i>
+                <h1 class="font-bold text-base tracking-wider uppercase">L'Académie</h1>
             </div>
-            <button onclick="app.renderFlashcards()" class="bg-white/10 hover:bg-white/20 text-white px-3 py-1 rounded-lg text-sm font-bold transition flex items-center gap-2">
-                <i class="fa-solid fa-layer-group text-gold"></i> <span class="hidden sm:inline">Révisions</span>
+            <button onclick="app.renderFlashcards()" class="bg-white/10 active:bg-white/20 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-2">
+                <i class="fa-solid fa-layer-group text-gold"></i> <span>Révisions</span>
             </button>
         </div>
+        <!-- Flag Strip -->
         <div class="h-1 w-full flex"><div class="w-1/3 bg-blue-600"></div><div class="w-1/3 bg-white"></div><div class="w-1/3 bg-red-600"></div></div>
     </nav>
 
     <!-- MAIN CONTENT -->
-    <main id="app-container" class="flex-1 overflow-y-auto relative bg-[#fdfbf7]">
+    <main id="app-container" class="flex-1 overflow-y-auto relative bg-[#fdfbf7] w-full">
         <div class="h-full flex flex-col items-center justify-center">
             <div class="loader"></div>
-            <p class="text-gray-500 mt-2">Detecting lessons...</p>
+            <p class="text-gray-500 mt-2 text-sm">Chargement...</p>
         </div>
     </main>
+
     <script>
         const app = {
             container: document.getElementById('app-container'),
@@ -87,7 +99,12 @@
     
             async init() {
                 await this.discoverModules();
-                window.addEventListener('resize', () => this.drawMapPath());
+                // Debounce resize for better performance on mobile
+                let resizeTimer;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(() => this.drawMapPath(), 100);
+                });
             },
     
             // --- 1. DISCOVERY ---
@@ -115,33 +132,34 @@
                 else this.renderMap();
             },
     
-            // --- 2. MAP RENDERING ---
+            // --- 2. MAP RENDERING (Mobile Optimized) ---
             renderMap() {
                 let nodes = '';
                 this.modules.forEach((mod, i) => {
                     const isDone = this.progress.includes(mod.id);
                     const isNext = !isDone && (i === 0 || this.progress.includes(this.modules[i-1].id));
-                    const locked = false; //!isDone && !isNext;
-                    const offset = i % 2 === 0 ? '-translate-x-12' : 'translate-x-12';
+                    const locked = false;
+                    // Smaller offset for mobile screens
+                    const offset = i % 2 === 0 ? '-translate-x-8 sm:-translate-x-12' : 'translate-x-8 sm:translate-x-12';
                     const colorClass = locked ? 'bg-gray-200 text-gray-400 border-gray-300' : (isDone ? 'bg-gold text-white border-yellow-600' : 'bg-frBlue text-white border-blue-900 animate-pulse');
                     
                     nodes += `
-                    <div class="flex flex-col items-center mb-20 relative z-10 pointer-events-none w-full">
+                    <div class="flex flex-col items-center mb-16 relative z-10 pointer-events-none w-full">
                         <div class="pointer-events-auto flex flex-col items-center transition-transform duration-300 ${offset}" id="node-${i}">
-                            ${!locked ? `<div class="mb-2 bg-white/90 backdrop-blur px-3 py-1 rounded shadow text-xs font-bold text-frBlue uppercase tracking-wider">${mod.title}</div>` : ''}
+                            ${!locked ? `<div class="mb-2 bg-white/90 backdrop-blur px-2 py-1 rounded shadow text-[10px] font-bold text-frBlue uppercase tracking-wider border border-gray-100">${mod.title}</div>` : ''}
                             <button onclick="${locked ? '' : `app.loadLesson(${i})`}" 
-                                class="w-20 h-20 rounded-full text-3xl border-b-4 shadow-xl hover:scale-110 transition-all active:translate-y-1 ${colorClass}">
+                                class="w-16 h-16 sm:w-20 sm:h-20 rounded-full text-2xl sm:text-3xl border-b-4 shadow-xl active:scale-95 transition-all active:translate-y-1 ${colorClass}">
                                 <i class="fa-solid ${isDone ? 'fa-check' : (mod.icon || 'fa-star')}"></i>
                             </button>
                         </div>
                     </div>`;
                 });
                 this.container.innerHTML = `
-                    <div class="min-h-full py-12 relative overflow-x-hidden bg-[#fdfbf7]">
+                    <div class="min-h-full py-10 relative overflow-x-hidden bg-[#fdfbf7]">
                         <svg id="map-svg" class="absolute inset-0 w-full h-full pointer-events-none"><path id="map-path" d="" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8 8" stroke-linecap="round"/></svg>
-                        <div class="max-w-md mx-auto flex flex-col items-center">${nodes}</div>
+                        <div class="max-w-md mx-auto flex flex-col items-center w-full overflow-hidden">${nodes}</div>
                     </div>`;
-                setTimeout(() => this.drawMapPath(), 50);
+                setTimeout(() => this.drawMapPath(), 100);
             },
     
             drawMapPath() {
@@ -150,19 +168,26 @@
                 const contRect = this.container.getBoundingClientRect();
                 let d = '';
                 for(let i=0; i<this.modules.length-1; i++) {
-                    const curr = document.getElementById(`node-${i}`).getBoundingClientRect();
-                    const next = document.getElementById(`node-${i+1}`).getBoundingClientRect();
+                    const currEl = document.getElementById(`node-${i}`);
+                    const nextEl = document.getElementById(`node-${i+1}`);
+                    if(!currEl || !nextEl) continue;
+                    
+                    const curr = currEl.getBoundingClientRect();
+                    const next = nextEl.getBoundingClientRect();
+                    
+                    // Calculate center points relative to container scroll
                     const x1 = curr.left + curr.width/2;
                     const y1 = curr.top + curr.height/2 - contRect.top + this.container.scrollTop;
                     const x2 = next.left + next.width/2;
                     const y2 = next.top + next.height/2 - contRect.top + this.container.scrollTop;
+                    
                     if(i===0) d += `M ${x1} ${y1} `;
                     d += `C ${x1} ${y1 + (y2-y1)/2}, ${x2} ${y1 + (y2-y1)/2}, ${x2} ${y2} `;
                 }
                 path.setAttribute('d', d);
             },
     
-            // --- 3. LESSON ENGINE ---
+            // --- 3. LESSON ENGINE (Fixed Clipping & Mobile Layout) ---
             async loadLesson(index) {
                 const mod = this.modules[index];
                 this.container.innerHTML = `<div class="h-full flex items-center justify-center"><div class="loader"></div></div>`;
@@ -189,7 +214,7 @@
     
             renderStep() {
                 if (this.currentStepIdx >= this.lessonSteps.length) {
-                    this.prepareEndReview(); // CAMBIO: Ir al repaso en lugar de finalizar directamente
+                    this.prepareEndReview(); 
                     return;
                 }
     
@@ -198,55 +223,66 @@
                 
                 const isStart = this.currentStepIdx === 0;
                 const navBtn = isStart 
-                    ? `<button onclick="app.renderMap()" class="text-gray-400 hover:text-frRed transition w-8"><i class="fa-solid fa-xmark text-2xl"></i></button>`
-                    : `<button onclick="app.prevStep()" class="text-gray-400 hover:text-frBlue transition w-8"><i class="fa-solid fa-arrow-left text-2xl"></i></button>`;
+                    ? `<button onclick="app.renderMap()" class="text-gray-400 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>`
+                    : `<button onclick="app.prevStep()" class="text-gray-400 p-2"><i class="fa-solid fa-arrow-left text-xl"></i></button>`;
     
                 let html = `
-                    <div class="h-full flex flex-col bg-frCream">
-                        <div class="px-4 py-6 flex items-center gap-4 max-w-2xl mx-auto w-full">
+                    <div class="h-full flex flex-col bg-frCream relative">
+                        <!-- Sticky Header -->
+                        <div class="px-4 py-3 flex items-center gap-3 max-w-2xl mx-auto w-full bg-frCream z-30 shrink-0 border-b border-gray-100/50">
                             ${navBtn}
-                            <div class="flex-1 h-4 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                            <div class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
                                 <div class="h-full bg-green-500 transition-all duration-500 ease-out" style="width: ${progress}%"></div>
                             </div>
                         </div>
                         
-                        <div class="flex-1 overflow-y-auto px-6 pb-24 animate-step">
-                            <div class="max-w-2xl mx-auto w-full h-full flex flex-col justify-center min-h-[60vh]">
+                        <!-- Scrollable Content Area -->
+                        <div class="flex-1 overflow-y-auto px-4 w-full animate-slide-in">
+                            <!-- Using min-h-0 and justified-start to prevent clipping -->
+                            <div class="max-w-2xl mx-auto w-full flex flex-col justify-start pb-36 pt-4">
                 `;
     
                 if (step.type === 'read') {
+                    // Mobile: p-5 instead of p-8
                     html += `
-                        <div class="lesson-section bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="lesson-section bg-white p-5 sm:p-8 rounded-xl shadow-sm border border-gray-100">
                             ${step.html}
                         </div>
                     `;
                 } else if (step.type === 'quiz') {
                     html += `
-                        <h2 class="text-2xl font-bold text-frBlue mb-6 font-serif">Comment dit-on...</h2>
-                        <div class="bg-white p-8 rounded-2xl shadow-card border border-gray-100 mb-4">
-                            <p class="text-xl italic text-gray-600 mb-6 font-serif">"${step.q}"</p>
-                            <textarea id="inp-quiz" class="w-full p-4 text-lg border-2 border-gray-200 rounded-xl focus:border-frBlue focus:outline-none transition bg-gray-50" rows="2" placeholder="Tapez en français..."></textarea>
+                        <h2 class="text-xl font-bold text-frBlue mb-4 font-serif mt-2">Comment dit-on...</h2>
+                        <div class="bg-white p-5 sm:p-8 rounded-xl shadow-card border border-gray-100 mb-4">
+                            <p class="text-lg italic text-gray-600 mb-4 font-serif">"${step.q}"</p>
+                            <textarea id="inp-quiz" class="w-full p-3 text-lg border-2 border-gray-200 rounded-lg focus:border-frBlue focus:outline-none transition bg-gray-50 resize-none" rows="3" placeholder="Tapez en français..."></textarea>
                         </div>
-                        <div id="feedback" class="hidden rounded-xl p-4 font-bold text-center"></div>
+                        <div id="feedback" class="hidden rounded-lg p-4 font-bold text-center text-sm sm:text-base"></div>
                     `;
                 }
     
                 html += `
                             </div>
                         </div>
-                        <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 z-50">
+                        
+                        <!-- Fixed Bottom Bar -->
+                        <div class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur border-t border-gray-200 p-4 z-40 safe-pb">
                             <div class="max-w-2xl mx-auto">
                                 ${step.type === 'read' 
-                                    ? `<button onclick="app.nextStep()" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-[0_4px_0_0_rgba(0,0,0,0.3)] active:shadow-none active:translate-y-1 transition uppercase tracking-wider">Continuer</button>`
-                                    : `<button id="btn-check" onclick="app.checkAnswer('${step.a.replace(/'/g,"\\'")}')" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl shadow-[0_4px_0_0_rgba(21,128,61,1)] active:shadow-none active:translate-y-1 transition uppercase tracking-wider">Vérifier</button>
-                                       <button id="btn-next" onclick="app.nextStep()" class="hidden w-full bg-green-500 text-white font-bold py-4 rounded-xl shadow-[0_4px_0_0_rgba(21,128,61,1)] active:shadow-none active:translate-y-1 transition uppercase tracking-wider">Continuer</button>`
+                                    ? `<button onclick="app.nextStep()" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-btn active:shadow-none active:translate-y-1 transition uppercase tracking-wider text-sm">Continuer</button>`
+                                    : `<button id="btn-check" onclick="app.checkAnswer('${step.a.replace(/'/g,"\\'")}')" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl shadow-btn active:shadow-none active:translate-y-1 transition uppercase tracking-wider text-sm">Vérifier</button>
+                                       <button id="btn-next" onclick="app.nextStep()" class="hidden w-full bg-green-500 text-white font-bold py-4 rounded-xl shadow-btn active:shadow-none active:translate-y-1 transition uppercase tracking-wider text-sm">Continuer</button>`
                                 }
                             </div>
                         </div>
                     </div>
                 `;
                 this.container.innerHTML = html;
-                if(step.type === 'quiz') setTimeout(() => document.getElementById('inp-quiz').focus(), 100);
+                if(step.type === 'quiz') {
+                    // Slight delay to ensure render complete, but don't auto-focus on mobile to avoid keyboard popping up instantly
+                    setTimeout(() => {
+                        if(window.innerWidth > 768) document.getElementById('inp-quiz').focus();
+                    }, 100);
+                }
             },
     
             prevStep() {
@@ -272,11 +308,12 @@
                     feed.className = "mb-4 rounded-xl p-4 font-bold text-center bg-green-100 animate-bounce";
                     const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3');
                     audio.volume = 0.3; audio.play().catch(e=>{});
+                    inp.blur(); // Hide keyboard on mobile
                     btnCheck.classList.add('hidden');
                     btnNext.classList.remove('hidden');
                 } else {
                     inp.classList.add('border-frRed', 'bg-red-50', 'animate-pulse');
-                    feed.innerHTML = `<div class="text-frRed mb-1">Réponse correcte :</div><div class="text-gray-800 text-lg">${correct}</div>`;
+                    feed.innerHTML = `<div class="text-frRed mb-1 text-xs uppercase">Réponse correcte</div><div class="text-gray-800 text-lg">${correct}</div>`;
                     feed.className = "mb-4 rounded-xl p-4 font-bold text-center bg-red-100";
                     feed.classList.remove('hidden');
                 }
@@ -284,11 +321,9 @@
     
             nextStep() { this.currentStepIdx++; this.renderStep(); },
     
-            // --- 4. END LESSON & MANDATORY REVIEW ---
+            // --- 4. END LESSON & REVIEW ---
     
             prepareEndReview() {
-                // 1. Guardar nuevas palabras de esta lección en el vocabulario global AHORA
-                // para que aparezcan en el repaso inmediato.
                 if (this.currentLessonMeta.vocabulary) {
                     const existing = this.userVocab.map(v => v.fr);
                     this.currentLessonMeta.vocabulary.forEach(w => {
@@ -297,29 +332,25 @@
                     localStorage.setItem('acad_user_vocab', JSON.stringify(this.userVocab));
                 }
     
-                // 2. Preparar mazo de 40 cartas aleatorias
                 if (this.userVocab.length === 0) {
-                    this.completeLesson(); // Si no hay vocabulario, finalizar directo.
+                    this.completeLesson(); 
                     return;
                 }
     
-                // Barajar y coger 40
                 this.reviewDeck = [...this.userVocab].sort(() => Math.random() - 0.5).slice(0, 40);
                 this.reviewIndex = 0;
     
-                // 3. Mostrar pantalla de transición
                 this.container.innerHTML = `
-                    <div class="h-full flex flex-col items-center justify-center bg-frBlue text-white p-8 text-center animate-slide-in">
-                        <i class="fa-solid fa-brain text-6xl mb-6 text-gold animate-pulse"></i>
-                        <h2 class="text-3xl font-serif font-bold mb-4">Repaso Final</h2>
-                        <p class="text-lg mb-8 max-w-md">Para completar la lección, debes repasar ${this.reviewDeck.length} palabras de tu vocabulario.</p>
-                        <button onclick="app.renderReviewCard()" class="bg-gold text-frBlue font-bold py-3 px-8 rounded-xl shadow-lg hover:scale-105 transition">Comenzar Repaso</button>
+                    <div class="h-full flex flex-col items-center justify-center bg-frBlue text-white p-6 text-center animate-slide-in">
+                        <i class="fa-solid fa-brain text-5xl mb-6 text-gold animate-pulse"></i>
+                        <h2 class="text-2xl font-serif font-bold mb-4">Repaso Final</h2>
+                        <p class="mb-8 max-w-xs text-sm opacity-90">Para completar la lección, debes repasar ${this.reviewDeck.length} palabras.</p>
+                        <button onclick="app.renderReviewCard()" class="bg-gold text-frBlue font-bold py-3 px-10 rounded-xl shadow-lg active:scale-95 transition">Comenzar</button>
                     </div>
                 `;
             },
     
             renderReviewCard() {
-                // Si terminamos las 40 cartas
                 if (this.reviewIndex >= this.reviewDeck.length) {
                     this.completeLesson();
                     return;
@@ -330,32 +361,33 @@
     
                 this.container.innerHTML = `
                     <div class="h-full flex flex-col bg-gray-100">
-                        <div class="bg-frBlue p-4 text-white flex justify-between items-center">
-                            <span class="font-bold text-gold">REPASO OBLIGATORIO</span>
-                            <span class="text-sm">${this.reviewIndex + 1} / ${this.reviewDeck.length}</span>
+                        <div class="bg-frBlue p-4 text-white flex justify-between items-center shrink-0">
+                            <span class="font-bold text-gold text-sm">REPASO</span>
+                            <span class="text-xs opacity-75">${this.reviewIndex + 1} / ${this.reviewDeck.length}</span>
                         </div>
-                        <div class="h-1 w-full bg-gray-300">
+                        <div class="h-1 w-full bg-gray-300 shrink-0">
                             <div class="h-full bg-gold transition-all" style="width: ${progress}%"></div>
                         </div>
                         
-                        <div class="flex-1 flex items-center justify-center perspective-1000 cursor-pointer group p-4" onclick="document.querySelector('.card-inner').classList.toggle('rotate-y-180')">
-                            <div class="card-inner w-full max-w-xs h-80 relative transform-style-3d transition-transform duration-500">
+                        <div class="flex-1 flex items-center justify-center perspective-1000 cursor-pointer group p-4 overflow-hidden" onclick="document.querySelector('.card-inner').classList.toggle('rotate-y-180')">
+                            <!-- Responsive Card Size: w-[85vw] instead of fixed width -->
+                            <div class="card-inner w-[85vw] max-w-xs h-[50vh] min-h-[300px] relative transform-style-3d transition-transform duration-500">
                                 <!-- Front -->
-                                <div class="absolute inset-0 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden border-b-4 border-gray-200 p-6 text-center">
-                                    <span class="text-xs uppercase tracking-widest text-gray-400 mb-2">Français</span>
-                                    <h2 class="text-3xl font-serif font-bold text-frBlue">${word.fr}</h2>
-                                    <p class="mt-4 text-gray-400 text-sm">(Toca para voltear)</p>
+                                <div class="absolute inset-0 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden border-b-4 border-gray-200 p-4 text-center">
+                                    <span class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Français</span>
+                                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-frBlue break-words max-w-full">${word.fr}</h2>
+                                    <p class="mt-8 text-gray-300 text-xs flex items-center gap-1"><i class="fa-solid fa-hand-pointer"></i> Toca para voltear</p>
                                 </div>
                                 <!-- Back -->
-                                <div class="absolute inset-0 bg-frBlue rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden rotate-y-180 text-white border-b-4 border-blue-900 p-6 text-center">
-                                    <span class="text-xs uppercase tracking-widest text-blue-300 mb-2">Español</span>
-                                    <h2 class="text-3xl font-serif font-bold">${word.es}</h2>
+                                <div class="absolute inset-0 bg-frBlue rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden rotate-y-180 text-white border-b-4 border-blue-900 p-4 text-center">
+                                    <span class="text-[10px] uppercase tracking-widest text-blue-300 mb-2">Español</span>
+                                    <h2 class="text-2xl sm:text-3xl font-serif font-bold break-words max-w-full">${word.es}</h2>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="p-6 bg-white border-t border-gray-200">
-                            <button onclick="app.nextReviewCard()" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-[0_4px_0_0_rgba(0,0,0,0.3)] active:shadow-none active:translate-y-1 transition uppercase tracking-wider">Siguiente</button>
+                        <div class="p-4 bg-white border-t border-gray-200 shrink-0 safe-pb">
+                            <button onclick="app.nextReviewCard()" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-btn active:shadow-none active:translate-y-1 transition uppercase tracking-wider text-sm">Siguiente</button>
                         </div>
                     </div>`;
             },
@@ -366,33 +398,31 @@
             },
     
             completeLesson() {
-                // Guardar progreso de lección completada (Unlock map)
                 const id = this.currentLessonMeta.id;
                 if(!this.progress.includes(id)) {
                     this.progress.push(id);
                     localStorage.setItem('acad_progress', JSON.stringify(this.progress));
                 }
     
-                confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
     
                 this.container.innerHTML = `
                     <div class="h-full flex flex-col items-center justify-center bg-frCream p-6 text-center animate-step">
-                        <div class="w-32 h-32 bg-gold rounded-full flex items-center justify-center shadow-lg mb-6 text-5xl text-white"><i class="fa-solid fa-trophy"></i></div>
-                        <h2 class="text-3xl font-serif font-bold text-frBlue mb-2">¡Lección Completada!</h2>
-                        <p class="text-gray-500 mb-8">Contenido + Repaso de vocabulario finalizado.</p>
+                        <div class="w-24 h-24 bg-gold rounded-full flex items-center justify-center shadow-lg mb-6 text-4xl text-white"><i class="fa-solid fa-trophy"></i></div>
+                        <h2 class="text-2xl font-serif font-bold text-frBlue mb-2">¡Completado!</h2>
+                        <p class="text-gray-500 mb-8 text-sm">Lección registrada con éxito.</p>
                         <div class="w-full max-w-sm space-y-4">
-                            <button onclick="app.renderMap()" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-lg active:transform active:scale-95 transition">Volver al Mapa</button>
+                            <button onclick="app.renderMap()" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-lg active:scale-95 transition">Volver al Mapa</button>
                         </div>
                     </div>`;
             },
             
-            // --- 5. VOLUNTARY FLASHCARDS (Menu Button) ---
+            // --- 5. VOLUNTARY FLASHCARDS ---
             renderFlashcards() {
                 if(this.userVocab.length === 0) {
-                    this.container.innerHTML = `<div class="h-full flex items-center justify-center flex-col"><p>Pas de vocabulaire.</p><button class="mt-4 text-frBlue font-bold" onclick="app.renderMap()">Retour</button></div>`;
+                    this.container.innerHTML = `<div class="h-full flex items-center justify-center flex-col p-6 text-center"><p class="text-gray-500 mb-4">No tienes vocabulario guardado aún.</p><button class="text-frBlue font-bold border border-frBlue px-4 py-2 rounded-lg" onclick="app.renderMap()">Volver</button></div>`;
                     return;
                 }
-                // Reutilizamos lógica pero sin obligatoriedad de terminar
                 this.deck = [...this.userVocab].sort(()=>Math.random()-0.5);
                 this.cardIdx = 0;
                 this.renderVoluntaryCard();
@@ -400,27 +430,27 @@
             
             renderVoluntaryCard() {
                 if(this.cardIdx >= this.deck.length) {
-                    this.container.innerHTML = `<div class="h-full flex items-center justify-center flex-col bg-frBlue text-white"><h2 class="text-2xl font-bold mb-4">Révisions terminées !</h2><button onclick="app.renderMap()" class="bg-white/20 px-6 py-3 rounded-lg">Retour</button></div>`;
+                    this.container.innerHTML = `<div class="h-full flex items-center justify-center flex-col bg-frBlue text-white"><h2 class="text-xl font-bold mb-4">¡Repaso terminado!</h2><button onclick="app.renderMap()" class="bg-white/20 px-6 py-3 rounded-lg hover:bg-white/30 transition">Volver</button></div>`;
                     return;
                 }
                 const word = this.deck[this.cardIdx];
                 this.container.innerHTML = `
                     <div class="h-full flex flex-col bg-gray-100">
-                        <div class="p-4"><button onclick="app.renderMap()"><i class="fa-solid fa-xmark text-gray-400 text-2xl"></i></button></div>
-                        <div class="flex-1 flex items-center justify-center perspective-1000 cursor-pointer group" onclick="document.querySelector('.card-inner').classList.toggle('rotate-y-180')">
-                            <div class="card-inner w-72 h-80 relative transform-style-3d transition-transform duration-500">
+                        <div class="p-4 flex justify-end"><button onclick="app.renderMap()" class="bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center"><i class="fa-solid fa-xmark text-gray-500"></i></button></div>
+                        <div class="flex-1 flex items-center justify-center perspective-1000 cursor-pointer group px-4" onclick="document.querySelector('.card-inner').classList.toggle('rotate-y-180')">
+                            <div class="card-inner w-full max-w-[300px] h-[400px] relative transform-style-3d transition-transform duration-500">
                                 <div class="absolute inset-0 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden border-b-4 border-gray-200">
                                     <span class="text-xs uppercase tracking-widest text-gray-400 mb-2">Français</span>
-                                    <h2 class="text-3xl font-serif font-bold text-frBlue">${word.fr}</h2>
+                                    <h2 class="text-3xl font-serif font-bold text-frBlue text-center px-2">${word.fr}</h2>
                                 </div>
                                 <div class="absolute inset-0 bg-frBlue rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden rotate-y-180 text-white border-b-4 border-blue-900">
                                     <span class="text-xs uppercase tracking-widest text-blue-300 mb-2">Español</span>
-                                    <h2 class="text-3xl font-serif font-bold">${word.es}</h2>
+                                    <h2 class="text-3xl font-serif font-bold text-center px-2">${word.es}</h2>
                                 </div>
                             </div>
                         </div>
-                        <div class="p-8 flex gap-4 justify-center">
-                            <button onclick="app.nextVoluntaryCard()" class="bg-white border-2 border-gray-200 px-8 py-3 rounded-xl font-bold text-gray-600 w-full">Suivant</button>
+                        <div class="p-6 pb-8 flex gap-4 justify-center">
+                            <button onclick="app.nextVoluntaryCard()" class="bg-white border-2 border-gray-200 px-8 py-4 rounded-xl font-bold text-gray-600 w-full shadow-sm">Siguiente</button>
                         </div>
                     </div>`;
             },
