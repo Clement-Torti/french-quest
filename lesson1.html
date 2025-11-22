@@ -3,118 +3,175 @@
 <!-- 1. METADATA & EXERCISES -->
 <script type="application/json" id="lesson-data">
     {
-        "title": "Bienvenue a Paris (Emily's Version)",
-        "desc": "La guía de supervivencia para no hacer enojar a Sylvie el primer día.",
-        "icon": "fa-wine-glass",
+        "title": "Etiqueta Social: Tu vs. Vous",
+        "desc": "Clase completa sobre registros de formalidad y presentaciones en el entorno laboral francés.",
+        "icon": "fa-briefcase",
         "vocabulary": [
-            { "fr": "Bonjour", "es": "Hola / Buenos días (La llave mágica)" },
-            { "fr": "Bonsoir", "es": "Buenas noches (Úsalo en fiestas)" },
-            { "fr": "Salut", "es": "Hola / Chau (Solo para amigos como Mindy)" },
-            { "fr": "Enchanté(e)", "es": "Encantado/a (Ideal para clientes)" },
-            { "fr": "S'il vous plaît", "es": "Por favor" },
-            { "fr": "Désolé(e)", "es": "Lo siento (Tu palabra más usada)" },
-            { "fr": "À demain", "es": "Hasta mañana" },
-            { "fr": "Un café, s'il vous plaît", "es": "Un café, por favor" }
+            { "fr": "Bonjour, comment allez-vous ?", "es": "Hola, ¿cómo está usted? (Formal)" },
+            { "fr": "Je vais très bien, merci", "es": "Estoy muy bien, gracias" },
+            { "fr": "Je vous présente...", "es": "Le presento a... (Formal)" },
+            { "fr": "Enchanté de faire votre connaissance", "es": "Encantado de conocerle" },
+            { "fr": "Vous", "es": "Usted / Vosotros (Formal o Plural)" },
+            { "fr": "Tu", "es": "Tú (Informal)" },
+            { "fr": "Bonne journée", "es": "Que tenga un buen día (Despedida)" },
+            { "fr": "À tout à l'heure", "es": "Hasta luego (Nos vemos en un rato)" }
         ],
         "exercises": [
-            { "q": "Entras a la oficina y ves a Sylvie. ¿Qué dices?", "a": "bonjour", "hint": "Formal y obligatorio" },
-            { "q": "Te encuentras con Gabriel en el pasillo de tu edificio. ¿Qué dices?", "a": "salut", "hint": "Informal y coqueto" },
-            { "q": "Llegas a una fiesta de Savoir a las 20:00. Dices:", "a": "bonsoir", "hint": "Saludo de noche" },
-            { "q": "Chocas con alguien en la calle por mirar el móvil. Dices:", "a": "pardon", "hint": "O 'Désolé'" },
-            { "q": "Te presentan a Antoine Lambert. Tú respondes:", "a": "enchantée", "hint": "Mucho gusto (femenino)" },
-            { "q": "¿Cómo pides algo educadamente?", "a": "s'il vous plaît", "hint": "La palabra mágica" }
+            { "q": "Estás en una reunión con Antoine Lambert (Cliente). ¿Cómo preguntas cómo está?", "a": "comment allez-vous", "hint": "Usa el 'vouvoiement' (Usted)" },
+            { "q": "Mindy llega a tu apartamento. ¿Qué usas?", "a": "tu", "hint": "Informal" },
+            { "q": "Despedida formal para Sylvie al salir de la oficina:", "a": "bonne soirée", "hint": "Buenas noches (despedida)" },
+            { "q": "Verdadero o Falso: ¿Puedes decir 'Salut' a un cliente nuevo?", "a": "falso", "hint": "Es demasiado familiar" },
+            { "q": "Te presentan a alguien. Tú dices 'Enchanté...'", "a": "de faire votre connaissance", "hint": "Frase completa de cortesía" }
         ]
     }
     </script>
     
     <!-- 2. CONTENT (HTML) -->
-    <div id="lesson-content" class="space-y-6 text-gray-800">
-        
-        <!-- Intro Section -->
-        <div class="bg-pink-50 p-4 rounded-lg border-l-4 border-pink-500">
-            <h2 class="text-xl font-bold text-pink-600 mb-2">Ringarde o Respetada?</h2>
-            <p>Escucha, Emily. En Chicago, entras a una reunión y vas directo al grano. <strong>En París, eso es un crimen.</strong></p>
-            <p class="mt-2">El "Bonjour" no es solo un saludo; es el código de acceso. Si entras a una tienda o a la oficina y no lo dices con confianza, eres invisible (o peor, maleducada). Antes de vender tu idea de marketing, tienes que vender tu educación.</p>
-        </div>
+    <div id="lesson-content" class="space-y-8 text-gray-800 font-sans leading-relaxed">
     
-        <!-- Expanded Vocabulary Context -->
-        <h3>Vocabulario para sobrevivir en Savoir</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="bg-white p-4 shadow rounded-md">
-                <h4 class="font-bold text-frBlue">Bonjour vs Bonsoir</h4>
-                <p class="text-sm mt-1">Es simple: Si hay sol, <em>Bonjour</em>. Si estás tomando una copa de Champère, <em>Bonsoir</em>. El cambio ocurre mágicamente alrededor de las 18:00 o 19:00.</p>
+        <!-- MODULE 1: THE CONTEXT -->
+        <section>
+            <div class="bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-600 shadow-sm">
+                <h2 class="text-2xl font-bold text-indigo-700 mb-3">1. La Regla de Oro: "Le Vouvoiement"</h2>
+                <p class="mb-3">Emily, esto es serio. En Chicago todos son "amigos" al instante. En París, existe una barrera invisible. Romper esa barrera demasiado rápido es una falta de respeto.</p>
+                <p>El francés tiene dos niveles de existencia:</p>
+                <ul class="list-disc list-inside mt-2 space-y-2 ml-4">
+                    <li><strong>TU (Tutoiement):</strong> Familia, amigos cercanos, niños, mascotas y amantes.</li>
+                    <li><strong>VOUS (Vouvoiement):</strong> Jefes (Sylvie), Clientes (Antoine), desconocidos en la calle, camareros y personas mayores.</li>
+                </ul>
+                <p class="mt-3 text-sm text-gray-600 italic"><strong>Regla general:</strong> Siempre empieza con "Vous". Espera a que la persona francesa te diga: "On peut se tutoyer" (Podemos tutearnos).</p>
             </div>
-            <div class="bg-white p-4 shadow rounded-md">
-                <h4 class="font-bold text-frRed">Salut (¡Cuidado!)</h4>
-                <p class="text-sm mt-1">Significa "Hola" y "Adiós". Pero <strong>nunca</strong> lo uses con Sylvie o un cliente. Solo para Mindy, Gabriel o Camille. Es el equivalente verbal a un choque de puños.</p>
-            </div>
-            <div class="bg-white p-4 shadow rounded-md">
-                <h4 class="font-bold text-gray-700">Enchanté(e)</h4>
-                <p class="text-sm mt-1">Añade una 'e' al final si lo escribes (porque eres mujer). Es la forma elegante de decir "Nice to meet you". Úsalo y quizás Luc te respete un poco más.</p>
-            </div>
-            <div class="bg-white p-4 shadow rounded-md">
-                <h4 class="font-bold text-gray-700">Désolé / Pardon</h4>
-                <p class="text-sm mt-1">Vas a cometer errores culturales. Muchos. Aprende a disculparte rápido. <em>Pardon</em> es para cuando chocas con alguien, <em>Désolé</em> es cuando sientes algo emocionalmente o cometes un error.</p>
-            </div>
-        </div>
+        </section>
     
-        <hr class="my-6 border-gray-300">
-    
-        <!-- Reading Section with Reveal -->
-        <h3>Lectura: Misión Boulangerie</h3>
-        <p class="mb-2 text-sm text-gray-600">Emily intenta comprar un Pain au Chocolat sin usar el traductor del móvil.</p>
-        
-        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-            <p class="italic font-serif text-lg leading-relaxed text-center">
-                "Bonjour, madame. <br>
-                Un pain au chocolat, s'il vous plaît. <br>
-                Et un café noir. <br>
-                Merci beaucoup. Au revoir !"
-            </p>
+        <!-- MODULE 2: GRAMMAR DEEP DIVE -->
+        <section>
+            <h3 class="text-xl font-bold text-gray-800 border-b-2 border-frRed inline-block mb-4">2. Estructuras Clave</h3>
             
-            <details class="mt-4">
-                <summary class="cursor-pointer text-blue-600 font-semibold hover:text-blue-800 focus:outline-none">
-                    👉 Toca para ver la traducción (La verdad)
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Formal Column -->
+                <div class="bg-white p-4 rounded shadow border border-gray-200">
+                    <h4 class="text-lg font-bold text-frBlue mb-2 text-center">FORMAL (Le Bureau)</h4>
+                    <table class="w-full text-sm">
+                        <tr class="border-b">
+                            <td class="py-2 font-semibold">Saludo</td>
+                            <td class="py-2">Bonjour Madame / Monsieur</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-semibold">¿Cómo está?</td>
+                            <td class="py-2">Comment <strong>allez-vous</strong> ?</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-semibold">Presentar</td>
+                            <td class="py-2">Je <strong>vous</strong> présente Luc.</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 font-semibold">Adiós</td>
+                            <td class="py-2">Au revoir, bonne journée.</td>
+                        </tr>
+                    </table>
+                </div>
+    
+                <!-- Informal Column -->
+                <div class="bg-white p-4 rounded shadow border border-gray-200">
+                    <h4 class="text-lg font-bold text-pink-500 mb-2 text-center">INFORMAL (Le Café)</h4>
+                    <table class="w-full text-sm">
+                        <tr class="border-b">
+                            <td class="py-2 font-semibold">Saludo</td>
+                            <td class="py-2">Salut / Coucou</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-semibold">¿Cómo estás?</td>
+                            <td class="py-2">Comment <strong>vas-tu</strong> ? / Ça va ?</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2 font-semibold">Presentar</td>
+                            <td class="py-2">Je <strong>te</strong> présente Gabriel.</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 font-semibold">Adiós</td>
+                            <td class="py-2">Salut / Bisous / À plus.</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    
+        <!-- MODULE 3: READING COMPREHENSION (LONG) -->
+        <section>
+            <h3 class="text-xl font-bold text-gray-800 border-b-2 border-frRed inline-block mb-4">3. Lectura: Le Vernissage (La Inauguración)</h3>
+            <p class="mb-4 text-gray-600">Lee el siguiente guion detenidamente. Emily asiste a una galería de arte con Julien. Presta atención a cómo cambia el lenguaje según con quién hablan.</p>
+    
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-300 font-serif leading-loose">
+                <p><strong>Julien:</strong> Emily, regarde. C'est Pierre Cadault, le célèbre créateur.</p>
+                <p><strong>Emily:</strong> Oh mon dieu! Je dois lui parler. (Emily se acerca) <em>Salut Pierre ! Ça va ?</em></p>
+                <p><strong>Julien:</strong> (Susurrando con pánico) <em>Non, non, non ! Pas "Salut" !</em></p>
+                <p><strong>Pierre Cadault:</strong> (Mirándola con desprecio) Pardon ? On se connaît, mademoiselle ?</p>
+                <p><strong>Emily:</strong> Oh, désolée ! Je veux dire... <em>Bonsoir, Monsieur Cadault.</em> Je suis Emily, de l'agence Savoir.</p>
+                <p><strong>Pierre Cadault:</strong> Ah, l'Américaine. Bonsoir. Vous appréciez l'art ?</p>
+                <p><strong>Emily:</strong> Oui, beaucoup. C'est magnifique. <em>Comment allez-vous</em> ce soir ?</p>
+                <p><strong>Pierre Cadault:</strong> Fatigué. Mais l'art n'attend pas. Enchanté de faire votre connaissance, Emily.</p>
+                <p><strong>Emily:</strong> Le plaisir est pour moi. Au revoir, Monsieur.</p>
+            </div>
+    
+            <!-- Interactive Translation Toggle -->
+            <details class="mt-4 bg-white p-4 rounded shadow-sm group">
+                <summary class="cursor-pointer text-indigo-600 font-semibold flex items-center justify-between">
+                    <span>🔍 Análisis del texto y Traducción</span>
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
                 </summary>
-                <div class="mt-2 p-2 bg-white rounded text-gray-700 text-sm border border-gray-200">
-                    <p><strong>Traducción:</strong> "Buenos días, señora. Un croissant de chocolate, por favor. Y un café negro. Muchas gracias. ¡Adiós!"</p>
-                    <p class="mt-2 text-xs text-gray-500">*Nota: Si te olvidas del "Bonjour", te darán el pan duro de ayer.*</p>
+                <div class="mt-4 text-sm text-gray-700 space-y-2 border-t pt-3">
+                    <p><strong>El Error de Emily:</strong> Ella dijo "Salut" y "Ça va" a una leyenda de la moda. Es como darle una palmada en la espalda a la Reina de Inglaterra.</p>
+                    <p><strong>La Corrección:</strong> Cambió a "Bonsoir, Monsieur" y "Comment allez-vous". Notarás que Pierre usa "Vous" con ella todo el tiempo.</p>
+                    <hr class="my-2">
+                    <p><strong>Traducción completa:</strong></p>
+                    <ul class="pl-4 list-disc">
+                        <li><em>Julien:</em> Emily, mira. Es Pierre Cadault, el famoso diseñador.</li>
+                        <li><em>Emily:</em> ¡Oh Dios mío! Debo hablarle. ¡Hola Pierre! ¿Qué tal?</li>
+                        <li><em>Julien:</em> ¡No, no no! ¡"Hola" (informal) no!</li>
+                        <li><em>Pierre:</em> ¿Perdón? ¿Nos conocemos, señorita?</li>
+                        <li><em>Emily:</em> ¡Oh, lo siento! Quiero decir... Buenas noches, Sr. Cadault. Soy Emily, de la agencia Savoir.</li>
+                        <li><em>Pierre:</em> Ah, la americana. Buenas noches. ¿Aprecia usted el arte?</li>
+                    </ul>
                 </div>
             </details>
-        </div>
+        </section>
     
-        <hr class="my-6 border-gray-300">
+        <!-- MODULE 4: ACTIVE WRITING/THINKING -->
+        <section>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">4. Práctica de Situaciones</h3>
+            <p class="mb-4">Antes de pasar al cuestionario final, resuelve mentalmente estas situaciones:</p>
+            
+            <div class="space-y-4">
+                <div class="bg-yellow-50 p-4 rounded border border-yellow-200">
+                    <strong>Situación A:</strong> Entras en una <em>Boulangerie</em>. La vendedora es una mujer mayor.
+                    <br><span class="text-gray-500 text-sm">¿Qué saludo usas? ¿Cómo pides un café? (Usa: Je voudrais...)</span>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded border border-yellow-200">
+                    <strong>Situación B:</strong> Estás en una fiesta con amigos de Mindy. Son jóvenes.
+                    <br><span class="text-gray-500 text-sm">¿Cómo te presentas y preguntas cómo están?</span>
+                </div>
+            </div>
+        </section>
     
-        <!-- Speaking Section -->
-        <h3>Expresión Oral: ¡Actúa!</h3>
-        <p>No seas tímida. Practica en voz alta (hazlo frente al espejo antes de salir a la calle):</p>
-        
-        <ul class="space-y-3 mt-4">
-            <li class="flex items-start">
-                <span class="bg-frRed text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 flex-shrink-0">1</span>
-                <div>
-                    <strong>Escenario: La Oficina.</strong>
-                    <p class="text-sm">Entras y ves a Julien. Di un <em>"Bonjour"</em> firme y profesional. No sonrías demasiado, es muy americano.</p>
+        <!-- MODULE 5: ORAL EXPRESSION -->
+        <section>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">5. Laboratorio de Pronunciación</h3>
+            <p>El francés requiere mover los labios mucho más que el español o el inglés. Exagera estos sonidos.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center mt-4">
+                <div class="p-4 bg-white shadow rounded-full w-full aspect-square flex flex-col justify-center items-center">
+                    <strong class="text-2xl text-frBlue block mb-2">BON-JOUR</strong>
+                    <span class="text-xs text-gray-500">No digas "Ban-jur". La O es cerrada y redonda. La R es gargural.</span>
                 </div>
-            </li>
-            <li class="flex items-start">
-                <span class="bg-frRed text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 flex-shrink-0">2</span>
-                <div>
-                    <strong>Escenario: La Cita.</strong>
-                    <p class="text-sm">Gabriel te trae un plato especial. Míralo a los ojos y di: <em>"Merci, c'est gentil"</em> (Gracias, es amable).</p>
+                <div class="p-4 bg-white shadow rounded-full w-full aspect-square flex flex-col justify-center items-center">
+                    <strong class="text-2xl text-frRed block mb-2">EN-CHAN-TÉ</strong>
+                    <span class="text-xs text-gray-500">Sonido nasal "On" y "Shan". La T final es fuerte.</span>
                 </div>
-            </li>
-            <li class="flex items-start">
-                <span class="bg-frRed text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 flex-shrink-0">3</span>
-                <div>
-                    <strong>Escenario: El Metro.</strong>
-                    <p class="text-sm">Pisas a alguien. Rápido, di: <em>"Pardon !"</em></p>
+                <div class="p-4 bg-white shadow rounded-full w-full aspect-square flex flex-col justify-center items-center">
+                    <strong class="text-2xl text-gray-800 block mb-2">MON-SIEUR</strong>
+                    <span class="text-xs text-gray-500">Truco: Se pronuncia casi como "Me-sier". No pronuncies la N.</span>
                 </div>
-            </li>
-        </ul>
-        
-        <div class="mt-6 p-3 bg-yellow-100 rounded text-center text-sm">
-            <strong>💡 Tip de Influencer:</strong> Grábate diciendo estas frases. Si suenas como si tuvieras una papa caliente en la boca, vas por buen camino con el acento francés.
-        </div>
+            </div>
+        </section>
     
     </div>
