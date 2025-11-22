@@ -99,7 +99,6 @@
     
             async init() {
                 await this.discoverModules();
-                // Debounce resize for better performance on mobile
                 let resizeTimer;
                 window.addEventListener('resize', () => {
                     clearTimeout(resizeTimer);
@@ -132,35 +131,68 @@
                 else this.renderMap();
             },
     
-            // --- 2. MAP RENDERING (Mobile Optimized) ---
+            // --- 2. MAP RENDERING ---
             renderMap() {
-                let nodes = '';
-                this.modules.forEach((mod, i) => {
-                    const isDone = this.progress.includes(mod.id);
-                    const isNext = !isDone && (i === 0 || this.progress.includes(this.modules[i-1].id));
-                    const locked = false;
-                    // Smaller offset for mobile screens
-                    const offset = i % 2 === 0 ? '-translate-x-8 sm:-translate-x-12' : 'translate-x-8 sm:translate-x-12';
-                    const colorClass = locked ? 'bg-gray-200 text-gray-400 border-gray-300' : (isDone ? 'bg-gold text-white border-yellow-600' : 'bg-frBlue text-white border-blue-900 animate-pulse');
-                    
-                    nodes += `
-                    <div class="flex flex-col items-center mb-16 relative z-10 pointer-events-none w-full">
-                        <div class="pointer-events-auto flex flex-col items-center transition-transform duration-300 ${offset}" id="node-${i}">
-                            ${!locked ? `<div class="mb-2 bg-white/90 backdrop-blur px-2 py-1 rounded shadow text-[10px] font-bold text-frBlue uppercase tracking-wider border border-gray-100">${mod.title}</div>` : ''}
-                            <button onclick="${locked ? '' : `app.loadLesson(${i})`}" 
-                                class="w-16 h-16 sm:w-20 sm:h-20 rounded-full text-2xl sm:text-3xl border-b-4 shadow-xl active:scale-95 transition-all active:translate-y-1 ${colorClass}">
-                                <i class="fa-solid ${isDone ? 'fa-check' : (mod.icon || 'fa-star')}"></i>
-                            </button>
-                        </div>
-                    </div>`;
-                });
-                this.container.innerHTML = `
-                    <div class="min-h-full py-10 relative overflow-x-hidden bg-[#fdfbf7]">
-                        <svg id="map-svg" class="absolute inset-0 w-full h-full pointer-events-none"><path id="map-path" d="" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8 8" stroke-linecap="round"/></svg>
-                        <div class="max-w-md mx-auto flex flex-col items-center w-full overflow-hidden">${nodes}</div>
-                    </div>`;
-                setTimeout(() => this.drawMapPath(), 100);
-            },
+            let nodes = '';
+            this.modules.forEach((mod, i) => {
+                const isDone = this.progress.includes(mod.id);
+                const locked = false; 
+                const offset = i % 2 === 0 ? '-translate-x-8 sm:-translate-x-12' : 'translate-x-8 sm:translate-x-12';
+                const colorClass = locked ? 'bg-gray-200 text-gray-400 border-gray-300' : (isDone ? 'bg-gold text-white border-yellow-600' : 'bg-frBlue text-white border-blue-900 animate-pulse');
+                
+                nodes += `
+                <div class="flex flex-col items-center mb-16 relative z-10 pointer-events-none w-full">
+                    <div class="pointer-events-auto flex flex-col items-center transition-transform duration-300 ${offset}" id="node-${i}">
+                        ${!locked ? `<div class="mb-2 bg-white/90 backdrop-blur px-2 py-1 rounded shadow text-[10px] font-bold text-frBlue uppercase tracking-wider border border-gray-100">${mod.title}</div>` : ''}
+                        <button onclick="${locked ? '' : `app.loadLesson(${i})`}" 
+                            class="w-16 h-16 sm:w-20 sm:h-20 rounded-full text-2xl sm:text-3xl border-b-4 shadow-xl active:scale-95 transition-all active:translate-y-1 ${colorClass}">
+                            <i class="fa-solid ${isDone ? 'fa-check' : (mod.icon || 'fa-star')}"></i>
+                        </button>
+                    </div>
+                </div>`;
+            });
+
+            nodes += `
+            <div class="w-full flex justify-center pb-12 relative z-20">
+                <button onclick="app.copyPlan(this)" class="bg-white border border-gray-300 text-gray-600 px-6 py-3 rounded-full text-xs font-bold shadow-md active:scale-95 transition flex items-center gap-2">
+                    <i class="fa-solid fa-copy text-frBlue"></i>
+                    <span>Copier le programme</span>
+                </button>
+            </div>`;
+
+            this.container.innerHTML = `
+                <div class="min-h-full py-10 relative overflow-x-hidden bg-[#fdfbf7]">
+                    <svg id="map-svg" class="absolute inset-0 w-full h-full pointer-events-none"><path id="map-path" d="" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8 8" stroke-linecap="round"/></svg>
+                    <div class="max-w-md mx-auto flex flex-col items-center w-full overflow-hidden">${nodes}</div>
+                </div>`;
+            setTimeout(() => this.drawMapPath(), 100);
+        },
+
+        async copyPlan(btnElement) {
+            if (this.modules.length === 0) return;
+            let content = "L'ACADÉMIE - PROGRAMME COMPLET\n================================\n\n";
+            this.modules.forEach(mod => {
+                const desc = mod.desc ? mod.desc : "Pas de description disponible.";
+                content += `LEÇON ${mod.id}: ${mod.title.toUpperCase()}\n`;
+                content += `Description: ${desc}\n`;
+                content += `--------------------------------\n`;
+            });
+
+            try {
+                await navigator.clipboard.writeText(content);
+                const originalContent = btnElement.innerHTML;
+                const originalClasses = btnElement.className;
+                btnElement.innerHTML = `<i class="fa-solid fa-check text-green-600"></i> <span class="text-green-600">Copié !</span>`;
+                btnElement.classList.add('border-green-500', 'bg-green-50');
+                setTimeout(() => {
+                    btnElement.innerHTML = originalContent;
+                    btnElement.className = originalClasses;
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+                alert("Impossible de copier le texte automatiquement.");
+            }
+        },
     
             drawMapPath() {
                 const path = document.getElementById('map-path');
@@ -171,46 +203,79 @@
                     const currEl = document.getElementById(`node-${i}`);
                     const nextEl = document.getElementById(`node-${i+1}`);
                     if(!currEl || !nextEl) continue;
-                    
                     const curr = currEl.getBoundingClientRect();
                     const next = nextEl.getBoundingClientRect();
-                    
-                    // Calculate center points relative to container scroll
                     const x1 = curr.left + curr.width/2;
                     const y1 = curr.top + curr.height/2 - contRect.top + this.container.scrollTop;
                     const x2 = next.left + next.width/2;
                     const y2 = next.top + next.height/2 - contRect.top + this.container.scrollTop;
-                    
                     if(i===0) d += `M ${x1} ${y1} `;
                     d += `C ${x1} ${y1 + (y2-y1)/2}, ${x2} ${y1 + (y2-y1)/2}, ${x2} ${y2} `;
                 }
                 path.setAttribute('d', d);
             },
     
-            // --- 3. LESSON ENGINE (Fixed Clipping & Mobile Layout) ---
+            // --- 3. LESSON ENGINE ---
             async loadLesson(index) {
-                const mod = this.modules[index];
-                this.container.innerHTML = `<div class="h-full flex items-center justify-center"><div class="loader"></div></div>`;
-                try {
-                    const res = await fetch(mod.url);
-                    const html = await res.text();
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    
-                    const contentDiv = doc.getElementById('lesson-content');
-                    let sections = Array.from(contentDiv.querySelectorAll('section'));
-                    if(sections.length === 0) sections = [contentDiv];
-                    const readSteps = sections.map(s => ({ type: 'read', html: s.innerHTML }));
-                    
-                    const data = JSON.parse(doc.getElementById('lesson-data').textContent);
-                    const quizSteps = (data.exercises || []).map(ex => ({ type: 'quiz', ...ex }));
-    
-                    this.lessonSteps = [...readSteps, ...quizSteps];
-                    this.currentLessonMeta = { ...data, id: mod.id };
-                    this.currentStepIdx = 0;
-                    this.renderStep();
-                } catch(e) { console.error(e); }
-            },
+            const mod = this.modules[index];
+            this.container.innerHTML = `<div class="h-full flex items-center justify-center"><div class="loader"></div></div>`;
+            
+            try {
+                let summaryStep = null;
+                if (index > 0) {
+                    try {
+                        const prevMod = this.modules[index - 1];
+                        const prevRes = await fetch(prevMod.url);
+                        if (prevRes.ok) {
+                            const prevHtml = await prevRes.text();
+                            const prevParser = new DOMParser();
+                            const prevDoc = prevParser.parseFromString(prevHtml, 'text/html');
+                            const prevContent = prevDoc.getElementById('lesson-content');
+                            const prevSections = prevContent.querySelectorAll('section');
+                            if (prevSections.length >= 2) {
+                                const summaryContent = prevSections[1].innerHTML;
+                                summaryStep = { 
+                                    type: 'read', 
+                                    html: `
+                                        <div class="mb-4 pb-4 border-b border-gray-200">
+                                            <span class="bg-gold text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Résumé</span>
+                                            <h3 class="text-frBlue font-bold mt-2">Précédemment...</h3>
+                                        </div>
+                                        <div class="opacity-90 text-sm sm:text-base">
+                                            ${summaryContent}
+                                        </div>` 
+                                };
+                            }
+                        }
+                    } catch (err) { console.warn("Could not load previous lesson summary", err); }
+                }
+
+                const res = await fetch(mod.url);
+                const html = await res.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                const contentDiv = doc.getElementById('lesson-content');
+                let sections = Array.from(contentDiv.querySelectorAll('section'));
+                if(sections.length === 0) sections = [contentDiv];
+                
+                const readSteps = sections.map(s => ({ type: 'read', html: s.innerHTML }));
+                
+                const data = JSON.parse(doc.getElementById('lesson-data').textContent);
+                const quizSteps = (data.exercises || []).map(ex => ({ type: 'quiz', ...ex }));
+
+                this.lessonSteps = [...readSteps, ...quizSteps];
+                if (summaryStep) this.lessonSteps.unshift(summaryStep);
+
+                this.currentLessonMeta = { ...data, id: mod.id };
+                this.currentStepIdx = 0;
+                this.renderStep();
+
+            } catch(e) { 
+                console.error(e);
+                this.container.innerHTML = `<div class="p-10 text-center text-red-500">Error loading lesson.</div>`;
+            }
+        },
     
             renderStep() {
                 if (this.currentStepIdx >= this.lessonSteps.length) {
@@ -228,27 +293,18 @@
     
                 let html = `
                     <div class="h-full flex flex-col bg-frCream relative">
-                        <!-- Sticky Header -->
                         <div class="px-4 py-3 flex items-center gap-3 max-w-2xl mx-auto w-full bg-frCream z-30 shrink-0 border-b border-gray-100/50">
                             ${navBtn}
                             <div class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
                                 <div class="h-full bg-green-500 transition-all duration-500 ease-out" style="width: ${progress}%"></div>
                             </div>
                         </div>
-                        
-                        <!-- Scrollable Content Area -->
                         <div class="flex-1 overflow-y-auto px-4 w-full animate-slide-in">
-                            <!-- Using min-h-0 and justified-start to prevent clipping -->
                             <div class="max-w-2xl mx-auto w-full flex flex-col justify-start pb-36 pt-4">
                 `;
     
                 if (step.type === 'read') {
-                    // Mobile: p-5 instead of p-8
-                    html += `
-                        <div class="lesson-section bg-white p-5 sm:p-8 rounded-xl shadow-sm border border-gray-100">
-                            ${step.html}
-                        </div>
-                    `;
+                    html += `<div class="lesson-section bg-white p-5 sm:p-8 rounded-xl shadow-sm border border-gray-100">${step.html}</div>`;
                 } else if (step.type === 'quiz') {
                     html += `
                         <h2 class="text-xl font-bold text-frBlue mb-4 font-serif mt-2">Comment dit-on...</h2>
@@ -263,8 +319,6 @@
                 html += `
                             </div>
                         </div>
-                        
-                        <!-- Fixed Bottom Bar -->
                         <div class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur border-t border-gray-200 p-4 z-40 safe-pb">
                             <div class="max-w-2xl mx-auto">
                                 ${step.type === 'read' 
@@ -278,7 +332,6 @@
                 `;
                 this.container.innerHTML = html;
                 if(step.type === 'quiz') {
-                    // Slight delay to ensure render complete, but don't auto-focus on mobile to avoid keyboard popping up instantly
                     setTimeout(() => {
                         if(window.innerWidth > 768) document.getElementById('inp-quiz').focus();
                     }, 100);
@@ -308,7 +361,7 @@
                     feed.className = "mb-4 rounded-xl p-4 font-bold text-center bg-green-100 animate-bounce";
                     const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3');
                     audio.volume = 0.3; audio.play().catch(e=>{});
-                    inp.blur(); // Hide keyboard on mobile
+                    inp.blur(); 
                     btnCheck.classList.add('hidden');
                     btnNext.classList.remove('hidden');
                 } else {
@@ -358,6 +411,16 @@
     
                 const word = this.reviewDeck[this.reviewIndex];
                 const progress = ((this.reviewIndex) / this.reviewDeck.length) * 100;
+
+                // --- NUEVO: Lógica para elegir aleatoriamente el lado frontal ---
+                const isFrenchFront = Math.random() > 0.5;
+                
+                const frontLang = isFrenchFront ? 'Français' : 'Español';
+                const frontText = isFrenchFront ? word.fr : word.es;
+                
+                const backLang = isFrenchFront ? 'Español' : 'Français';
+                const backText = isFrenchFront ? word.es : word.fr;
+                // ---------------------------------------------------------------
     
                 this.container.innerHTML = `
                     <div class="h-full flex flex-col bg-gray-100">
@@ -370,18 +433,17 @@
                         </div>
                         
                         <div class="flex-1 flex items-center justify-center perspective-1000 cursor-pointer group p-4 overflow-hidden" onclick="document.querySelector('.card-inner').classList.toggle('rotate-y-180')">
-                            <!-- Responsive Card Size: w-[85vw] instead of fixed width -->
                             <div class="card-inner w-[85vw] max-w-xs h-[50vh] min-h-[300px] relative transform-style-3d transition-transform duration-500">
                                 <!-- Front -->
                                 <div class="absolute inset-0 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden border-b-4 border-gray-200 p-4 text-center">
-                                    <span class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Français</span>
-                                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-frBlue break-words max-w-full">${word.fr}</h2>
+                                    <span class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">${frontLang}</span>
+                                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-frBlue break-words max-w-full">${frontText}</h2>
                                     <p class="mt-8 text-gray-300 text-xs flex items-center gap-1"><i class="fa-solid fa-hand-pointer"></i> Toca para voltear</p>
                                 </div>
                                 <!-- Back -->
                                 <div class="absolute inset-0 bg-frBlue rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden rotate-y-180 text-white border-b-4 border-blue-900 p-4 text-center">
-                                    <span class="text-[10px] uppercase tracking-widest text-blue-300 mb-2">Español</span>
-                                    <h2 class="text-2xl sm:text-3xl font-serif font-bold break-words max-w-full">${word.es}</h2>
+                                    <span class="text-[10px] uppercase tracking-widest text-blue-300 mb-2">${backLang}</span>
+                                    <h2 class="text-2xl sm:text-3xl font-serif font-bold break-words max-w-full">${backText}</h2>
                                 </div>
                             </div>
                         </div>
@@ -434,18 +496,29 @@
                     return;
                 }
                 const word = this.deck[this.cardIdx];
+
+                // --- NUEVO: Lógica aleatoria también para revisiones voluntarias ---
+                const isFrenchFront = Math.random() > 0.5;
+                
+                const frontLang = isFrenchFront ? 'Français' : 'Español';
+                const frontText = isFrenchFront ? word.fr : word.es;
+                
+                const backLang = isFrenchFront ? 'Español' : 'Français';
+                const backText = isFrenchFront ? word.es : word.fr;
+                // ------------------------------------------------------------------
+
                 this.container.innerHTML = `
                     <div class="h-full flex flex-col bg-gray-100">
                         <div class="p-4 flex justify-end"><button onclick="app.renderMap()" class="bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center"><i class="fa-solid fa-xmark text-gray-500"></i></button></div>
                         <div class="flex-1 flex items-center justify-center perspective-1000 cursor-pointer group px-4" onclick="document.querySelector('.card-inner').classList.toggle('rotate-y-180')">
                             <div class="card-inner w-full max-w-[300px] h-[400px] relative transform-style-3d transition-transform duration-500">
                                 <div class="absolute inset-0 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden border-b-4 border-gray-200">
-                                    <span class="text-xs uppercase tracking-widest text-gray-400 mb-2">Français</span>
-                                    <h2 class="text-3xl font-serif font-bold text-frBlue text-center px-2">${word.fr}</h2>
+                                    <span class="text-xs uppercase tracking-widest text-gray-400 mb-2">${frontLang}</span>
+                                    <h2 class="text-3xl font-serif font-bold text-frBlue text-center px-2">${frontText}</h2>
                                 </div>
                                 <div class="absolute inset-0 bg-frBlue rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden rotate-y-180 text-white border-b-4 border-blue-900">
-                                    <span class="text-xs uppercase tracking-widest text-blue-300 mb-2">Español</span>
-                                    <h2 class="text-3xl font-serif font-bold text-center px-2">${word.es}</h2>
+                                    <span class="text-xs uppercase tracking-widest text-blue-300 mb-2">${backLang}</span>
+                                    <h2 class="text-3xl font-serif font-bold text-center px-2">${backText}</h2>
                                 </div>
                             </div>
                         </div>
