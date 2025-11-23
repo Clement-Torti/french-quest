@@ -1,9 +1,389 @@
-now based on this file bellow which is lessonX.html, generate exercicesX.html
-it should take roughly 30min to complete. containing 4 long and diverse exercices. Each exercices contains 6 sub-exercices/preguntas.
-if the exercice imply entering text, add a list of common french characters bottons (like accent) to adapt to foreigner keyboard. Make sure to validate each responses in order to go to the next exercice. If the answer is wrong, give the right answer to help.
-Dont include reading comprehension exercices.
-includes summary of the rules to help the user when necessary (ex: tenses, vocab, grammar rule ...)
-mantain the same format as the lesson, one exercice per section.
+Here is an example of script exercices:
+<script type="application/json" id="exercise-data">
+{
+  "interactive_exercises": [
+    {
+      "id": "ex_001",
+      "type": "selection_single",
+      "difficulty": "easy",
+      "instruction": "Elige la conjugación correcta.",
+      "prompt": "Marie ______ la directrice.",
+      "content": {
+        "options": [
+          { "id": "opt_1", "text": "es" },
+          { "id": "opt_2", "text": "est" },
+          { "id": "opt_3", "text": "a" }
+        ],
+        "correct_option_id": "opt_2"
+      },
+      "feedback": {
+        "correct": "¡Excelente! 'Marie est' (ella es).",
+        "incorrect": "Recuerda: 'es' es para 'Tu', 'est' es para 'Elle'."
+      }
+    },
+    {
+      "id": "ex_002",
+      "type": "sentence_builder",
+      "difficulty": "medium",
+      "instruction": "Ordena las palabras para formar la frase correcta.",
+      "prompt": null,
+      "content": {
+        "segments": ["Je", "suis", "comptable", "pas", "un"],
+        "correct_order": ["Je", "suis", "comptable"],
+        "distractors": ["pas", "un"]
+      },
+      "feedback": {
+        "correct": "¡Exacto! En francés no usamos 'un' para profesiones.",
+        "incorrect": "Cuidado con el artículo 'un' y el orden Sujeto + Verbo + Profesión."
+      }
+    },
+    {
+      "id": "ex_003",
+      "type": "fill_in_blank",
+      "difficulty": "medium",
+      "instruction": "Escribe el verbo que falta (Cuidado: es edad).",
+      "prompt": "J'_____ 25 ans.",
+      "content": {
+        "placeholder": "Escribe aquí...",
+        "accepted_answers": ["ai", "Ai"]
+      },
+      "feedback": {
+        "correct": "Bien. Para la edad usamos Avoir (J'ai).",
+        "incorrect": "Recuerda: en francés 'tienes' años, no 'eres' años."
+      }
+    },
+    {
+      "id": "ex_004",
+      "type": "true_false",
+      "difficulty": "easy",
+      "instruction": "¿Esta frase es correcta gramaticalmente?",
+      "prompt": "Je suis une avocate.",
+      "content": {
+        "is_correct": false,
+        "explanation": "Sobra el artículo 'une'. Debe ser 'Je suis avocate'."
+      },
+      "feedback": null
+    },
+    {
+      "id": "ex_005",
+      "type": "selection_single",
+      "difficulty": "easy",
+      "instruction": "Selecciona el verbo para 'Nosotros estamos'.",
+      "prompt": "Nous ______ au bureau.",
+      "content": {
+        "options": [
+          { "id": "opt_1", "text": "sommes" },
+          { "id": "opt_2", "text": "avons" },
+          { "id": "opt_3", "text": "êtes" }
+        ],
+        "correct_option_id": "opt_1"
+      },
+      "feedback": {
+        "correct": "¡Correcto! Nous sommes (Nosotros somos/estamos).",
+        "incorrect": "Recuerda: 'Nous sommes' es Être. 'Nous avons' es Avoir."
+      }
+    },
+    {
+      "id": "ex_006",
+      "type": "selection_single",
+      "difficulty": "medium",
+      "instruction": "Elige la opción con la concordancia de género correcta para Emily.",
+      "prompt": "Emily est ______.",
+      "content": {
+        "options": [
+          { "id": "opt_1", "text": "américain" },
+          { "id": "opt_2", "text": "américaine" },
+          { "id": "opt_3", "text": "américaines" }
+        ],
+        "correct_option_id": "opt_2"
+      },
+      "feedback": {
+        "correct": "¡Oui! Al ser mujer, añadimos una 'e' al final: Américaine.",
+        "incorrect": "Emily es mujer, así que el adjetivo debe terminar en 'e'."
+      }
+    },
+    {
+      "id": "ex_007",
+      "type": "selection_single",
+      "difficulty": "hard",
+      "instruction": "¿Qué verbo se usa para decir que necesitas algo?",
+      "prompt": "J'______ besoin de vacances.",
+      "content": {
+        "options": [
+          { "id": "opt_1", "text": "suis" },
+          { "id": "opt_2", "text": "ai" },
+          { "id": "opt_3", "text": "es" }
+        ],
+        "correct_option_id": "opt_2"
+      },
+      "feedback": {
+        "correct": "¡Exacto! La expresión es 'Avoir besoin de' (Tener necesidad de).",
+        "incorrect": "En francés 'tienes' necesidad, no 'estás' necesidad. Usa Avoir (J'ai)."
+      }
+    },
+    {
+      "id": "ex_008",
+      "type": "selection_single",
+      "difficulty": "medium",
+      "instruction": "Identifica al sujeto correcto para esta conjugación.",
+      "prompt": "______ sont en retard.",
+      "content": {
+        "options": [
+          { "id": "opt_1", "text": "Ils" },
+          { "id": "opt_2", "text": "Nous" },
+          { "id": "opt_3", "text": "Vous" }
+        ],
+        "correct_option_id": "opt_1"
+      },
+      "feedback": {
+        "correct": "Bien hecho. 'Sont' es la conjugación de Être para Ils/Elles.",
+        "incorrect": "Nous sommes, Vous êtes, Ils sont."
+      }
+    },
+    {
+      "id": "ex_009",
+      "type": "selection_single",
+      "difficulty": "easy",
+      "instruction": "Sylvie presenta a Luc. ¿Qué dice?",
+      "prompt": "Il ______ comptable.",
+      "content": {
+        "options": [
+          { "id": "opt_1", "text": "est un" },
+          { "id": "opt_2", "text": "es" },
+          { "id": "opt_3", "text": "est" }
+        ],
+        "correct_option_id": "opt_3"
+      },
+      "feedback": {
+        "correct": "Correcto. 'Il est comptable' (Verbo Être + Profesión sin artículo).",
+        "incorrect": "Cuidado: No uses 'un' para profesiones y revisa la conjugación (Il est)."
+      }
+    },
+    {
+      "id": "ex_010",
+      "type": "sentence_builder",
+      "difficulty": "medium",
+      "instruction": "Forma la frase: 'Usted está de acuerdo'.",
+      "prompt": null,
+      "content": {
+        "segments": ["Vous", "êtes", "d'accord", "sommes"],
+        "correct_order": ["Vous", "êtes", "d'accord"],
+        "distractors": ["sommes"]
+      },
+      "feedback": {
+        "correct": "¡Muy bien! 'Vous êtes d'accord'.",
+        "incorrect": "Revisa la conjugación de Être para 'Vous'."
+      }
+    },
+    {
+      "id": "ex_011",
+      "type": "sentence_builder",
+      "difficulty": "medium",
+      "instruction": "Forma la frase: 'Ella tiene una reunión'.",
+      "prompt": null,
+      "content": {
+        "segments": ["Elle", "a", "une", "réunion", "est"],
+        "correct_order": ["Elle", "a", "une", "réunion"],
+        "distractors": ["est"]
+      },
+      "feedback": {
+        "correct": "¡Perfecto! Usamos 'Avoir' (ella tiene) para eventos o posesiones.",
+        "incorrect": "No confundas 'Elle est' (ella es) con 'Elle a' (ella tiene)."
+      }
+    },
+    {
+      "id": "ex_012",
+      "type": "sentence_builder",
+      "difficulty": "hard",
+      "instruction": "Ordena la presentación de Luc (Soy contador).",
+      "prompt": null,
+      "content": {
+        "segments": ["Je", "suis", "comptable", "un", "le"],
+        "correct_order": ["Je", "suis", "comptable"],
+        "distractors": ["un", "le"]
+      },
+      "feedback": {
+        "correct": "¡Eso es! Sin artículos.",
+        "incorrect": "Recuerda: Je suis + profesión (sin un/le)."
+      }
+    },
+    {
+      "id": "ex_013",
+      "type": "sentence_builder",
+      "difficulty": "hard",
+      "instruction": "Forma la frase: 'Nosotros estamos en París'.",
+      "prompt": null,
+      "content": {
+        "segments": ["Nous", "sommes", "à", "Paris", "avons"],
+        "correct_order": ["Nous", "sommes", "à", "Paris"],
+        "distractors": ["avons"]
+      },
+      "feedback": {
+        "correct": "Bien. Nous sommes (ubicación).",
+        "incorrect": "'Avons' es tener. Para ubicación usamos Être (sommes)."
+      }
+    },
+    {
+      "id": "ex_014",
+      "type": "fill_in_blank",
+      "difficulty": "easy",
+      "instruction": "Completa con la conjugación de Être: Tu ____ stagaire.",
+      "prompt": "Tu ______ stagiaire ?",
+      "content": {
+        "placeholder": "...",
+        "accepted_answers": ["es"]
+      },
+      "feedback": {
+        "correct": "Correcto. Tu es.",
+        "incorrect": "La conjugación es 'Tu es'."
+      }
+    },
+    {
+      "id": "ex_015",
+      "type": "fill_in_blank",
+      "difficulty": "medium",
+      "instruction": "Completa con Avoir: Ustedes ____ las cifras (les chiffres).",
+      "prompt": "Vous ______ les chiffres ?",
+      "content": {
+        "placeholder": "...",
+        "accepted_answers": ["avez", "Avez"]
+      },
+      "feedback": {
+        "correct": "Bien. Vous avez (ustedes tienen).",
+        "incorrect": "Conjugación de Avoir para Vous: Vous avez."
+      }
+    },
+    {
+      "id": "ex_016",
+      "type": "fill_in_blank",
+      "difficulty": "hard",
+      "instruction": "Escribe el verbo correcto. Luc y Julien ____ en la oficina.",
+      "prompt": "Ils ______ au bureau.",
+      "content": {
+        "placeholder": "...",
+        "accepted_answers": ["sont", "Sont"]
+      },
+      "feedback": {
+        "correct": "¡Excelente! Ils sont (Ellos están).",
+        "incorrect": "Ellos 'están' se dice 'Ils sont'. Cuidado, no es 'ont' (tienen)."
+      }
+    },
+    {
+      "id": "ex_017",
+      "type": "fill_in_blank",
+      "difficulty": "hard",
+      "instruction": "Completa la expresión: Pareces cansado (Tener aspecto de...).",
+      "prompt": "Tu ______ l'air fatigué.",
+      "content": {
+        "placeholder": "...",
+        "accepted_answers": ["as", "As"]
+      },
+      "feedback": {
+        "correct": "Bien. 'Avoir l'air' usa el verbo Avoir.",
+        "incorrect": "La expresión es 'Tu as l'air' (literalmente: tienes el aire)."
+      }
+    },
+    {
+      "id": "ex_018",
+      "type": "true_false",
+      "difficulty": "easy",
+      "instruction": "¿Es correcto decir 'Je suis 30 ans'?",
+      "prompt": "Je suis 30 ans.",
+      "content": {
+        "is_correct": false,
+        "explanation": "Falso. Debes decir 'J'ai 30 ans' (Yo tengo 30 años)."
+      },
+      "feedback": null
+    },
+    {
+      "id": "ex_019",
+      "type": "true_false",
+      "difficulty": "medium",
+      "instruction": "Verdadero o Falso: 'Il est allemand' es correcto.",
+      "prompt": "Il est allemand.",
+      "content": {
+        "is_correct": true,
+        "explanation": "Correcto. 'Allemand' es la nacionalidad masculina y usamos el verbo Être."
+      },
+      "feedback": null
+    },
+    {
+      "id": "ex_020",
+      "type": "true_false",
+      "difficulty": "medium",
+      "instruction": "¿Esta frase usa el verbo correcto?",
+      "prompt": "Nous avons en retard.",
+      "content": {
+        "is_correct": false,
+        "explanation": "Falso. Se dice 'Nous SOMMES en retard' (Estamos atrasados)."
+      },
+      "feedback": null
+    },
+    {
+      "id": "ex_021",
+      "type": "true_false",
+      "difficulty": "hard",
+      "instruction": "Analiza la concordancia: 'Elles sont chinois'.",
+      "prompt": "Elles sont chinois.",
+      "content": {
+        "is_correct": false,
+        "explanation": "Falso. Ellas son mujeres, debe ser 'Elles sont chinoisES'."
+      },
+      "feedback": null
+    },
+    {
+      "id": "ex_022",
+      "type": "selection_single",
+      "difficulty": "medium",
+      "instruction": "¿Cómo preguntas '¿Usted es el dueño?'",
+      "prompt": "Vous ______ le propriétaire ?",
+      "content": {
+        "options": [
+          { "id": "opt_1", "text": "êtes" },
+          { "id": "opt_2", "text": "avez" },
+          { "id": "opt_3", "text": "es" }
+        ],
+        "correct_option_id": "opt_1"
+      },
+      "feedback": {
+        "correct": "Correcto. Vous êtes le propriétaire.",
+        "incorrect": "Usamos Être (Ser) para identificar a alguien."
+      }
+    },
+    {
+      "id": "ex_023",
+      "type": "fill_in_blank",
+      "difficulty": "hard",
+      "instruction": "Traduce 'Yo tengo': J'____.",
+      "prompt": "J'_____ une idée !",
+      "content": {
+        "placeholder": "...",
+        "accepted_answers": ["ai", "Ai"]
+      },
+      "feedback": {
+        "correct": "Oui! J'ai.",
+        "incorrect": "La conjugación de Avoir para 'Je' es 'ai'."
+      }
+    },
+    {
+      "id": "ex_024",
+      "type": "sentence_builder",
+      "difficulty": "medium",
+      "instruction": "Forma la frase: 'Emily es estadounidense'.",
+      "prompt": null,
+      "content": {
+        "segments": ["Emily", "est", "américaine", "américain"],
+        "correct_order": ["Emily", "est", "américaine"],
+        "distractors": ["américain"]
+      },
+      "feedback": {
+        "correct": "Perfecto. Femenino = Américaine.",
+        "incorrect": "Cuidado con el género. Emily necesita el adjetivo femenino (terminado en e)."
+      }
+    }
+  ]
+}
+</script>
 
-The lesson file is:
+respect the exact format of the example, and create a lot of script exercices related to this lesson:
 XXX
