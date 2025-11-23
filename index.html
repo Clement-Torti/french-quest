@@ -367,7 +367,6 @@ renderMap() {
             },
     
             // --- 3A. LESSON ENGINE (Standard) ---
-// --- 3A. LESSON ENGINE (Standard) ---
 async loadLesson(index) {
     const mod = this.modules[index];
     this.currentModIndex = index;
@@ -791,9 +790,8 @@ renderStep() {
     
             nextStep() { this.currentStepIdx++; this.renderStep(); },
     
-            prepareEndReview() {
-                // If practice mode, we might skip adding vocab or add specific logic
-                // For now, we treat it same as lesson completion
+prepareEndReview() {
+                // 1. Save to Global Vocab (Background)
                 if (this.currentLessonMeta.vocabulary && this.currentLessonMeta.mode !== 'practice') {
                     const existing = this.userVocab.map(v => v.fr);
                     this.currentLessonMeta.vocabulary.forEach(w => {
@@ -801,7 +799,75 @@ renderStep() {
                     });
                     localStorage.setItem('acad_user_vocab', JSON.stringify(this.userVocab));
                 }
-                this.completeLesson(); 
+
+                // 2. Check if there is vocab to review for this specific lesson
+                if (this.currentLessonMeta.vocabulary && this.currentLessonMeta.vocabulary.length > 0) {
+                    // Initialize mandatory review session
+                    this.reviewDeck = this.currentLessonMeta.vocabulary;
+                    this.reviewIndex = 0;
+                    this.renderLessonVocabReview();
+                } else {
+                    // No vocab, go straight to completion
+                    this.completeLesson(); 
+                }
+            },
+
+            renderLessonVocabReview() {
+                if (this.reviewIndex >= this.reviewDeck.length) {
+                    this.completeLesson();
+                    return;
+                }
+
+                const word = this.reviewDeck[this.reviewIndex];
+                const isLast = this.reviewIndex === this.reviewDeck.length - 1;
+                const progressText = `Mot ${this.reviewIndex + 1} sur ${this.reviewDeck.length}`;
+
+                // --- RANDOMIZATION LOGIC ---
+                const isFrenchFront = Math.random() > 0.5;
+                const frontLang = isFrenchFront ? 'Français' : 'Español';
+                const frontText = isFrenchFront ? word.fr : word.es;
+                const backLang = isFrenchFront ? 'Español' : 'Français';
+                const backText = isFrenchFront ? word.es : word.fr;
+
+                this.container.innerHTML = `
+                    <div class="h-full flex flex-col bg-frCream">
+                        <div class="px-6 py-6 text-center">
+                            <h2 class="text-frBlue font-bold text-lg uppercase tracking-widest mb-1">Dernière étape</h2>
+                            <p class="text-gray-500 text-sm">Mémorisez le vocabulaire pour finir</p>
+                        </div>
+
+                        <div class="flex-1 flex flex-col items-center justify-center perspective-1000 cursor-pointer group px-4 pb-10"
+                             onclick="document.querySelector('.card-inner').classList.toggle('rotate-y-180')">
+                             
+                            <div class="card-inner w-full max-w-[300px] h-[360px] relative transform-style-3d transition-transform duration-500">
+                                <!-- FRONT -->
+                                <div class="absolute inset-0 bg-white rounded-2xl shadow-card flex flex-col items-center justify-center backface-hidden border-b-4 border-gray-200">
+                                    <span class="text-xs uppercase tracking-widest text-gray-400 mb-4">${frontLang}</span>
+                                    <h2 class="text-3xl font-serif font-bold text-frBlue text-center px-4">${frontText}</h2>
+                                    <div class="mt-8 text-gray-300 text-xs flex items-center gap-2"><i class="fa-solid fa-rotate"></i> Toucher pour retourner</div>
+                                </div>
+                                
+                                <!-- BACK -->
+                                <div class="absolute inset-0 bg-frBlue rounded-2xl shadow-card flex flex-col items-center justify-center backface-hidden rotate-y-180 text-white border-b-4 border-blue-900">
+                                    <span class="text-xs uppercase tracking-widest text-blue-300 mb-4">${backLang}</span>
+                                    <h2 class="text-3xl font-serif font-bold text-center px-4">${backText}</h2>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 text-sm font-bold text-gray-400">${progressText}</div>
+                        </div>
+
+                        <div class="p-6 bg-white border-t border-gray-200">
+                            <button onclick="app.nextLessonReviewCard()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl shadow-btn active:shadow-none active:translate-y-1 transition uppercase tracking-wider text-sm">
+                                ${isLast ? 'Terminer la leçon' : 'Mot Suivant'}
+                            </button>
+                        </div>
+                    </div>`;
+            },
+
+            nextLessonReviewCard() {
+                this.reviewIndex++;
+                this.renderLessonVocabReview();
             },
     
 completeLesson() {
