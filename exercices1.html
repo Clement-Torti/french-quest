@@ -1,0 +1,217 @@
+<!-- EXERCISES FILE: exercices1.html -->
+
+<!-- 1. EXERCISE CONTENT -->
+<div id="exercises-content" class="space-y-12">
+
+    <!-- HELPER: CHARACTER TOOLBAR (Inserted dynamically via JS below, but defined here for structure) -->
+    <style>
+        .char-btn {
+            background-color: #f3f4f6; border: 1px solid #d1d5db; color: #002654;
+            font-weight: bold; border-radius: 6px; width: 32px; height: 32px;
+            display: inline-flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+        }
+        .char-btn:active { transform: translateY(2px); box-shadow: none; }
+        .char-btn:hover { background-color: #e5e7eb; border-color: #9ca3af; }
+    </style>
+
+    <!-- EXERCISE 1: ÊTRE vs AVOIR (The Dialogue) -->
+    <section data-answer="nous sommes en retard">
+        
+        <!-- Context / Rule Reminder -->
+        <div class="mb-6 bg-blue-50 p-5 rounded-xl border-l-4 border-frBlue">
+            <h3 class="text-lg font-bold text-frBlue mb-2"><i class="fa-solid fa-graduation-cap"></i> Rappel: Être vs Avoir</h3>
+            <p class="text-sm text-gray-700 mb-3">
+                No confundas el estado (<strong>Être</strong>) con la posesión o sensaciones (<strong>Avoir</strong>).
+            </p>
+            <div class="grid grid-cols-2 gap-4 text-sm">
+                <div class="bg-white p-2 rounded border">
+                    <strong class="text-indigo-600 block mb-1">Être (Ser/Estar)</strong>
+                    <ul class="list-disc ml-4 text-xs text-gray-600">
+                        <li>Je suis (Yo soy)</li>
+                        <li>Tu es (Tú eres)</li>
+                        <li>Nous <strong>sommes</strong> (Nosotros somos/estamos)</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-2 rounded border">
+                    <strong class="text-pink-600 block mb-1">Avoir (Tener)</strong>
+                    <ul class="list-disc ml-4 text-xs text-gray-600">
+                        <li>J'ai (Yo tengo)</li>
+                        <li>Tu as (Tú tienes)</li>
+                        <li>Nous <strong>avons</strong> (Nosotros tenemos)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Challenge -->
+        <h2 class="text-xl font-bold text-gray-800 mb-3 font-serif">1. La llegada a la oficina</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+            Sylvie está molesta porque la reunión comienza a las 9:00 AM y son las 9:15 AM. 
+            Ella mira a todo el equipo y dice una frase clave usando el verbo <em>Être</em>.
+        </p>
+        <p class="mb-4 italic text-gray-500 border-l-2 border-gray-300 pl-3">
+            "¡Rápido! El cliente espera. Nosotros estamos retrasados."
+        </p>
+        
+        <div class="mb-2">
+            <p class="font-bold text-sm text-gray-700 mb-2">Traduce la frase exacta "Nosotros estamos retrasados":</p>
+            <!-- Character Toolbar -->
+            <div class="flex gap-2 mb-2 select-none">
+                <button type="button" class="char-btn" onclick="insertChar('é')">é</button>
+                <button type="button" class="char-btn" onclick="insertChar('è')">è</button>
+                <button type="button" class="char-btn" onclick="insertChar('à')">à</button>
+                <button type="button" class="char-btn" onclick="insertChar('ê')">ê</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- EXERCISE 2: PROFESSIONS (The Article Trap) -->
+    <section data-answer="elle est stagiaire">
+        
+        <!-- Context / Rule Reminder -->
+        <div class="mb-6 bg-red-50 p-5 rounded-xl border-l-4 border-frRed">
+            <h3 class="text-lg font-bold text-frRed mb-2"><i class="fa-solid fa-triangle-exclamation"></i> La Trampa del Artículo</h3>
+            <p class="text-sm text-gray-700 mb-2">
+                En español decimos "Ella es <strong>una</strong> pasante". <br>
+                En francés, <strong>NUNCA</strong> uses "un" o "une" para profesiones después de "il/elle est" o "je suis".
+            </p>
+            <div class="bg-white p-3 rounded text-center border border-red-100">
+                <span class="text-red-400 line-through text-xs block">C'est une stagiaire</span>
+                <span class="text-green-600 font-bold text-sm block">Elle est stagiaire <i class="fa-solid fa-check"></i></span>
+            </div>
+        </div>
+
+        <!-- The Challenge -->
+        <h2 class="text-xl font-bold text-gray-800 mb-3 font-serif">2. Presentando al equipo</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+            Un cliente pregunta quién es la chica joven que trae el café. Tú respondes con profesionalismo para explicar su cargo (Pasante / Becaria).
+        </p>
+        
+        <div class="mb-2">
+            <p class="font-bold text-sm text-gray-700 mb-2">Traduce "Ella es pasante" (Cuidado con el artículo):</p>
+             <!-- Character Toolbar -->
+             <div class="flex gap-2 mb-2 select-none">
+                <button type="button" class="char-btn" onclick="insertChar('é')">é</button>
+                <button type="button" class="char-btn" onclick="insertChar('è')">è</button>
+                <button type="button" class="char-btn" onclick="insertChar('ç')">ç</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- EXERCISE 3: VOCABULARY (Definitions) -->
+    <section data-answer="le comptable">
+        
+        <!-- Context / Rule Reminder -->
+        <div class="mb-6 bg-yellow-50 p-5 rounded-xl border-l-4 border-gold">
+            <h3 class="text-lg font-bold text-yellow-700 mb-2"><i class="fa-solid fa-book-open"></i> Vocabulario: Los Roles</h3>
+            <ul class="text-sm text-gray-700 space-y-2">
+                <li><strong>Le Directeur / La Directrice:</strong> El jefe(a).</li>
+                <li><strong>Le Chargé de clientèle:</strong> Ejecutivo de cuentas.</li>
+                <li><strong>Le Comptable:</strong> El que controla el dinero.</li>
+            </ul>
+        </div>
+
+        <!-- The Challenge -->
+        <h2 class="text-xl font-bold text-gray-800 mb-3 font-serif">3. ¿Quién hace qué?</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+            Estás en una reunión y alguien pregunta: <br>
+            <em>"Qui s'occupe de l'argent et des factures ?"</em> (¿Quién se ocupa del dinero y las facturas?).
+        </p>
+        <p class="mb-4 text-gray-600">
+            Tú señalas a Luc. ¿Cuál es su puesto?
+        </p>
+        
+        <div class="mb-2">
+            <p class="font-bold text-sm text-gray-700 mb-2">Escribe la profesión con su artículo (El contador):</p>
+        </div>
+    </section>
+
+
+    <!-- EXERCISE 4: NATIONALITIES & GENDER -->
+    <section data-answer="elle est américaine">
+        
+        <!-- Context / Rule Reminder -->
+        <div class="mb-6 bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-500">
+            <h3 class="text-lg font-bold text-indigo-700 mb-2"><i class="fa-solid fa-venus-mars"></i> Nacionalidades</h3>
+            <p class="text-sm text-gray-700 mb-2">
+                Para formar el femenino de la mayoría de las nacionalidades, se añade una <strong>"e"</strong> al final.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                <div class="bg-white p-1 rounded text-gray-500">Masculino: <br><strong>Américain</strong></div>
+                <div class="bg-white p-1 rounded text-indigo-600 font-bold">Femenino: <br><strong>Américaine</strong></div>
+            </div>
+        </div>
+
+        <!-- The Challenge -->
+        <h2 class="text-xl font-bold text-gray-800 mb-3 font-serif">4. Origen Internacional</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+            Luc está presentando a Emily a un nuevo socio. Él dice: "Voici Emily. Ella es estadounidense."
+        </p>
+        <p class="text-xs text-gray-500 italic mb-4">Nota: Recuerda la regla del artículo (no digas "una") y la regla del femenino.</p>
+        
+        <div class="mb-2">
+            <p class="font-bold text-sm text-gray-700 mb-2">Traduce "Ella es estadounidense":</p>
+             <!-- Character Toolbar -->
+             <div class="flex gap-2 mb-2 select-none">
+                <button type="button" class="char-btn" onclick="insertChar('é')">é</button>
+                <button type="button" class="char-btn" onclick="insertChar('è')">è</button>
+                <button type="button" class="char-btn" onclick="insertChar('ï')">ï</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- EXERCISE 5: AGE (The Ultimate Trap) -->
+    <section data-answer="j'ai 25 ans">
+        
+        <!-- Context / Rule Reminder -->
+        <div class="mb-6 bg-pink-50 p-5 rounded-xl border-l-4 border-pink-500">
+            <h3 class="text-lg font-bold text-pink-700 mb-2"><i class="fa-solid fa-cake-candles"></i> La Edad: Avoir vs Être</h3>
+            <p class="text-sm text-gray-700">
+                ¡Alerta Roja! 🚨 En francés, tú no "eres" tus años. Tú <strong>tienes</strong> tus años.
+                <br>Incorrecto: <span class="line-through text-gray-400">Je suis 20 ans.</span>
+                <br>Correcto: <strong>J'ai 20 ans.</strong>
+            </p>
+        </div>
+
+        <!-- The Challenge -->
+        <h2 class="text-xl font-bold text-gray-800 mb-3 font-serif">5. Formulario de inscripción</h2>
+        <p class="mb-4 text-gray-600 leading-relaxed">
+            Estás completando tu perfil en la intranet de Savoir. Hay un campo que pregunta: "Âge?".
+            Debes escribir la frase completa para decir "Tengo 25 años".
+        </p>
+        
+        <div class="mb-2">
+            <p class="font-bold text-sm text-gray-700 mb-2">Escribe "Tengo 25 años" en francés:</p>
+            <!-- Character Toolbar -->
+            <div class="flex gap-2 mb-2 select-none">
+                <button type="button" class="char-btn" onclick="insertChar('é')">é</button>
+                <button type="button" class="char-btn" onclick="insertChar('ç')">ç</button>
+                <button type="button" class="char-btn" onclick="insertChar('\'')">'</button>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- SCRIPT TO MAKE CHARACTER BUTTONS WORK -->
+<script>
+    function insertChar(char) {
+        // Find the visible textarea (the one in the active step)
+        const activeTextarea = document.querySelector('.lesson-section textarea, #inp-quiz'); 
+        
+        // If we are in the main app flow, the ID is usually #inp-quiz
+        if (activeTextarea) {
+            const start = activeTextarea.selectionStart;
+            const end = activeTextarea.selectionEnd;
+            const text = activeTextarea.value;
+            
+            activeTextarea.value = text.substring(0, start) + char + text.substring(end);
+            activeTextarea.focus();
+            activeTextarea.selectionStart = activeTextarea.selectionEnd = start + 1;
+        }
+    }
+</script>

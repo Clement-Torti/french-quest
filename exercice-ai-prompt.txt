@@ -1,0 +1,8 @@
+now based on this file bellow which is lessonX.html, generate exercicesX.html
+it should take roughly 30min to complete. containing 5 long and diverse exercices.
+if the exercice imply entering text, add a list of common french characters bottons (like accent) to adapt to foreigner keyboard, but ignore accents and special character to validate answer.
+includes summary of the rules to help the user when necessary (ex: tenses, vocab, grammar rule ...)
+mantain the same format as the lesson, one exercice per section.
+
+The lesson file is:
+XXX
