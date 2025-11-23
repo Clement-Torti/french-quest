@@ -1,0 +1,409 @@
+
+<script type="application/json" id="exercise-data">
+    {
+    "interactive_exercises": [
+    {
+    "id": "ex_001",
+    "type": "selection_single",
+    "difficulty": "easy",
+    "instruction": "Selecciona el conector lógico para comenzar una instrucción.",
+    "prompt": "______, épluchez les pommes de terre.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Enfin" },
+    { "id": "opt_2", "text": "D'abord" },
+    { "id": "opt_3", "text": "Ensuite" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Correcto! 'D'abord' (Primero) se usa al inicio.",
+    "incorrect": "'Enfin' es para el final y 'Ensuite' para el medio. Para empezar usamos 'D'abord' o 'Tout d'abord'."
+    }
+    },
+    {
+    "id": "ex_002",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Transforma 'Coupe les oignons' usando un pronombre directo.",
+    "prompt": null,
+    "content": {
+    "segments": ["Coupe", "-", "les", "la", "le"],
+    "correct_order": ["Coupe", "-", "les"],
+    "distractors": ["la", "le"]
+    },
+    "feedback": {
+    "correct": "Bien hecho. 'Coupe-les' (Córtalos).",
+    "incorrect": "Oignons es plural, así que el pronombre directo es 'les'. Recuerda el guion."
+    }
+    },
+    {
+    "id": "ex_003",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Elige la forma correcta para decir 'Ve allí' (Tu).",
+    "prompt": "Le bureau est loin. ______ en taxi !",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Va-y" },
+    { "id": "opt_2", "text": "Vas-y" },
+    { "id": "opt_3", "text": "Y-va" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Exacto! 'Vas-y'. Añadimos la 's' al verbo Aller por fonética.",
+    "incorrect": "Aunque es imperativo 'Tu', cuando sigue 'y' o 'en', recuperamos la 's' (Vas-y) para la liaison."
+    }
+    },
+    {
+    "id": "ex_004",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Forma el imperativo negativo reflexivo: 'No te pierdas'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Ne", "te", "perds", "pas", "toi"],
+    "correct_order": ["Ne", "te", "perds", "pas"],
+    "distractors": ["toi"]
+    },
+    "feedback": {
+    "correct": "Muy bien. 'Ne te perds pas'.",
+    "incorrect": "En negativo, 'toi' vuelve a ser 'te' y se coloca antes del verbo."
+    }
+    },
+    {
+    "id": "ex_005",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la orden afirmativa: '¡Hazlo!'",
+    "prompt": "¡Hazlo!",
+    "content": {
+    "placeholder": "Escribe la orden...",
+    "accepted_answers": ["Fais-le !", "Fais-le"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Perfecto! 'Fais-le'.",
+    "incorrect": "Imperativo afirmativo: Verbo + guion + pronombre objeto directo (le)."
+    }
+    },
+    {
+    "id": "ex_006",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Completa la receta: 'Añade un poco (de sal)'. Usa el pronombre 'En'.",
+    "prompt": "C'est fade. ______ un peu.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Ajoute-en" },
+    { "id": "opt_2", "text": "Ajoutes-en" },
+    { "id": "opt_3", "text": "En ajoute" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Ajoutes-en'. Recuperamos la 's' en verbos -ER ante 'en'.",
+    "incorrect": "Al igual que con 'Vas-y', necesitamos la 's' para la liaison: Ajoutes-en."
+    }
+    },
+    {
+    "id": "ex_007",
+    "type": "true_false",
+    "difficulty": "hard",
+    "instruction": "Gramática: ¿Está bien escrito 'Mélange-la'?",
+    "prompt": "Mélange-la.",
+    "content": {
+    "is_correct": true,
+    "explanation": "Correcto. 'Mélange' (Imperativo Tu) + guion + 'la' (pronombre directo)."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_008",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Ordena la instrucción negativa: 'No toques eso'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Ne", "touche", "pas", "à", "ça"],
+    "correct_order": ["Ne", "touche", "pas", "à", "ça"],
+    "distractors": []
+    },
+    "feedback": {
+    "correct": "Bien. 'Ne touche pas à ça'.",
+    "incorrect": "Estructura negativa estándar: Ne + Verbo + Pas."
+    }
+    },
+    {
+    "id": "ex_009",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "¿Cómo dices 'Escúchame' en imperativo afirmativo?",
+    "prompt": "Gabriel dit : ______ bien !",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Écoute-me" },
+    { "id": "opt_2", "text": "Écoute-moi" },
+    { "id": "opt_3", "text": "M'écoute" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Sí! En afirmativo, 'me' se convierte en tónico 'moi'.",
+    "incorrect": "Nunca decimos 'Écoute-me'. El pronombre átono 'me' cambia a 'moi' después del verbo."
+    }
+    },
+    {
+    "id": "ex_010",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce usando 'Y': 'No vayas (allí).' (Tu)",
+    "prompt": "No vayas (allí).",
+    "content": {
+    "placeholder": "Escribe la frase...",
+    "accepted_answers": ["N'y va pas.", "N'y vas pas."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Excelente. 'N'y va pas'.",
+    "incorrect": "En negativo, la 's' eufónica desaparece (N'y va pas) y el pronombre va antes del verbo."
+    }
+    },
+    {
+    "id": "ex_011",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Instrucción de dirección: 'Cruce el puente'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Traversez", "le", "pont", "la"],
+    "correct_order": ["Traversez", "le", "pont"],
+    "distractors": ["la"]
+    },
+    "feedback": {
+    "correct": "Correcto. 'Traversez le pont'.",
+    "incorrect": "Pont es masculino (le)."
+    }
+    },
+    {
+    "id": "ex_012",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Elige el verbo para 'Pelar' las verduras.",
+    "prompt": "Il faut ______ les carottes.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "ajouter" },
+    { "id": "opt_2", "text": "verser" },
+    { "id": "opt_3", "text": "éplucher" }
+    ],
+    "correct_option_id": "opt_3"
+    },
+    "feedback": {
+    "correct": "Correcto. Éplucher = Pelar.",
+    "incorrect": "'Ajouter' es añadir y 'Verser' es verter."
+    }
+    },
+    {
+    "id": "ex_013",
+    "type": "true_false",
+    "difficulty": "hard",
+    "instruction": "Verdadero o Falso: 'Donne-me-le' es correcto.",
+    "prompt": "Donne-me-le.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. El orden correcto de pronombres es 'Donne-le-moi' (Dámelo)."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_014",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Usa 'En' para decir: 'Prueba un poco (de eso)'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Goûtes", "-", "en", "un", "peu"],
+    "correct_order": ["Goûtes", "-", "en", "un", "peu"],
+    "distractors": []
+    },
+    "feedback": {
+    "correct": "Bien. 'Goûtes-en un peu'.",
+    "incorrect": "Recuerda la 's' en 'Goûtes' para unir el sonido con 'en'."
+    }
+    },
+    {
+    "id": "ex_015",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué haces con la sartén ('la poêle')?",
+    "prompt": "Mets de l'huile dans la ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "casserole" },
+    { "id": "opt_2", "text": "poêle" },
+    { "id": "opt_3", "text": "cuillère" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. Para freír o saltear usamos 'la poêle'.",
+    "incorrect": "'Casserole' es olla/cacerola (para hervir). 'Cuillère' es cuchara."
+    }
+    },
+    {
+    "id": "ex_016",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce: '¡Cálmate!' (Tu / Reflexivo).",
+    "prompt": "¡Cálmate!",
+    "content": {
+    "placeholder": "Escribe la orden...",
+    "accepted_answers": ["Calme-toi !", "Calme-toi"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Exacto. 'Calme-toi'.",
+    "incorrect": "Verbo reflexivo afirmativo: Pronombre al final (toi)."
+    }
+    },
+    {
+    "id": "ex_017",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Identifica la orden negativa correcta con pronombre directo.",
+    "prompt": "Ce dossier est confidentiel. ______ !",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Ne le lis pas" },
+    { "id": "opt_2", "text": "Lis-le pas" },
+    { "id": "opt_3", "text": "Ne lis pas le" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "¡Muy bien! 'Ne le lis pas'.",
+    "incorrect": "En negativo, el pronombre va entre 'Ne' y el verbo: Ne + le + lis + pas."
+    }
+    },
+    {
+    "id": "ex_018",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Ordena la secuencia: 'Luego, mezcla todo'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Ensuite", "mélange", "tout", "d'abord"],
+    "correct_order": ["Ensuite", "mélange", "tout"],
+    "distractors": ["d'abord"]
+    },
+    "feedback": {
+    "correct": "Correcto. 'Ensuite, mélange tout'.",
+    "incorrect": "'D'abord' es para el principio."
+    }
+    },
+    {
+    "id": "ex_019",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Elige la traducción de 'Tout droit'.",
+    "prompt": "Continuez tout droit.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "A la derecha" },
+    { "id": "opt_2", "text": "Todo recto" },
+    { "id": "opt_3", "text": "A la izquierda" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Oui. Tout droit = Todo recto.",
+    "incorrect": "Droite = Derecha, Gauche = Izquierda."
+    }
+    },
+    {
+    "id": "ex_020",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce usando 'En' (Añade un poco [de eso]).",
+    "prompt": "Añade un poco.",
+    "content": {
+    "placeholder": "Escribe la frase...",
+    "accepted_answers": ["Ajoutes-en un peu.", "Ajoutes-en un peu"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Perfecto. 'Ajoutes-en un peu'.",
+    "incorrect": "Usa el pronombre 'en' para cantidades indeterminadas y recuerda la 's' final en Ajoutes."
+    }
+    },
+    {
+    "id": "ex_021",
+    "type": "true_false",
+    "difficulty": "hard",
+    "instruction": "¿La frase 'Ne y va pas' es correcta?",
+    "prompt": "Ne y va pas.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. Debe contraerse: 'N'y va pas'."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_022",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Al final de la receta usamos...",
+    "prompt": "______, servez chaud.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "D'abord" },
+    { "id": "opt_2", "text": "Enfin" },
+    { "id": "opt_3", "text": "Puis" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Enfin' (Finalmente) cierra la secuencia.",
+    "incorrect": "D'abord es inicio, Puis es medio."
+    }
+    },
+    {
+    "id": "ex_023",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Dile a alguien que no te espere (negativo).",
+    "prompt": null,
+    "content": {
+    "segments": ["Ne", "m'", "attends", "pas", "moi"],
+    "correct_order": ["Ne", "m'", "attends", "pas"],
+    "distractors": ["moi"]
+    },
+    "feedback": {
+    "correct": "Bien. 'Ne m'attends pas'.",
+    "incorrect": "En negativo no usamos 'moi', usamos 'me' (elidido m')."
+    }
+    },
+    {
+    "id": "ex_024",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "¿Cuál es la forma correcta para 'Piénsalo' (Penser à ça)?",
+    "prompt": "C'est important. ______ !",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Penses-y" },
+    { "id": "opt_2", "text": "Pense-y" },
+    { "id": "opt_3", "text": "Y pense" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Exacto. 'Penses-y'.",
+    "incorrect": "Verbo -ER + Y = Necesita 's' extra."
+    }
+    }
+    ]
+    }
+    </script>

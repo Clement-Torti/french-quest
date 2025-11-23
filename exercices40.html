@@ -1,0 +1,352 @@
+
+<script type="application/json" id="exercise-data">
+    {
+    "interactive_exercises": [
+    {
+    "id": "ex_001",
+    "type": "selection_single",
+    "difficulty": "easy",
+    "instruction": "Selecciona el demostrativo correcto para 'pantalón' (Masculino).",
+    "prompt": "Je voudrais essayer ______ pantalon noir.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "ce" },
+    { "id": "opt_2", "text": "cette" },
+    { "id": "opt_3", "text": "cet" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "¡Correcto! 'Ce' se usa para sustantivos masculinos que empiezan por consonante.",
+    "incorrect": "'Pantalon' es masculino. 'Cette' es femenino y 'Cet' es para vocal/h muda."
+    }
+    },
+    {
+    "id": "ex_002",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Pierre critica el material. Elige el demostrativo para 'impermeable' (Masc. con vocal).",
+    "prompt": "______ imperméable est une horreur !",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Ce" },
+    { "id": "opt_2", "text": "Cet" },
+    { "id": "opt_3", "text": "Cette" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Bien hecho. Usamos 'Cet' porque 'imperméable' empieza por vocal.",
+    "incorrect": "Aunque es masculino, al empezar por vocal (i), 'Ce' cambia a 'Cet' para facilitar la pronunciación."
+    }
+    },
+    {
+    "id": "ex_003",
+    "type": "selection_single",
+    "difficulty": "easy",
+    "instruction": "Emily señala un vestido (femenino).",
+    "prompt": "Je préfère ______ robe rouge.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "ce" },
+    { "id": "opt_2", "text": "cet" },
+    { "id": "opt_3", "text": "cette" }
+    ],
+    "correct_option_id": "opt_3"
+    },
+    "feedback": {
+    "correct": "Exacto. Robe = Femenino (Cette).",
+    "incorrect": "'Robe' es una palabra femenina."
+    }
+    },
+    {
+    "id": "ex_004",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Ordena la crítica de Pierre: 'Esa tela es barata'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Ce", "tissu", "est", "bon marché", "cette"],
+    "correct_order": ["Ce", "tissu", "est", "bon marché"],
+    "distractors": ["cette"]
+    },
+    "feedback": {
+    "correct": "¡Muy bien! 'Ce tissu est bon marché'.",
+    "incorrect": "Tissu es masculino, por lo que usamos 'Ce'."
+    }
+    },
+    {
+    "id": "ex_005",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Elige el adjetivo interrogativo correcto: '¿Qué zapatos...?' (Plural).",
+    "prompt": "______ chaussures allez-vous porter ?",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Quels" },
+    { "id": "opt_2", "text": "Quelles" },
+    { "id": "opt_3", "text": "Quelle" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Chaussures' es femenino plural -> 'Quelles'.",
+    "incorrect": "Aunque suenan igual, debes concordar en género y número. Chaussures = Femenino Plural."
+    }
+    },
+    {
+    "id": "ex_006",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la pregunta de la vendedora: '¿Qué talla usa?' (Formal).",
+    "prompt": "¿Qué talla usa?",
+    "content": {
+    "placeholder": "Escribe la pregunta...",
+    "accepted_answers": ["Quelle taille faites-vous ?", "Quelle taille faites-vous"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Perfecto! 'Quelle taille faites-vous ?'.",
+    "incorrect": "Usa el verbo 'Faire' para preguntar tallas de ropa, y 'Quelle' (femenino) para 'Taille'."
+    }
+    },
+    {
+    "id": "ex_007",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "El vestido no te entra. Está muy...",
+    "prompt": "Je n'arrive pas à respirer, c'est trop ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "large" },
+    { "id": "opt_2", "text": "serré" },
+    { "id": "opt_3", "text": "douce" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. Serré = Apretado.",
+    "incorrect": "'Large' es ancho. Si no puedes respirar, está 'serré'."
+    }
+    },
+    {
+    "id": "ex_008",
+    "type": "true_false",
+    "difficulty": "medium",
+    "instruction": "Pierre dice que tu estilo es 'Ringard'. ¿Es un cumplido?",
+    "prompt": "Ringard significa 'A la moda'.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. 'Ringard' significa cursi, hortera o pasado de moda."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_009",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Forma la frase: '¿Puedo probarme esto?'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Je", "peux", "l'", "essayer", "le"],
+    "correct_order": ["Je", "peux", "l'", "essayer"],
+    "distractors": ["le"]
+    },
+    "feedback": {
+    "correct": "Bien. 'Je peux l'essayer ?'",
+    "incorrect": "Usamos l' (elisión) porque 'essayer' empieza por vocal."
+    }
+    },
+    {
+    "id": "ex_010",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Selecciona el material: 'Seda'.",
+    "prompt": "Cette écharpe est en ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "soie" },
+    { "id": "opt_2", "text": "soif" },
+    { "id": "opt_3", "text": "soi" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Oui! La soie = La seda.",
+    "incorrect": "'Soif' es sed. 'Soi' es uno mismo."
+    }
+    },
+    {
+    "id": "ex_011",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Completa con el demostrativo plural correcto.",
+    "prompt": "Je n'aime pas ______ talons hauts.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "ses" },
+    { "id": "opt_2", "text": "c'est" },
+    { "id": "opt_3", "text": "ces" }
+    ],
+    "correct_option_id": "opt_3"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Ces' (estos/esas) para plural.",
+    "incorrect": "'Ses' es posesivo (sus) y 'C'est' es el verbo ser. Buscamos el demostrativo 'Ces'."
+    }
+    },
+    {
+    "id": "ex_012",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce: 'Me queda bien'.",
+    "prompt": "Me queda bien.",
+    "content": {
+    "placeholder": "Escribe la frase...",
+    "accepted_answers": ["Ça me va bien.", "Cela me va bien."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Excelente. 'Ça me va bien'.",
+    "incorrect": "Usamos el verbo 'Aller' (ir) para decir cómo queda la ropa."
+    }
+    },
+    {
+    "id": "ex_013",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué patrón tiene lunares?",
+    "prompt": "C'est une jupe à ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "rayures" },
+    { "id": "opt_2", "text": "pois" },
+    { "id": "opt_3", "text": "carreaux" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. À pois = De lunares.",
+    "incorrect": "'Rayures' son rayas. 'Carreaux' son cuadros."
+    }
+    },
+    {
+    "id": "ex_014",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Pregunta: '¿Qué colores te gustan?'",
+    "prompt": null,
+    "content": {
+    "segments": ["Quelles", "couleurs", "aimes", "-", "tu", "Quels"],
+    "correct_order": ["Quelles", "couleurs", "aimes", "-", "tu"],
+    "distractors": ["Quels"]
+    },
+    "feedback": {
+    "correct": "Bien hecho. 'Quelles couleurs...'.",
+    "incorrect": "Couleur es femenino en francés, así que usamos 'Quelles' (Femenino plural)."
+    }
+    },
+    {
+    "id": "ex_015",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Pierre te dice que el suéter es 'trop large'. ¿Qué significa?",
+    "prompt": "Le pull est trop large.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Demasiado largo" },
+    { "id": "opt_2", "text": "Demasiado ancho/holgado" },
+    { "id": "opt_3", "text": "Demasiado caro" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. Large = Ancho/Holgado.",
+    "incorrect": "¡Cuidado con el falso amigo! Largo se dice 'Long'."
+    }
+    },
+    {
+    "id": "ex_016",
+    "type": "true_false",
+    "difficulty": "easy",
+    "instruction": "Verdadero o Falso: 'Le cuir' es un material vegano.",
+    "prompt": "Le cuir est un tissu synthétique.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. 'Le cuir' es cuero (piel)."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_017",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Elige el verbo correcto: 'Llevar puesto'.",
+    "prompt": "Qu'est-ce que tu ______ pour la soirée ?",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "apportes" },
+    { "id": "opt_2", "text": "portes" },
+    { "id": "opt_3", "text": "supportes" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Bien. Porter = Llevar puesto (ropa).",
+    "incorrect": "'Apporter' es traer (objetos). 'Supporter' es soportar."
+    }
+    },
+    {
+    "id": "ex_018",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce usando demostrativo: 'Este anorak'.",
+    "prompt": "Este anorak.",
+    "content": {
+    "placeholder": "Escribe la frase...",
+    "accepted_answers": ["Cet anorak."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Perfecto. 'Cet anorak'.",
+    "incorrect": "Anorak es masculino y empieza por vocal, así que 'Ce' se convierte en 'Cet'."
+    }
+    },
+    {
+    "id": "ex_019",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Ordena la frase: 'Esa falda es muy moderna'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Cette", "jupe", "est", "très", "branchée", "cet"],
+    "correct_order": ["Cette", "jupe", "est", "très", "branchée"],
+    "distractors": ["cet"]
+    },
+    "feedback": {
+    "correct": "¡Muy bien! 'Cette jupe est très branchée'.",
+    "incorrect": "Jupe es femenino (Cette) y branchée debe concordar (con e al final)."
+    }
+    },
+    {
+    "id": "ex_020",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué material es suave y lujoso (Terciopelo)?",
+    "prompt": "J'adore la texture du ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "velours" },
+    { "id": "opt_2", "text": "jean" },
+    { "id": "opt_3", "text": "lin" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. Le velours = El terciopelo.",
+    "incorrect": "Lin es lino. Jean es tela vaquera."
+    }
+    }
+    ]
+    }
+    </script>
