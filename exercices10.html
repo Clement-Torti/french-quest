@@ -1,0 +1,342 @@
+
+<script type="application/json" id="exercise-data">
+{
+"interactive_exercises": [
+{
+"id": "ex_001",
+"type": "selection_single",
+"difficulty": "medium",
+"instruction": "Estás en la recepción y quieres pedir una habitación educadamente.",
+"prompt": "Bonjour, je ______ réserver une chambre pour deux nuits.",
+"content": {
+"options": [
+{ "id": "opt_1", "text": "veux" },
+{ "id": "opt_2", "text": "voudrais" },
+{ "id": "opt_3", "text": "peux" }
+],
+"correct_option_id": "opt_2"
+},
+"feedback": {
+"correct": "¡Exacto! Usamos el condicional 'Je voudrais' para ser corteses.",
+"incorrect": "Recuerda: 'Je veux' se considera grosero o infantil en situaciones de servicio. Usa 'Je voudrais'."
+}
+},
+{
+"id": "ex_002",
+"type": "true_false",
+"difficulty": "easy",
+"instruction": "Verdadero o Falso: El 'rez-de-chaussée' está encima del primer piso.",
+"prompt": "Le rez-de-chaussée est au-dessus du premier étage.",
+"content": {
+"is_correct": false,
+"explanation": "Falso. El 'rez-de-chaussée' es la planta baja (0). El primer piso está encima."
+},
+"feedback": null
+},
+{
+"id": "ex_003",
+"type": "sentence_builder",
+"difficulty": "medium",
+"instruction": "Ordena la frase para preguntar si el desayuno está incluido.",
+"prompt": null,
+"content": {
+"segments": ["Est-ce", "que", "le", "petit-déjeuner", "est", "compris", "?"],
+"correct_order": ["Est-ce", "que", "le", "petit-déjeuner", "est", "compris", "?"],
+"distractors": ["avec", "dans"]
+},
+"feedback": {
+"correct": "¡Muy bien! 'Est-ce que le petit-déjeuner est compris ?'",
+"incorrect": "La expresión correcta es 'compris' (incluido). Revisa el orden de 'Est-ce que'."
+}
+},
+{
+"id": "ex_004",
+"type": "selection_single",
+"difficulty": "hard",
+"instruction": "Selecciona la conjugación correcta de 'Pouvoir' para 'Ellos'.",
+"prompt": "Ils ne ______ pas monter, l'ascenseur est en panne.",
+"content": {
+"options": [
+{ "id": "opt_1", "text": "peuvent" },
+{ "id": "opt_2", "text": "pouvons" },
+{ "id": "opt_3", "text": "peux" }
+],
+"correct_option_id": "opt_1"
+},
+"feedback": {
+"correct": "Correcto. Conjugación irregular: Ils peuvent.",
+"incorrect": "Recuerda el patrón de Pouvoir: Je peux, Tu peux, Il peut, Nous pouvons, Vous pouvez, Ils PEUVENT."
+}
+},
+{
+"id": "ex_005",
+"type": "full_translation",
+"difficulty": "hard",
+"instruction": "Traduce la frase completa (Usa 'Je peux').",
+"prompt": "¿Puedo ver la habitación?",
+"content": {
+"placeholder": "Escribe la frase completa...",
+"accepted_answers": ["Je peux voir la chambre ?", "Est-ce que je peux voir la chambre ?"],
+"special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+},
+"feedback": {
+"correct": "¡Perfecto! Je peux voir la chambre.",
+"incorrect": "Usa el verbo 'Pouvoir' (Poder) conjugado: Je peux + Verbo infinitivo (voir)."
+}
+},
+{
+"id": "ex_006",
+"type": "selection_single",
+"difficulty": "medium",
+"instruction": "El hotel no tiene habitaciones libres. ¿Qué dice el recepcionista?",
+"prompt": "Désolé monsieur, l'hôtel est ______.",
+"content": {
+"options": [
+{ "id": "opt_1", "text": "fermé" },
+{ "id": "opt_2", "text": "complet" },
+{ "id": "opt_3", "text": "libre" }
+],
+"correct_option_id": "opt_2"
+},
+"feedback": {
+"correct": "Correcto. 'Complet' significa que no hay vacantes.",
+"incorrect": "'Fermé' es cerrado (el negocio). 'Libre' es que sí hay sitio."
+}
+},
+{
+"id": "ex_007",
+"type": "sentence_builder",
+"difficulty": "hard",
+"instruction": "Forma la frase: 'Nosotros queremos una habitación con vista al mar'.",
+"prompt": null,
+"content": {
+"segments": ["Nous", "voulons", "une", "chambre", "avec", "vue", "sur", "la", "mer"],
+"correct_order": ["Nous", "voulons", "une", "chambre", "avec", "vue", "sur", "la", "mer"],
+"distractors": ["pour", "voir"]
+},
+"feedback": {
+"correct": "Excellent! 'Avec vue sur' es la expresión clave.",
+"incorrect": "La preposición para las vistas es 'sur' (sobre/hacia). Revisa la conjugación 'Nous voulons'."
+}
+},
+{
+"id": "ex_008",
+"type": "selection_single",
+"difficulty": "medium",
+"instruction": "Vas a alquilar un piso y debes pagar un depósito de garantía.",
+"prompt": "Le propriétaire demande une ______ de deux mois.",
+"content": {
+"options": [
+{ "id": "opt_1", "text": "caution" },
+{ "id": "opt_2", "text": "clé" },
+{ "id": "opt_3", "text": "carte" }
+],
+"correct_option_id": "opt_1"
+},
+"feedback": {
+"correct": "Correcto. La 'caution' es la fianza o depósito.",
+"incorrect": "'Clé' es llave. El dinero que se deja en garantía es la 'caution'."
+}
+},
+{
+"id": "ex_009",
+"type": "true_false",
+"difficulty": "medium",
+"instruction": "Analiza la gramática: 'Tu veux parler avec le propriétaire ?'",
+"prompt": "Tu veux parler avec le propriétaire ?",
+"content": {
+"is_correct": true,
+"explanation": "Correcto. 'Tu veux' es la conjugación adecuada de Vouloir para la segunda persona singular."
+},
+"feedback": null
+},
+{
+"id": "ex_010",
+"type": "selection_single",
+"difficulty": "hard",
+"instruction": "Elige la palabra que falta para 'Aire acondicionado'.",
+"prompt": "Il fait trop chaud ! Je voudrais la ______.",
+"content": {
+"options": [
+{ "id": "opt_1", "text": "climatisation" },
+{ "id": "opt_2", "text": "chauffage" },
+{ "id": "opt_3", "text": "ascenseur" }
+],
+"correct_option_id": "opt_1"
+},
+"feedback": {
+"correct": "Bien. Climatisation (o Clim) para el frío.",
+"incorrect": "'Chauffage' es calefacción (para el invierno)."
+}
+},
+{
+"id": "ex_011",
+"type": "full_translation",
+"difficulty": "hard",
+"instruction": "Traduce: 'Usted puede usar el ascensor'.",
+"prompt": "Usted puede usar el ascensor.",
+"content": {
+"placeholder": "Escribe la frase...",
+"accepted_answers": ["Vous pouvez utiliser l'ascenseur.", "Vous pouvez prendre l'ascenseur."],
+"special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+},
+"feedback": {
+"correct": "¡Muy bien! 'Vous pouvez' (Pouvoir).",
+"incorrect": "Conjugación: Vous pouvez. Vocabulario: L'ascenseur."
+}
+},
+{
+"id": "ex_012",
+"type": "sentence_builder",
+"difficulty": "medium",
+"instruction": "Ordena la frase negativa: 'Yo no puedo pagar la fianza'.",
+"prompt": null,
+"content": {
+"segments": ["Je", "ne", "peux", "pas", "payer", "la", "caution"],
+"correct_order": ["Je", "ne", "peux", "pas", "payer", "la", "caution"],
+"distractors": ["veux", "le"]
+},
+"feedback": {
+"correct": "Correcto. Je ne peux pas payer.",
+"incorrect": "Estructura negativa: Ne + Verbo conjugado (peux) + Pas + Infinitivo."
+}
+},
+{
+"id": "ex_013",
+"type": "selection_single",
+"difficulty": "medium",
+"instruction": "¿Cómo se llama la persona que vive en el apartamento y paga el alquiler?",
+"prompt": "Je loue cet appartement, je suis le ______.",
+"content": {
+"options": [
+{ "id": "opt_1", "text": "propriétaire" },
+{ "id": "opt_2", "text": "locataire" },
+{ "id": "opt_3", "text": "réceptionniste" }
+],
+"correct_option_id": "opt_2"
+},
+"feedback": {
+"correct": "Exacto. 'Locataire' (inquilino).",
+"incorrect": "'Propriétaire' es el dueño. Tú eres quien alquila (loue), eres el locataire."
+}
+},
+{
+"id": "ex_014",
+"type": "true_false",
+"difficulty": "hard",
+"instruction": "Analiza la concordancia: 'Elles voulons une chambre double'.",
+"prompt": "Elles voulons une chambre double.",
+"content": {
+"is_correct": false,
+"explanation": "Falso. La conjugación es incorrecta. Debe ser 'Elles VEULENT'. 'Voulons' es para 'Nous'."
+},
+"feedback": null
+},
+{
+"id": "ex_015",
+"type": "full_translation",
+"difficulty": "hard",
+"instruction": "Traduce usando 'Vouloir': '¿Ella quiere cancelar?'",
+"prompt": "¿Ella quiere cancelar?",
+"content": {
+"placeholder": "Escribe la frase...",
+"accepted_answers": ["Elle veut annuler ?", "Est-ce qu'elle veut annuler ?"],
+"special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+},
+"feedback": {
+"correct": "Bien. 'Elle veut annuler ?'",
+"incorrect": "Tercera persona singular de Vouloir: Elle VEUT."
+}
+},
+{
+"id": "ex_016",
+"type": "selection_single",
+"difficulty": "medium",
+"instruction": "Selecciona la frase que indica que los gastos (agua, luz) ya están pagados.",
+"prompt": "Le loyer est de 800€, ______.",
+"content": {
+"options": [
+{ "id": "opt_1", "text": "charges comprises" },
+{ "id": "opt_2", "text": "c'est complet" },
+{ "id": "opt_3", "text": "petit-déjeuner compris" }
+],
+"correct_option_id": "opt_1"
+},
+"feedback": {
+"correct": "Correcto. 'Charges comprises' significa gastos incluidos.",
+"incorrect": "'Complet' se refiere a ocupación. 'Petit-déjeuner' es comida, no gastos del piso."
+}
+},
+{
+"id": "ex_017",
+"type": "sentence_builder",
+"difficulty": "hard",
+"instruction": "Forma la frase: 'Me gustaría reservar la suite'.",
+"prompt": null,
+"content": {
+"segments": ["Je", "voudrais", "réserver", "la", "suite"],
+"correct_order": ["Je", "voudrais", "réserver", "la", "suite"],
+"distractors": ["veux", "une"]
+},
+"feedback": {
+"correct": "Excelente. Je voudrais + infinitivo.",
+"incorrect": "No uses 'Je veux' (es imperativo/rudo). Usa 'Je voudrais' para reservas."
+}
+},
+{
+"id": "ex_018",
+"type": "selection_single",
+"difficulty": "medium",
+"instruction": "Conjugación de Pouvoir: 'Tú puedes'.",
+"prompt": "Si tu veux, tu ______.",
+"content": {
+"options": [
+{ "id": "opt_1", "text": "peux" },
+{ "id": "opt_2", "text": "peut" },
+{ "id": "opt_3", "text": "pouvons" }
+],
+"correct_option_id": "opt_1"
+},
+"feedback": {
+"correct": "Correcto. Tu peux (termina en x).",
+"incorrect": "'Peut' (con t) es para Il/Elle. 'Tu' siempre lleva 's' o 'x'."
+}
+},
+{
+"id": "ex_019",
+"type": "full_translation",
+"difficulty": "hard",
+"instruction": "Traduce: 'La habitación está en la primera planta (piso)'.",
+"prompt": "La habitación está en la primera planta.",
+"content": {
+"placeholder": "Escribe la frase...",
+"accepted_answers": ["La chambre est au premier étage."],
+"special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+},
+"feedback": {
+"correct": "¡Muy bien! 'Au premier étage'.",
+"incorrect": "Recuerda: 'Étage' es masculino, usamos 'Au' (à + le) y 'Premier'."
+}
+},
+{
+"id": "ex_020",
+"type": "selection_single",
+"difficulty": "easy",
+"instruction": "¿Qué necesitas para abrir la puerta de tu habitación?",
+"prompt": "J'ai besoin de la ______.",
+"content": {
+"options": [
+{ "id": "opt_1", "text": "caution" },
+{ "id": "opt_2", "text": "clé" },
+{ "id": "opt_3", "text": "vue" }
+],
+"correct_option_id": "opt_2"
+},
+"feedback": {
+"correct": "Sí, 'la clé' o 'la carte'.",
+"incorrect": "'Caution' es dinero. 'Vue' es la vista."
+}
+}
+]
+}
+</script>
