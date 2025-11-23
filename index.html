@@ -175,14 +175,23 @@ renderMap() {
     this.modal.classList.add('hidden');
     
     // Intro Card (Keep as is)
-    const introCard = `
-    <div class="w-full px-6 pt-8 pb-4 relative z-20">
-        <div class="bg-white p-6 rounded-2xl shadow-card border border-blue-100 text-center relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-frBlue via-white to-frRed"></div>
-            <h2 class="text-xl font-serif font-bold text-frBlue mb-3 mt-1">Bienvenue à Paris! 🇫🇷</h2>
-            <p class="text-sm text-gray-600 leading-relaxed mb-3">Tu ruta de aprendizaje paso a paso.</p>
-        </div>
-    </div>`;
+const introCard = `
+<div class="w-full px-6 pt-8 pb-4 relative z-20">
+    <div class="bg-white p-6 rounded-2xl shadow-card border border-blue-100 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-frBlue via-white to-frRed"></div>
+        
+        <h2 class="text-xl font-serif font-bold text-frBlue mb-3 mt-1">Bienvenue à Paris! 🇫🇷</h2>
+
+        <p class="text-xs text-gray-500 mb-2 leading-relaxed">
+            Olvídate de la superficialidad de la app del búho 🦉. Aquí, en el universo de <em>Emily in Paris</em>, buscamos elegancia y profundidad. Si te gusta este proyecto, puedes invitarme un croissant abajo a través de una pequeña donación.
+        </p>
+        <a href="TU_ENLACE_DE_DONACIÓN" target="_blank"
+           class="inline-block mt-2 px-4 py-2 bg-frBlue text-white text-xs font-semibold rounded-xl shadow hover:bg-blue-700 transition">
+           Invitar un croissant 🥐
+        </a>
+
+    </div>
+</div>`;
 
     let nodes = '';
 
