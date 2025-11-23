@@ -1,0 +1,412 @@
+
+<script type="application/json" id="exercise-data">
+    {
+    "interactive_exercises": [
+    {
+    "id": "ex_001",
+    "type": "selection_single",
+    "difficulty": "easy",
+    "instruction": "Selecciona el pronombre correcto para 'Yo me levanto'.",
+    "prompt": "Je ______ lève à 7h00.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "se" },
+    { "id": "opt_2", "text": "me" },
+    { "id": "opt_3", "text": "te" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Correcto! Je me lève.",
+    "incorrect": "Recuerda: Je me, Tu te, Il se."
+    }
+    },
+    {
+    "id": "ex_002",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Cuidado con las vocales y la 'H' muda. Elige la opción correcta.",
+    "prompt": "Il ______ habille pour aller au travail.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "se" },
+    { "id": "opt_2", "text": "s'" },
+    { "id": "opt_3", "text": "me" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Bien! Usamos s' antes de vocal o h muda (s'habiller).",
+    "incorrect": "Como 'habille' empieza con H muda, 'se' se contrae a 's''."
+    }
+    },
+    {
+    "id": "ex_003",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Ordena la frase: 'Nosotros nos preparamos'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Nous", "nous", "préparons", "vous", "se"],
+    "correct_order": ["Nous", "nous", "préparons"],
+    "distractors": ["vous", "se"]
+    },
+    "feedback": {
+    "correct": "Exacto. El pronombre se repite: Nous nous préparons.",
+    "incorrect": "Para 'Nous', el pronombre reflexivo también es 'nous'."
+    }
+    },
+    {
+    "id": "ex_004",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Elige la frase que indica una acción reflexiva (hacia uno mismo).",
+    "prompt": "¿Cuál de estas frases es reflexiva?",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Je lave la voiture." },
+    { "id": "opt_2", "text": "Je me lave." },
+    { "id": "opt_3", "text": "Je lave le chien." }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Je me lave' significa que te lavas a ti mismo.",
+    "incorrect": "Las otras opciones son acciones sobre objetos o animales, no reflexivas."
+    }
+    },
+    {
+    "id": "ex_005",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la frase completa: 'Ella se cepilla los dientes'.",
+    "prompt": "Ella se cepilla los dientes.",
+    "content": {
+    "placeholder": "Escribe la frase...",
+    "accepted_answers": ["Elle se brosse les dents.", "Elle se brosse les dents"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Muy bien! Elle se brosse les dents.",
+    "incorrect": "Usa 'Se brosser' conjugado (Elle se brosse) y recuerda 'les dents'."
+    }
+    },
+    {
+    "id": "ex_006",
+    "type": "true_false",
+    "difficulty": "easy",
+    "instruction": "Verdadero o Falso: 'Se réveiller' y 'Se lever' son sinónimos exactos.",
+    "prompt": "Je me réveille et je me lève significan lo mismo.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. 'Se réveiller' es despertar (abrir los ojos), 'Se lever' es levantarse (salir de la cama)."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_007",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué verbo usas para 'descansar' el fin de semana?",
+    "prompt": "Le dimanche, je ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "me repose" },
+    { "id": "opt_2", "text": "me dépêche" },
+    { "id": "opt_3", "text": "me brosse" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Sí, 'Je me repose' (Se reposer).",
+    "incorrect": "'Se dépêcher' es darse prisa, lo contrario de un domingo tranquilo."
+    }
+    },
+    {
+    "id": "ex_008",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Forma la frase negativa: 'Yo no me maquillo'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Je", "ne", "me", "maquille", "pas", "se"],
+    "correct_order": ["Je", "ne", "me", "maquille", "pas"],
+    "distractors": ["se"]
+    },
+    "feedback": {
+    "correct": "¡Excelente estructura! Je ne me maquille pas.",
+    "incorrect": "El 'ne... pas' encierra al bloque pronombre+verbo: Je NE me maquille PAS."
+    }
+    },
+    {
+    "id": "ex_009",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Llegas a la reunión a las 8:50 y empezaba a las 9:00. Estás...",
+    "prompt": "Tu arrives ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "en retard" },
+    { "id": "opt_2", "text": "en avance" },
+    { "id": "opt_3", "text": "tard" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. 'En avance' es con adelanto.",
+    "incorrect": "'En retard' es tarde. 'Tard' se usa para horas avanzadas del día, no para puntualidad relativa."
+    }
+    },
+    {
+    "id": "ex_010",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la orden (Imperativo): '¡Darse prisa!' (para 'Ustedes/Vosotros').",
+    "prompt": "¡Dénse prisa!",
+    "content": {
+    "placeholder": "Escribe la orden...",
+    "accepted_answers": ["Dépêchez-vous !", "Dépêchez-vous", "Dépêchez vous"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Bien. Dépêchez-vous !",
+    "incorrect": "En imperativo reflexivo, el pronombre va después del verbo con un guion."
+    }
+    },
+    {
+    "id": "ex_011",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Completa con la lógica gramatical B1 (Dos verbos).",
+    "prompt": "Je dois ______ lever tôt demain.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "me" },
+    { "id": "opt_2", "text": "se" },
+    { "id": "opt_3", "text": "te" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "¡Exacto! Aunque el verbo esté en infinitivo (lever), el pronombre debe coincidir con el sujeto (Je -> me).",
+    "incorrect": "Error común. No puedes decir 'Je dois SE lever'. Debe ser 'Je dois ME lever'."
+    }
+    },
+    {
+    "id": "ex_012",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Ordena la rutina de la noche.",
+    "prompt": null,
+    "content": {
+    "segments": ["Je", "me", "couche", "vers", "minuit"],
+    "correct_order": ["Je", "me", "couche", "vers", "minuit"],
+    "distractors": ["lève"]
+    },
+    "feedback": {
+    "correct": "Bien. 'Vers' indica una hora aproximada.",
+    "incorrect": "'Se coucher' es acostarse. 'Se lever' es levantarse."
+    }
+    },
+    {
+    "id": "ex_013",
+    "type": "true_false",
+    "difficulty": "easy",
+    "instruction": "Sobre la expresión 'Métro, Boulot, Dodo'.",
+    "prompt": "'Boulot' es una palabra argot (slang) para 'Trabajo'.",
+    "content": {
+    "is_correct": true,
+    "explanation": "Verdadero. Boulot = Travail. Es muy común en el lenguaje coloquial."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_014",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Elige la conjugación correcta para 'Ustedes se pasean'.",
+    "prompt": "Vous ______ dans le parc.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "vous promenez" },
+    { "id": "opt_2", "text": "nous promenons" },
+    { "id": "opt_3", "text": "se promenez" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. Vous vous promenez.",
+    "incorrect": "El pronombre para Vous es Vous."
+    }
+    },
+    {
+    "id": "ex_015",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce: 'Me duermo tarde'. (Usa el verbo S'endormir).",
+    "prompt": "Me duermo tarde.",
+    "content": {
+    "placeholder": "Escribe la frase...",
+    "accepted_answers": ["Je m'endors tard.", "Je m'endors tard"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Muy bien. Je m'endors tard.",
+    "incorrect": "Cuidado con la conjugación irregular de S'endormir (Je m'endors) y la elisión (m')."
+    }
+    },
+    {
+    "id": "ex_016",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "¿Qué pronombre falta? 'Ellas se preparan'.",
+    "prompt": "Elles ______ préparent pour la fête.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "se" },
+    { "id": "opt_2", "text": "ses" },
+    { "id": "opt_3", "text": "sont" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Bien. Elles se préparent.",
+    "incorrect": "'Ses' es un posesivo (sus). Aquí necesitamos el reflexivo 'se'."
+    }
+    },
+    {
+    "id": "ex_017",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Forma la frase: 'Tú te duchas por la mañana'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Tu", "te", "douches", "le", "matin"],
+    "correct_order": ["Tu", "te", "douches", "le", "matin"],
+    "distractors": ["se", "la"]
+    },
+    "feedback": {
+    "correct": "Correcto. Tu te douches le matin.",
+    "incorrect": "Recuerda: Tu te + verbo terminado en ES."
+    }
+    },
+    {
+    "id": "ex_018",
+    "type": "true_false",
+    "difficulty": "medium",
+    "instruction": "Gramática: ¿Esta frase es correcta?",
+    "prompt": "Nous nous levons tôt.",
+    "content": {
+    "is_correct": true,
+    "explanation": "Correcto. Sujeto (Nous) + Pronombre (nous) + Verbo (levons)."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_019",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Selecciona la acción que haces con 'Le réveil' (El despertador).",
+    "prompt": "Quand le réveil sonne, je ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "me couche" },
+    { "id": "opt_2", "text": "me réveille" },
+    { "id": "opt_3", "text": "m'endors" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Lógico. Cuando suena la alarma, te despiertas (me réveille).",
+    "incorrect": "'Se coucher' y 'S'endormir' son para ir a dormir."
+    }
+    },
+    {
+    "id": "ex_020",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce: 'Nosotros nos vestimos'.",
+    "prompt": "Nosotros nos vestimos.",
+    "content": {
+    "placeholder": "Escribe la frase...",
+    "accepted_answers": ["Nous nous habillons.", "Nous nous habillons"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Perfecto. Nous nous habillons.",
+    "incorrect": "El verbo es S'habiller. Conjugación con Nous = -ons."
+    }
+    },
+    {
+    "id": "ex_021",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Identifica el error en esta frase.",
+    "prompt": "Il se brosses les dents.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Sobra la 's' en 'brosses'" },
+    { "id": "opt_2", "text": "Debe ser 'me brosses'" },
+    { "id": "opt_3", "text": "No hay error" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "¡Muy observador! La conjugación para 'Il' termina en 'e' (Il se brosse), no en 's'.",
+    "incorrect": "Los verbos -ER en tercera persona singular terminan en E."
+    }
+    },
+    {
+    "id": "ex_022",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Pregunta: '¿A qué hora te acuestas?'",
+    "prompt": null,
+    "content": {
+    "segments": ["À", "quelle", "heure", "tu", "te", "couches", "?"],
+    "correct_order": ["À", "quelle", "heure", "tu", "te", "couches", "?"],
+    "distractors": []
+    },
+    "feedback": {
+    "correct": "Bien. À quelle heure tu te couches ?",
+    "incorrect": "El orden interrogativo informal: Interrogativo + Sujeto + Pronombre + Verbo."
+    }
+    },
+    {
+    "id": "ex_023",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué significa 'Quotidien'?",
+    "prompt": "C'est ma routine quotidienne.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Rara / Extraña" },
+    { "id": "opt_2", "text": "Diaria / De todos los días" },
+    { "id": "opt_3", "text": "Nocturna" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. Quotidien = Diario.",
+    "incorrect": "Viene de 'Día'."
+    }
+    },
+    {
+    "id": "ex_024",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce: 'Me afeito'.",
+    "prompt": "Me afeito.",
+    "content": {
+    "placeholder": "Escribe la frase...",
+    "accepted_answers": ["Je me rase.", "Je me rase"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Bien. Je me rase (Se raser).",
+    "incorrect": "Usa el verbo 'Se raser'."
+    }
+    }
+    ]
+    }
+    </script>

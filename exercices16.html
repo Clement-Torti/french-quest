@@ -1,0 +1,407 @@
+<script type="application/json" id="exercise-data">
+    {
+    "interactive_exercises": [
+    {
+    "id": "ex_001",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Elige la forma más cortés de pedir en un restaurante.",
+    "prompt": "Monsieur, ______ le poulet rôti, s'il vous plaît.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "je veux" },
+    { "id": "opt_2", "text": "je voudrais" },
+    { "id": "opt_3", "text": "donnez-moi" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Exacto! El condicional 'Je voudrais' es la clave de la etiqueta francesa.",
+    "incorrect": "Evita 'Je veux' (es infantil o grosero) y el imperativo directo. Usa el condicional."
+    }
+    },
+    {
+    "id": "ex_002",
+    "type": "true_false",
+    "difficulty": "easy",
+    "instruction": "¿Esta afirmación sobre el menú es correcta?",
+    "prompt": "En Francia, una 'Entrée' es el plato principal y más grande de la comida.",
+    "content": {
+    "is_correct": false,
+    "explanation": "¡Falso! Es un 'falso amigo'. La 'Entrée' es el entrante o primer plato (pequeño). El grande es 'Le plat principal'."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_003",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Quieres agua gratuita del grifo. ¿Qué pides?",
+    "prompt": "Une ______ d'eau, s'il vous plaît.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "bouteille" },
+    { "id": "opt_2", "text": "carafe" },
+    { "id": "opt_3", "text": "verre" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Muy bien! 'Une carafe d'eau' es la jarra de agua gratuita.",
+    "incorrect": "Si pides 'bouteille' te cobrarán agua mineral. La palabra mágica para gratis es 'carafe'."
+    }
+    },
+    {
+    "id": "ex_004",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Ordena la frase para pedir la cuenta.",
+    "prompt": null,
+    "content": {
+    "segments": ["L'addition,", "s'il", "plaît", "vous", "la"],
+    "correct_order": ["L'addition,", "s'il", "vous", "plaît"],
+    "distractors": ["la"]
+    },
+    "feedback": {
+    "correct": "Perfecto. L'addition, s'il vous plaît.",
+    "incorrect": "No usamos el artículo 'la' antes de addition si ya decimos L'addition."
+    }
+    },
+    {
+    "id": "ex_005",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Te gusta la carne muy poco hecha (casi cruda). ¿Qué término usas?",
+    "prompt": "Je voudrais mon steak ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "bien cuit" },
+    { "id": "opt_2", "text": "à point" },
+    { "id": "opt_3", "text": "saignant" }
+    ],
+    "correct_option_id": "opt_3"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Saignant' (sangrante) es poco hecho.",
+    "incorrect": "'À point' es medio y 'Bien cuit' es muy cocinado."
+    }
+    },
+    {
+    "id": "ex_006",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce: 'Voy a tomar el menú.' (Usa 'Je vais prendre').",
+    "prompt": "Voy a tomar el menú.",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["Je vais prendre le menu.", "Je vais prendre la formule."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Excelente! Je vais prendre le menu.",
+    "incorrect": "Usa la estructura 'Je vais prendre' + le menu."
+    }
+    },
+    {
+    "id": "ex_007",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Selecciona el objeto que necesitas para cortar la carne.",
+    "prompt": "Il manque un ______ sur la table.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "couteau" },
+    { "id": "opt_2", "text": "cuillère" },
+    { "id": "opt_3", "text": "fourchette" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Oui! Couteau = Cuchillo.",
+    "incorrect": "Cuillère es cuchara, Fourchette es tenedor."
+    }
+    },
+    {
+    "id": "ex_008",
+    "type": "true_false",
+    "difficulty": "medium",
+    "instruction": "Verdadero o Falso: 'À la carte' es el precio fijo (menú del día).",
+    "prompt": "Manger 'à la carte' es elegir el precio fijo.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. 'À la carte' significa elegir platos individuales con precios separados. El precio fijo es 'Le Menu' o 'La Formule'."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_009",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Pregunta si el servicio está incluido.",
+    "prompt": null,
+    "content": {
+    "segments": ["Le", "service", "est", "compris", "?"],
+    "correct_order": ["Le", "service", "est", "compris", "?"],
+    "distractors": []
+    },
+    "feedback": {
+    "correct": "Bien hecho. Le service est compris ?",
+    "incorrect": "El orden es: Sujeto (Le service) + Verbo (est) + Adjetivo (compris)."
+    }
+    },
+    {
+    "id": "ex_010",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué frase usa el camarero para preguntar si terminaste?",
+    "prompt": "Alors, ______ ?",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "ça a été" },
+    { "id": "opt_2", "text": "c'est combien" },
+    { "id": "opt_3", "text": "quelle cuisson" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Ça a été ?' significa '¿Fue todo bien?' o '¿Ha gustado?'.",
+    "incorrect": "'Quelle cuisson' es para la carne y 'C'est combien' es para el precio."
+    }
+    },
+    {
+    "id": "ex_011",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la frase: 'Una mesa para dos, por favor'.",
+    "prompt": "Una mesa para dos, por favor.",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["Une table pour deux, s'il vous plaît.", "Une table pour deux s'il vous plaît."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Perfecto! Une table pour deux, s'il vous plaît.",
+    "incorrect": "No olvides 'pour deux' (para dos) y la cortesía final."
+    }
+    },
+    {
+    "id": "ex_012",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Elige la opción correcta para decir 'hecho en casa'.",
+    "prompt": "Ce gâteau est ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "fait maison" },
+    { "id": "opt_2", "text": "fait main" },
+    { "id": "opt_3", "text": "de la maison" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. La expresión fija es 'Fait maison'.",
+    "incorrect": "'Fait main' se usa para artesanías, no comida."
+    }
+    },
+    {
+    "id": "ex_013",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Forma la frase: 'Yo quisiera el pato'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Je", "voudrais", "le", "canard", "veux"],
+    "correct_order": ["Je", "voudrais", "le", "canard"],
+    "distractors": ["veux"]
+    },
+    "feedback": {
+    "correct": "Très bien. Je voudrais le canard.",
+    "incorrect": "Recuerda usar 'voudrais' (condicional) en lugar de 'veux' por educación."
+    }
+    },
+    {
+    "id": "ex_014",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Dónde suelen escribir los platos del día (les suggestions)?",
+    "prompt": "Regardez ______ sur le mur.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "la chaise" },
+    { "id": "opt_2", "text": "l'ardoise" },
+    { "id": "opt_3", "text": "l'addition" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. 'L'ardoise' es la pizarra.",
+    "incorrect": "Chaise es silla, Addition es cuenta."
+    }
+    },
+    {
+    "id": "ex_015",
+    "type": "true_false",
+    "difficulty": "easy",
+    "instruction": "¿Gramaticalmente es correcta esta frase del camarero?",
+    "prompt": "Vous avez choisi ?",
+    "content": {
+    "is_correct": true,
+    "explanation": "Correcto. Es el 'Passé Composé' del verbo Choisir (¿Han elegido?)."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_016",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la pregunta: '¿Cuál es la especialidad?'",
+    "prompt": "¿Cuál es la especialidad?",
+    "content": {
+    "placeholder": "Escribe la pregunta...",
+    "accepted_answers": ["Quelle est la spécialité ?", "Quelle est la spécialité?"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Exacto! Quelle est la spécialité ?",
+    "incorrect": "Usa 'Quelle' (femenino) porque 'spécialité' es femenino."
+    }
+    },
+    {
+    "id": "ex_017",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Si no quieres carne roja, ¿qué opción es vegetariana?",
+    "prompt": "Je ne mange pas de viande, je suis ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "végétarien" },
+    { "id": "opt_2", "text": "saignant" },
+    { "id": "opt_3", "text": "carnivore" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Bien. Végétarien.",
+    "incorrect": "Saignant se refiere a la cocción de la carne."
+    }
+    },
+    {
+    "id": "ex_018",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "El camarero pregunta por la cocción. Ordena la respuesta: 'Al punto, por favor'.",
+    "prompt": null,
+    "content": {
+    "segments": ["À", "point,", "s'il", "vous", "plaît"],
+    "correct_order": ["À", "point,", "s'il", "vous", "plaît"],
+    "distractors": []
+    },
+    "feedback": {
+    "correct": "Correcto. À point = Término medio.",
+    "incorrect": "La expresión fija es 'À point'."
+    }
+    },
+    {
+    "id": "ex_019",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Completa con el artículo partitivo correcto (recordando lo que pidió Luc).",
+    "prompt": "Je vais prendre ______ vin rouge.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "une" },
+    { "id": "opt_2", "text": "du" },
+    { "id": "opt_3", "text": "de la" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Exacto. 'Du' vin (masculino incontable).",
+    "incorrect": "Vin es masculino, así que usamos 'Du'. 'De la' es para femenino."
+    }
+    },
+    {
+    "id": "ex_020",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce: 'Estaba delicioso' (usando el imperfecto visto en la lección).",
+    "prompt": "Estaba delicioso.",
+    "content": {
+    "placeholder": "Escribe la frase...",
+    "accepted_answers": ["C'était délicieux.", "C'était délicieux"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Muy bien! C'était délicieux.",
+    "incorrect": "Usa 'C'était' (imperfecto de C'est)."
+    }
+    },
+    {
+    "id": "ex_021",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Cómo se llama el dinero extra que dejas al final (aunque suele estar incluido)?",
+    "prompt": "Je laisse un petit ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "pourboire" },
+    { "id": "opt_2", "text": "plat" },
+    { "id": "opt_3", "text": "menu" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. Le pourboire (propina).",
+    "incorrect": "Viene de 'pour boire' (para beber)."
+    }
+    },
+    {
+    "id": "ex_022",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Forma la frase negativa: 'Yo no tengo hambre'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Je", "n'ai", "plus", "faim", "pas"],
+    "correct_order": ["Je", "n'ai", "plus", "faim"],
+    "distractors": ["pas"]
+    },
+    "feedback": {
+    "correct": "Bien. 'Je n'ai plus faim' (Ya no tengo hambre).",
+    "incorrect": "La expresión 'Avoir faim' (Tener hambre). En negativo: Je n'ai plus faim."
+    }
+    },
+    {
+    "id": "ex_023",
+    "type": "true_false",
+    "difficulty": "easy",
+    "instruction": "¿Es correcto pedir 'De l'eau' si quieres que sea gratis?",
+    "prompt": "Si pides 'de l'eau', el camarero traerá la jarra gratis automáticamente.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. Si pides solo 'de l'eau', a menudo traen agua mineral de pago (Vittel/Evian). Debes especificar 'Carafe d'eau'."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_024",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Si quieres agua con gas (de pago), pides...",
+    "prompt": "De l'eau ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "plate" },
+    { "id": "opt_2", "text": "gazeuse" },
+    { "id": "opt_3", "text": "chaude" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. Eau gazeuse (con gas).",
+    "incorrect": "Eau plate es agua sin gas (natural)."
+    }
+    }
+    ]
+    }
+    </script>

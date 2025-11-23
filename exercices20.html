@@ -1,0 +1,414 @@
+<script type="application/json" id="exercise-data">
+    {
+    "interactive_exercises": [
+    {
+    "id": "ex_001",
+    "type": "selection_single",
+    "difficulty": "easy",
+    "instruction": "Selecciona la forma correcta de decir la hora oficial (24h).",
+    "prompt": "14:30",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Quatorze heures et demie" },
+    { "id": "opt_2", "text": "Quatorze heures trente" },
+    { "id": "opt_3", "text": "Deux heures trente" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Exacto! En la hora oficial nunca usamos 'et demie', decimos los minutos exactos (trente).",
+    "incorrect": "Recuerda: Si usas 'Quatorze' (sistema 24h), no puedes decir 'et demie'. Debe ser matemático: 'trente'."
+    }
+    },
+    {
+    "id": "ex_002",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Ordena la frase para decir: 'Tengo una cita a las 9 en punto'.",
+    "prompt": null,
+    "content": {
+    "segments": ["J'ai", "un", "rendez-vous", "à", "neuf", "heures", "pile"],
+    "correct_order": ["J'ai", "un", "rendez-vous", "à", "neuf", "heures", "pile"],
+    "distractors": ["o'clock"]
+    },
+    "feedback": {
+    "correct": "Très bien. 'Pile' significa en punto.",
+    "incorrect": "La estructura es: À + [número] + heures + pile."
+    }
+    },
+    {
+    "id": "ex_003",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Estás hablando con un amigo (informal). ¿Cómo dices 19:45?",
+    "prompt": "On se voit à ______ ?",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "vingt heures moins le quart" },
+    { "id": "opt_2", "text": "dix-neuf heures quarante-cinq" },
+    { "id": "opt_3", "text": "sept heures moins le quart" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. En el sistema informal usamos 12h (20h = 8h) y 'moins le quart'.",
+    "incorrect": "La opción 2 es demasiado formal para un amigo. La opción 3 dice '7 menos cuarto' (18:45), no las 19:45."
+    }
+    },
+    {
+    "id": "ex_004",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la frase: '¿Tiene usted un hueco disponible?'",
+    "prompt": "¿Tiene usted un hueco disponible?",
+    "content": {
+    "placeholder": "Escribe la pregunta...",
+    "accepted_answers": ["Est-ce que vous avez un créneau disponible ?", "Avez-vous un créneau disponible ?", "Vous avez un créneau disponible ?"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Excelente! La palabra clave es 'créneau'.",
+    "incorrect": "Usa la palabra 'créneau' para referirte a un intervalo de tiempo o hueco en la agenda."
+    }
+    },
+    {
+    "id": "ex_005",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Elige el verbo correcto para 'posponer' una reunión.",
+    "prompt": "Je ne peux pas venir, je dois ______ la réunion.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "annuler" },
+    { "id": "opt_2", "text": "reporter" },
+    { "id": "opt_3", "text": "rentrer" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Reporter' (o décaler) es cambiar la fecha/hora.",
+    "incorrect": "'Annuler' es cancelar definitivamente, no posponer."
+    }
+    },
+    {
+    "id": "ex_006",
+    "type": "true_false",
+    "difficulty": "easy",
+    "instruction": "Analiza la gramática de esta frase.",
+    "prompt": "Elle est midi et demie.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. Siempre se usa el sujeto impersonal 'Il' para la hora: 'Il est midi...'."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_007",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Forma la frase: 'La reunión dura hasta las 18h'.",
+    "prompt": null,
+    "content": {
+    "segments": ["La", "réunion", "dure", "jusqu'à", "dix-huit", "heures"],
+    "correct_order": ["La", "réunion", "dure", "jusqu'à", "dix-huit", "heures"],
+    "distractors": ["vers", "à"]
+    },
+    "feedback": {
+    "correct": "Bien. 'Jusqu'à' marca el límite final de tiempo.",
+    "incorrect": "No confundas 'à' (hora puntual) con 'jusqu'à' (hasta)."
+    }
+    },
+    {
+    "id": "ex_008",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Selecciona la pronunciación correcta de la liaison.",
+    "prompt": "Il est neuf heures (9h00).",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Neu-feur" },
+    { "id": "opt_2", "text": "Neu-veur" },
+    { "id": "opt_3", "text": "Neuf-eur" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Sí. Con 'Neuf', la F se pronuncia como una V al unirse con 'heures'.",
+    "incorrect": "Es una excepción fonética importante: Neuv-heures."
+    }
+    },
+    {
+    "id": "ex_009",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce: 'Es medianoche'.",
+    "prompt": "Es medianoche.",
+    "content": {
+    "placeholder": "Escribe la frase...",
+    "accepted_answers": ["Il est minuit.", "Il est minuit"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Perfecto. Il est minuit.",
+    "incorrect": "Usa 'Il est' + 'minuit' (sin artículo)."
+    }
+    },
+    {
+    "id": "ex_010",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué preposición usas para una hora aproximada?",
+    "prompt": "J'arrive ______ 20h00 (No estoy seguro del minuto exacto).",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "à" },
+    { "id": "opt_2", "text": "pile" },
+    { "id": "opt_3", "text": "vers" }
+    ],
+    "correct_option_id": "opt_3"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Vers' significa 'hacia' o 'alrededor de'.",
+    "incorrect": "'À' y 'pile' implican precisión exacta."
+    }
+    },
+    {
+    "id": "ex_011",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Pregunta: '¿A qué hora es el tren?'",
+    "prompt": null,
+    "content": {
+    "segments": ["À", "quelle", "heure", "est", "le", "train", "?"],
+    "correct_order": ["À", "quelle", "heure", "est", "le", "train", "?"],
+    "distractors": ["quand"]
+    },
+    "feedback": {
+    "correct": "Bien. À quelle heure est le train ?",
+    "incorrect": "Siempre empieza con la preposición 'À' para preguntar la hora de un evento."
+    }
+    },
+    {
+    "id": "ex_012",
+    "type": "true_false",
+    "difficulty": "medium",
+    "instruction": "Sobre el vocabulario de trabajo.",
+    "prompt": "'Je suis occupé' significa que estás libre.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. 'Occupé' significa ocupado. 'Libre' o 'Disponible' significa libre."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_013",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Escoge la forma correcta para '8:15' en sistema OFICIAL.",
+    "prompt": "08:15",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Huit heures et quart" },
+    { "id": "opt_2", "text": "Huit heures quinze" },
+    { "id": "opt_3", "text": "Huit heures quinze minutes" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. En sistema oficial: Huit heures quinze (sin 'et quart').",
+    "incorrect": "No usamos 'et quart' en el sistema oficial/digital, solo en el coloquial."
+    }
+    },
+    {
+    "id": "ex_014",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la excusa: 'Estamos retrasados' / 'Llegamos tarde'.",
+    "prompt": "Estamos retrasados.",
+    "content": {
+    "placeholder": "Escribe la frase...",
+    "accepted_answers": ["Nous sommes en retard.", "On est en retard."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Bien. Nous sommes en retard.",
+    "incorrect": "La expresión fija es 'Être en retard'."
+    }
+    },
+    {
+    "id": "ex_015",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Cómo especificas 'de la mañana' en el sistema de 12h?",
+    "prompt": "Il est 10 heures ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "du matin" },
+    { "id": "opt_2", "text": "de matin" },
+    { "id": "opt_3", "text": "au matin" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. Du matin (contracción de De + Le).",
+    "incorrect": "Se dice 'du matin', 'de l'après-midi', 'du soir'."
+    }
+    },
+    {
+    "id": "ex_016",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Forma la frase: 'Son las tres y media'. (Informal)",
+    "prompt": null,
+    "content": {
+    "segments": ["Il", "est", "trois", "heures", "et", "demie"],
+    "correct_order": ["Il", "est", "trois", "heures", "et", "demie"],
+    "distractors": ["trente"]
+    },
+    "feedback": {
+    "correct": "Muy bien. Trois heures et demie.",
+    "incorrect": "En informal, usamos 'et demie' (femenino porque concuerda con 'heure')."
+    }
+    },
+    {
+    "id": "ex_017",
+    "type": "selection_single",
+    "difficulty": "easy",
+    "instruction": "¿Qué significa 'RDV' en un mensaje de texto?",
+    "prompt": "J'ai un RDV à 14h.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Retard" },
+    { "id": "opt_2", "text": "Rendez-vous" },
+    { "id": "opt_3", "text": "Rideau" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Sí. RDV es la abreviatura estándar de Rendez-vous (Cita).",
+    "incorrect": "Es vital reconocer esta sigla en Francia."
+    }
+    },
+    {
+    "id": "ex_018",
+    "type": "true_false",
+    "difficulty": "hard",
+    "instruction": "Analiza la concordancia: 'Il est deux heures et demi'.",
+    "prompt": "Esta frase está escrita correctamente.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. 'Heure' es femenino, así que debe ser 'et demiE' (con E al final)."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_019",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Calcula: Son las 10:40. En francés informal dices...",
+    "prompt": "Il est onze heures ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "moins vingt" },
+    { "id": "opt_2", "text": "moins le quart" },
+    { "id": "opt_3", "text": "quarante" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Bien. 11 menos 20 (Moins vingt).",
+    "incorrect": "Si usas 'Onze heures' (la hora siguiente), debes restar minutos. 11h - 20min = 10:40."
+    }
+    },
+    {
+    "id": "ex_020",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce: '¿Qué hora es?'",
+    "prompt": "¿Qué hora es?",
+    "content": {
+    "placeholder": "Escribe la pregunta...",
+    "accepted_answers": ["Quelle heure est-il ?", "Il est quelle heure ?"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Clásico. Quelle heure est-il ?",
+    "incorrect": "Recuerda la inversión verbo-sujeto 'est-il' o la forma informal 'Il est quelle heure'."
+    }
+    },
+    {
+    "id": "ex_021",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Si necesitas cambiar la hora de una cita, preguntas:",
+    "prompt": "Est-ce qu'on peut ______ le rendez-vous ?",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "décaler" },
+    { "id": "opt_2", "text": "durer" },
+    { "id": "opt_3", "text": "sonner" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. Décaler significa mover/desplazar la hora.",
+    "incorrect": "Durer es durar. Sonner es sonar."
+    }
+    },
+    {
+    "id": "ex_022",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Respuesta: 'La reunión es a las dos de la tarde'.",
+    "prompt": null,
+    "content": {
+    "segments": ["La", "réunion", "est", "à", "14h00"],
+    "correct_order": ["La", "réunion", "est", "à", "14h00"],
+    "distractors": ["il", "est"]
+    },
+    "feedback": {
+    "correct": "Bien. Usamos 'À' para indicar el momento del evento.",
+    "incorrect": "No uses 'Il est' aquí porque el sujeto es 'La réunion'."
+    }
+    },
+    {
+    "id": "ex_023",
+    "type": "selection_single",
+    "difficulty": "easy",
+    "instruction": "¿Cómo se dice 'Temprano'?",
+    "prompt": "J'arrive très ______ le matin.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "tard" },
+    { "id": "opt_2", "text": "tôt" },
+    { "id": "opt_3", "text": "bientôt" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. Tôt = Temprano.",
+    "incorrect": "Tard = Tarde. Bientôt = Pronto."
+    }
+    },
+    {
+    "id": "ex_024",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Elige la pronunciación correcta de la liaison para 'Deux heures'.",
+    "prompt": "Deux heures",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Deu-zeur" },
+    { "id": "opt_2", "text": "Deu-sseur" },
+    { "id": "opt_3", "text": "Deu-eur" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Sí. La X de 'Deux' suena como Z cuando la siguiente palabra empieza por vocal o H muda.",
+    "incorrect": "No es sonido S ni silencio total. Es Z."
+    }
+    }
+    ]
+    }
+    </script>
