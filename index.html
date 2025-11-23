@@ -791,8 +791,10 @@ renderStep() {
             nextStep() { this.currentStepIdx++; this.renderStep(); },
     
 prepareEndReview() {
-                // 1. Save to Global Vocab (Background)
-                if (this.currentLessonMeta.vocabulary && this.currentLessonMeta.mode !== 'practice') {
+                const isPractice = this.currentLessonMeta.type === 'practice';
+console.log(this.currentLessonMeta.type);
+                // 1. Save to Global Vocab (Only if Theory/Lesson)
+                if (!isPractice && this.currentLessonMeta.vocabulary) {
                     const existing = this.userVocab.map(v => v.fr);
                     this.currentLessonMeta.vocabulary.forEach(w => {
                         if(!existing.includes(w.fr)) this.userVocab.push(w);
@@ -800,14 +802,30 @@ prepareEndReview() {
                     localStorage.setItem('acad_user_vocab', JSON.stringify(this.userVocab));
                 }
 
-                // 2. Check if there is vocab to review for this specific lesson
-                if (this.currentLessonMeta.vocabulary && this.currentLessonMeta.vocabulary.length > 0) {
-                    // Initialize mandatory review session
-                    this.reviewDeck = this.currentLessonMeta.vocabulary;
+                // 2. Determine Deck based on Type
+                let deckToReview = [];
+
+                if (isPractice) {
+                    // Practice Mode: Pick RANDOM 10 words from global history
+                    if (this.userVocab.length > 0) {
+                        deckToReview = [...this.userVocab]
+                            .sort(() => Math.random() - 0.5)
+                            .slice(0, 30);
+                    }
+                } else {
+                    // Theory Mode: Review ONLY this lesson's new words
+                    if (this.currentLessonMeta.vocabulary) {
+                        deckToReview = this.currentLessonMeta.vocabulary;
+                    }
+                }
+
+                // 3. Start Review or Complete
+                if (deckToReview.length > 0) {
+                    this.reviewDeck = deckToReview;
                     this.reviewIndex = 0;
                     this.renderLessonVocabReview();
                 } else {
-                    // No vocab, go straight to completion
+                    // No vocab to review (or empty global vocab in practice), finish immediately
                     this.completeLesson(); 
                 }
             },
@@ -821,8 +839,13 @@ prepareEndReview() {
                 const word = this.reviewDeck[this.reviewIndex];
                 const isLast = this.reviewIndex === this.reviewDeck.length - 1;
                 const progressText = `Mot ${this.reviewIndex + 1} sur ${this.reviewDeck.length}`;
+                
+                // Dynamic Title based on type
+                const isPractice = this.currentLessonMeta.type === 'practice';
+                const titleText = isPractice ? "Révision Globale" : "Mémorisation";
+                const subText = isPractice ? "Mots aléatoires de vos acquis" : "Vocabulaire de la leçon";
 
-                // --- RANDOMIZATION LOGIC ---
+                // Randomize Language Direction
                 const isFrenchFront = Math.random() > 0.5;
                 const frontLang = isFrenchFront ? 'Français' : 'Español';
                 const frontText = isFrenchFront ? word.fr : word.es;
@@ -832,8 +855,8 @@ prepareEndReview() {
                 this.container.innerHTML = `
                     <div class="h-full flex flex-col bg-frCream">
                         <div class="px-6 py-6 text-center">
-                            <h2 class="text-frBlue font-bold text-lg uppercase tracking-widest mb-1">Dernière étape</h2>
-                            <p class="text-gray-500 text-sm">Mémorisez le vocabulaire pour finir</p>
+                            <h2 class="text-frBlue font-bold text-lg uppercase tracking-widest mb-1">${titleText}</h2>
+                            <p class="text-gray-500 text-sm">${subText}</p>
                         </div>
 
                         <div class="flex-1 flex flex-col items-center justify-center perspective-1000 cursor-pointer group px-4 pb-10"
@@ -859,7 +882,7 @@ prepareEndReview() {
 
                         <div class="p-6 bg-white border-t border-gray-200">
                             <button onclick="app.nextLessonReviewCard()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl shadow-btn active:shadow-none active:translate-y-1 transition uppercase tracking-wider text-sm">
-                                ${isLast ? 'Terminer la leçon' : 'Mot Suivant'}
+                                ${isLast ? 'Terminer' : 'Suivant'}
                             </button>
                         </div>
                     </div>`;
