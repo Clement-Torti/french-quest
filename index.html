@@ -120,93 +120,148 @@
             },
     
             // --- 1. DISCOVERY ---
-            async discoverModules() {
-                let id = 1;
-                let searching = true;
-                while (searching) {
-                    const url = `${this.baseUrl}lesson${id}.html`;
-                    try {
-                        const res = await fetch(url);
-                        if (res.ok) {
-                            const text = await res.text();
-                            const parser = new DOMParser();
-                            const doc = parser.parseFromString(text, 'text/html');
-                            const jsonScript = doc.getElementById('lesson-data');
-                            if (jsonScript) {
-                                const data = JSON.parse(jsonScript.textContent);
-                                this.modules.push({ id: id, url: url, ...data });
-                            }
-                            id++;
-                        } else { searching = false; }
-                    } catch (e) { searching = false; }
+// --- 1. DISCOVERY ---
+async discoverModules() {
+    this.modules = []; // Reset
+    let id = 1;
+    let searching = true;
+    while (searching) {
+        const url = `${this.baseUrl}lesson${id}.html`;
+        try {
+            const res = await fetch(url);
+            if (res.ok) {
+                const text = await res.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                const jsonScript = doc.getElementById('lesson-data');
+                
+                if (jsonScript) {
+                    const data = JSON.parse(jsonScript.textContent);
+                    
+                    // PUSH 1: THEORY NODE
+                    this.modules.push({ 
+                        id: id, 
+                        uid: `${id}_theory`, // Unique ID for progress
+                        type: 'theory', 
+                        url: url, 
+                        title: `Leçon ${id}`, 
+                        topic: data.title,
+                        icon: data.icon
+                    });
+
+                    // PUSH 2: PRACTICE NODE
+                    this.modules.push({ 
+                        id: id, 
+                        uid: `${id}_practice`, // Unique ID for progress
+                        type: 'practice', 
+                        url: url, // We pass lesson URL, loadPractice handles the rest
+                        title: `Exercice ${id}`, 
+                        topic: "Pratique",
+                        icon: 'fa-dumbbell' 
+                    });
                 }
-                if (this.modules.length === 0) this.container.innerHTML = `<div class="p-10 text-center">No lessons found.</div>`;
-                else this.renderMap();
-            },
+                id++;
+            } else { searching = false; }
+        } catch (e) { searching = false; }
+    }
+    
+    if (this.modules.length === 0) this.container.innerHTML = `<div class="p-10 text-center">No lessons found.</div>`;
+    else this.renderMap();
+},
     
             // --- 2. MAP RENDERING ---
-            renderMap() {
-                this.modal.classList.add('hidden');
-                
-                const introCard = `
-                <div class="w-full px-6 pt-8 pb-4 relative z-20">
-                    <div class="bg-white p-6 rounded-2xl shadow-card border border-blue-100 text-center relative overflow-hidden">
-                        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-frBlue via-white to-frRed"></div>
-                        <h2 class="text-xl font-serif font-bold text-frBlue mb-3 mt-1">Bienvenue à Paris! 🇫🇷</h2>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-3">He creado esta plataforma para ayudarte a mejorar tu francés <strong>de verdad</strong>.</p>
-                        <a href="#" target="_blank" class="inline-flex items-center gap-2 bg-frCream text-frBlue px-5 py-2.5 rounded-full text-xs font-bold border border-gold hover:bg-gold hover:text-white transition shadow-sm active:scale-95">
-                            <i class="fa-solid fa-croissant"></i><span>Invítame un croissant</span>
-                        </a>
-                    </div>
-                </div>`;
+// --- 2. MAP RENDERING ---
+renderMap() {
+    this.modal.classList.add('hidden');
+    
+    // Intro Card (Keep as is)
+    const introCard = `
+    <div class="w-full px-6 pt-8 pb-4 relative z-20">
+        <div class="bg-white p-6 rounded-2xl shadow-card border border-blue-100 text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-frBlue via-white to-frRed"></div>
+            <h2 class="text-xl font-serif font-bold text-frBlue mb-3 mt-1">Bienvenue à Paris! 🇫🇷</h2>
+            <p class="text-sm text-gray-600 leading-relaxed mb-3">Tu ruta de aprendizaje paso a paso.</p>
+        </div>
+    </div>`;
 
-                let nodes = '';
-                this.modules.forEach((mod, i) => {
-                    const count = this.progress[mod.id] || 0;
-                    const offset = i % 2 === 0 ? '-translate-x-8 sm:-translate-x-12' : 'translate-x-8 sm:translate-x-12';
+    let nodes = '';
+
+    this.modules.forEach((mod, i) => {
+        // CHECK LOCK STATUS
+        let isLocked = false;
+    
+        const isComplete = this.progress[mod.uid] ? true : false;
+        
+        // Zigzag offset
+        const offset = i % 2 === 0 ? '-translate-x-8 sm:-translate-x-12' : 'translate-x-8 sm:translate-x-12';
+        
+        // VISUAL STYLES based on Type & Status
+        let colorClass, borderClass, opacityClass, clickAction;
+
+        if (isLocked) {
+            colorClass = 'bg-gray-200 text-gray-400';
+            borderClass = 'border-gray-300';
+            opacityClass = 'opacity-70 grayscale';
+            clickAction = ''; // No action
+        } else if (isComplete) {
+            colorClass = 'bg-gold text-white';
+            borderClass = 'border-yellow-600';
+            opacityClass = '';
+            // Allow re-playing
+            clickAction = mod.type === 'theory' ? `app.loadLesson(${i})` : `app.loadPractice(${i})`; 
+        } else {
+            // Active / Current
+            if (mod.type === 'theory') {
+                colorClass = 'bg-frBlue text-white';
+                borderClass = 'border-blue-900';
+            } else {
+                colorClass = 'bg-white text-frBlue border-2 border-frBlue'; // Distinct look for practice
+                borderClass = 'border-blue-200';
+            }
+            opacityClass = 'scale-110'; // Highlight next step
+            clickAction = mod.type === 'theory' ? `app.loadLesson(${i})` : `app.loadPractice(${i})`;
+        }
+
+        // Generate Node HTML
+        nodes += `
+        <div class="flex flex-col items-center mb-16 relative z-10 pointer-events-none w-full">
+            <div class="pointer-events-auto flex flex-col items-center transition-all duration-300 ${offset} ${opacityClass}" id="node-${i}">
+                
+                <!-- Label -->
+                <div class="mb-2 bg-white/90 backdrop-blur px-3 py-1 rounded-full shadow-sm text-[10px] font-bold text-gray-600 border border-gray-100 uppercase tracking-widest">
+                    ${mod.type === 'theory' ? 'LECCIÓN' : 'PRACTICA'}
+                </div>
+
+                <!-- Main Button -->
+                <button onclick="${clickAction}" 
+                    class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full text-2xl flex items-center justify-center border-b-4 shadow-xl active:scale-95 transition-all active:translate-y-1 ${colorClass} ${borderClass}">
+                    <i class="fa-solid ${isComplete ? 'fa-check' : mod.icon}"></i>
                     
-                    let colorClass, iconClass, borderClass, medalLabel;
-
-                    if (count === 0) {
-                        colorClass = 'bg-frBlue text-white'; borderClass = 'border-blue-900'; iconClass = mod.icon || 'fa-star'; medalLabel = '';
-                    } else if (count === 1) {
-                        colorClass = 'bg-bronze text-white'; borderClass = 'border-[#8b4513]'; iconClass = 'fa-check';
-                        medalLabel = '<div class="absolute -top-2 -right-2 bg-bronze text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-white shadow-sm">I</div>';
-                    } else if (count === 2) {
-                        colorClass = 'bg-silver text-gray-700'; borderClass = 'border-gray-500'; iconClass = 'fa-check-double';
-                        medalLabel = '<div class="absolute -top-2 -right-2 bg-silver text-gray-700 text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-white shadow-sm">II</div>';
-                    } else {
-                        colorClass = 'bg-gold text-white'; borderClass = 'border-yellow-600'; iconClass = 'fa-trophy';
-                        medalLabel = '<div class="absolute -top-2 -right-2 bg-gold text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-white shadow-sm"><i class="fa-solid fa-crown text-[8px]"></i></div>';
-                    }
-
-                    // Updated OnClick to open Modal
-                    nodes += `
-                    <div class="flex flex-col items-center mb-16 relative z-10 pointer-events-none w-full">
-                        <div class="pointer-events-auto flex flex-col items-center transition-transform duration-300 ${offset}" id="node-${i}">
-                            <div class="mb-2 bg-white/90 backdrop-blur px-2 py-1 rounded shadow text-[10px] font-bold text-frBlue uppercase tracking-wider border border-gray-100">${mod.title}</div>
-                            <button onclick="app.openLessonModal(${i})" 
-                                class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full text-2xl sm:text-3xl border-b-4 shadow-xl active:scale-95 transition-all active:translate-y-1 ${colorClass} ${borderClass}">
-                                <i class="fa-solid ${iconClass}"></i>
-                                ${medalLabel}
-                            </button>
-                        </div>
-                    </div>`;
-                });
-
-                this.container.innerHTML = `
-                    <div class="min-h-full relative overflow-x-hidden bg-[#fdfbf7]">
-                        <svg id="map-svg" class="absolute inset-0 w-full h-full pointer-events-none"><path id="map-path" d="" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8 8" stroke-linecap="round"/></svg>
-                        <div class="max-w-md mx-auto flex flex-col items-center w-full overflow-hidden">
-                            ${introCard}
-                            <div class="w-full pt-6 pb-24">
-                                ${nodes}
-                            </div>
-                        </div>
-                    </div>`;
+                    <!-- Lock Overlay -->
+                    ${isLocked ? '<div class="absolute inset-0 flex items-center justify-center bg-black/10 rounded-full"><i class="fa-solid fa-lock text-xs text-gray-500"></i></div>' : ''}
+                </button>
                 
-                setTimeout(() => this.drawMapPath(), 100);
-            },
+                <!-- Title below -->
+                <div class="mt-2 text-center w-32">
+                     <div class="text-xs font-bold text-frBlue leading-tight">${mod.topic}</div>
+                </div>
+            </div>
+        </div>`;
+    });
+
+    this.container.innerHTML = `
+        <div class="min-h-full relative overflow-x-hidden bg-[#fdfbf7]">
+            <svg id="map-svg" class="absolute inset-0 w-full h-full pointer-events-none"><path id="map-path" d="" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8 8" stroke-linecap="round"/></svg>
+            <div class="max-w-md mx-auto flex flex-col items-center w-full overflow-hidden">
+                ${introCard}
+                <div class="w-full pt-6 pb-24">
+                    ${nodes}
+                </div>
+            </div>
+        </div>`;
+    
+    setTimeout(() => this.drawMapPath(), 100);
+},
 
             // --- MODAL LOGIC ---
             openLessonModal(index) {
@@ -277,8 +332,8 @@
     
             // --- 3A. LESSON ENGINE (Standard) ---
             async loadLesson(index) {
-                this.closeModal();
                 const mod = this.modules[index];
+                this.currentModIndex = index;
                 this.container.innerHTML = `<div class="h-full flex items-center justify-center"><div class="loader"></div></div>`;
                 
                 try {
@@ -296,7 +351,7 @@
                     const data = JSON.parse(doc.getElementById('lesson-data').textContent);
 
                     this.lessonSteps = [...readSteps];
-                    this.currentLessonMeta = { ...data, id: mod.id };
+                    this.currentLessonMeta = { ...data, id: mod.id, uid: mod.uid, type: 'theory', moduleIndex: index };
                     this.currentStepIdx = 0;
                     this.renderStep();
 
@@ -308,7 +363,6 @@
 
             // --- 3B. PRACTICE ENGINE (New) ---
     async loadPractice(index) {
-        this.closeModal();
         const mod = this.modules[index];
         this.container.innerHTML = `<div class="h-full flex items-center justify-center"><div class="loader"></div></div>`;
 
@@ -381,7 +435,7 @@
                 });
             }
 
-            this.currentLessonMeta = { ...lessonData, id: mod.id, mode: 'practice' };
+            this.currentLessonMeta = { ...lessonData, id: mod.id, uid: mod.uid, mode: 'practice', type: 'practice', moduleIndex: index };
             this.currentStepIdx = 0;
             this.renderStep();
 
@@ -651,32 +705,50 @@ renderStep() {
                 this.completeLesson(); 
             },
     
-            completeLesson() {
-                const id = this.currentLessonMeta.id;
-                
-                // Only update progress if not in practice mode (optional logic, keeping simple here)
-                this.progress[id] = (this.progress[id] || 0) + 1;
-                localStorage.setItem('acad_progress', JSON.stringify(this.progress));
-                
-                const count = this.progress[id];
-                let medalTitle = "¡Felicitaciones!";
-                let medalColor = "text-gold";
-                
-                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+completeLesson() {
+    // 1. Save Progress using the UNIQUE ID
+    const uid = this.currentLessonMeta.uid;
+    this.progress[uid] = 1;
+    localStorage.setItem('acad_progress', JSON.stringify(this.progress));
     
-                this.container.innerHTML = `
-                    <div class="h-full flex flex-col items-center justify-center bg-frCream p-6 text-center animate-step">
-                        <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg mb-6 text-4xl ${medalColor} border-4 border-gray-100"><i class="fa-solid fa-trophy"></i></div>
-                        <h2 class="text-xl text-frBlue font-bold uppercase tracking-wider mb-1">Terminé</h2>
-                        <h1 class="text-3xl font-serif font-bold ${medalColor} mb-6">${medalTitle}</h1>
-                        <p class="text-gray-500 mb-8 text-sm max-w-xs">
-                            Has completado la sesión.
-                        </p>
-                        <div class="w-full max-w-sm space-y-4">
-                            <button onclick="app.renderMap()" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-lg active:scale-95 transition">Volver al Mapa</button>
-                        </div>
-                    </div>`;
-            },
+    // 2. Visuals
+    const isPractice = this.currentLessonMeta.type === 'practice';
+    const msg = isPractice ? "Exercice Terminé" : "Leçon Terminée";
+    
+    confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+
+    // 3. Determine Next Step
+    // Check if there is a next module in the array
+    const nextIndex = this.currentLessonMeta.moduleIndex + 1;
+    let btnAction = `app.renderMap()`;
+    let btnText = "Volver al Mapa";
+
+    // Optional: Direct link to next node if it exists
+    if (nextIndex < this.modules.length) {
+        const nextMod = this.modules[nextIndex];
+        const fn = nextMod.type === 'theory' ? 'loadLesson' : 'loadPractice';
+        btnAction = `app.${fn}(${nextIndex})`;
+        btnText = `Siguiente: ${nextMod.type === 'theory' ? 'Théorie' : 'Pratique'}`;
+    }
+
+    this.container.innerHTML = `
+        <div class="h-full flex flex-col items-center justify-center bg-frCream p-6 text-center animate-step">
+            <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg mb-6 text-4xl text-gold border-4 border-gray-100">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h2 class="text-xl text-frBlue font-bold uppercase tracking-wider mb-1">Bien Joué !</h2>
+            <h1 class="text-3xl font-serif font-bold text-frBlue mb-6">${msg}</h1>
+            
+            <div class="w-full max-w-sm space-y-4">
+                <button onclick="${btnAction}" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-lg active:scale-95 transition">
+                    ${btnText} <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+                <button onclick="app.renderMap()" class="w-full text-gray-400 font-bold py-2 text-sm">
+                    Menu Principal
+                </button>
+            </div>
+        </div>`;
+},
 
             renderFlashcards() {
                 if(this.userVocab.length === 0) {
