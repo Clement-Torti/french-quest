@@ -884,43 +884,70 @@ completeLesson() {
                     this.container.innerHTML = `<div class="h-full flex items-center justify-center flex-col p-6 text-center"><p class="text-gray-500 mb-4">No tienes vocabulario guardado aún.</p><button class="text-frBlue font-bold border border-frBlue px-4 py-2 rounded-lg" onclick="app.renderMap()">Volver</button></div>`;
                     return;
                 }
-                this.deck = [...this.userVocab].sort(()=>Math.random()-0.5);
+                this.deck = [...this.userVocab].sort(()=>Math.random()-0.5).slice(0, 30);
                 this.cardIdx = 0;
                 this.renderVoluntaryCard();
             },
             
             renderVoluntaryCard() {
-                if(this.cardIdx >= this.deck.length) {
-                    this.container.innerHTML = `<div class="h-full flex items-center justify-center flex-col bg-frBlue text-white"><h2 class="text-xl font-bold mb-4">¡Repaso terminado!</h2><button onclick="app.renderMap()" class="bg-white/20 px-6 py-3 rounded-lg hover:bg-white/30 transition">Volver</button></div>`;
-                    return;
-                }
-                const word = this.deck[this.cardIdx];
-                const isFrenchFront = Math.random() > 0.5;
-                const frontLang = isFrenchFront ? 'Français' : 'Español';
-                const frontText = isFrenchFront ? word.fr : word.es;
-                const backLang = isFrenchFront ? 'Español' : 'Français';
-                const backText = isFrenchFront ? word.es : word.fr;
+    if (this.cardIdx >= this.deck.length) {
+        this.container.innerHTML = `
+            <div class="h-full flex items-center justify-center flex-col bg-frBlue text-white">
+                <h2 class="text-xl font-bold mb-4">¡Repaso terminado!</h2>
+                <button onclick="app.renderMap()" class="bg-white/20 px-6 py-3 rounded-lg hover:bg-white/30 transition">Volver</button>
+            </div>`;
+        return;
+    }
 
-                this.container.innerHTML = `
-                    <div class="h-full flex flex-col bg-gray-100">
-                        <div class="p-4 flex justify-end"><button onclick="app.renderMap()" class="bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center"><i class="fa-solid fa-xmark text-gray-500"></i></button></div>
-                        <div class="flex-1 flex items-center justify-center perspective-1000 cursor-pointer group px-4" onclick="document.querySelector('.card-inner').classList.toggle('rotate-y-180')">
-                            <div class="card-inner w-full max-w-[300px] h-[400px] relative transform-style-3d transition-transform duration-500">
-                                <div class="absolute inset-0 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden border-b-4 border-gray-200">
-                                    <span class="text-xs uppercase tracking-widest text-gray-400 mb-2">${frontLang}</span>
-                                    <h2 class="text-3xl font-serif font-bold text-frBlue text-center px-2">${frontText}</h2>
-                                </div>
-                                <div class="absolute inset-0 bg-frBlue rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden rotate-y-180 text-white border-b-4 border-blue-900">
-                                    <span class="text-xs uppercase tracking-widest text-blue-300 mb-2">${backLang}</span>
-                                    <h2 class="text-3xl font-serif font-bold text-center px-2">${backText}</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6 pb-8 flex gap-4 justify-center">
-                            <button onclick="app.nextVoluntaryCard()" class="bg-white border-2 border-gray-200 px-8 py-4 rounded-xl font-bold text-gray-600 w-full shadow-sm">Siguiente</button>
-                        </div>
-                    </div>`;
-            },
+    const word = this.deck[this.cardIdx];
+    const isFrenchFront = Math.random() > 0.5;
+    const frontLang = isFrenchFront ? 'Français' : 'Español';
+    const frontText = isFrenchFront ? word.fr : word.es;
+    const backLang = isFrenchFront ? 'Español' : 'Français';
+    const backText = isFrenchFront ? word.es : word.fr;
+
+    // Progress text: "3/30"
+    const progressText = `${this.cardIdx + 1} / ${this.deck.length}`;
+
+    this.container.innerHTML = `
+        <div class="h-full flex flex-col bg-gray-100">
+            
+            <!-- TOP BAR WITH EXIT + PROGRESS -->
+            <div class="p-4 flex justify-between items-center">
+                <button onclick="app.renderMap()" class="bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center">
+                    <i class="fa-solid fa-xmark text-gray-500"></i>
+                </button>
+                <div class="text-gray-500 font-bold text-sm">${progressText}</div>
+            </div>
+
+            <div class="flex-1 flex items-center justify-center perspective-1000 cursor-pointer group px-4"
+                 onclick="document.querySelector('.card-inner').classList.toggle('rotate-y-180')">
+                 
+                <div class="card-inner w-full max-w-[300px] h-[400px] relative transform-style-3d transition-transform duration-500">
+                    
+                    <!-- FRONT -->
+                    <div class="absolute inset-0 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden border-b-4 border-gray-200">
+                        <span class="text-xs uppercase tracking-widest text-gray-400 mb-2">${frontLang}</span>
+                        <h2 class="text-3xl font-serif font-bold text-frBlue text-center px-2">${frontText}</h2>
+                    </div>
+                    
+                    <!-- BACK -->
+                    <div class="absolute inset-0 bg-frBlue rounded-2xl shadow-xl flex flex-col items-center justify-center backface-hidden rotate-y-180 text-white border-b-4 border-blue-900">
+                        <span class="text-xs uppercase tracking-widest text-blue-300 mb-2">${backLang}</span>
+                        <h2 class="text-3xl font-serif font-bold text-center px-2">${backText}</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 pb-8 flex gap-4 justify-center">
+                <button onclick="app.nextVoluntaryCard()" class="bg-white border-2 border-gray-200 px-8 py-4 rounded-xl font-bold text-gray-600 w-full shadow-sm">
+                    Siguiente
+                </button>
+            </div>
+
+        </div>`;
+},
+
             nextVoluntaryCard() { this.cardIdx++; this.renderVoluntaryCard(); }
         };
         app.init();
