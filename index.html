@@ -237,6 +237,7 @@
                                     url: url,
                                     title: `Leçon ${id}`,
                                     topic: data.title,
+                                    desc: data.desc,
                                     icon: data.icon
                                 });
 
@@ -248,6 +249,7 @@
                                     url: url, // We pass lesson URL, loadPractice handles the rest
                                     title: `Exercice ${id}`,
                                     topic: "Practica",
+                                    desc: "",
                                     icon: 'fa-dumbbell'
                                 });
                             }
@@ -279,6 +281,11 @@
            class="inline-block mt-2 px-4 py-2 bg-frBlue text-white text-xs font-semibold rounded-xl shadow hover:bg-blue-700 transition">
            Invitar un croissant 🥐
         </a>
+              <div class="flex justify-center">
+                <button id="btn-copy-prog" onclick="app.copyProgram()" class="text-[10px] text-gray-400 font-bold uppercase tracking-wider hover:text-gold transition flex items-center gap-1 py-2">
+                    <i class="fa-regular fa-clipboard"></i> Copier le programme
+                </button>
+            </div>
 
         </div>
     </div>`;
@@ -1211,7 +1218,25 @@
 
 
 
-            nextVoluntaryCard() { this.cardIdx++; this.renderVoluntaryCard(); }
+            nextVoluntaryCard() { this.cardIdx++; this.renderVoluntaryCard(); },
+
+            copyProgram() {
+                // Filter only Theory lessons to create the list
+                const text = this.modules
+                    .filter(m => m.type === 'theory')
+                    .map(m => `- ${m.title} : ${m.desc} - desc:  ${m.desc}`)
+                    .join('\n');
+
+                navigator.clipboard.writeText(text).then(() => {
+                    // Simple visual feedback
+                    const btn = document.getElementById('btn-copy-prog');
+                    if(btn) {
+                        const originalHtml = btn.innerHTML;
+                        btn.innerHTML = '<i class="fa-solid fa-check"></i> Copié !';
+                        setTimeout(() => btn.innerHTML = originalHtml, 2000);
+                    }
+                }).catch(err => console.error('Erreur de copie', err));
+            },
         };
         app.init();
     </script>
