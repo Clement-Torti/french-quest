@@ -608,7 +608,7 @@ renderStep() {
         this.container.innerHTML = html;
     },
 
-    // --- GENERATE HTML FOR NEW EXERCISE TYPES ---
+// --- GENERATE HTML FOR NEW EXERCISE TYPES ---
     renderInteractiveExercise(ex) {
         let contentHtml = '';
         const instruction = `<div class="flex items-center gap-2 mb-4"><span class="bg-gold text-white px-2 py-0.5 rounded text-xs font-bold uppercase">Exercice</span><span class="text-xs text-gray-500 font-bold uppercase tracking-widest">${ex.type.replace('_', ' ')}</span></div>`;
@@ -627,7 +627,6 @@ renderStep() {
                 break;
 
             case 'sentence_builder':
-                // Shuffle distractors + correct segments
                 const allWords = [...ex.content.segments || []].sort(() => Math.random() - 0.5);
                 contentHtml = `
                     <div id="build-area" class="min-h-[60px] bg-white border-b-2 border-frBlue mb-6 p-2 flex flex-wrap gap-2 items-center justify-center transition-colors rounded-t-lg"></div>
@@ -637,9 +636,29 @@ renderStep() {
                 break;
 
             case 'fill_in_blank':
+                // Special characters buttons
+                const specialChars = ex.content.special_characters || [];
+                const charButtons = specialChars.map(char => 
+                    `<button onclick="document.getElementById('inp-blank').value += '${char}'; document.getElementById('inp-blank').focus();" class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded shadow-sm font-serif text-lg text-frBlue transition">${char}</button>`
+                ).join('');
+
                 contentHtml = `
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
-                        <input type="text" id="inp-blank" class="w-full text-center text-2xl p-2 border-b-2 border-gray-300 focus:border-frBlue focus:outline-none bg-transparent placeholder-gray-300" placeholder="${ex.content.placeholder}" autocomplete="off">
+                        <textarea id="inp-blank" rows="2" class="w-full text-center text-xl p-2 border-b-2 border-gray-300 focus:border-frBlue focus:outline-none bg-transparent placeholder-gray-300 resize-none" placeholder="${ex.content.placeholder}"></textarea>
+                        
+                        <div class="flex justify-center gap-2 mt-4 mb-6">${charButtons}</div>
+
+                        <!-- Reveal Button -->
+                        <button id="btn-reveal-local" onclick="app.revealAnswer()" class="mx-auto bg-white border-2 border-gold text-gold hover:bg-gold hover:text-white px-6 py-2 rounded-full font-bold transition flex items-center gap-2">
+                            <i class="fa-regular fa-eye"></i> Voir la réponse
+                        </button>
+
+                        <!-- Answer Display (Initially Hidden) -->
+                        <div id="answer-display" class="hidden mt-6 pt-6 border-t border-gray-100 animate-fade-in">
+                            <div class="text-xs uppercase text-gray-400 font-bold tracking-widest mb-2">Réponse suggérée</div>
+                            <div class="text-2xl font-serif text-frBlue font-bold">${ex.content.accepted_answers[0]}</div>
+                            <div class="mt-2 text-sm text-gray-500 italic">${ex.feedback?.correct || ''}</div>
+                        </div>
                     </div>`;
                 break;
 
@@ -660,8 +679,28 @@ renderStep() {
         `;
     },
 
+    // --- REVEAL ANSWER LOGIC (New) ---
+    revealAnswer() {
+        const ansDisplay = document.getElementById('answer-display');
+        const btnReveal = document.getElementById('btn-reveal-local');
+        const btnCheck = document.getElementById('btn-check');
+        const btnNext = document.getElementById('btn-next');
+        const input = document.getElementById('inp-blank');
+
+        // Show answer UI
+        if (ansDisplay) ansDisplay.classList.remove('hidden');
+        if (btnReveal) btnReveal.classList.add('hidden');
+        if (input) {
+            input.disabled = true;
+            input.classList.add('opacity-50');
+        }
+
+        // Manage global navigation
+        if (btnCheck) btnCheck.classList.add('hidden');
+        if (btnNext) btnNext.classList.remove('hidden');
+    },
+
     // --- INTERACTION HELPERS ---
-    // Single Selection Logic
     selectOption(btn, id) {
         document.querySelectorAll('.option-btn').forEach(b => {
             b.classList.remove('border-frBlue', 'bg-blue-50');
@@ -674,7 +713,6 @@ renderStep() {
         btn.dataset.selectedId = id;
     },
 
-    // Sentence Builder Logic
     moveWord(btn) {
         const bank = document.getElementById('word-bank');
         const area = document.getElementById('build-area');
@@ -689,7 +727,6 @@ renderStep() {
         }
     },
 
-    // True/False Logic
     selectBool(btn, val) {
         document.querySelectorAll('.bool-btn').forEach(b => b.classList.remove('ring-4', 'ring-frBlue/30', 'border-frBlue', 'selected'));
         btn.classList.add('ring-4', 'ring-frBlue/30', 'border-frBlue', 'selected');
@@ -706,11 +743,17 @@ renderStep() {
         let isCorrect = false;
         let feedbackMsg = '';
 
+        // SPECIAL CASE: Fill in blank (Translation) - No validation, just reveal
+        if (ex.type === 'fill_in_blank') {
+            this.revealAnswer();
+            return;
+        }
+
         // 1. VALIDATE BASED ON TYPE
         switch(ex.type) {
             case 'selection_single':
                 const selBtn = document.querySelector('.option-btn.selected');
-                if (!selBtn) return; // No selection
+                if (!selBtn) return; 
                 isCorrect = selBtn.dataset.selectedId === ex.content.correct_option_id;
                 feedbackMsg = isCorrect ? (ex.feedback?.correct || "Correct !") : (ex.feedback?.incorrect || "Incorrect.");
                 break;
@@ -720,12 +763,6 @@ renderStep() {
                 const correctOrder = ex.content.correct_order;
                 isCorrect = JSON.stringify(userOrder) === JSON.stringify(correctOrder);
                 feedbackMsg = isCorrect ? (ex.feedback?.correct || "Phrase correcte !") : `Ordre correct : "${correctOrder.join(' ')}"`;
-                break;
-
-            case 'fill_in_blank':
-                const inputVal = document.getElementById('inp-blank').value.trim();
-                isCorrect = ex.content.accepted_answers.some(ans => ans.toLowerCase() === inputVal.toLowerCase());
-                feedbackMsg = isCorrect ? (ex.feedback?.correct || "Bien joué !") : (ex.feedback?.incorrect || `Réponse : ${ex.content.accepted_answers[0]}`);
                 break;
 
             case 'true_false':
@@ -747,7 +784,6 @@ renderStep() {
             btnCheck.classList.add('hidden');
             btnNext.classList.remove('hidden');
             
-            // Disable inputs
             const con = document.getElementById('ex-container');
             con.style.pointerEvents = 'none';
             con.style.opacity = '0.8';
@@ -758,35 +794,6 @@ renderStep() {
             feed.classList.remove('hidden');
         }
     },
-    
-            checkAnswer(correct) {
-                const inp = document.getElementById('inp-quiz');
-                const feed = document.getElementById('feedback');
-                const btnCheck = document.getElementById('btn-check');
-                const btnNext = document.getElementById('btn-next');
-                
-                // Simple normalization
-                const normalize = (str) => str.trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g,"").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-                const user = normalize(inp.value);
-                const ans = normalize(correct);
-    
-                if (user === ans) {
-                    inp.classList.add('border-green-500', 'bg-green-50');
-                    inp.classList.remove('border-gray-200');
-                    feed.innerHTML = `<div class="flex items-center justify-center gap-2 text-green-700"><i class="fa-solid fa-circle-check text-xl"></i> <span>Excellent !</span></div>`;
-                    feed.className = "mb-4 rounded-xl p-4 font-bold text-center bg-green-100 animate-bounce";
-                    const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3');
-                    audio.volume = 0.3; audio.play().catch(e=>{});
-                    inp.blur(); 
-                    btnCheck.classList.add('hidden');
-                    btnNext.classList.remove('hidden');
-                } else {
-                    inp.classList.add('border-frRed', 'bg-red-50', 'animate-pulse');
-                    feed.innerHTML = `<div class="text-frRed mb-1 text-xs uppercase">Réponse correcte</div><div class="text-gray-800 text-lg">${correct}</div>`;
-                    feed.className = "mb-4 rounded-xl p-4 font-bold text-center bg-red-100";
-                    feed.classList.remove('hidden');
-                }
-            },
     
             nextStep() { this.currentStepIdx++; this.renderStep(); },
     
