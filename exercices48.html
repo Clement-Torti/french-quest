@@ -1,0 +1,342 @@
+
+<script type="application/json" id="exercise-data">
+    {
+    "interactive_exercises": [
+    {
+    "id": "ex_001",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Selecciona el pronombre relativo correcto (Sujeto).",
+    "prompt": "Napoléon est l'homme ______ a créé le Code Civil.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "qui" },
+    { "id": "opt_2", "text": "que" },
+    { "id": "opt_3", "text": "dont" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "¡Correcto! Usamos 'Qui' porque actúa como sujeto del verbo 'a créé'.",
+    "incorrect": "Fíjate en lo que sigue: hay un verbo ('a créé') y falta el sujeto. Usa 'Qui'."
+    }
+    },
+    {
+    "id": "ex_002",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Selecciona el pronombre relativo correcto (Objeto Directo).",
+    "prompt": "C'est le monument ______ je veux visiter.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "qui" },
+    { "id": "opt_2", "text": "où" },
+    { "id": "opt_3", "text": "que" }
+    ],
+    "correct_option_id": "opt_3"
+    },
+    "feedback": {
+    "correct": "Bien. 'Que' reemplaza al objeto. La frase sigue con sujeto (je) + verbo.",
+    "incorrect": "Como ya tienes un sujeto ('je'), necesitas el pronombre de objeto 'Que'."
+    }
+    },
+    {
+    "id": "ex_003",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Usa 'Dont' para verbos con 'De' (Être fier de).",
+    "prompt": "La gloire est la chose ______ il est le plus fier.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "que" },
+    { "id": "opt_2", "text": "dont" },
+    { "id": "opt_3", "text": "qui" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Exacto! Se dice 'Être fier DE'. Por lo tanto, usamos 'Dont'.",
+    "incorrect": "La expresión es 'fier DE'. Cuando el verbo usa 'de', el relativo es 'Dont'."
+    }
+    },
+    {
+    "id": "ex_004",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Ordena la frase relativa con 'Dont' (Hablar de...).",
+    "prompt": null,
+    "content": {
+    "segments": ["C'est", "le", "héros", "dont", "tout", "le", "monde", "parle"],
+    "correct_order": ["C'est", "le", "héros", "dont", "tout", "le", "monde", "parle"],
+    "distractors": ["que", "qui"]
+    },
+    "feedback": {
+    "correct": "¡Muy bien! 'Le héros dont... parle' (Parler de).",
+    "incorrect": "El verbo es 'Parler de'. Debes usar 'Dont' para conectar la frase."
+    }
+    },
+    {
+    "id": "ex_005",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué pronombre usamos para indicar tiempo o lugar?",
+    "prompt": "1815 est l'année ______ il a perdu la bataille.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "que" },
+    { "id": "opt_2", "text": "où" },
+    { "id": "opt_3", "text": "dont" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Où' se usa para lugares y momentos en el tiempo.",
+    "incorrect": "Para fechas o lugares, usamos el relativo 'Où'."
+    }
+    },
+    {
+    "id": "ex_006",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce usando el relativo 'Qui' (Cuidado con la H aspirada de Héros).",
+    "prompt": "Él es el héroe que ganó.",
+    "content": {
+    "placeholder": "Escribe la frase...",
+    "accepted_answers": ["C'est le héros qui a gagné.", "Il est le héros qui a gagné."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Excelente! C'est le héros qui a gagné.",
+    "incorrect": "Usa 'Qui' seguido del verbo 'a gagné'."
+    }
+    },
+    {
+    "id": "ex_007",
+    "type": "true_false",
+    "difficulty": "medium",
+    "instruction": "¿Es correcto el uso de 'Que' aquí?",
+    "prompt": "Le Code Civil est un livre que nous utilisons.",
+    "content": {
+    "is_correct": true,
+    "explanation": "Correcto. Nosotros (sujeto) utilizamos (verbo) el libro (objeto -> Que)."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_008",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Forma la frase: 'El ejército que marcha'.",
+    "prompt": null,
+    "content": {
+    "segments": ["L'armée", "qui", "marche", "vers", "Paris"],
+    "correct_order": ["L'armée", "qui", "marche", "vers", "Paris"],
+    "distractors": ["que", "dont"]
+    },
+    "feedback": {
+    "correct": "Bien. 'L'armée qui marche'.",
+    "incorrect": "'Qui' es el sujeto del verbo 'marche'."
+    }
+    },
+    {
+    "id": "ex_009",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Identifica el relativo para 'Avoir besoin de'.",
+    "prompt": "Les lois ______ nous avons besoin sont strictes.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "que" },
+    { "id": "opt_2", "text": "qui" },
+    { "id": "opt_3", "text": "dont" }
+    ],
+    "correct_option_id": "opt_3"
+    },
+    "feedback": {
+    "correct": "¡Perfecto! Avoir besoin DE -> Dont.",
+    "incorrect": "Como la estructura es 'Avoir besoin DE', el pronombre obligatorio es 'Dont'."
+    }
+    },
+    {
+    "id": "ex_010",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la frase con 'Dont' (Miedo DE).",
+    "prompt": "Es el hombre del que tengo miedo.",
+    "content": {
+    "placeholder": "...",
+    "accepted_answers": ["C'est l'homme dont j'ai peur.", "C'est l'homme dont j'ai peur"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Oui! 'Avoir peur de' -> L'homme dont j'ai peur.",
+    "incorrect": "Recuerda: J'ai peur DE l'homme -> L'homme DONT j'ai peur."
+    }
+    },
+    {
+    "id": "ex_011",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Elige el antónimo de 'Victoire'.",
+    "prompt": "Après la bataille, c'était la ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "gloire" },
+    { "id": "opt_2", "text": "défaite" },
+    { "id": "opt_3", "text": "fierté" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. Défaite (Derrota).",
+    "incorrect": "Gloire es gloria, Fierté es orgullo. El opuesto de victoria es derrota (défaite)."
+    }
+    },
+    {
+    "id": "ex_012",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Ordena: 'El país donde él nació'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Le", "pays", "où", "il", "est", "né"],
+    "correct_order": ["Le", "pays", "où", "il", "est", "né"],
+    "distractors": ["que", "dont"]
+    },
+    "feedback": {
+    "correct": "Bien hecho. Usamos 'Où' para lugar de nacimiento.",
+    "incorrect": "Para referencia geográfica (Le pays), usa 'Où'."
+    }
+    },
+    {
+    "id": "ex_013",
+    "type": "true_false",
+    "difficulty": "easy",
+    "instruction": "¿'Un héros' empieza con vocal gramatical?",
+    "prompt": "On dit 'L'héros'.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. La H es 'aspirada'. Se dice 'Le héros' (sin contracción)."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_014",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Gramática avanzada: Concordancia con 'Que' en pasado.",
+    "prompt": "La bataille que Napoléon a ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "perdu" },
+    { "id": "opt_2", "text": "perdue" },
+    { "id": "opt_3", "text": "perdus" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Impresionante! 'Perdue' concuerda con 'La bataille' (femenino) porque 'Que' va antes del verbo.",
+    "incorrect": "En Passé Composé con 'Avoir', si el objeto directo (Que/La bataille) está antes, el participio concuerda."
+    }
+    },
+    {
+    "id": "ex_015",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué palabra significa 'Orgullo'?",
+    "prompt": "Les Français ont beaucoup de ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "fierté" },
+    { "id": "opt_2", "text": "loi" },
+    { "id": "opt_3", "text": "hymne" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. Fierté (Orgullo).",
+    "incorrect": "Loi es ley, Hymne es himno. El sentimiento es 'Fierté'."
+    }
+    },
+    {
+    "id": "ex_016",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce: 'La ley que él escribió'.",
+    "prompt": "La ley que él escribió.",
+    "content": {
+    "placeholder": "...",
+    "accepted_answers": ["La loi qu'il a écrite.", "La loi qu'il a écrit."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Bien. 'La loi qu'il a écrite' (o écrit).",
+    "incorrect": "Recuerda contraer 'que' + 'il' = 'qu'il'."
+    }
+    },
+    {
+    "id": "ex_017",
+    "type": "true_false",
+    "difficulty": "medium",
+    "instruction": "Verdadero o Falso: 'Exiler' significa matar.",
+    "prompt": "Napoléon a été exilé.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. Exiler significa expulsar a alguien de su país a otro lugar."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_018",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Forma la frase: 'El soldado cuyo nombre es desconocido'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Le", "soldat", "dont", "le", "nom", "est", "inconnu"],
+    "correct_order": ["Le", "soldat", "dont", "le", "nom", "est", "inconnu"],
+    "distractors": ["que", "son"]
+    },
+    "feedback": {
+    "correct": "¡Perfecto! 'Dont le nom' (Cuyo nombre / El nombre del cual).",
+    "incorrect": "Para expresar posesión (cuyo) o relación 'de', usamos 'Dont'."
+    }
+    },
+    {
+    "id": "ex_019",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Completa con el verbo 'Vaincre' (Vencer) en participio.",
+    "prompt": "L'ennemi a été ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "vaincu" },
+    { "id": "opt_2", "text": "vaincre" },
+    { "id": "opt_3", "text": "gagné" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. Vaincu (Vencido).",
+    "incorrect": "El participio pasado de Vaincre es 'Vaincu'."
+    }
+    },
+    {
+    "id": "ex_020",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce usando 'Où'.",
+    "prompt": "Es el castillo donde él vivió.",
+    "content": {
+    "placeholder": "...",
+    "accepted_answers": ["C'est le château où il a vécu.", "C'est le château où il a habité."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Très bien. C'est le château où il a vécu.",
+    "incorrect": "Usa 'Où' para el lugar. 'Vécu' es el participio de Vivre."
+    }
+    }
+    ]
+    }
+    </script>
