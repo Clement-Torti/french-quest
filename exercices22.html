@@ -1,0 +1,408 @@
+<script type="application/json" id="exercise-data">
+    {
+      "interactive_exercises": [
+        {
+          "id": "ex_001",
+          "type": "selection_single",
+          "difficulty": "easy",
+          "instruction": "Selecciona el auxiliar correcto para el verbo 'Manger' (Comer).",
+          "prompt": "Hier soir, j'______ mangé une pizza.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "suis" },
+              { "id": "opt_2", "text": "ai" },
+              { "id": "opt_3", "text": "as" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "¡Correcto! 'Manger' usa el auxiliar Avoir (J'ai mangé).",
+            "incorrect": "Recuerda: El 90% de los verbos, incluidos los de comer, usan Avoir."
+          }
+        },
+        {
+          "id": "ex_002",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Emily es mujer. Elige la forma correcta del participio para 'Arriver' (Llegar).",
+          "prompt": "Je suis ______ en retard.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "arriver" },
+              { "id": "opt_2", "text": "arrivée" },
+              { "id": "opt_3", "text": "arrivé" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "¡Exacto! Con Être, añadimos una 'e' si el sujeto es femenino.",
+            "incorrect": "Al usar el auxiliar 'Je suis' (Être), debes hacer la concordancia de género (añadir 'e')."
+          }
+        },
+        {
+          "id": "ex_003",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena la frase negativa en pasado: 'No miré la televisión'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Je", "n'", "ai", "pas", "regardé", "la", "télé"],
+            "correct_order": ["Je", "n'", "ai", "pas", "regardé", "la", "télé"],
+            "distractors": ["suis", "regarder"]
+          },
+          "feedback": {
+            "correct": "Muy bien. Estructura: Sujeto + ne + Auxiliar + pas + Participio.",
+            "incorrect": "El 'pas' debe ir después del auxiliar (ai), no del participio."
+          }
+        },
+        {
+          "id": "ex_004",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "¿Cuál es el participio pasado irregular de 'Prendre' (Tomar/Coger)?",
+          "prompt": "J'ai ______ le métro.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "prendu" },
+              { "id": "opt_2", "text": "pris" },
+              { "id": "opt_3", "text": "prené" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Oui! 'Pris' es irregular.",
+            "incorrect": "'Prendu' no existe. Los verbos en -dre a veces terminan en 'is' (Pris, Mis)."
+          }
+        },
+        {
+          "id": "ex_005",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce la frase completa: 'Ella nació en París'.",
+          "prompt": "Ella nació en París.",
+          "content": {
+            "placeholder": "Escribe la frase completa...",
+            "accepted_answers": ["Elle est née à Paris."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Perfecto. 'Elle est née à Paris'.",
+            "incorrect": "El verbo 'Naître' usa Être. No olvides la concordancia (née) y la preposición 'à' para ciudades."
+          }
+        },
+        {
+          "id": "ex_006",
+          "type": "true_false",
+          "difficulty": "easy",
+          "instruction": "¿Es correcta esta frase?: 'J'ai allé au cinéma.'",
+          "prompt": "J'ai allé au cinéma.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. 'Aller' es un verbo de movimiento y DEBE usar Être: 'Je suis allé(e)'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_007",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Identifica el participio correcto para el verbo 'Avoir' (Tener).",
+          "prompt": "J'ai ______ un problème hier.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "avé" },
+              { "id": "opt_2", "text": "eu" },
+              { "id": "opt_3", "text": "été" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. 'Eu' (pronunciado como la 'u' francesa) es el participio de Avoir.",
+            "incorrect": "'Été' es el participio de Ser. Para 'Tener' (tuve), usamos 'Eu'."
+          }
+        },
+        {
+          "id": "ex_008",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Forma la frase usando el vocabulario de la lección: 'Yo perdí el tren'.",
+          "prompt": null,
+          "content": {
+            "segments": ["J'", "ai", "raté", "le", "train", "suis"],
+            "correct_order": ["J'", "ai", "raté", "le", "train"],
+            "distractors": ["suis"]
+          },
+          "feedback": {
+            "correct": "Bien. Usamos 'raté' con Avoir.",
+            "incorrect": "Aunque el tren se mueve, 'Rater' (perder/fallar) no es un verbo de desplazamiento tuyo. Usa Avoir."
+          }
+        },
+        {
+          "id": "ex_009",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Selecciona la frase con la concordancia correcta (Sujeto: Ellas).",
+          "prompt": "Elles ______ hier soir.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "sont sortie" },
+              { "id": "opt_2", "text": "sont sorties" },
+              { "id": "opt_3", "text": "ont sorti" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "¡Excelente! Auxiliar Être + Femenino (e) + Plural (s).",
+            "incorrect": "Al ser 'Elles', necesitamos añadir 'es' al participio 'sorti'."
+          }
+        },
+        {
+          "id": "ex_010",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Nosotros hicimos una huelga'.",
+          "prompt": "Nosotros hicimos una huelga.",
+          "content": {
+            "placeholder": "Escribe la frase...",
+            "accepted_answers": ["Nous avons fait une grève.", "On a fait une grève."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Correcto. 'Faire une grève' en pasado.",
+            "incorrect": "El participio de Faire es 'Fait'. Usa el auxiliar Avoir."
+          }
+        },
+        {
+          "id": "ex_011",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué auxiliar se usa para decir 'Yo he sido' o 'Yo estuve'? (Verbo Être)",
+          "prompt": "J'______ été malade.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "ai" },
+              { "id": "opt_2", "text": "suis" },
+              { "id": "opt_3", "text": "es" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "¡Correcto! El verbo Être usa el auxiliar Avoir. (J'ai été).",
+            "incorrect": "Es contraintuitivo, pero para decir 'fui/estuve', usamos Avoir (J'ai été)."
+          }
+        },
+        {
+          "id": "ex_012",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena: 'Ustedes bebieron vino'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Vous", "avez", "bu", "du", "vin", "êtes"],
+            "correct_order": ["Vous", "avez", "bu", "du", "vin"],
+            "distractors": ["êtes"]
+          },
+          "feedback": {
+            "correct": "Très bien. Participio irregular 'Bu'.",
+            "incorrect": "Recuerda que 'Boire' usa Avoir. El participio es 'Bu'."
+          }
+        },
+        {
+          "id": "ex_013",
+          "type": "true_false",
+          "difficulty": "hard",
+          "instruction": "Verdadero o Falso: 'Il a mort' es correcto.",
+          "prompt": "Il a mort hier.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. Morir (Mourir) es un cambio de estado definitivo. Usa Être: 'Il EST mort'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_014",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando Être: 'Me quedé en casa' (Masculino).",
+          "prompt": "Me quedé en casa.",
+          "content": {
+            "placeholder": "Usa el verbo Rester...",
+            "accepted_answers": ["Je suis resté à la maison.", "Je suis resté chez moi."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Bien. 'Je suis resté'.",
+            "incorrect": "Aunque 'quedarse' implica no moverse, el verbo 'Rester' pertenece al grupo de Être (Dr. Mrs. Vandertramp)."
+          }
+        },
+        {
+          "id": "ex_015",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Completa con el participio de 'Ver' (Voir).",
+          "prompt": "Tu as ______ ce film ?",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "vu" },
+              { "id": "opt_2", "text": "voir" },
+              { "id": "opt_3", "text": "vois" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. J'ai vu (Yo he visto).",
+            "incorrect": "'Vu' es el participio irregular de Voir."
+          }
+        },
+        {
+          "id": "ex_016",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la frase reflexiva del texto: 'Se perdió'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Il", "s'", "est", "perdu", "a"],
+            "correct_order": ["Il", "s'", "est", "perdu"],
+            "distractors": ["a"]
+          },
+          "feedback": {
+            "correct": "¡Excelente! Los verbos pronominales siempre usan Être.",
+            "incorrect": "En 'Se perdre', usamos el auxiliar Être (Il s'est...)."
+          }
+        },
+        {
+          "id": "ex_017",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué significa 'J'ai appris'?",
+          "prompt": "J'ai appris ma leçon.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "He comprendido" },
+              { "id": "opt_2", "text": "He aprendido" },
+              { "id": "opt_3", "text": "He tomado" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. Viene del verbo Apprendre.",
+            "incorrect": "Comprendido es 'Compris'. Tomado es 'Pris'. Appris es 'Aprendido'."
+          }
+        },
+        {
+          "id": "ex_018",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "¿La concordancia es correcta?: 'Elles ont mangées'.",
+          "prompt": "Elles ont mangées.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. Con el auxiliar AVOIR, el participio NO cambia con el sujeto. Debe ser 'Elles ont mangé'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_019",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Ayer, llovió'. (Usa el pasado de Pleuvoir)",
+          "prompt": "Ayer, llovió.",
+          "content": {
+            "placeholder": "Escribe la frase...",
+            "accepted_answers": ["Hier, il a plu.", "Il a plu hier."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Muy bien. 'Il a plu'.",
+            "incorrect": "El participio de Pleuvoir es 'Plu'. Usa Avoir."
+          }
+        },
+        {
+          "id": "ex_020",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Selecciona la opción correcta para 'Nosotros vinimos'.",
+          "prompt": "Nous ______ hier.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "sommes venus" },
+              { "id": "opt_2", "text": "avons venu" },
+              { "id": "opt_3", "text": "sommes venu" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. Être + Plural (s).",
+            "incorrect": "Venir usa Être. Como 'Nous' es plural, 'venu' necesita una 's'."
+          }
+        },
+        {
+          "id": "ex_021",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Forma la frase: 'Ella cayó en la calle'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Elle", "est", "tombée", "dans", "la", "rue", "a"],
+            "correct_order": ["Elle", "est", "tombée", "dans", "la", "rue"],
+            "distractors": ["a"]
+          },
+          "feedback": {
+            "correct": "Bien. Tomber (caer) usa Être.",
+            "incorrect": "Recuerda la concordancia: Elle est tombéE."
+          }
+        },
+        {
+          "id": "ex_022",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce la frase completa: 'No entendí'.",
+          "prompt": "No entendí.",
+          "content": {
+            "placeholder": "Usa la negación...",
+            "accepted_answers": ["Je n'ai pas compris.", "Je n'ai rien compris."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Exacto. 'Je n'ai pas compris'.",
+            "incorrect": "Usa el participio 'Compris' y rodea el auxiliar 'ai' con 'ne... pas'."
+          }
+        },
+        {
+          "id": "ex_023",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Elige el auxiliar para 'Entrer' (Entrar).",
+          "prompt": "Je ______ entré dans le bureau.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "suis" },
+              { "id": "opt_2", "text": "ai" },
+              { "id": "opt_3", "text": "vais" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Sí. Entrar es un movimiento de cambio de lugar -> Être.",
+            "incorrect": "Dr. Mrs. Vandertramp: Entrer usa Être."
+          }
+        },
+        {
+          "id": "ex_024",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena la pregunta: '¿Qué hiciste?'",
+          "prompt": null,
+          "content": {
+            "segments": ["Qu'", "est-ce que", "tu", "as", "fait", "?"],
+            "correct_order": ["Qu'", "est-ce que", "tu", "as", "fait", "?"],
+            "distractors": ["es"]
+          },
+          "feedback": {
+            "correct": "Perfecto.",
+            "incorrect": "El verbo es Faire, usa el auxiliar Avoir (tu as)."
+          }
+        }
+      ]
+    }
+    </script>

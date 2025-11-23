@@ -1,0 +1,405 @@
+<script type="application/json" id="exercise-data">
+    {
+      "interactive_exercises": [
+        {
+          "id": "ex_001",
+          "type": "selection_single",
+          "difficulty": "easy",
+          "instruction": "Selecciona la conjugación correcta para 'Yo me levanté'.",
+          "prompt": "Ce matin, je ______ à 7h00.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "me suis levé" },
+              { "id": "opt_2", "text": "m'ai levé" },
+              { "id": "opt_3", "text": "me est levé" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "¡Correcto! Je me suis levé. Siempre usamos Être.",
+            "incorrect": "Nunca uses 'Avoir' (ai) con verbos reflexivos. La estructura es 'Je me suis...'."
+          }
+        },
+        {
+          "id": "ex_002",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena la frase (Cuidado con el orden de los pronombres).",
+          "prompt": null,
+          "content": {
+            "segments": ["Elle", "s'", "est", "maquillée", "pour", "la", "fête"],
+            "correct_order": ["Elle", "s'", "est", "maquillée", "pour", "la", "fête"],
+            "distractors": ["a", "se"]
+          },
+          "feedback": {
+            "correct": "Perfecto. Elle s'est maquillée.",
+            "incorrect": "Recuerda: Sujeto (Elle) + Pronombre (s') + Auxiliar (est) + Participio."
+          }
+        },
+        {
+          "id": "ex_003",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Emily está hablando. Elige la concordancia correcta.",
+          "prompt": "Je me suis ______ très vite.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "habillé" },
+              { "id": "opt_2", "text": "habillée" },
+              { "id": "opt_3", "text": "habiller" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Oui! Al ser Emily (mujer), añadimos una 'e'.",
+            "incorrect": "Como usamos el auxiliar Être en los reflexivos, el participio debe concordar con el sujeto (femenino = 'e' extra)."
+          }
+        },
+        {
+          "id": "ex_004",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Me equivoqué de tren'.",
+          "prompt": "Me equivoqué de tren.",
+          "content": {
+            "placeholder": "Usa 'Se tromper'...",
+            "accepted_answers": ["Je me suis trompé de train.", "Je me suis trompée de train."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "¡Excelente! Je me suis trompé(e).",
+            "incorrect": "El verbo es 'Se tromper'. En pasado: Je me suis trompé."
+          }
+        },
+        {
+          "id": "ex_005",
+          "type": "selection_single",
+          "difficulty": "easy",
+          "instruction": "¿Qué conector usas para comenzar una historia?",
+          "prompt": "______, je me suis réveillé.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Enfin" },
+              { "id": "opt_2", "text": "D'abord" },
+              { "id": "opt_3", "text": "Ensuite" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. 'D'abord' significa 'Primero' o 'Para empezar'.",
+            "incorrect": "'Enfin' es para el final y 'Ensuite' es para lo que sigue después."
+          }
+        },
+        {
+          "id": "ex_006",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Forma la frase plural: 'Nosotros nos divertimos'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Nous", "nous", "sommes", "amusés", "amusé"],
+            "correct_order": ["Nous", "nous", "sommes", "amusés"],
+            "distractors": ["amusé"]
+          },
+          "feedback": {
+            "correct": "Bien. Nous nous sommes amusés (con S).",
+            "incorrect": "Recuerda la 'S' del plural en el participio 'amusés' y el doble 'Nous' (sujeto y pronombre)."
+          }
+        },
+        {
+          "id": "ex_007",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "Verdadero o Falso: 'Il s'a lavé' es correcto.",
+          "prompt": "Il s'a lavé.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. Los reflexivos NUNCA usan 'Avoir' (a). Debe ser 'Il s'EST lavé'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_008",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando negación: 'No me desperté'.",
+          "prompt": "No me desperté.",
+          "content": {
+            "placeholder": "Cuidado con el orden de 'ne' y 'pas'...",
+            "accepted_answers": ["Je ne me suis pas réveillé.", "Je ne me suis pas réveillée."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "¡Muy bien! Nivel experto desbloqueado.",
+            "incorrect": "Orden negativo: Sujeto + NE + pronombre + auxiliar + PAS + participio. (Je ne me suis pas...)"
+          }
+        },
+        {
+          "id": "ex_009",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué expresión significa 'De repente'?",
+          "prompt": "Je marchais et, ______, il a plu.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Heureusement" },
+              { "id": "opt_2", "text": "Tout à coup" },
+              { "id": "opt_3", "text": "Finalement" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. 'Tout à coup' introduce un evento sorpresa.",
+            "incorrect": "'Heureusement' es 'afortunadamente'. Para sorpresas repentinas usamos 'Tout à coup'."
+          }
+        },
+        {
+          "id": "ex_010",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena la frase: 'Ellas se pasearon por París'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Elles", "se", "sont", "promenées", "à", "Paris"],
+            "correct_order": ["Elles", "se", "sont", "promenées", "à", "Paris"],
+            "distractors": ["promené", "ont"]
+          },
+          "feedback": {
+            "correct": "Bien. Concordancia femenina y plural (ées).",
+            "incorrect": "El participio necesita 'ées' porque el sujeto es 'Elles'."
+          }
+        },
+        {
+          "id": "ex_011",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Elige la opción correcta para 'Ustedes se dieron prisa'.",
+          "prompt": "Vous ______ pour prendre le taxi.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "vous êtes dépêchés" },
+              { "id": "opt_2", "text": "vous avez dépêché" },
+              { "id": "opt_3", "text": "vous êtes dépêché" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. Dépêchés con 's' (asumiendo plural).",
+            "incorrect": "Falta el auxiliar Être (êtes) o la concordancia de plural (s)."
+          }
+        },
+        {
+          "id": "ex_012",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Desafortunadamente, me caí'.",
+          "prompt": "Desafortunadamente, me caí.",
+          "content": {
+            "placeholder": "Usa 'Malheureusement'...",
+            "accepted_answers": ["Malheureusement, je suis tombé.", "Malheureusement, je suis tombée."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Bien. 'Je suis tombé(e)'.",
+            "incorrect": "Tomber usa Être, pero no es reflexivo (no lleva 'me'). Es 'Je suis tombé'."
+          }
+        },
+        {
+          "id": "ex_013",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena: 'Luego, me vestí'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Ensuite,", "je", "me", "suis", "habillé"],
+            "correct_order": ["Ensuite,", "je", "me", "suis", "habillé"],
+            "distractors": ["ai", "habillée"]
+          },
+          "feedback": {
+            "correct": "Correcto. Usamos 'Ensuite' para continuar la historia.",
+            "incorrect": "Si no se especifica género femenino, usa el masculino por defecto (habillé)."
+          }
+        },
+        {
+          "id": "ex_014",
+          "type": "true_false",
+          "difficulty": "easy",
+          "instruction": "¿Es correcto decir 'Je me suis ennuyé'?",
+          "prompt": "Je me suis ennuyé à la fête.",
+          "content": {
+            "is_correct": true,
+            "explanation": "Correcto. Significa 'Me aburrí'. Viene del verbo S'ennuyer."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_015",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Cómo dices 'Me descansé'?",
+          "prompt": "Je me suis ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "resposé" },
+              { "id": "opt_2", "text": "reposé" },
+              { "id": "opt_3", "text": "couché" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Exacto. Se reposer = Descansar.",
+            "incorrect": "'Couché' es acostarse (ir a la cama). 'Reposé' es descansar."
+          }
+        },
+        {
+          "id": "ex_016",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Finalmente, me acosté a medianoche'.",
+          "prompt": "Finalmente, me acosté a medianoche.",
+          "content": {
+            "placeholder": "Escribe la frase...",
+            "accepted_answers": ["Finalement, je me suis couché à minuit.", "Enfin, je me suis couché à minuit."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Muy bien. Finalement/Enfin + je me suis couché.",
+            "incorrect": "Verbo 'Se coucher'. Auxiliar Être."
+          }
+        },
+        {
+          "id": "ex_017",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Identifica el error en esta frase.",
+          "prompt": "Elles se sont lavé les mains.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Sobra la 's' en lavé" },
+              { "id": "opt_2", "text": "Falta la 's' en lavé" },
+              { "id": "opt_3", "text": "No hay error" }
+            ],
+            "correct_option_id": "opt_3"
+          },
+          "feedback": {
+            "correct": "¡Astuto! No hay error.",
+            "incorrect": "Regla avanzada: Si el objeto directo (les mains) está DESPUÉS del verbo, NO hacemos concordancia. 'Elles se sont lavé'. (Nivel B1 alto)."
+          }
+        },
+        {
+          "id": "ex_018",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Forma la frase: 'Él se enfadó'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Il", "s'", "est", "fâché"],
+            "correct_order": ["Il", "s'", "est", "fâché"],
+            "distractors": ["se", "a"]
+          },
+          "feedback": {
+            "correct": "Bien. Verbo 'Se fâcher'.",
+            "incorrect": "Usa 's'' delante de vocal (est)."
+          }
+        },
+        {
+          "id": "ex_019",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Primero, me duché (lavé)'.",
+          "prompt": "Primero, me lavé.",
+          "content": {
+            "placeholder": "Usa D'abord...",
+            "accepted_answers": ["D'abord, je me suis lavé.", "D'abord, je me suis lavée."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Perfecto.",
+            "incorrect": "Recuerda el conector temporal 'D'abord'."
+          }
+        },
+        {
+          "id": "ex_020",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Completa con el verbo reflexivo 'Se détendre' (Relajarse).",
+          "prompt": "Après le travail, je me suis ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "détendu" },
+              { "id": "opt_2", "text": "détendre" },
+              { "id": "opt_3", "text": "détendé" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. Participio irregular: Détendu.",
+            "incorrect": "Détendre es un verbo del tercer grupo. Su participio es 'Détendu'."
+          }
+        },
+        {
+          "id": "ex_021",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la frase con 'Heureusement'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Heureusement,", "tu", "t'", "es", "réveillé", "à", "l'heure"],
+            "correct_order": ["Heureusement,", "tu", "t'", "es", "réveillé", "à", "l'heure"],
+            "distractors": ["as"]
+          },
+          "feedback": {
+            "correct": "Bien. Tu t'es réveillé.",
+            "incorrect": "Concordancia: Tu + t' + es (Être) + réveillé."
+          }
+        },
+        {
+          "id": "ex_022",
+          "type": "selection_single",
+          "difficulty": "easy",
+          "instruction": "¿Cuál es la forma correcta para 'Nosotros'? (Reflexivo)",
+          "prompt": "Nous ______ levés tard.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "sommes" },
+              { "id": "opt_2", "text": "nous sommes" },
+              { "id": "opt_3", "text": "nous avons" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. Nous NOUS sommes.",
+            "incorrect": "Necesitas el pronombre reflexivo (nous) Y el auxiliar (sommes)."
+          }
+        },
+        {
+          "id": "ex_023",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Me paré (detuve) delante de la tienda'.",
+          "prompt": "Me detuve delante de la tienda.",
+          "content": {
+            "placeholder": "Usa 'S'arrêter'...",
+            "accepted_answers": ["Je me suis arrêté devant la boutique.", "Je me suis arrêtée devant la boutique."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Bien. Verbo S'arrêter -> Je me suis arrêté.",
+            "incorrect": "Recuerda doblar la consonante en el pronombre si es necesario, y usar Être."
+          }
+        },
+        {
+          "id": "ex_024",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "Verdadero o Falso: 'Je me suis promener' es correcto.",
+          "prompt": "Je me suis promener.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. Debes usar el participio pasado 'promené', no el infinitivo 'promener'."
+          },
+          "feedback": null
+        }
+      ]
+    }
+    </script>

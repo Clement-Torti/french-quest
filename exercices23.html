@@ -1,0 +1,370 @@
+<script type="application/json" id="exercise-data">
+    {
+      "interactive_exercises": [
+        {
+          "id": "ex_001",
+          "type": "selection_single",
+          "difficulty": "easy",
+          "instruction": "Selecciona el participio pasado correcto para 'Lire' (Leer).",
+          "prompt": "J'ai ______ la recette de Julia Child.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "li" },
+              { "id": "opt_2", "text": "lu" },
+              { "id": "opt_3", "text": "lise" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "¡Correcto! Lire → Lu (Sonido 'U').",
+            "incorrect": "Recuerda el 'Grupo U'. El participio de Lire es Lu."
+          }
+        },
+        {
+          "id": "ex_002",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena la frase negativa: 'No hice nada'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Je", "n'", "ai", "rien", "fait", "pas"],
+            "correct_order": ["Je", "n'", "ai", "rien", "fait"],
+            "distractors": ["pas"]
+          },
+          "feedback": {
+            "correct": "¡Exacto! 'Rien' sustituye a 'Pas'.",
+            "incorrect": "Cuando usamos 'Rien' (nada), eliminamos 'Pas'. La estructura es: Je n'ai RIEN fait."
+          }
+        },
+        {
+          "id": "ex_003",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "¿Cómo se dice 'Yo tuve' (de tener que / obligación)?",
+          "prompt": "J'______ travailler tard hier.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "ai du" },
+              { "id": "opt_2", "text": "ai dû" },
+              { "id": "opt_3", "text": "ai devoir" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Bien. J'ai dû (del verbo Devoir).",
+            "incorrect": "Necesita el acento circunflejo: 'Dû'. 'Du' sin acento es el artículo partitivo."
+          }
+        },
+        {
+          "id": "ex_004",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "¿Es correcta la posición de 'Personne' en esta frase?",
+          "prompt": "Je n'ai personne vu.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. 'Personne' es la excepción. Va DESPUÉS del participio: 'Je n'ai vu PERSONNE'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_005",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'No entendí' (Usa el verbo Comprendre).",
+          "prompt": "No entendí.",
+          "content": {
+            "placeholder": "Escribe la frase completa...",
+            "accepted_answers": ["Je n'ai pas compris.", "Je n'ai rien compris."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Très bien. Participio 'Compris'.",
+            "incorrect": "El participio de Comprendre es 'Compris' (Grupo IS)."
+          }
+        },
+        {
+          "id": "ex_006",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Completa la frase: 'Ella puso la mesa'.",
+          "prompt": "Elle a ______ la table.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "mit" },
+              { "id": "opt_2", "text": "mis" },
+              { "id": "opt_3", "text": "mise" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. Mettre → Mis.",
+            "incorrect": "Con el auxiliar Avoir, no se hace concordancia (no añadimos 'e'). El participio base es 'Mis'."
+          }
+        },
+        {
+          "id": "ex_007",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la excusa: 'No pude venir'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Je", "n'", "ai", "pas", "pu", "venir"],
+            "correct_order": ["Je", "n'", "ai", "pas", "pu", "venir"],
+            "distractors": ["su"]
+          },
+          "feedback": {
+            "correct": "Perfecto. Pouvoir → Pu.",
+            "incorrect": "'Su' es de Saber. 'Pu' es de Poder."
+          }
+        },
+        {
+          "id": "ex_008",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Identifica el verbo en esta frase: 'J'ai su la vérité'.",
+          "prompt": "El verbo infinitivo de 'Su' es:",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Être" },
+              { "id": "opt_2", "text": "Savoir" },
+              { "id": "opt_3", "text": "Suivre" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Sí, 'Savoir' (Saber). J'ai su = Yo supe.",
+            "incorrect": "No confundir con Être (été) ni Suivre (suivi)."
+          }
+        },
+        {
+          "id": "ex_009",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Nunca he bebido vino'.",
+          "prompt": "Nunca he bebido vino.",
+          "content": {
+            "placeholder": "Usa 'Jamais'...",
+            "accepted_answers": ["Je n'ai jamais bu de vin.", "Je n'ai jamais bu du vin."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "¡Excelente! Boire → Bu.",
+            "incorrect": "Estructura: Sujeto + n' + ai + JAMAIS + BU + de vin."
+          }
+        },
+        {
+          "id": "ex_010",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Forma la frase: 'Nosotros escribimos un libro'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Nous", "avons", "écrit", "un", "livre", "écrivons"],
+            "correct_order": ["Nous", "avons", "écrit", "un", "livre"],
+            "distractors": ["écrivons"]
+          },
+          "feedback": {
+            "correct": "Bien hecho. Écrire → Écrit (Grupo IT).",
+            "incorrect": "'Écrivons' es presente. En pasado usamos Auxiliar + Écrit."
+          }
+        },
+        {
+          "id": "ex_011",
+          "type": "true_false",
+          "difficulty": "hard",
+          "instruction": "¿Esta frase es gramaticalmente correcta?",
+          "prompt": "J'ai ne pas vu le film.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. El orden es incorrecto. Debe ser: 'Je N'ai PAS vu'. La negación rodea al auxiliar."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_012",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué participio completa la frase: 'J'ai ______ un cadeau' (Recibir)?",
+          "prompt": "J'ai ______ un cadeau.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "recevoir" },
+              { "id": "opt_2", "text": "reçu" },
+              { "id": "opt_3", "text": "reci" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. Recevoir → Reçu (con cedilla).",
+            "incorrect": "Pertenece al Grupo U."
+          }
+        },
+        {
+          "id": "ex_013",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la frase de Emily: 'He estropeado todo' (Rater).",
+          "prompt": null,
+          "content": {
+            "segments": ["J'", "ai", "tout", "raté", "tous"],
+            "correct_order": ["J'", "ai", "tout", "raté"],
+            "distractors": ["tous"]
+          },
+          "feedback": {
+            "correct": "Oui! 'J'ai tout raté'.",
+            "incorrect": "'Tout' suele ir delante del participio en estas expresiones cortas."
+          }
+        },
+        {
+          "id": "ex_014",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Ella no dijo la verdad'.",
+          "prompt": "Ella no dijo la verdad.",
+          "content": {
+            "placeholder": "Verbo Dire...",
+            "accepted_answers": ["Elle n'a pas dit la vérité."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Bien. Dire → Dit.",
+            "incorrect": "El participio de Dire es 'Dit'. No olvides la negación 'Elle n'a pas...'."
+          }
+        },
+        {
+          "id": "ex_015",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Elige la opción correcta para 'Abrir' (Ouvrir).",
+          "prompt": "Tu as ______ la porte ?",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "ouvri" },
+              { "id": "opt_2", "text": "ouvert" },
+              { "id": "opt_3", "text": "ouvré" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. Ouvrir → Ouvert (Irregular).",
+            "incorrect": "No sigue la regla de los verbos en -IR. Es 'Ouvert'."
+          }
+        },
+        {
+          "id": "ex_016",
+          "type": "true_false",
+          "difficulty": "easy",
+          "instruction": "Verdadero o Falso: 'J'ai apprendu' es correcto.",
+          "prompt": "J'ai apprendu le verbe.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. Apprendre es irregular (Grupo IS). Es 'J'ai appris'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_017",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Forma la frase: '¿Tomaste el autobús?'",
+          "prompt": null,
+          "content": {
+            "segments": ["Tu", "as", "pris", "le", "bus", "?"],
+            "correct_order": ["Tu", "as", "pris", "le", "bus", "?"],
+            "distractors": ["prendu"]
+          },
+          "feedback": {
+            "correct": "Bien. Prendre → Pris.",
+            "incorrect": "Cuidado con el participio irregular 'Pris'."
+          }
+        },
+        {
+          "id": "ex_018",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'No vi a nadie'. (Cuidado con el orden).",
+          "prompt": "No vi a nadie.",
+          "content": {
+            "placeholder": "Usa 'Personne'...",
+            "accepted_answers": ["Je n'ai vu personne."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "¡Excelente! Je n'ai vu personne.",
+            "incorrect": "Recuerda: 'Personne' se coloca DESPUÉS del participio (vu), no donde iría 'pas'."
+          }
+        },
+        {
+          "id": "ex_019",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Contexto: Emily bebió vino. Elige la frase correcta.",
+          "prompt": "Emily ______ du vin.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "a bu" },
+              { "id": "opt_2", "text": "a vu" },
+              { "id": "opt_3", "text": "est bu" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. A bu (Bebió).",
+            "incorrect": "'A vu' significa 'Vio'. 'Est bu' es gramaticalmente incorrecto para voz activa."
+          }
+        },
+        {
+          "id": "ex_020",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena la frase: 'Quise aprender francés'.",
+          "prompt": null,
+          "content": {
+            "segments": ["J'", "ai", "voulu", "apprendre", "le", "français"],
+            "correct_order": ["J'", "ai", "voulu", "apprendre", "le", "français"],
+            "distractors": ["vouloir"]
+          },
+          "feedback": {
+            "correct": "Perfecto. Vouloir → Voulu.",
+            "incorrect": "El participio de Vouloir es 'Voulu'."
+          }
+        },
+        {
+          "id": "ex_021",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué frase usa correctamente la negación con 'Jamais'?",
+          "prompt": "Selecciona la correcta:",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Je n'ai jamais fait ça." },
+              { "id": "opt_2", "text": "Je n'ai pas jamais fait ça." },
+              { "id": "opt_3", "text": "Je jamais ai fait ça." }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. 'Je n'ai jamais fait ça'.",
+            "incorrect": "Nunca uses 'pas' y 'jamais' juntos. 'Jamais' reemplaza a 'Pas'."
+          }
+        },
+        {
+          "id": "ex_022",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Él no prometió nada'. (Verbo Promettre, conjuga como Mettre).",
+          "prompt": "Él no prometió nada.",
+          "content": {
+            "placeholder": "Escribe la frase...",
+            "accepted_answers": ["Il n'a rien promis."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "¡Muy nivel B1! Promettre → Promis. Rien sustituye a pas.",
+            "incorrect": "Participio 'Promis'. Estructura: Il n'a RIEN promis."
+          }
+        }
+      ]
+    }
+    </script>

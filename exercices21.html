@@ -1,0 +1,335 @@
+<script type="application/json" id="exercise-data">
+    {
+      "interactive_exercises": [
+        {
+          "id": "ex_001",
+          "type": "selection_single",
+          "difficulty": "easy",
+          "instruction": "Elige la posición correcta del adverbio.",
+          "prompt": "Je prends ______ le métro le matin.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "toujours" },
+              { "id": "opt_2", "text": "jamais" },
+              { "id": "opt_3", "text": "rien" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "¡Correcto! El adverbio va después del verbo conjugado.",
+            "incorrect": "'Jamais' requeriría la partícula negativa 'ne' antes del verbo (Je ne prends jamais)."
+          }
+        },
+        {
+          "id": "ex_002",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena la frase negativa (Cuidado con 'pas' y 'jamais').",
+          "prompt": null,
+          "content": {
+            "segments": ["Nous", "ne", "travaillons", "jamais", "le", "dimanche", "pas"],
+            "correct_order": ["Nous", "ne", "travaillons", "jamais", "le", "dimanche"],
+            "distractors": ["pas"]
+          },
+          "feedback": {
+            "correct": "¡Exacto! Cuando usamos 'Jamais', eliminamos 'Pas'.",
+            "incorrect": "Recuerda: 'Jamais' sustituye a 'Pas'. No pueden ir juntos en la misma frase."
+          }
+        },
+        {
+          "id": "ex_003",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué expresión significa levantarse muy tarde por placer?",
+          "prompt": "Le dimanche, j'adore faire ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "le ménage" },
+              { "id": "opt_2", "text": "la grasse matinée" },
+              { "id": "opt_3", "text": "les courses" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "¡Eso es! 'Faire la grasse matinée' (Hacer la mañana grasa).",
+            "incorrect": "'Le ménage' es limpieza y 'Les courses' es ir al supermercado."
+          }
+        },
+        {
+          "id": "ex_004",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "¿Esta frase es gramaticalmente correcta?",
+          "prompt": "Je ne mange pas jamais de viande.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Es incorrecto. La doble negación 'pas jamais' no existe. Debe ser 'Je ne mange jamais de viande'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_005",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Mi agenda está sobrecargada'.",
+          "prompt": "Mi agenda está sobrecargada.",
+          "content": {
+            "placeholder": "Escribe la frase en francés...",
+            "accepted_answers": ["Mon emploi du temps est surchargé.", "Mon agenda est surchargé."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "¡Excelente! 'Emploi du temps surchargé'.",
+            "incorrect": "Usa el vocabulario de la lección: 'Emploi du temps' y el adjetivo 'surchargé'."
+          }
+        },
+        {
+          "id": "ex_006",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Forma la frase: 'A veces teletrabajo los viernes'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Je", "télétravaille", "parfois", "le", "vendredi", "suis"],
+            "correct_order": ["Je", "télétravaille", "parfois", "le", "vendredi"],
+            "distractors": ["suis"]
+          },
+          "feedback": {
+            "correct": "Bien hecho. Sujeto + Verbo + Adverbio + Tiempo.",
+            "incorrect": "El adverbio 'parfois' suele ir después del verbo conjugado 'télétravaille'."
+          }
+        },
+        {
+          "id": "ex_007",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Selecciona el sinónimo de 'De vez en cuando'.",
+          "prompt": "Je vais au cinéma ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "de temps en temps" },
+              { "id": "opt_2", "text": "toujours" },
+              { "id": "opt_3", "text": "jamais" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. 'De temps en temps' equivale a una frecuencia media (50%).",
+            "incorrect": "'Toujours' es 100% y 'Jamais' es 0%."
+          }
+        },
+        {
+          "id": "ex_008",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando la negación correcta: 'Tú nunca haces deporte'.",
+          "prompt": "Tú nunca haces deporte.",
+          "content": {
+            "placeholder": "Escribe la frase completa...",
+            "accepted_answers": ["Tu ne fais jamais de sport."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "¡Muy bien! Tu ne fais jamais de sport.",
+            "incorrect": "Recuerda la estructura: Sujeto + ne + verbo + jamais + de + sustantivo."
+          }
+        },
+        {
+          "id": "ex_009",
+          "type": "selection_single",
+          "difficulty": "easy",
+          "instruction": "Completa la frase: 'Tengo que ir al supermercado para llenar la nevera'.",
+          "prompt": "Je dois faire ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "du shopping" },
+              { "id": "opt_2", "text": "les courses" },
+              { "id": "opt_3", "text": "le course" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Exacto. 'Faire les courses' es para comida/necesidades.",
+            "incorrect": "'Faire du shopping' es comprar ropa o por placer. Para el súper es 'Faire les courses'."
+          }
+        },
+        {
+          "id": "ex_010",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena la frase: 'Nosotros salimos a menudo'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Nous", "sortons", "souvent", "boire", "un", "verre"],
+            "correct_order": ["Nous", "sortons", "souvent", "boire", "un", "verre"],
+            "distractors": []
+          },
+          "feedback": {
+            "correct": "Perfecto. Nous sortons souvent (Nosotros salimos a menudo).",
+            "incorrect": "Revisa el orden: Sujeto + Verbo + Adverbio + Complemento."
+          }
+        },
+        {
+          "id": "ex_011",
+          "type": "true_false",
+          "difficulty": "hard",
+          "instruction": "¿Es correcta la posición de 'Toujours' en esta frase?",
+          "prompt": "Toujours je me lève à 8h00.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. En francés estándar, el adverbio va después del verbo: 'Je me lève toujours à 8h00'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_012",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué verbo reflexivo usamos para 'Relajarse'?",
+          "prompt": "Le week-end, j'aime ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "me détendre" },
+              { "id": "opt_2", "text": "me lever" },
+              { "id": "opt_3", "text": "traîner" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. 'Se détendre' (Me détendre).",
+            "incorrect": "'Me lever' es levantarme. Para relax, usamos 'Détendre'."
+          }
+        },
+        {
+          "id": "ex_013",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Ella raramente va al gimnasio'.",
+          "prompt": "Ella raramente va al gimnasio.",
+          "content": {
+            "placeholder": "Escribe la frase completa...",
+            "accepted_answers": ["Elle va rarement à la salle de sport."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "¡Bien! Elle va rarement à la salle de sport.",
+            "incorrect": "Usa el verbo 'Aller' (Elle va) + rarement + à la salle de sport."
+          }
+        },
+        {
+          "id": "ex_014",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Forma la frase: 'Ellos cenan en el restaurante de vez en cuando'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Ils", "dînent", "au", "restaurant", "de", "temps", "en", "temps"],
+            "correct_order": ["Ils", "dînent", "au", "restaurant", "de", "temps", "en", "temps"],
+            "distractors": ["souvent"]
+          },
+          "feedback": {
+            "correct": "Correcto. La expresión de tiempo puede ir al final.",
+            "incorrect": "Asegúrate de usar la expresión completa 'de temps en temps'."
+          }
+        },
+        {
+          "id": "ex_015",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Elige la respuesta más lógica para: 'Je déteste le sport'.",
+          "prompt": "Je vais ______ à la salle de sport.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "souvent" },
+              { "id": "opt_2", "text": "toujours" },
+              { "id": "opt_3", "text": "jamais" }
+            ],
+            "correct_option_id": "opt_3"
+          },
+          "feedback": {
+            "correct": "Lógico. Si odias el deporte, 'nunca' (jamais) vas.",
+            "incorrect": "El contexto dice que 'odia' el deporte, así que no puede ir 'siempre' o 'a menudo'."
+          }
+        },
+        {
+          "id": "ex_016",
+          "type": "true_false",
+          "difficulty": "easy",
+          "instruction": "Verdadero o Falso: 'Tous les jours' significa 'Todo el día'.",
+          "prompt": "Je travaille tous les jours.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. 'Tous les jours' significa 'Todos los días' (Frecuencia). 'Todo el día' se dice 'Toute la journée' (Duración)."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_017",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Construye la frase con verbo reflexivo y frecuencia: 'Yo siempre me acuesto tarde'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Je", "me", "couche", "toujours", "tard", "jamais"],
+            "correct_order": ["Je", "me", "couche", "toujours", "tard"],
+            "distractors": ["jamais"]
+          },
+          "feedback": {
+            "correct": "¡Muy bien! Je me couche toujours tard.",
+            "incorrect": "Orden: Sujeto (Je) + Pronombre (me) + Verbo (couche) + Adverbio (toujours)."
+          }
+        },
+        {
+          "id": "ex_018",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Nosotros estamos libres (de permiso)'.",
+          "prompt": "Nosotros estamos de día libre.",
+          "content": {
+            "placeholder": "Usa la expresión 'en congé'...",
+            "accepted_answers": ["Nous sommes en congé."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Correcto: 'Nous sommes en congé'.",
+            "incorrect": "Usa el verbo Être + en congé."
+          }
+        },
+        {
+          "id": "ex_019",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Completa con la preposición correcta.",
+          "prompt": "Je fais du sport une fois ______ semaine.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "par" },
+              { "id": "opt_2", "text": "pour" },
+              { "id": "opt_3", "text": "de" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Oui! 'Une fois PAR semaine' (Una vez por semana).",
+            "incorrect": "En francés usamos 'par' para la frecuencia temporal (par jour, par semaine)."
+          }
+        },
+        {
+          "id": "ex_020",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la pregunta de frecuencia: '¿Tú vas a menudo a París?'",
+          "prompt": null,
+          "content": {
+            "segments": ["Est-ce que", "tu", "vas", "souvent", "à", "Paris", "?"],
+            "correct_order": ["Est-ce que", "tu", "vas", "souvent", "à", "Paris", "?"],
+            "distractors": ["toujours"]
+          },
+          "feedback": {
+            "correct": "Perfecto.",
+            "incorrect": "Estructura: Est-ce que + Sujeto + Verbo + Adverbio + Lugar."
+          }
+        }
+      ]
+    }
+    </script>
