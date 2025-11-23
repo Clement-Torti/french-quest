@@ -1,448 +1,281 @@
-<!-- AUTO-DETECTABLE EXERCISE FILE -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios: Identidad y Profesiones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .fr-accent-btn {
+            @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-1 px-3 rounded shadow text-lg cursor-pointer transition;
+        }
+        .correct-answer {
+            @apply border-green-500 bg-green-50 text-green-700;
+        }
+        .wrong-answer {
+            @apply border-red-500 bg-red-50 text-red-700;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
 
-<!-- 1. METADATA & CONFIG -->
-<script type="application/json" id="exercise-data">
-{
-    "title": "Ejercicios Lección 1: Práctica Intensiva",
-    "desc": "Pon a prueba tu identidad profesional, domina Être vs. Avoir y evita las trampas de principiante.",
-    "icon": "fa-pencil-alt",
-    "estimated_time": "30 min",
-    "difficulty": "Básico"
-}
-</script>
+    <!-- HEADER -->
+    <header class="bg-indigo-700 text-white p-6 shadow-md">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl font-bold flex items-center gap-3">
+                <i class="fas fa-pen-nib"></i> Práctica: Lección 1
+            </h1>
+            <p class="mt-2 text-indigo-200">Duración estimada: 30 min | 4 Ejercicios Diversos</p>
+        </div>
+    </header>
 
-<!-- 2. CONTENT (HTML) -->
-<div id="exercise-content" class="space-y-12 text-gray-800 font-sans leading-relaxed">
-
-    <!-- INTRO -->
-    <div class="text-center border-b pb-6">
-        <h1 class="text-3xl font-bold text-indigo-700">Ejercicios: Identidad y Verbos Clave</h1>
-        <p class="text-gray-500 mt-2">Completa las 4 secciones. Recuerda: la precisión es clave en Savoir.</p>
+    <!-- FLOATING ACCENT BAR (Sticky top for mobile/desktop) -->
+    <div class="sticky top-0 z-50 bg-white border-b shadow-sm p-2 flex justify-center gap-2 overflow-x-auto">
+        <span class="text-xs font-bold text-gray-500 self-center mr-2 hidden sm:block">Caracteres:</span>
+        <button onclick="insertChar('é')" class="fr-accent-btn">é</button>
+        <button onclick="insertChar('è')" class="fr-accent-btn">è</button>
+        <button onclick="insertChar('à')" class="fr-accent-btn">à</button>
+        <button onclick="insertChar('ç')" class="fr-accent-btn">ç</button>
+        <button onclick="insertChar('ê')" class="fr-accent-btn">ê</button>
+        <button onclick="insertChar('î')" class="fr-accent-btn">î</button>
+        <button onclick="insertChar('ô')" class="fr-accent-btn">ô</button>
     </div>
 
-    <!-- GLOBAL TOOL: FRENCH KEYBOARD HELPER (Visible for text inputs) -->
-    <div id="french-keyboard" class="sticky top-4 z-50 bg-white p-2 rounded-lg shadow-lg border border-indigo-100 flex justify-center gap-2 hidden transition-all duration-300">
-        <span class="text-xs font-bold text-gray-400 self-center mr-2">Teclado FR:</span>
-        <button onclick="insertChar('é')" class="w-8 h-8 bg-gray-100 hover:bg-indigo-100 rounded text-indigo-700 font-bold border">é</button>
-        <button onclick="insertChar('è')" class="w-8 h-8 bg-gray-100 hover:bg-indigo-100 rounded text-indigo-700 font-bold border">è</button>
-        <button onclick="insertChar('à')" class="w-8 h-8 bg-gray-100 hover:bg-indigo-100 rounded text-indigo-700 font-bold border">à</button>
-        <button onclick="insertChar('ç')" class="w-8 h-8 bg-gray-100 hover:bg-indigo-100 rounded text-indigo-700 font-bold border">ç</button>
-        <button onclick="insertChar('ê')" class="w-8 h-8 bg-gray-100 hover:bg-indigo-100 rounded text-indigo-700 font-bold border">ê</button>
-        <button onclick="insertChar('ô')" class="w-8 h-8 bg-gray-100 hover:bg-indigo-100 rounded text-indigo-700 font-bold border">ô</button>
-        <button onclick="insertChar('\'')" class="w-8 h-8 bg-gray-100 hover:bg-indigo-100 rounded text-indigo-700 font-bold border">'</button>
-    </div>
+    <main class="max-w-4xl mx-auto p-6 space-y-12">
 
-    <!-- EXERCISE 1: VOCABULARY & RULES -->
-    <section class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-        <div class="flex items-center mb-4">
-            <div class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold mr-3">1</div>
-            <h2 class="text-xl font-bold text-gray-800">Corrección de Errores y Vocabulario</h2>
-        </div>
-        
-        <!-- Rule Summary -->
-        <div class="bg-indigo-50 p-4 rounded-lg mb-6 text-sm border-l-4 border-indigo-500">
-            <strong>Recordatorio:</strong> 
-            <ul class="list-disc ml-4 mt-1">
-                <li>Profesiones: NO usan artículo (<em>Je suis docteur</em>, NO <del>Je suis un docteur</del>).</li>
-                <li>Edad: Usa el verbo AVOIR (<em>J'ai 20 ans</em>).</li>
-            </ul>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Q1 -->
-            <div class="space-y-2">
-                <label class="font-semibold text-gray-700">1. Selecciona la forma correcta para decir "Soy abogada":</label>
-                <select class="w-full p-2 border rounded bg-gray-50" onchange="validateSelect(this, 'correct')">
-                    <option value="">Elige una opción...</option>
-                    <option value="wrong">Je suis une avocate</option>
-                    <option value="correct">Je suis avocate</option>
-                    <option value="wrong">Je suis la avocate</option>
-                </select>
-                <p class="feedback hidden text-xs mt-1"></p>
-            </div>
-
-            <!-- Q2 -->
-            <div class="space-y-2">
-                <label class="font-semibold text-gray-700">2. ¿Cómo se dice "Pasante / Becario"?</label>
-                <select class="w-full p-2 border rounded bg-gray-50" onchange="validateSelect(this, 'stagiaire')">
-                    <option value="">Elige una opción...</option>
-                    <option value="wrong">Le Chef</option>
-                    <option value="stagiaire">Le Stagiaire</option>
-                    <option value="wrong">Le Comptable</option>
-                </select>
-                <p class="feedback hidden text-xs mt-1"></p>
-            </div>
-
-            <!-- Q3 -->
-            <div class="space-y-2">
-                <label class="font-semibold text-gray-700">3. Encuentra el error: "Je suis 25 ans".</label>
-                <select class="w-full p-2 border rounded bg-gray-50" onchange="validateSelect(this, 'verb')">
-                    <option value="">Elige una opción...</option>
-                    <option value="wrong">El número está mal escrito.</option>
-                    <option value="verb">El verbo es incorrecto (debe ser 'avoir').</option>
-                    <option value="wrong">Falta la palabra 'años'.</option>
-                </select>
-                <p class="feedback hidden text-xs mt-1"></p>
-            </div>
-
-            <!-- Q4 -->
-            <div class="space-y-2">
-                <label class="font-semibold text-gray-700">4. Traduce al francés: "El contador".</label>
-                <input type="text" class="w-full p-2 border rounded focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none js-input" placeholder="Ej: Le..." data-answer="le comptable">
-                <p class="feedback hidden text-xs mt-1"></p>
-            </div>
-
-            <!-- Q5 -->
-            <div class="space-y-2">
-                <label class="font-semibold text-gray-700">5. Femenino de "Directeur":</label>
-                <input type="text" class="w-full p-2 border rounded focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none js-input" data-answer="directrice">
-                <p class="feedback hidden text-xs mt-1"></p>
-            </div>
-
-            <!-- Q6 -->
-            <div class="space-y-2">
-                <label class="font-semibold text-gray-700">6. "Estar de acuerdo" se dice:</label>
-                <select class="w-full p-2 border rounded bg-gray-50" onchange="validateSelect(this, 'accord')">
-                    <option value="">Elige una opción...</option>
-                    <option value="wrong">Être en retard</option>
-                    <option value="accord">Être d'accord</option>
-                    <option value="wrong">Avoir besoin</option>
-                </select>
-                <p class="feedback hidden text-xs mt-1"></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXERCISE 2: GRAMMAR (ÊTRE VS AVOIR) -->
-    <section class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-        <div class="flex items-center mb-4">
-            <div class="w-8 h-8 bg-frBlue rounded-full flex items-center justify-center text-white font-bold mr-3">2</div>
-            <h2 class="text-xl font-bold text-gray-800">Gramática: Conjugación</h2>
-        </div>
-
-        <!-- Rule Summary -->
-        <div class="bg-blue-50 p-4 rounded-lg mb-6 text-sm border-l-4 border-frBlue grid grid-cols-2 gap-4">
-            <div>
-                <strong class="text-indigo-700">ÊTRE (Ser/Estar)</strong><br>
-                Je suis, Tu es, Il est<br>
-                Nous sommes, Vous êtes, Ils sont
-            </div>
-            <div>
-                <strong class="text-pink-600">AVOIR (Tener)</strong><br>
-                J'ai, Tu as, Il a<br>
-                Nous avons, Vous avez, Ils ont
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Q1 -->
-            <div class="space-y-1">
-                <label class="text-gray-600 text-sm">1. Je _______ (être) américain.</label>
-                <input type="text" class="w-full p-2 border-b-2 border-gray-300 bg-transparent focus:border-frBlue outline-none js-input" data-answer="suis">
-                <p class="feedback hidden text-xs font-bold"></p>
-            </div>
-
-            <!-- Q2 -->
-            <div class="space-y-1">
-                <label class="text-gray-600 text-sm">2. Tu _______ (avoir) une réunion ?</label>
-                <input type="text" class="w-full p-2 border-b-2 border-gray-300 bg-transparent focus:border-frBlue outline-none js-input" data-answer="as">
-                <p class="feedback hidden text-xs font-bold"></p>
-            </div>
-
-            <!-- Q3 -->
-            <div class="space-y-1">
-                <label class="text-gray-600 text-sm">3. Nous _______ (être) au bureau.</label>
-                <input type="text" class="w-full p-2 border-b-2 border-gray-300 bg-transparent focus:border-frBlue outline-none js-input" data-answer="sommes">
-                <p class="feedback hidden text-xs font-bold"></p>
-            </div>
-
-            <!-- Q4 -->
-            <div class="space-y-1">
-                <label class="text-gray-600 text-sm">4. Vous _______ (avoir) faim ?</label>
-                <input type="text" class="w-full p-2 border-b-2 border-gray-300 bg-transparent focus:border-frBlue outline-none js-input" data-answer="avez">
-                <p class="feedback hidden text-xs font-bold"></p>
-            </div>
-
-            <!-- Q5 -->
-            <div class="space-y-1">
-                <label class="text-gray-600 text-sm">5. Elles _______ (être) intelligentes.</label>
-                <input type="text" class="w-full p-2 border-b-2 border-gray-300 bg-transparent focus:border-frBlue outline-none js-input" data-answer="sont">
-                <p class="feedback hidden text-xs font-bold"></p>
-            </div>
-
-            <!-- Q6 -->
-            <div class="space-y-1">
-                <label class="text-gray-600 text-sm">6. Marc (Il) _______ (avoir) 30 ans.</label>
-                <input type="text" class="w-full p-2 border-b-2 border-gray-300 bg-transparent focus:border-frBlue outline-none js-input" data-answer="a">
-                <p class="feedback hidden text-xs font-bold"></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXERCISE 3: COMPREHENSION (THE MEETING) -->
-    <section class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-        <div class="flex items-center mb-4">
-            <div class="w-8 h-8 bg-frRed rounded-full flex items-center justify-center text-white font-bold mr-3">3</div>
-            <h2 class="text-xl font-bold text-gray-800">Comprensión: La Reunión</h2>
-        </div>
-
-        <p class="text-sm text-gray-500 mb-4 italic">Basado en la historia de Emily y Monsieur Dubois de la lección.</p>
-
-        <div class="space-y-4">
-            <!-- Q1 -->
-            <div class="border-b pb-3">
-                <p class="font-semibold mb-2">1. ¿Por qué estaban nerviosos al principio?</p>
-                <div class="space-y-1">
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rc1" class="text-frRed focus:ring-frRed" onchange="checkRadio(this, false)">
-                        <span>Porque Emily no habla francés.</span>
-                    </label>
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rc1" class="text-frRed focus:ring-frRed" onchange="checkRadio(this, true)">
-                        <span>Porque estaban retrasados (en retard).</span>
-                    </label>
-                    <p class="feedback hidden text-xs ml-6"></p>
+        <!-- EXERCISE 1: PROFESSIONS & ARTICLES -->
+        <section id="ex1" class="bg-white p-6 rounded-xl shadow-md border-t-4 border-indigo-500">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">1. La Regla de Oro: Profesiones sin Artículo</h2>
+                <div class="bg-indigo-50 p-4 rounded-lg text-sm text-indigo-800 border border-indigo-200">
+                    <p><strong>Regla:</strong> No digas "Je suis <s>un</s> avocat". Di "Je suis avocat".<br>
+                    <strong>Género:</strong> Fíjate si el sujeto es hombre (Il) o mujer (Elle/Je femenino).</p>
                 </div>
             </div>
 
-            <!-- Q2 -->
-            <div class="border-b pb-3">
-                <p class="font-semibold mb-2">2. ¿Cuál es la profesión de Luc?</p>
-                <div class="space-y-1">
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rc2" class="text-frRed focus:ring-frRed" onchange="checkRadio(this, true)">
-                        <span>Comptable (Contador).</span>
-                    </label>
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rc2" class="text-frRed focus:ring-frRed" onchange="checkRadio(this, false)">
-                        <span>Directeur (Director).</span>
-                    </label>
-                    <p class="feedback hidden text-xs ml-6"></p>
+            <div class="space-y-4" id="container-ex1">
+                <!-- Questions generated via JS -->
+            </div>
+        </section>
+
+        <!-- EXERCISE 2: ÊTRE vs AVOIR -->
+        <section id="ex2" class="bg-white p-6 rounded-xl shadow-md border-t-4 border-pink-500">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">2. Batalla de Verbos: Être vs. Avoir</h2>
+                <div class="bg-pink-50 p-4 rounded-lg text-sm text-pink-800 border border-pink-200 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <strong>ÊTRE (Ser/Estar):</strong>
+                        <ul class="list-disc ml-4">
+                            <li>Je suis, Tu es, Il est</li>
+                            <li>Nous sommes, Vous êtes, Ils sont</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>AVOIR (Tener/Edad):</strong>
+                        <ul class="list-disc ml-4">
+                            <li>J'ai, Tu as, Il a</li>
+                            <li>Nous avons, Vous avez, Ils ont</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <!-- Q3 -->
-            <div class="border-b pb-3">
-                <p class="font-semibold mb-2">3. ¿Cómo describe Sylvie a Emily ante el cliente?</p>
-                <div class="space-y-1">
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rc3" class="text-frRed focus:ring-frRed" onchange="checkRadio(this, false)">
-                        <span>La stagiaire américaine.</span>
-                    </label>
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rc3" class="text-frRed focus:ring-frRed" onchange="checkRadio(this, true)">
-                        <span>Consultante américaine.</span>
-                    </label>
-                    <p class="feedback hidden text-xs ml-6"></p>
+            <div class="space-y-4" id="container-ex2">
+                <!-- Questions generated via JS -->
+            </div>
+        </section>
+
+        <!-- EXERCISE 3: GENDER & NATIONALITY -->
+        <section id="ex3" class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">3. Vocabulario y Femeninos</h2>
+                <div class="bg-blue-50 p-4 rounded-lg text-sm text-blue-800 border border-blue-200">
+                    <p><strong>Tip:</strong> Generalmente agregamos una "e" para el femenino.<br>
+                    <em>Américain -> Américaine</em> | <em>Directeur -> Directrice</em></p>
                 </div>
             </div>
 
-            <!-- Q4 -->
-            <div class="border-b pb-3">
-                <p class="font-semibold mb-2">4. ¿De dónde es Emily?</p>
-                <div class="space-y-1">
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rc4" class="text-frRed focus:ring-frRed" onchange="checkRadio(this, true)">
-                        <span>Elle est de Chicago.</span>
-                    </label>
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rc4" class="text-frRed focus:ring-frRed" onchange="checkRadio(this, false)">
-                        <span>Elle est de New York.</span>
-                    </label>
-                    <p class="feedback hidden text-xs ml-6"></p>
-                </div>
+            <div class="space-y-4" id="container-ex3">
+                <!-- Questions generated via JS -->
+            </div>
+        </section>
+
+        <!-- EXERCISE 4: TRANSLATION SYNTHESIS -->
+        <section id="ex4" class="bg-white p-6 rounded-xl shadow-md border-t-4 border-green-600">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">4. Traducción Contextual</h2>
+                <p class="text-sm text-gray-600 mb-2">Traduce estas frases típicas de oficina usando el vocabulario visto. Presta atención a la ortografía.</p>
             </div>
 
-            <!-- Q5 -->
-            <div class="border-b pb-3">
-                <p class="font-semibold mb-2">5. Verdadero o Falso: M. Dubois odia la franqueza (directness) de Emily.</p>
-                <div class="space-y-1">
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rc5" class="text-frRed focus:ring-frRed" onchange="checkRadio(this, false)">
-                        <span>Verdadero.</span>
-                    </label>
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rc5" class="text-frRed focus:ring-frRed" onchange="checkRadio(this, true)">
-                        <span>Falso (Le gusta).</span>
-                    </label>
-                    <p class="feedback hidden text-xs ml-6"></p>
-                </div>
+            <div class="space-y-4" id="container-ex4">
+                <!-- Questions generated via JS -->
             </div>
-            
-             <!-- Q6 -->
-             <div class="pb-3">
-                <p class="font-semibold mb-2">6. ¿Qué verbo usa M. Dubois en: "J'___ une question"?</p>
-                <div class="space-y-1">
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rc6" class="text-frRed focus:ring-frRed" onchange="checkRadio(this, false)">
-                        <span>Être (Suis).</span>
-                    </label>
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rc6" class="text-frRed focus:ring-frRed" onchange="checkRadio(this, true)">
-                        <span>Avoir (Ai).</span>
-                    </label>
-                    <p class="feedback hidden text-xs ml-6"></p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- EXERCISE 4: WRITING / PRODUCTION -->
-    <section class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-        <div class="flex items-center mb-4">
-            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-3">4</div>
-            <h2 class="text-xl font-bold text-gray-800">Escritura: Traduce las Frases</h2>
+        <!-- FINAL MESSAGE -->
+        <div id="final-success" class="hidden bg-green-100 p-8 rounded-xl text-center border-2 border-green-500 shadow-lg">
+            <h2 class="text-3xl font-bold text-green-800 mb-4">¡Félicitations! 🎉</h2>
+            <p class="text-lg text-green-700">Has completado la lección. Ya estás listo para presentarte en Savoir.</p>
+            <button onclick="location.reload()" class="mt-6 bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 font-bold shadow">
+                Volver a practicar
+            </button>
         </div>
 
-        <div class="bg-green-50 p-4 rounded-lg mb-6 text-sm text-green-800">
-            <i class="fas fa-keyboard mr-2"></i> Usa los botones de arriba si necesitas acentos (é, è, ê). 
-            No te preocupes por las mayúsculas.
-        </div>
+    </main>
 
-        <div class="space-y-4">
-            <!-- Q1 -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-                <span class="font-semibold text-gray-700">1. "Yo tengo una reunión."</span>
-                <input type="text" class="col-span-2 p-2 border rounded focus:ring-green-500 focus:border-green-500 js-input" data-answer="j'ai une réunion">
-                <p class="feedback hidden col-span-3 text-xs text-right"></p>
-            </div>
-
-            <!-- Q2 -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-                <span class="font-semibold text-gray-700">2. "Tú (informal) estás de vacaciones."</span>
-                <input type="text" class="col-span-2 p-2 border rounded focus:ring-green-500 focus:border-green-500 js-input" data-answer="tu es en vacances">
-                <p class="feedback hidden col-span-3 text-xs text-right"></p>
-            </div>
-
-            <!-- Q3 -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-                <span class="font-semibold text-gray-700">3. "Usted es el director."</span>
-                <input type="text" class="col-span-2 p-2 border rounded focus:ring-green-500 focus:border-green-500 js-input" data-answer="vous êtes le directeur">
-                <p class="feedback hidden col-span-3 text-xs text-right"></p>
-            </div>
-
-            <!-- Q4 -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-                <span class="font-semibold text-gray-700">4. "Nosotros estamos tarde."</span>
-                <input type="text" class="col-span-2 p-2 border rounded focus:ring-green-500 focus:border-green-500 js-input" data-answer="nous sommes en retard">
-                <p class="feedback hidden col-span-3 text-xs text-right"></p>
-            </div>
-
-            <!-- Q5 -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-                <span class="font-semibold text-gray-700">5. "Ella es alemana."</span>
-                <input type="text" class="col-span-2 p-2 border rounded focus:ring-green-500 focus:border-green-500 js-input" data-answer="elle est allemande">
-                <p class="feedback hidden col-span-3 text-xs text-right"></p>
-            </div>
-
-            <!-- Q6 -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-                <span class="font-semibold text-gray-700">6. "Ellos tienen 20 años."</span>
-                <input type="text" class="col-span-2 p-2 border rounded focus:ring-green-500 focus:border-green-500 js-input" data-answer="ils ont 20 ans">
-                <p class="feedback hidden col-span-3 text-xs text-right"></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ACTION BUTTON -->
-    <div class="text-center pt-6">
-        <button onclick="checkAllAnswers()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-105">
-            ✅ Validar Todas las Respuestas
-        </button>
-        <p id="final-score" class="mt-4 font-bold text-xl text-gray-800 hidden"></p>
-    </div>
-
-</div>
-
-<!-- 3. INTERACTIVE SCRIPT -->
-<script>
-    // 1. Keyboard Helper Logic
-    let activeInput = null;
-    
-    document.querySelectorAll('input[type="text"]').forEach(input => {
-        input.addEventListener('focus', () => {
-            activeInput = input;
-            document.getElementById('french-keyboard').classList.remove('hidden');
-        });
-        // Optional: Hide keyboard on blur, but checking if click was on keyboard button is complex, 
-        // so we'll keep it simple and leave it sticky or hide on outside click logic if needed.
-    });
-
-    function insertChar(char) {
-        if (activeInput) {
-            activeInput.value += char;
-            activeInput.focus();
-        }
-    }
-
-    // 2. Validation Logic
-    function normalize(str) {
-        // Remove accents, special chars, and lowercase for validation comparison
-        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-                  .replace(/[^a-zA-Z0-9]/g, "") // Remove spaces and punctuation
-                  .toLowerCase();
-    }
-
-    function validateSelect(selectElem, correctVal) {
-        const p = selectElem.nextElementSibling;
-        p.classList.remove('hidden');
-        if (selectElem.value === correctVal) {
-            selectElem.classList.add('border-green-500', 'bg-green-50');
-            selectElem.classList.remove('border-red-500', 'bg-red-50');
-            p.textContent = "¡Correcto!";
-            p.className = "feedback text-xs mt-1 text-green-600 font-bold";
-        } else {
-            selectElem.classList.add('border-red-500', 'bg-red-50');
-            selectElem.classList.remove('border-green-500', 'bg-green-50');
-            p.textContent = "Inténtalo de nuevo.";
-            p.className = "feedback text-xs mt-1 text-red-600";
-        }
-    }
-
-    function checkRadio(radioElem, isCorrect) {
-        const p = radioElem.closest('.space-y-1').querySelector('.feedback');
-        p.classList.remove('hidden');
-        
-        if (isCorrect) {
-            p.textContent = "¡Correcto!";
-            p.className = "feedback text-xs ml-6 text-green-600 font-bold";
-        } else {
-            p.textContent = "Incorrecto.";
-            p.className = "feedback text-xs ml-6 text-red-600";
-        }
-    }
-
-    function checkAllAnswers() {
-        let correctCount = 0;
-        let totalQuestions = 0;
-
-        // Check Text Inputs
-        document.querySelectorAll('.js-input').forEach(input => {
-            totalQuestions++;
-            const userAnswer = normalize(input.value);
-            const correctAnswer = normalize(input.dataset.answer);
-            const p = input.nextElementSibling;
-            
-            p.classList.remove('hidden');
-            
-            if (userAnswer === correctAnswer && userAnswer.length > 0) {
-                correctCount++;
-                input.classList.add('border-green-500', 'bg-green-50');
-                p.textContent = "¡Bien hecho!";
-                p.className = "feedback text-xs text-green-600 font-bold";
-            } else {
-                input.classList.add('border-red-500', 'bg-red-50');
-                p.textContent = `Respuesta sugerida: ${input.dataset.answer}`;
-                p.className = "feedback text-xs text-red-600";
+    <script>
+        // EXERCISE DATA
+        const exercises = [
+            {
+                id: "ex1",
+                questions: [
+                    { q: "Traduce: 'Soy contador' (hombre)", a: "je suis comptable" },
+                    { q: "Traduce: 'Ella es directora'", a: "elle est directrice" },
+                    { q: "Traduce: 'Él es pasante' (becario)", a: "il est stagiaire" },
+                    { q: "Traduce: 'Nosotros somos diseñadores de moda'", a: "nous sommes créateurs de mode" },
+                    { q: "Traduce: 'Tú (informal) eres influencer'", a: "tu es influenceuse" },
+                    { q: "Traduce: 'Ustedes son propietarios'", a: "vous êtes propriétaires" }
+                ]
+            },
+            {
+                id: "ex2",
+                questions: [
+                    { q: "Completa: J'___ 25 ans. (Tengo)", a: "ai" },
+                    { q: "Completa: Nous _______ en retard. (Estamos)", a: "sommes" },
+                    { q: "Completa: Tu ___ une réunion ? (Tienes)", a: "as" },
+                    { q: "Completa: Ils ____ chinois. (Son)", a: "sont" },
+                    { q: "Completa: Vous ____ besoin de café ? (Tienen)", a: "avez" },
+                    { q: "Completa: Elle ___ l'air fatiguée. (Parece/Tiene aspecto)", a: "a" }
+                ]
+            },
+            {
+                id: "ex3",
+                questions: [
+                    { q: "Pasa al femenino: 'Il est américain'", a: "elle est américaine" },
+                    { q: "Pasa al femenino: 'Il est directeur'", a: "elle est directrice" },
+                    { q: "Pasa al femenino: 'Il est allemand'", a: "elle est allemande" },
+                    { q: "Traduce (palabra exacta): 'La oficina'", a: "le bureau" },
+                    { q: "Traduce (palabra exacta): 'Estar de acuerdo' (infinitivo)", a: "être d'accord" },
+                    { q: "Escribe en francés: 'El ejecutivo de cuentas'", a: "le chargé de clientèle" }
+                ]
+            },
+            {
+                id: "ex4",
+                questions: [
+                    { q: "Traduce: 'Estoy de acuerdo.'", a: "je suis d'accord" },
+                    { q: "Traduce: 'Tengo una reunión.'", a: "j'ai une réunion" },
+                    { q: "Traduce: 'Ella está de vacaciones.'", a: "elle est en vacances" },
+                    { q: "Traduce: 'Llegas tarde.' (Tú...)", a: "tu es en retard" },
+                    { q: "Traduce: 'Necesito un café.' (Tengo necesidad de...)", a: "j'ai besoin d'un café" }, // Assuming basic vocab or based on lesson structure "J'ai besoin de..."
+                    // Correction: Based on strictly lesson vocab list "J'ai besoin de..." + generic un café. 
+                    // Let's make it safer based strictly on lesson vocab:
+                    // "J'ai besoin de..." is in vocab. "le bureau" is in vocab.
+                    { q: "Traduce: 'Necesito la oficina.'", a: "j'ai besoin du bureau" } 
+                ]
             }
+        ];
+
+        // Override specific difficult question for better user experience based on strictly provided vocab
+        exercises[3].questions[4] = { q: "Traduce: 'Usted tiene razón.' (No, espera, usa vocabulario de lección: 'Usted tiene 30 años')", a: "vous avez 30 ans" };
+        exercises[3].questions[5] = { q: "Traduce: 'Nosotros estamos en la oficina.'", a: "nous sommes au bureau" }; 
+        // "au" might be tricky if grammar not taught (à + le). Let's simplifiy to purely listed items.
+        // Revised Q5 and Q6 for Exercise 4 to strictly match lesson content.
+        exercises[3].questions[4] = { q: "Traduce: 'Tengo 20 años.'", a: "j'ai 20 ans" };
+        exercises[3].questions[5] = { q: "Traduce: 'Él parece (tiene aspecto de) contador.'", a: "il a l'air comptable" };
+
+
+        // INITIALIZATION
+        let activeInput = null;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            exercises.forEach(ex => renderExercise(ex));
         });
 
-        // Check Selects & Radios (Manual check for total score)
-        // Note: For this simplified script, we rely on the visual feedback triggers above.
-        // To count properly, we'd iterate all select/radio states.
-        
-        const scoreBoard = document.getElementById('final-score');
-        scoreBoard.textContent = "Revisa tus respuestas marcadas en Rojo y Verde.";
-        scoreBoard.classList.remove('hidden');
-    }
-</script>
+        function renderExercise(exData) {
+            const container = document.getElementById(`container-${exData.id}`);
+            
+            exData.questions.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = "border-b border-gray-200 pb-4 last:border-0";
+                div.innerHTML = `
+                    <label class="block text-gray-700 font-semibold mb-1">
+                        <span class="text-indigo-600 mr-2">${index + 1}.</span> ${item.q}
+                    </label>
+                    <div class="flex gap-2 flex-col sm:flex-row">
+                        <input type="text" 
+                            id="${exData.id}-q${index}" 
+                            class="w-full sm:w-2/3 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 outline-none transition"
+                            placeholder="Escribe tu respuesta..."
+                            onfocus="setActiveInput(this)"
+                            autocomplete="off">
+                        <button onclick="validate('${exData.id}', ${index}, '${item.a.replace(/'/g, "\\'")}')" 
+                            class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition shadow-sm sm:w-1/3">
+                            Verificar
+                        </button>
+                    </div>
+                    <div id="feedback-${exData.id}-${index}" class="mt-2 text-sm hidden font-medium p-2 rounded"></div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // KEYBOARD HELPER
+        function setActiveInput(input) {
+            activeInput = input;
+        }
+
+        function insertChar(char) {
+            if (activeInput) {
+                const start = activeInput.selectionStart;
+                const end = activeInput.selectionEnd;
+                const text = activeInput.value;
+                activeInput.value = text.substring(0, start) + char + text.substring(end);
+                activeInput.focus();
+                activeInput.selectionStart = activeInput.selectionEnd = start + 1;
+            } else {
+                alert("Primero haz clic en la casilla donde quieres escribir.");
+            }
+        }
+
+        // VALIDATION LOGIC
+        function validate(exId, qIndex, correctAnswer) {
+            const input = document.getElementById(`${exId}-q${qIndex}`);
+            const feedback = document.getElementById(`feedback-${exId}-${qIndex}`);
+            
+            // Normalize answer: remove punctuation at end, trim whitespace, lowercase
+            let userAnswer = input.value.trim().toLowerCase();
+            if(userAnswer.endsWith('.')) userAnswer = userAnswer.slice(0, -1);
+
+            const cleanCorrect = correctAnswer.toLowerCase();
+
+            feedback.classList.remove("hidden", "correct-answer", "wrong-answer");
+
+            if (userAnswer === cleanCorrect) {
+                input.classList.add("border-green-500", "bg-green-50");
+                input.classList.remove("border-red-500", "bg-red-50");
+                feedback.textContent = "✅ ¡Correcto! Très bien.";
+                feedback.classList.add("correct-answer");
+                checkGlobalProgress();
+            } else {
+                input.classList.add("border-red-500", "bg-red-50");
+                input.classList.remove("border-green-500", "bg-green-50");
+                feedback.innerHTML = `❌ Incorrecto. <br> La respuesta correcta es: <strong>${correctAnswer}</strong>`;
+                feedback.classList.add("wrong-answer");
+            }
+        }
+
+        function checkGlobalProgress() {
+            // Simple check if all inputs have the green class
+            const inputs = document.querySelectorAll('input[type="text"]');
+            const total = inputs.length;
+            const correct = document.querySelectorAll('.border-green-500').length;
+
+            if (correct === total) {
+                document.getElementById('final-success').classList.remove('hidden');
+                window.scrollTo(0, document.body.scrollHeight);
+            }
+        }
+    </script>
+</body>
+</html>
