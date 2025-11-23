@@ -294,9 +294,8 @@
                     const readSteps = sections.map(s => ({ type: 'read', html: s.innerHTML }));
                     
                     const data = JSON.parse(doc.getElementById('lesson-data').textContent);
-                    const quizSteps = (data.exercises || []).map(ex => ({ type: 'quiz', ...ex }));
 
-                    this.lessonSteps = [...readSteps, ...quizSteps];
+                    this.lessonSteps = [...readSteps];
                     this.currentLessonMeta = { ...data, id: mod.id };
                     this.currentStepIdx = 0;
                     this.renderStep();
@@ -308,157 +307,305 @@
             },
 
             // --- 3B. PRACTICE ENGINE (New) ---
-            async loadPractice(index) {
-                this.closeModal();
-                const mod = this.modules[index];
-                this.container.innerHTML = `<div class="h-full flex items-center justify-center"><div class="loader"></div></div>`;
+    async loadPractice(index) {
+        this.closeModal();
+        const mod = this.modules[index];
+        this.container.innerHTML = `<div class="h-full flex items-center justify-center"><div class="loader"></div></div>`;
 
-                try {
-                    // 1. Load Lesson X (for Vocab + Section 2)
-                    const lessonRes = await fetch(mod.url);
-                    if(!lessonRes.ok) throw new Error("Lesson not found");
-                    const lessonHtml = await lessonRes.text();
-                    const parser = new DOMParser();
-                    const lessonDoc = parser.parseFromString(lessonHtml, 'text/html');
-                    const lessonData = JSON.parse(lessonDoc.getElementById('lesson-data').textContent);
+        try {
+            // 1. Load Lesson X (for Vocab + Section 2)
+            const lessonRes = await fetch(mod.url);
+            if(!lessonRes.ok) throw new Error("Lesson not found");
+            const lessonHtml = await lessonRes.text();
+            const parser = new DOMParser();
+            const lessonDoc = parser.parseFromString(lessonHtml, 'text/html');
+            const lessonData = JSON.parse(lessonDoc.getElementById('lesson-data').textContent);
 
-                    // 2. Load Exercises X
-                    const exUrl = `${this.baseUrl}exercices${mod.id}.html`;
-                    const exRes = await fetch(exUrl);
-                    if(!exRes.ok) throw new Error("Exercices file not found");
-                    const exHtml = await exRes.text();
-                    const exDoc = parser.parseFromString(exHtml, 'text/html');
+            // 2. Load Exercices X
+            const exUrl = `${this.baseUrl}exercices${mod.id}.html`;
+            const exRes = await fetch(exUrl);
+            if(!exRes.ok) throw new Error("Exercices file not found");
+            const exHtml = await exRes.text();
+            const exDoc = parser.parseFromString(exHtml, 'text/html');
+            
+            // Parse JSON Data
+            const exScript = exDoc.getElementById('exercise-data');
+            if(!exScript) throw new Error("No JSON data found in exercise file");
+            const exData = JSON.parse(exScript.textContent);
 
-                    // BUILD STEPS
-                    this.lessonSteps = [];
+            // BUILD STEPS
+            this.lessonSteps = [];
 
-                    // Step 1: Vocabulary (Visual)
-                    if (lessonData.vocabulary && lessonData.vocabulary.length > 0) {
-                        let vocabListHtml = `<div class="grid grid-cols-1 gap-2">`;
-                        lessonData.vocabulary.forEach(word => {
-                            vocabListHtml += `
-                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
-                                    <span class="font-bold text-frBlue">${word.fr}</span>
-                                    <span class="text-gray-500 text-sm italic">${word.es}</span>
-                                </div>`;
-                        });
-                        vocabListHtml += `</div>`;
-                        
-                        this.lessonSteps.push({
-                            type: 'read',
-                            html: `
-                                <div class="text-center mb-6"><i class="fa-solid fa-book-bookmark text-4xl text-gold mb-2"></i><h2 class="text-xl font-bold text-frBlue">Vocabulaire</h2></div>
-                                ${vocabListHtml}
-                            `
-                        });
-                    }
-
-                    // Step 2: Section 2 of Lesson (Refresher)
-                    const lessonSections = lessonDoc.querySelectorAll('section');
-                    if (lessonSections.length >= 2) {
-                        this.lessonSteps.push({
-                            type: 'read',
-                            html: `
-                                <div class="mb-4 pb-2 border-b border-gray-100">
-                                    <span class="bg-frBlue text-white px-2 py-1 rounded text-[10px] font-bold uppercase">Rappel</span>
-                                </div>
-                                ${lessonSections[1].innerHTML}
-                            `
-                        });
-                    }
-
-                    // Step 3: Exercises from exercicesX.html
-                    const exSections = exDoc.querySelectorAll('section');
-                    exSections.forEach(sec => {
-                        const answer = sec.getAttribute('data-answer');
-                        if (answer) {
-                            // Interactive Quiz
-                            this.lessonSteps.push({
-                                type: 'quiz',
-                                q: sec.innerHTML.replace(/<[^>]*>?/gm, '').trim(), // strip html for prompt if needed, or keep
-                                a: answer,
-                                htmlContent: sec.innerHTML // store full html if needed
-                            });
-                        } else {
-                            // Just reading
-                            this.lessonSteps.push({ type: 'read', html: sec.innerHTML });
-                        }
-                    });
-
-                    this.currentLessonMeta = { ...lessonData, id: mod.id, mode: 'practice' };
-                    this.currentStepIdx = 0;
-                    this.renderStep();
-
-                } catch (e) {
-                    console.error(e);
-                    this.container.innerHTML = `<div class="p-10 text-center flex flex-col items-center">
-                        <i class="fa-solid fa-triangle-exclamation text-4xl text-frRed mb-4"></i>
-                        <p class="text-gray-600">Impossible de charger les exercices.</p>
-                        <p class="text-xs text-gray-400 mt-2">Vérifiez que 'exercices${mod.id}.html' existe.</p>
-                        <button onclick="app.renderMap()" class="mt-6 font-bold text-frBlue underline">Retour</button>
-                    </div>`;
-                }
-            },
-    
-            renderStep() {
-                if (this.currentStepIdx >= this.lessonSteps.length) {
-                    this.prepareEndReview(); 
-                    return;
-                }
-    
-                const step = this.lessonSteps[this.currentStepIdx];
-                const progress = ((this.currentStepIdx + 0.5) / this.lessonSteps.length) * 100;
+            // Step 1: Vocabulary (Visual)
+            if (lessonData.vocabulary && lessonData.vocabulary.length > 0) {
+                let vocabListHtml = `<div class="grid grid-cols-1 gap-2">`;
+                lessonData.vocabulary.forEach(word => {
+                    vocabListHtml += `
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                            <span class="font-bold text-frBlue">${word.fr}</span>
+                            <span class="text-gray-500 text-sm italic">${word.es}</span>
+                        </div>`;
+                });
+                vocabListHtml += `</div>`;
                 
-                const navBtn = `<button onclick="app.renderMap()" class="text-gray-400 p-2 hover:text-frBlue transition"><i class="fa-solid fa-xmark text-xl"></i></button>`;
-    
-                let html = `
-                    <div class="h-full flex flex-col bg-frCream relative">
-                        <div class="px-4 py-3 flex items-center gap-3 max-w-2xl mx-auto w-full bg-frCream z-30 shrink-0 border-b border-gray-100/50">
-                            ${navBtn}
-                            <div class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
-                                <div class="h-full bg-green-500 transition-all duration-500 ease-out" style="width: ${progress}%"></div>
-                            </div>
+                this.lessonSteps.push({
+                    type: 'read',
+                    html: `
+                        <div class="text-center mb-6"><i class="fa-solid fa-book-bookmark text-4xl text-gold mb-2"></i><h2 class="text-xl font-bold text-frBlue">Vocabulaire</h2></div>
+                        ${vocabListHtml}
+                    `
+                });
+            }
+
+            // Step 2: Section 2 of Lesson (Refresher)
+            const lessonSections = lessonDoc.querySelectorAll('section');
+            if (lessonSections.length >= 2) {
+                this.lessonSteps.push({
+                    type: 'read',
+                    html: `
+                        <div class="mb-4 pb-2 border-b border-gray-100">
+                            <span class="bg-frBlue text-white px-2 py-1 rounded text-[10px] font-bold uppercase">Rappel</span>
                         </div>
-                        <div class="flex-1 overflow-y-auto px-4 w-full animate-slide-in">
-                            <div class="max-w-2xl mx-auto w-full flex flex-col justify-start pb-36 pt-4">
-                `;
-    
-                if (step.type === 'read') {
-                    html += `<div class="lesson-section bg-white p-5 sm:p-8 rounded-xl shadow-sm border border-gray-100 text-lg leading-relaxed">${step.html}</div>`;
-                } else if (step.type === 'quiz') {
-                    // Determine if we show pure text or HTML content
-                    const displayContent = step.htmlContent || step.q;
-                    html += `
-                        <div class="flex items-center gap-2 mb-4">
-                            <span class="bg-gold text-white px-2 py-0.5 rounded text-xs font-bold uppercase">Exercice</span>
-                        </div>
-                        <div class="bg-white p-5 sm:p-8 rounded-xl shadow-card border border-gray-100 mb-4">
-                            <div class="text-lg text-gray-800 mb-4 font-serif">${displayContent}</div>
-                            <textarea id="inp-quiz" class="w-full p-3 text-lg border-2 border-gray-200 rounded-lg focus:border-frBlue focus:outline-none transition bg-gray-50 resize-none" rows="2" placeholder="Votre réponse..."></textarea>
-                        </div>
-                        <div id="feedback" class="hidden rounded-lg p-4 font-bold text-center text-sm sm:text-base"></div>
-                    `;
-                }
-    
-                html += `
-                            </div>
-                        </div>
-                        <div class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur border-t border-gray-200 p-4 z-40 safe-pb">
-                            <div class="max-w-2xl mx-auto">
-                                ${step.type === 'read' 
-                                    ? `<button onclick="app.nextStep()" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-btn active:shadow-none active:translate-y-1 transition uppercase tracking-wider text-sm">Continuer</button>`
-                                    : `<button id="btn-check" onclick="app.checkAnswer('${step.a.replace(/'/g,"\\'")}')" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl shadow-btn active:shadow-none active:translate-y-1 transition uppercase tracking-wider text-sm">Vérifier</button>
-                                       <button id="btn-next" onclick="app.nextStep()" class="hidden w-full bg-green-500 text-white font-bold py-4 rounded-xl shadow-btn active:shadow-none active:translate-y-1 transition uppercase tracking-wider text-sm">Continuer</button>`
-                                }
-                            </div>
-                        </div>
+                        ${lessonSections[1].innerHTML}
+                    `
+                });
+            }
+
+            // Step 3: Interactive JSON Exercises
+            if (exData.interactive_exercises) {
+                exData.interactive_exercises.forEach(ex => {
+                    this.lessonSteps.push({
+                        type: 'interactive_practice',
+                        data: ex
+                    });
+                });
+            }
+
+            this.currentLessonMeta = { ...lessonData, id: mod.id, mode: 'practice' };
+            this.currentStepIdx = 0;
+            this.renderStep();
+
+        } catch (e) {
+            console.error(e);
+            this.container.innerHTML = `<div class="p-10 text-center flex flex-col items-center">
+                <i class="fa-solid fa-triangle-exclamation text-4xl text-frRed mb-4"></i>
+                <p class="text-gray-600">Erreur de chargement.</p>
+                <p class="text-xs text-gray-400 mt-2">${e.message}</p>
+                <button onclick="app.renderMap()" class="mt-6 font-bold text-frBlue underline">Retour</button>
+            </div>`;
+        }
+    },
+
+renderStep() {
+        if (this.currentStepIdx >= this.lessonSteps.length) {
+            this.prepareEndReview(); 
+            return;
+        }
+
+        const step = this.lessonSteps[this.currentStepIdx];
+        const progress = ((this.currentStepIdx + 0.5) / this.lessonSteps.length) * 100;
+        const navBtn = `<button onclick="app.renderMap()" class="text-gray-400 p-2 hover:text-frBlue transition"><i class="fa-solid fa-xmark text-xl"></i></button>`;
+
+        let html = `
+            <div class="h-full flex flex-col bg-frCream relative">
+                <div class="px-4 py-3 flex items-center gap-3 max-w-2xl mx-auto w-full bg-frCream z-30 shrink-0 border-b border-gray-100/50">
+                    ${navBtn}
+                    <div class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                        <div class="h-full bg-green-500 transition-all duration-500 ease-out" style="width: ${progress}%"></div>
                     </div>
-                `;
-                this.container.innerHTML = html;
-                if(step.type === 'quiz') {
-                    setTimeout(() => { if(window.innerWidth > 768) document.getElementById('inp-quiz').focus(); }, 100);
-                }
-            },
+                </div>
+                <div class="flex-1 overflow-y-auto px-4 w-full animate-slide-in">
+                    <div class="max-w-2xl mx-auto w-full flex flex-col justify-start pb-36 pt-4">
+        `;
+
+        if (step.type === 'read') {
+            html += `<div class="lesson-section bg-white p-5 sm:p-8 rounded-xl shadow-sm border border-gray-100 text-lg leading-relaxed">${step.html}</div>`;
+        } 
+        // --- THE FIX STARTS HERE ---
+        else if (step.type === 'interactive_practice') {
+            // We call the helper function we created to generate the HTML
+            html += `<div class="lesson-section bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                        ${this.renderInteractiveExercise(step.data)}
+                     </div>`;
+        } 
+        // --- THE FIX ENDS HERE ---
+        else if (step.type === 'quiz') {
+            html += `
+                <div class="bg-white p-5 rounded-xl shadow-card border border-gray-100 mb-4">
+                    <div class="text-lg text-gray-800 mb-4 font-serif">${step.q}</div>
+                    <textarea id="inp-quiz" class="w-full p-3 text-lg border-2 border-gray-200 rounded-lg focus:border-frBlue focus:outline-none transition bg-gray-50 resize-none" rows="2"></textarea>
+                </div>
+                <div id="feedback" class="hidden rounded-lg p-4 font-bold text-center text-sm"></div>`;
+        }
+
+        // ... (rest of the function remains the same)
+        html += `
+                    </div>
+                </div>
+                <div class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur border-t border-gray-200 p-4 z-40 safe-pb">
+                    <div class="max-w-2xl mx-auto">
+                        ${step.type === 'read' 
+                            ? `<button onclick="app.nextStep()" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-btn active:shadow-none active:translate-y-1 transition uppercase tracking-wider text-sm">Continuer</button>`
+                            : `<button id="btn-check" onclick="app.checkInteractive()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl shadow-btn active:shadow-none active:translate-y-1 transition uppercase tracking-wider text-sm">Vérifier</button>
+                               <button id="btn-next" onclick="app.nextStep()" class="hidden w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-btn active:shadow-none active:translate-y-1 transition uppercase tracking-wider text-sm">Continuer</button>`
+                        }
+                    </div>
+                </div>
+            </div>
+        `;
+        this.container.innerHTML = html;
+    },
+
+    // --- GENERATE HTML FOR NEW EXERCISE TYPES ---
+    renderInteractiveExercise(ex) {
+        let contentHtml = '';
+        const instruction = `<div class="flex items-center gap-2 mb-4"><span class="bg-gold text-white px-2 py-0.5 rounded text-xs font-bold uppercase">Exercice</span><span class="text-xs text-gray-500 font-bold uppercase tracking-widest">${ex.type.replace('_', ' ')}</span></div>`;
+        const prompt = ex.prompt ? `<div class="text-xl font-serif text-frBlue font-bold mb-6 text-center">${ex.prompt.replace('______', '<span class="border-b-2 border-frBlue w-12 inline-block mx-1"></span>')}</div>` : '';
+        
+        switch(ex.type) {
+            case 'selection_single':
+                contentHtml = `<div class="grid gap-3">`;
+                ex.content.options.forEach(opt => {
+                    contentHtml += `<button onclick="app.selectOption(this, '${opt.id}')" class="option-btn w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-frBlue/50 bg-white font-semibold text-lg transition relative group">
+                        ${opt.text}
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-frBlue"></div>
+                    </button>`;
+                });
+                contentHtml += `</div>`;
+                break;
+
+            case 'sentence_builder':
+                // Shuffle distractors + correct segments
+                const allWords = [...ex.content.segments, ...(ex.content.distractors || [])].sort(() => Math.random() - 0.5);
+                contentHtml = `
+                    <div id="build-area" class="min-h-[60px] bg-white border-b-2 border-frBlue mb-6 p-2 flex flex-wrap gap-2 items-center justify-center transition-colors rounded-t-lg"></div>
+                    <div id="word-bank" class="flex flex-wrap justify-center gap-2">
+                        ${allWords.map((w, i) => `<button onclick="app.moveWord(this)" class="word-chip bg-white border border-gray-200 shadow-sm px-3 py-2 rounded-lg font-bold text-frBlue active:scale-95 transition">${w}</button>`).join('')}
+                    </div>`;
+                break;
+
+            case 'fill_in_blank':
+                contentHtml = `
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                        <input type="text" id="inp-blank" class="w-full text-center text-2xl p-2 border-b-2 border-gray-300 focus:border-frBlue focus:outline-none bg-transparent placeholder-gray-300" placeholder="${ex.content.placeholder}" autocomplete="off">
+                    </div>`;
+                break;
+
+            case 'true_false':
+                contentHtml = `
+                    <div class="grid grid-cols-2 gap-4 h-32">
+                        <button onclick="app.selectBool(this, true)" class="bool-btn h-full rounded-xl border-2 border-gray-100 bg-white text-green-600 font-bold text-xl flex flex-col items-center justify-center gap-2 hover:bg-green-50 transition"><i class="fa-solid fa-check"></i> Vrai</button>
+                        <button onclick="app.selectBool(this, false)" class="bool-btn h-full rounded-xl border-2 border-gray-100 bg-white text-red-600 font-bold text-xl flex flex-col items-center justify-center gap-2 hover:bg-red-50 transition"><i class="fa-solid fa-xmark"></i> Faux</button>
+                    </div>`;
+                break;
+        }
+
+        return `
+            ${instruction}
+            ${prompt}
+            <div class="w-full mb-4" id="ex-container">${contentHtml}</div>
+            <div id="feedback" class="hidden rounded-lg p-4 font-bold text-center text-sm sm:text-base mb-20"></div>
+        `;
+    },
+
+    // --- INTERACTION HELPERS ---
+    // Single Selection Logic
+    selectOption(btn, id) {
+        document.querySelectorAll('.option-btn').forEach(b => {
+            b.classList.remove('border-frBlue', 'bg-blue-50');
+            b.classList.add('border-gray-100', 'bg-white');
+            b.querySelector('div').classList.remove('bg-frBlue', 'border-frBlue');
+        });
+        btn.classList.remove('border-gray-100', 'bg-white');
+        btn.classList.add('border-frBlue', 'bg-blue-50', 'selected');
+        btn.querySelector('div').classList.add('bg-frBlue', 'border-frBlue');
+        btn.dataset.selectedId = id;
+    },
+
+    // Sentence Builder Logic
+    moveWord(btn) {
+        const bank = document.getElementById('word-bank');
+        const area = document.getElementById('build-area');
+        if (btn.parentElement === bank) {
+            area.appendChild(btn);
+            btn.classList.add('bg-frBlue', 'text-white');
+            btn.classList.remove('bg-white', 'text-frBlue');
+        } else {
+            bank.appendChild(btn);
+            btn.classList.remove('bg-frBlue', 'text-white');
+            btn.classList.add('bg-white', 'text-frBlue');
+        }
+    },
+
+    // True/False Logic
+    selectBool(btn, val) {
+        document.querySelectorAll('.bool-btn').forEach(b => b.classList.remove('ring-4', 'ring-frBlue/30', 'border-frBlue', 'selected'));
+        btn.classList.add('ring-4', 'ring-frBlue/30', 'border-frBlue', 'selected');
+        btn.dataset.val = val;
+    },
+
+    // --- VALIDATION LOGIC ---
+    checkInteractive() {
+        const step = this.lessonSteps[this.currentStepIdx];
+        const ex = step.data;
+        const feed = document.getElementById('feedback');
+        const btnCheck = document.getElementById('btn-check');
+        const btnNext = document.getElementById('btn-next');
+        let isCorrect = false;
+        let feedbackMsg = '';
+
+        // 1. VALIDATE BASED ON TYPE
+        switch(ex.type) {
+            case 'selection_single':
+                const selBtn = document.querySelector('.option-btn.selected');
+                if (!selBtn) return; // No selection
+                isCorrect = selBtn.dataset.selectedId === ex.content.correct_option_id;
+                feedbackMsg = isCorrect ? (ex.feedback?.correct || "Correct !") : (ex.feedback?.incorrect || "Incorrect.");
+                break;
+
+            case 'sentence_builder':
+                const userOrder = Array.from(document.getElementById('build-area').children).map(b => b.innerText.trim());
+                const correctOrder = ex.content.correct_order;
+                isCorrect = JSON.stringify(userOrder) === JSON.stringify(correctOrder);
+                feedbackMsg = isCorrect ? (ex.feedback?.correct || "Phrase correcte !") : `Ordre correct : "${correctOrder.join(' ')}"`;
+                break;
+
+            case 'fill_in_blank':
+                const inputVal = document.getElementById('inp-blank').value.trim();
+                isCorrect = ex.content.accepted_answers.some(ans => ans.toLowerCase() === inputVal.toLowerCase());
+                feedbackMsg = isCorrect ? (ex.feedback?.correct || "Bien joué !") : (ex.feedback?.incorrect || `Réponse : ${ex.content.accepted_answers[0]}`);
+                break;
+
+            case 'true_false':
+                const boolBtn = document.querySelector('.bool-btn.selected');
+                if (!boolBtn) return;
+                const userBool = boolBtn.dataset.val === 'true';
+                isCorrect = userBool === ex.content.is_correct;
+                feedbackMsg = isCorrect ? "Exact !" : (ex.content.explanation || "Ce n'est pas correct.");
+                break;
+        }
+
+        // 2. SHOW FEEDBACK
+        if (isCorrect) {
+            feed.innerHTML = `<div class="flex items-center justify-center gap-2 text-green-700"><i class="fa-solid fa-circle-check text-xl"></i> <span>${feedbackMsg}</span></div>`;
+            feed.className = "mb-4 rounded-xl p-4 font-bold text-center bg-green-100 animate-bounce";
+            const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3');
+            audio.volume = 0.3; audio.play().catch(e=>{});
+            
+            btnCheck.classList.add('hidden');
+            btnNext.classList.remove('hidden');
+            
+            // Disable inputs
+            const con = document.getElementById('ex-container');
+            con.style.pointerEvents = 'none';
+            con.style.opacity = '0.8';
+
+        } else {
+            feed.innerHTML = `<div class="flex flex-col gap-1 text-red-700"><div class="flex items-center justify-center gap-2"><i class="fa-solid fa-circle-xmark"></i> <span>Oups !</span></div><div class="text-xs font-normal">${feedbackMsg}</div></div>`;
+            feed.className = "mb-4 rounded-xl p-4 font-bold text-center bg-red-100";
+            feed.classList.remove('hidden');
+        }
+    },
     
             checkAnswer(correct) {
                 const inp = document.getElementById('inp-quiz');
