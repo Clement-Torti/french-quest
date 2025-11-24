@@ -210,7 +210,7 @@ mira el contenido y la estructura de una leccionX.html:
 
 Cada lectura debe tratarse del universo de emily en paris.
 Respeta ese formata para generar las lecciones de esos temas. Cada leccion debe durar mucho (40min). 
-El texto de lectura debe ser de 400 palabras. En cuanto al vocabulario, si el tema de la leccion es adecuado, 
+El texto de lectura debe ser de 400 palabras solamente en Frances. En cuanto al vocabulario, si el tema de la leccion es adecuado, 
 agregar mucho vocabulario (15-25), por ejemplo profesiones. No incluye vocabulario muy obvio (pronombre ...) :
 
 Los temas que generar son:
