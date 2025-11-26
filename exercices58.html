@@ -1,0 +1,341 @@
+<script type="application/json" id="exercise-data">
+    {
+    "interactive_exercises": [
+    {
+    "id": "ex_001",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Elige el conector adecuado para un resultado positivo.",
+    "prompt": "Nous avons signé le contrat ______ la présentation d'Emily.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "à cause de" },
+    { "id": "opt_2", "text": "grâce à" },
+    { "id": "opt_3", "text": "faute de" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Correcto! 'Grâce à' se usa para causas con resultados positivos.",
+    "incorrect": "'À cause de' es negativo y 'Faute de' implica carencia. Al ser un éxito (firmar contrato), usa 'Grâce à'."
+    }
+    },
+    {
+    "id": "ex_002",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Sylvie está molesta. ¿Qué conector usa para culpar al tráfico?",
+    "prompt": "Je suis en retard ______ embouteillages.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "grâce aux" },
+    { "id": "opt_2", "text": "pour" },
+    { "id": "opt_3", "text": "à cause des" }
+    ],
+    "correct_option_id": "opt_3"
+    },
+    "feedback": {
+    "correct": "Exacto. 'À cause de' (des = de + les) para causas negativas.",
+    "incorrect": "No puedes llegar tarde 'gracias' al tráfico. Usa 'À cause des'."
+    }
+    },
+    {
+    "id": "ex_003",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Ordena la frase para expresar una causa al inicio.",
+    "prompt": null,
+    "content": {
+    "segments": ["Comme", "le", "client", "est", "parti", "annulons"],
+    "correct_order": ["Comme", "le", "client", "est", "parti"],
+    "distractors": ["annulons"]
+    },
+    "feedback": {
+    "correct": "¡Muy bien! 'Comme' se usa siempre al inicio de la frase para introducir la causa.",
+    "incorrect": "Recuerda: 'Comme' + Causa + Consecuencia."
+    }
+    },
+    {
+    "id": "ex_004",
+    "type": "true_false",
+    "difficulty": "easy",
+    "instruction": "¿Es correcta esta frase en un email formal?",
+    "prompt": "Le budget est fini, du coup on arrête.",
+    "content": {
+    "is_correct": false,
+    "explanation": "'Du coup' es demasiado familiar/oral para un email formal. Usa 'Par conséquent'."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_005",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Elige el conector administrativo formal para 'Debido a'.",
+    "prompt": "Le magasin est fermé ______ travaux.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "en raison de" },
+    { "id": "opt_2", "text": "parce que" },
+    { "id": "opt_3", "text": "car" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. 'En raison de' es la forma administrativa estándar para letreros y avisos.",
+    "incorrect": "'Parce que' y 'Car' necesitan un verbo conjugado después, no un sustantivo directo."
+    }
+    },
+    {
+    "id": "ex_006",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Forma la frase: 'A falta de tiempo, no comí'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Faute", "de", "temps", "je", "n'ai", "pas", "mangé"],
+    "correct_order": ["Faute", "de", "temps", "je", "n'ai", "pas", "mangé"],
+    "distractors": []
+    },
+    "feedback": {
+    "correct": "Bien. 'Faute de' significa 'Por falta de' o 'A falta de'.",
+    "incorrect": "La estructura es 'Faute de' + Sustantivo."
+    }
+    },
+    {
+    "id": "ex_007",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué palabra usamos para explicar una 'causa evidente' (Ya que...)?",
+    "prompt": "______ tu connais le directeur, appelle-le !",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Puisque" },
+    { "id": "opt_2", "text": "Car" },
+    { "id": "opt_3", "text": "À cause de" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "¡Exacto! 'Puisque' (Puesto que/Ya que) se usa cuando la causa es conocida por todos.",
+    "incorrect": "'Car' no suele ir al inicio. 'À cause de' requiere un sustantivo negativo."
+    }
+    },
+    {
+    "id": "ex_008",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce usando el conector formal 'Par conséquent'.",
+    "prompt": "Por consiguiente, aceptamos.",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["Par conséquent, nous acceptons.", "Par conséquent nous acceptons"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Très bien. Es muy útil para concluir correos profesionales.",
+    "incorrect": "La frase es 'Par conséquent' + coma + 'nous acceptons'."
+    }
+    },
+    {
+    "id": "ex_009",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Completa con el verbo 'Generar/Engendrar'.",
+    "prompt": "Cette décision va ______ des conflits.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "engendrer" },
+    { "id": "opt_2", "text": "engendre" },
+    { "id": "opt_3", "text": "grâce à" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Va engendrer' (futuro próximo). Significa causar o crear resultados.",
+    "incorrect": "Necesitas el infinitivo después de 'va' (aller)."
+    }
+    },
+    {
+    "id": "ex_010",
+    "type": "true_false",
+    "difficulty": "medium",
+    "instruction": "Fonética: En la palabra 'Donc', ¿se pronuncia la C final?",
+    "prompt": "La 'c' de 'Donc' est muette (silenciosa).",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. En 'Donc', la C final se pronuncia fuerte /donk/."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_011",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Ordena la justificación formal (C'est pourquoi).",
+    "prompt": null,
+    "content": {
+    "segments": ["Il", "est", "malade", "c'est", "pourquoi", "il", "est", "absent"],
+    "correct_order": ["Il", "est", "malade", "c'est", "pourquoi", "il", "est", "absent"],
+    "distractors": []
+    },
+    "feedback": {
+    "correct": "Perfecto. Causa + C'est pourquoi + Consecuencia.",
+    "incorrect": "Esta estructura une la causa (enfermo) con el resultado (ausente)."
+    }
+    },
+    {
+    "id": "ex_012",
+    "type": "selection_single",
+    "difficulty": "easy",
+    "instruction": "¿Qué expresión oral usan los parisinos para decir 'Entonces/Total que'?",
+    "prompt": "On n'avait pas de budget, ______ on a improvisé.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "car" },
+    { "id": "opt_2", "text": "du coup" },
+    { "id": "opt_3", "text": "en raison de" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Sí! 'Du coup' es el conector oral más común hoy en día.",
+    "incorrect": "'Car' y 'En raison de' son demasiado formales para una frase coloquial."
+    }
+    },
+    {
+    "id": "ex_013",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la frase usando 'Car' (Formal para 'Porque').",
+    "prompt": "No puedo venir pues trabajo.",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["Je ne peux pas venir car je travaille.", "Je ne peux pas venir, car je travaille."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Excelente. 'Car' sustituye a 'Parce que' en escritos formales.",
+    "incorrect": "Usa 'Je ne peux pas venir' + 'car' + 'je travaille'."
+    }
+    },
+    {
+    "id": "ex_014",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Elige la palabra para 'Imprevisto'.",
+    "prompt": "Désolé pour le retard, j'ai eu un ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "imprévu" },
+    { "id": "opt_2", "text": "bilan" },
+    { "id": "opt_3", "text": "déclencheur" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Un imprévu' es la excusa perfecta profesional.",
+    "incorrect": "'Bilan' es balance/resultado. 'Déclencheur' es detonante."
+    }
+    },
+    {
+    "id": "ex_015",
+    "type": "true_false",
+    "difficulty": "hard",
+    "instruction": "Lógica: ¿Esta frase tiene sentido?",
+    "prompt": "J'ai réussi l'examen à cause de mon professeur.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. Si aprobaste (algo bueno), debes decir 'GRÂCE À mon professeur'."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_016",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Forma la frase: 'Entonces, ¿qué hacemos?'",
+    "prompt": null,
+    "content": {
+    "segments": ["Alors", "qu'est-ce", "qu'on", "fait", "?"],
+    "correct_order": ["Alors", "qu'est-ce", "qu'on", "fait", "?"],
+    "distractors": []
+    },
+    "feedback": {
+    "correct": "Bien. 'Alors' se usa mucho para iniciar preguntas de conclusión.",
+    "incorrect": "Alors + pregunta."
+    }
+    },
+    {
+    "id": "ex_017",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Completa con el verbo 'Conducir a / Llevar a'.",
+    "prompt": "Cette stratégie va ______ un échec (fracaso).",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "provoquer à" },
+    { "id": "opt_2", "text": "aboutir à" },
+    { "id": "opt_3", "text": "cause de" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Aboutir à' significa desembocar en o llevar a un resultado final.",
+    "incorrect": "'Provoquer' no lleva 'à'. 'Cause de' no es un verbo."
+    }
+    },
+    {
+    "id": "ex_018",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce usando 'À cause de' (Cuidado con 'de + le').",
+    "prompt": "Se canceló por culpa del viento.",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["C'est annulé à cause du vent.", "Ça a été annulé à cause du vent."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Muy bien! À cause DE + LE vent = À cause DU vent.",
+    "incorrect": "Recuerda la contracción: De + Le = Du."
+    }
+    },
+    {
+    "id": "ex_019",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué significa 'Le déclencheur'?",
+    "prompt": "Quel a été le déclencheur de la crise ?",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "El resultado final" },
+    { "id": "opt_2", "text": "El detonante / La causa inicial" },
+    { "id": "opt_3", "text": "La solución" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Correcto. Le déclencheur es lo que inicia (detona) la acción.",
+    "incorrect": "El resultado es 'Le résultat' o 'Le bilan'."
+    }
+    },
+    {
+    "id": "ex_020",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Construye la frase con 'Puesto que' (Puisque).",
+    "prompt": null,
+    "content": {
+    "segments": ["Puisque", "tu", "es", "là", "aide-moi"],
+    "correct_order": ["Puisque", "tu", "es", "là", "aide-moi"],
+    "distractors": []
+    },
+    "feedback": {
+    "correct": "Excelente. 'Puisque tu es là' (Ya que estás aquí).",
+    "incorrect": "Usa Puisque para una causa obvia en el momento presente."
+    }
+    }
+    ]
+    }
+    </script>

@@ -1,0 +1,339 @@
+
+<script type="application/json" id="exercise-data">
+    {
+    "interactive_exercises": [
+    {
+    "id": "ex_001",
+    "type": "selection_single",
+    "difficulty": "easy",
+    "instruction": "Elige el verbo correcto para una afirmación positiva (Certeza).",
+    "prompt": "Je pense que l'idée ______ bonne.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "soit" },
+    { "id": "opt_2", "text": "est" },
+    { "id": "opt_3", "text": "être" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Correcto! En frases afirmativas ('Je pense que...') usamos el Indicativo (est).",
+    "incorrect": "Cuidado: Solo usamos el Subjuntivo (soit) cuando hay duda o negación. Aquí estás afirmando."
+    }
+    },
+    {
+    "id": "ex_002",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Elige el verbo correcto para una opinión negativa (Duda).",
+    "prompt": "Je ne crois pas que ce ______ efficace.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "est" },
+    { "id": "opt_2", "text": "soit" },
+    { "id": "opt_3", "text": "es" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Excelente! Al negar ('Je ne crois pas'), usamos el Subjuntivo: 'est' se convierte en 'soit'.",
+    "incorrect": "En francés, la negación de una opinión introduce duda, por lo que debes usar el Subjuntivo (soit)."
+    }
+    },
+    {
+    "id": "ex_003",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Ordena la frase para decir: 'En mi opinión, estás equivocado'.",
+    "prompt": null,
+    "content": {
+    "segments": ["À", "mon", "avis,", "tu", "as", "tort", "es"],
+    "correct_order": ["À", "mon", "avis,", "tu", "as", "tort"],
+    "distractors": ["es"]
+    },
+    "feedback": {
+    "correct": "¡Muy bien! Recuerda que 'estar equivocado' es 'Avoir tort' (Tener falta).",
+    "incorrect": "No uses 'es' (verbo Être). En francés se usa Avoir: 'Tu as tort'."
+    }
+    },
+    {
+    "id": "ex_004",
+    "type": "true_false",
+    "difficulty": "easy",
+    "instruction": "¿Esta frase es gramaticalmente correcta?",
+    "prompt": "Je trouve que c'est nul.",
+    "content": {
+    "is_correct": true,
+    "explanation": "Correcto. 'Je trouve que' es afirmativo, así que usa el indicativo 'est' (c'est)."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_005",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Selecciona la expresión que indica un juicio personal o gusto.",
+    "prompt": "______ que cette couleur est horrible.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Je pense" },
+    { "id": "opt_2", "text": "Je trouve" },
+    { "id": "opt_3", "text": "Je sais" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Exacto. 'Je trouve que' (Encuentro que) se usa para juicios de valor subjetivos.",
+    "incorrect": "'Je pense' es más cerebral. Para gustos (como colores), los franceses prefieren 'Je trouve'."
+    }
+    },
+    {
+    "id": "ex_006",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce usando la estructura negativa (Subjuntivo).",
+    "prompt": "No creo que él tenga razón.",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["Je ne crois pas qu'il ait raison.", "Je ne pense pas qu'il ait raison."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Perfecto! 'Qu'il ait raison'.",
+    "incorrect": "Recuerda: El verbo 'Avoir' (a) cambia a 'Ait' en subjuntivo. Y usa 'qu'il'."
+    }
+    },
+    {
+    "id": "ex_007",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "¿Cómo enfatizas que NO estás de acuerdo en absoluto?",
+    "prompt": "Je ne suis ______ d'accord.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "pas du tout" },
+    { "id": "opt_2", "text": "pas de tout" },
+    { "id": "opt_3", "text": "rien" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. La expresión fija es 'Pas du tout'.",
+    "incorrect": "Se dice 'Pas DU tout' (para nada / en absoluto)."
+    }
+    },
+    {
+    "id": "ex_008",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Construye la frase: 'Según yo, es un riesgo'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Selon", "moi,", "c'est", "un", "risque", "je"],
+    "correct_order": ["Selon", "moi,", "c'est", "un", "risque"],
+    "distractors": ["je"]
+    },
+    "feedback": {
+    "correct": "Bien. 'Selon moi' es un excelente sinónimo de 'À mon avis'.",
+    "incorrect": "No necesitas 'Je' si usas 'Selon moi'."
+    }
+    },
+    {
+    "id": "ex_009",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Identifica la palabra para 'El público objetivo' en marketing.",
+    "prompt": "Nous devons définir la ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "cible" },
+    { "id": "opt_2", "text": "avis" },
+    { "id": "opt_3", "text": "polémique" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. 'La cible' es el target.",
+    "incorrect": "'Avis' es opinión. 'Polémique' es polémica."
+    }
+    },
+    {
+    "id": "ex_010",
+    "type": "true_false",
+    "difficulty": "hard",
+    "instruction": "Analiza el verbo: ¿Es correcta la frase 'Je ne pense pas qu'il est là'?",
+    "prompt": "Je ne pense pas qu'il est là.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. Al ser negativa, debería usar subjuntivo: 'Je ne pense pas qu'il SOIT là'."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_011",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Ordena la frase con subjuntivo (No encuentro que sea audaz).",
+    "prompt": null,
+    "content": {
+    "segments": ["Je", "ne", "trouve", "pas", "que", "ce", "soit", "audacieux", "est"],
+    "correct_order": ["Je", "ne", "trouve", "pas", "que", "ce", "soit", "audacieux"],
+    "distractors": ["est"]
+    },
+    "feedback": {
+    "correct": "¡Excelente gramática! Negación + Que + Subjuntivo.",
+    "incorrect": "Elimina 'est'. En negativo usamos 'soit'."
+    }
+    },
+    {
+    "id": "ex_012",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la frase completa: 'Usted tiene razón'. (Formal)",
+    "prompt": "Usted tiene razón.",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["Vous avez raison.", "Vous avez raison !"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Oui! Vous avez raison.",
+    "incorrect": "Usa el verbo Avoir (avez) y la palabra 'Raison'."
+    }
+    },
+    {
+    "id": "ex_013",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué adjetivo describe algo 'anticuado' o 'obsoleto'?",
+    "prompt": "Ce design est totalement ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "dépassé" },
+    { "id": "opt_2", "text": "efficace" },
+    { "id": "opt_3", "text": "audacieux" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Dépassé' significa que ha sido superado por el tiempo (anticuado).",
+    "incorrect": "'Efficace' es positivo. 'Audacieux' es atrevido."
+    }
+    },
+    {
+    "id": "ex_014",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Forma la frase: 'Me parece que es caro'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Il", "me", "semble", "que", "c'est", "cher", "soit"],
+    "correct_order": ["Il", "me", "semble", "que", "c'est", "cher"],
+    "distractors": ["soit"]
+    },
+    "feedback": {
+    "correct": "Bien. 'Il me semble que' en afirmativo usa indicativo (c'est).",
+    "incorrect": "No uses subjuntivo (soit) si la frase es afirmativa."
+    }
+    },
+    {
+    "id": "ex_015",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Elige la forma correcta del verbo Avoir en Subjuntivo (para negación).",
+    "prompt": "Je ne pense pas qu'elle ______ le temps.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "a" },
+    { "id": "opt_2", "text": "ait" },
+    { "id": "opt_3", "text": "est" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Exacto! 'Qu'elle ait'.",
+    "incorrect": "'A' es indicativo. 'Ait' es subjuntivo."
+    }
+    },
+    {
+    "id": "ex_016",
+    "type": "full_translation",
+    "difficulty": "medium",
+    "instruction": "Traduce: 'No es una buena idea'. (Afirmación negativa simple, sin subjuntivo complejo).",
+    "prompt": "No es una buena idea.",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["Ce n'est pas une bonne idée.", "C'est pas une bonne idée."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Bien. Ce n'est pas une bonne idée.",
+    "incorrect": "Recuerda el 'Ce n'est pas...'."
+    }
+    },
+    {
+    "id": "ex_017",
+    "type": "true_false",
+    "difficulty": "medium",
+    "instruction": "Verdadero o Falso: 'Je trouve que' se usa para hechos científicos objetivos.",
+    "prompt": "Je trouve que la terre est ronde.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. 'Je trouve que' implica una opinión subjetiva. Para hechos se usa 'Je sais que' o simplemente se afirma."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_018",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "¿Qué significa 'Je relève le pari'?",
+    "prompt": "Je relève le pari.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Acepto el reto/apuesta" },
+    { "id": "opt_2", "text": "Tengo la razón" },
+    { "id": "opt_3", "text": "Me voy de la reunión" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Le pari' es la apuesta o el desafío.",
+    "incorrect": "No tiene que ver con tener razón o irse."
+    }
+    },
+    {
+    "id": "ex_019",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Ordena la frase (Subjuntivo): 'No creo que sea verdad'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Je", "ne", "crois", "pas", "que", "ce", "soit", "vrai"],
+    "correct_order": ["Je", "ne", "crois", "pas", "que", "ce", "soit", "vrai"],
+    "distractors": []
+    },
+    "feedback": {
+    "correct": "Perfecto uso del subjuntivo.",
+    "incorrect": "Verifica el orden: Sujeto + Negación + Verbo + Que + Sujeto 2 + Verbo(Subj) + Adj."
+    }
+    },
+    {
+    "id": "ex_020",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la frase completa: 'Encuentro que es eficaz'.",
+    "prompt": "Encuentro que es eficaz.",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["Je trouve que c'est efficace."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "Très bien! Je trouve que c'est efficace.",
+    "incorrect": "Usa 'Je trouve que' y el adjetivo 'efficace'."
+    }
+    }
+    ]
+    }
+    </script>
