@@ -1,0 +1,342 @@
+
+<script type="application/json" id="exercise-data">
+    {
+    "interactive_exercises": [
+    {
+    "id": "ex_001",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Responde correctamente a esta pregunta negativa.",
+    "prompt": "Vous n'avez pas validé le budget ?",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Oui, je l'ai validé." },
+    { "id": "opt_2", "text": "Si, je l'ai validé." },
+    { "id": "opt_3", "text": "Non, je l'ai validé." }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "¡Exacto! Usamos 'Si' para contradecir una pregunta negativa y afirmar que sí lo hiciste.",
+    "incorrect": "Recuerda: Si la pregunta es negativa (Vous n'avez pas...), debes usar 'Si' para decir que sí."
+    }
+    },
+    {
+    "id": "ex_002",
+    "type": "selection_single",
+    "difficulty": "easy",
+    "instruction": "Elige la expresión más fuerte para rechazar una idea.",
+    "prompt": "Vendre l'agence ? C'est ______ !",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "hors de question" },
+    { "id": "opt_2", "text": "pas tout à fait" },
+    { "id": "opt_3", "text": "effectivement" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Hors de question' (Fuera de discusión) es un rechazo absoluto.",
+    "incorrect": "'Pas tout à fait' es suave. 'Effectivement' es afirmación. Para un rechazo total usa 'Hors de question'."
+    }
+    },
+    {
+    "id": "ex_003",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Forma la frase: 'Te equivocas, no es verdad'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Tu", "te", "trompes,", "ce", "n'est", "pas", "vrai", "as", "tort"],
+    "correct_order": ["Tu", "te", "trompes,", "ce", "n'est", "pas", "vrai"],
+    "distractors": ["as", "tort"]
+    },
+    "feedback": {
+    "correct": "¡Muy bien! Usaste el verbo pronominal 'Se tromper' (Tu te trompes).",
+    "incorrect": "Podrías decir 'Tu as tort', pero aquí buscamos la conjugación de 'Se tromper' (Tu te trompes)."
+    }
+    },
+    {
+    "id": "ex_004",
+    "type": "true_false",
+    "difficulty": "medium",
+    "instruction": "¿Esta respuesta es correcta gramaticalmente?",
+    "prompt": "Pregunta: 'Tu aimes Paris ?' - Respuesta: 'Si, j'adore.'",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. La pregunta es positiva ('Tu aimes...?'), así que la respuesta debe ser 'OUI'. 'Si' solo es para preguntas negativas."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_005",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Elige la opción que muestra un desacuerdo formal y educado.",
+    "prompt": "Je suis désolé, mais je ______ cet avis.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "ne partage pas" },
+    { "id": "opt_2", "text": "suis n'importe quoi" },
+    { "id": "opt_3", "text": "ai tort" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Perfecto. 'Je ne partage pas cet avis' es la forma profesional de decir que no estás de acuerdo.",
+    "incorrect": "'C'est n'importe quoi' es agresivo/coloquial. En una reunión formal usamos 'Je ne partage pas...'."
+    }
+    },
+    {
+    "id": "ex_006",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la frase completa usando 'Si' (Respuesta a: ¿No estás lista?).",
+    "prompt": "¡Sí, estoy lista!",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["Si, je suis prête !", "Si je suis prête !"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Excelente! 'Si, je suis prête !'.",
+    "incorrect": "Al responder a una negación implícita en el ejercicio, usa 'Si' en lugar de 'Oui'."
+    }
+    },
+    {
+    "id": "ex_007",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Qué significa 'C'est n'importe quoi'?",
+    "prompt": "Sylvie dit : 'Ton idée, c'est n'importe quoi !'",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Es una tontería / No tiene sentido" },
+    { "id": "opt_2", "text": "Es muy importante" },
+    { "id": "opt_3", "text": "Es cualquier cosa (literalmente)" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. Aunque literalmente significa 'cualquier cosa', se usa para decir 'Es una estupidez/tontería'.",
+    "incorrect": "En contexto de discusión, significa que la idea no tiene sentido o es mala."
+    }
+    },
+    {
+    "id": "ex_008",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Construye una frase para validar un punto antes de discutir (Efectivamente...).",
+    "prompt": null,
+    "content": {
+    "segments": ["Effectivement,", "c'est", "cher,", "mais", "nécessaire", "si"],
+    "correct_order": ["Effectivement,", "c'est", "cher,", "mais", "nécessaire"],
+    "distractors": ["si"]
+    },
+    "feedback": {
+    "correct": "Bien estructurado. Validar (Effectivement) + Objeción (Mais).",
+    "incorrect": "No necesitas 'si' en esta estructura."
+    }
+    },
+    {
+    "id": "ex_009",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "Completa con el adjetivo en femenino: 'La presentación no fue...'",
+    "prompt": "Ta présentation n'était pas ______.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "convaincant" },
+    { "id": "opt_2", "text": "convaincante" },
+    { "id": "opt_3", "text": "convaincre" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Exacto. 'Présentation' es femenino, así que usamos 'convaincante'.",
+    "incorrect": "Cuidado con la concordancia de género. Convaincant (masc) vs Convaincante (fem)."
+    }
+    },
+    {
+    "id": "ex_010",
+    "type": "true_false",
+    "difficulty": "medium",
+    "instruction": "Verdadero o Falso: 'Au contraire' se usa para confirmar que estás de acuerdo.",
+    "prompt": "Au contraire = Estoy de acuerdo.",
+    "content": {
+    "is_correct": false,
+    "explanation": "Falso. 'Au contraire' sirve para decir lo opuesto o corregir una asunción errónea."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_011",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce: 'No estoy para nada de acuerdo'.",
+    "prompt": "No estoy para nada de acuerdo.",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["Je ne suis pas du tout d'accord.", "Je ne suis pas du tout d'accord !"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Perfecto! 'Pas du tout' es la clave.",
+    "incorrect": "Recuerda la estructura: Je ne suis + PAS DU TOUT + d'accord."
+    }
+    },
+    {
+    "id": "ex_012",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "¿Cómo dices 'Admito que tienes razón'?",
+    "prompt": "J'______ que tu as raison.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "admettre" },
+    { "id": "opt_2", "text": "admets" },
+    { "id": "opt_3", "text": "admet" }
+    ],
+    "correct_option_id": "opt_2"
+    },
+    "feedback": {
+    "correct": "Bien. Conjugación de Admettre: J'admets.",
+    "incorrect": "Revisa la conjugación del presente: Je/Tu admets, Il admet."
+    }
+    },
+    {
+    "id": "ex_013",
+    "type": "sentence_builder",
+    "difficulty": "hard",
+    "instruction": "Ordena la frase: 'Es un buen compromiso'.",
+    "prompt": null,
+    "content": {
+    "segments": ["C'est", "un", "bon", "compromis", "accord"],
+    "correct_order": ["C'est", "un", "bon", "compromis"],
+    "distractors": ["accord"]
+    },
+    "feedback": {
+    "correct": "Exacto. 'Compromis' es un acuerdo mutuo o término medio.",
+    "incorrect": "'Accord' es acuerdo general, pero 'Compromis' es la palabra específica para 'llegar a un punto medio'."
+    }
+    },
+    {
+    "id": "ex_014",
+    "type": "selection_single",
+    "difficulty": "medium",
+    "instruction": "Tu colega dice: 'Je suis nul'. Tú quieres contradecirlo y animarlo. Dices...",
+    "prompt": "Mais non ! ______ !",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "Au contraire" },
+    { "id": "opt_2", "text": "Si" },
+    { "id": "opt_3", "text": "Effectivement" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "¡Sí! 'Au contraire' (Al contrario, eres bueno).",
+    "incorrect": "'Effectivement' significaría que estás de acuerdo en que es malo. 'Si' no encaja bien aquí sin verbo."
+    }
+    },
+    {
+    "id": "ex_015",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la frase completa: 'Usted se equivoca'. (Formal)",
+    "prompt": "Usted se equivoca.",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["Vous vous trompez.", "Vous avez tort."],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Muy bien! 'Vous vous trompez' (verbo pronominal) o 'Vous avez tort'.",
+    "incorrect": "Recuerda la duplicación en reflexivos: Vous VOUS trompez."
+    }
+    },
+    {
+    "id": "ex_016",
+    "type": "selection_single",
+    "difficulty": "easy",
+    "instruction": "Elige la palabra para 'Totalmente' de acuerdo.",
+    "prompt": "Je suis ______ d'accord.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "tout à fait" },
+    { "id": "opt_2", "text": "tout de fait" },
+    { "id": "opt_3", "text": "rien du tout" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Tout à fait' es la expresión fija.",
+    "incorrect": "No confundir con 'Rien du tout' (nada de nada)."
+    }
+    },
+    {
+    "id": "ex_017",
+    "type": "true_false",
+    "difficulty": "medium",
+    "instruction": "Analiza la lógica: Antoine pregunta '¿No hay presupuesto?'. Luc responde 'Si'.",
+    "prompt": "Antoine: 'Il n'y a pas de budget ?' - Luc: 'Si !' (Luc dice que SÍ hay dinero).",
+    "content": {
+    "is_correct": true,
+    "explanation": "Verdadero. Luc usa 'Si' para negar la falta de presupuesto, es decir, afirma que sí hay presupuesto."
+    },
+    "feedback": null
+    },
+    {
+    "id": "ex_018",
+    "type": "sentence_builder",
+    "difficulty": "medium",
+    "instruction": "Forma la frase: 'Ellos rechazan la propuesta'.",
+    "prompt": null,
+    "content": {
+    "segments": ["Ils", "refusent", "la", "proposition", "valident"],
+    "correct_order": ["Ils", "refusent", "la", "proposition"],
+    "distractors": ["valident"]
+    },
+    "feedback": {
+    "correct": "Bien. Sujeto (Ils) + Verbo (refusent) + Objeto (la proposition).",
+    "incorrect": "'Valident' es aprobar. Buscamos rechazar."
+    }
+    },
+    {
+    "id": "ex_019",
+    "type": "selection_single",
+    "difficulty": "hard",
+    "instruction": "¿Qué verbo usas para 'Debatir' o 'Hablar de un tema'?",
+    "prompt": "Nous devons ______ de ce problème.",
+    "content": {
+    "options": [
+    { "id": "opt_1", "text": "discuter" },
+    { "id": "opt_2", "text": "danser" },
+    { "id": "opt_3", "text": "être d'accord" }
+    ],
+    "correct_option_id": "opt_1"
+    },
+    "feedback": {
+    "correct": "Correcto. 'Discuter' en francés es hablar/debatir, no necesariamente pelear.",
+    "incorrect": "'Être d'accord' no lleva 'de' en este contexto gramatical."
+    }
+    },
+    {
+    "id": "ex_020",
+    "type": "full_translation",
+    "difficulty": "hard",
+    "instruction": "Traduce la frase completa: 'Es una tontería'. (Usa la expresión coloquial).",
+    "prompt": "Es una tontería.",
+    "content": {
+    "placeholder": "Escribe la frase completa...",
+    "accepted_answers": ["C'est n'importe quoi.", "C'est n'importe quoi !"],
+    "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+    },
+    "feedback": {
+    "correct": "¡Exacto! C'est n'importe quoi.",
+    "incorrect": "La expresión fija es 'C'est n'importe quoi'."
+    }
+    }
+    ]
+    }
+    </script>
