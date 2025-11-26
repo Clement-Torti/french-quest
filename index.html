@@ -1233,29 +1233,25 @@
                 // 1. Progress Logic
                 const uid = this.currentLessonMeta.uid;
                 const currentLevel = this.progress[uid] || 0;
-                const newLevel = currentLevel + 1;
+                // Only increase level if not already maxed (optional, but keeps numbers clean)
+                const newLevel = currentLevel + 1; 
                 this.progress[uid] = newLevel;
                 localStorage.setItem('acad_progress', JSON.stringify(this.progress));
 
-                // 2. High Score Logic (Updated for Score/Max)
+                // 2. High Score Logic
                 const isPractice = this.currentLessonMeta.type === 'practice';
                 let isNewRecord = false;
-
-                // Initialize defaults
                 let savedData = this.highScores[uid];
                 let previousBest = -Infinity;
 
                 if (isPractice) {
-                    // Handle migration: if savedData is just a number (old format), treat it as score
                     if (typeof savedData === 'number') {
                         previousBest = savedData;
                     } else if (savedData && typeof savedData === 'object') {
                         previousBest = savedData.score;
                     }
 
-                    // Check if we beat the record
                     if (this.currentScore > previousBest) {
-                        // SAVE OBJECT INSTEAD OF NUMBER
                         this.highScores[uid] = {
                             score: this.currentScore,
                             max: this.currentMaxScore
@@ -1265,17 +1261,29 @@
                     }
                 }
 
-                // 3. Visuals
+                // 3. Visuals for CURRENT Level
                 let colorText = "";
                 let medalIcon = "";
-                if (newLevel === 1) { colorText = "text-bronze"; medalIcon = "fa-medal"; }
-                else if (newLevel === 2) { colorText = "text-silver"; medalIcon = "fa-medal"; }
-                else { colorText = "text-gold"; medalIcon = "fa-crown"; }
+                let levelName = "";
+                
+                if (newLevel === 1) { 
+                    colorText = "text-bronze"; 
+                    medalIcon = "fa-medal"; 
+                    levelName = "Bronze";
+                } else if (newLevel === 2) { 
+                    colorText = "text-silver"; 
+                    medalIcon = "fa-medal"; 
+                    levelName = "Argent";
+                } else { 
+                    colorText = "text-gold"; 
+                    medalIcon = "fa-crown"; 
+                    levelName = "Or";
+                }
 
                 const msg = isPractice ? "Exercice Terminé" : "Leçon Terminée";
                 if (window.confetti) confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
 
-                // 4. Next Step Logic
+                // 4. Next Step / Replay Logic
                 const nextIndex = this.currentLessonMeta.moduleIndex + 1;
                 let btnAction = `app.renderMap()`;
                 let btnText = "Retour au menu";
@@ -1287,33 +1295,87 @@
                     btnText = `Suivant: ${nextMod.type === 'theory' ? 'Théorie' : 'Pratique'}`;
                 }
 
+                // --- NEW: REPLAY INCENTIVE HTML ---
+                // Define how to replay the CURRENT module
+                const replayCurrentAction = this.currentLessonMeta.type === 'theory' 
+                    ? `app.loadLesson(${this.currentModIndex})` 
+                    : `app.loadPractice(${this.currentModIndex})`;
+
+                let nextRankHtml = '';
+
+                if (newLevel === 1) {
+                    // Bronze -> Encourage Silver
+                    nextRankHtml = `
+                    <div class="w-full max-w-sm bg-white border-2 border-gray-100 rounded-xl p-4 shadow-sm mb-6 relative overflow-hidden group cursor-pointer" onclick="${replayCurrentAction}">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-silver"></div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-left">
+                                <div class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Niveau Suivant</div>
+                                <div class="font-bold text-gray-700 flex items-center gap-2">
+                                    <i class="fa-solid fa-medal text-silver"></i> Argent
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 text-frBlue px-4 py-2 rounded-lg text-xs font-bold uppercase group-hover:bg-frBlue group-hover:text-white transition">
+                                <i class="fa-solid fa-rotate-right mr-1"></i> Rejouer
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-2 text-left">Refaites la leçon pour améliorer votre maîtrise.</p>
+                    </div>`;
+                } else if (newLevel === 2) {
+                    // Silver -> Encourage Gold
+                    nextRankHtml = `
+                    <div class="w-full max-w-sm bg-gradient-to-br from-[#002654] to-black text-white rounded-xl p-4 shadow-xl mb-6 relative overflow-hidden cursor-pointer border border-blue-900" onclick="${replayCurrentAction}">
+                        <div class="absolute top-0 right-0 p-4 opacity-10"><i class="fa-solid fa-crown text-6xl"></i></div>
+                        <div class="flex justify-between items-center relative z-10">
+                            <div class="text-left">
+                                <div class="text-[10px] text-blue-200 font-bold uppercase tracking-widest">Le défi final</div>
+                                <div class="font-bold text-gold text-lg flex items-center gap-2">
+                                    <i class="fa-solid fa-crown"></i> Niveau Or
+                                </div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur text-white px-4 py-2 rounded-lg text-xs font-bold uppercase hover:bg-white hover:text-frBlue transition border border-white/20">
+                                <i class="fa-solid fa-rotate-right mr-1"></i> Rejouer
+                            </div>
+                        </div>
+                    </div>`;
+                }
+                // If Level 3+ (Gold), we don't show an incentive card, just the success screen.
+
                 // 5. Build Score HTML
                 const scoreHtml = isPractice ? `
-                    <div class="bg-white border-2 ${isNewRecord ? 'border-gold bg-yellow-50' : 'border-gray-100'} rounded-xl p-4 mb-6 w-full max-w-xs mx-auto transform transition-all shadow-sm">
+                    <div class="bg-white border-2 ${isNewRecord ? 'border-gold bg-yellow-50' : 'border-gray-100'} rounded-xl p-4 mb-4 w-full max-w-xs mx-auto transform transition-all shadow-sm">
                         <div class="text-xs uppercase tracking-widest text-gray-500 mb-1">Score Final</div>
                         <div class="flex items-baseline justify-center gap-1 text-frBlue">
                             <span class="text-3xl font-bold">${this.currentScore}</span>
                             <span class="text-lg text-gray-400 font-bold">/ ${this.currentMaxScore}</span>
                         </div>
-                        ${isNewRecord
-                        ? `<div class="text-xs font-bold text-orange-500 mt-2 animate-bounce"><i class="fa-solid fa-trophy"></i> Nouveau Record !</div>`
-                        : `<div class="text-xs text-gray-400 mt-2">Meilleur: ${previousBest} / ${this.currentMaxScore}</div>`
-                    }
+                        ${isNewRecord 
+                            ? `<div class="text-xs font-bold text-orange-500 mt-2 animate-bounce"><i class="fa-solid fa-trophy"></i> Nouveau Record !</div>` 
+                            : `<div class="text-xs text-gray-400 mt-2">Meilleur: ${previousBest} / ${this.currentMaxScore}</div>`
+                        }
                     </div>
                 ` : '';
 
                 this.container.innerHTML = `
-                    <div class="h-full flex flex-col items-center justify-center bg-frCream p-6 text-center animate-step">
-                        <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg mb-6 text-4xl ${colorText} border-4 border-gray-100 relative">
+                    <div class="h-full flex flex-col items-center justify-center bg-frCream p-6 text-center animate-step overflow-y-auto">
+                        <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg mb-4 text-4xl ${colorText} border-4 border-gray-100 relative shrink-0">
                             <i class="fa-solid ${medalIcon}"></i>
                             ${newLevel > 1 ? `<span class="absolute top-0 right-0 bg-frRed text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center border-2 border-white">x${newLevel}</span>` : ''}
                         </div>
-                        <h2 class="text-xl text-frBlue font-bold uppercase tracking-wider mb-1">Niveau Supérieur !</h2>
-                        <h1 class="text-3xl font-serif font-bold text-frBlue mb-4">${msg}</h1>
+                        
+                        <h2 class="text-sm text-gray-400 font-bold uppercase tracking-widest mb-1">Niveau Atteint</h2>
+                        <h1 class="text-2xl font-serif font-bold text-frBlue mb-6">${levelName}</h1>
+                        
                         ${scoreHtml}
-                        <div class="w-full max-w-sm space-y-4">
-                            <button onclick="${btnAction}" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-lg active:scale-95 transition">${btnText} <i class="fa-solid fa-arrow-right ml-2"></i></button>
-                            <button onclick="app.renderMap()" class="w-full text-gray-400 font-bold py-2 text-sm hover:text-gray-600 transition">Menu Principal</button>
+
+                        <!-- REPLAY INCENTIVE CARD -->
+                        ${nextRankHtml}
+
+                        <div class="w-full max-w-sm space-y-3 pb-8">
+                            <button onclick="${btnAction}" class="w-full bg-frBlue text-white font-bold py-4 rounded-xl shadow-lg active:scale-95 transition flex items-center justify-center gap-2">
+                                <span>${btnText}</span> <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <button onclick="app.renderMap()" class="w-full text-gray-400 font-bold py-2 text-xs hover:text-gray-600 transition uppercase tracking-widest">Menu Principal</button>
                         </div>
                     </div>`;
             },
