@@ -1,0 +1,844 @@
+<script type="application/json" id="exercise-data">
+    {
+      "interactive_exercises": [
+        {
+          "id": "ex_001",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Selecciona la forma correcta para un pago sin contacto.",
+          "prompt": "Est-ce que je peux payer ______ ?",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "sans contact" },
+              { "id": "opt_2", "text": "avec contact" },
+              { "id": "opt_3", "text": "par l'air" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "¡Correcto! 'Payer sans contact' es la expresión para pago contactless.",
+            "incorrect": "La expresión fija es 'sans contact'."
+          }
+        },
+        {
+          "id": "ex_002",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la frase usando el superlativo absoluto (De loin).",
+          "prompt": null,
+          "content": {
+            "segments": ["C'est", "de", "loin", "le", "meilleur", "candidat"],
+            "correct_order": ["C'est", "de", "loin", "le", "meilleur", "candidat"],
+            "distractors": ["plus", "bon"]
+          },
+          "feedback": {
+            "correct": "¡Muy bien! 'De loin' enfatiza el superlativo (con diferencia/de lejos).",
+            "incorrect": "Estructura: C'est + de loin + el superlativo."
+          }
+        },
+        {
+          "id": "ex_003",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Elige el pronombre relativo 'Dont' (Complemento del nombre).",
+          "prompt": "C'est l'entreprise ______ je suis le directeur.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "que" },
+              { "id": "opt_2", "text": "dont" },
+              { "id": "opt_3", "text": "où" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "¡Exacto! 'Être directeur DE quelque chose' -> Dont.",
+            "incorrect": "Como la relación es 'Directeur DE', usamos 'Dont'."
+          }
+        },
+        {
+          "id": "ex_004",
+          "type": "true_false",
+          "difficulty": "hard",
+          "instruction": "¿Es correcta la concordancia en esta voz pasiva?",
+          "prompt": "La décision a été prise par le comité.",
+          "content": {
+            "is_correct": true,
+            "explanation": "Correcto. 'Décision' es femenino, el participio 'prise' concuerda."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_005",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando 'De plus en plus' y concordancia.",
+          "prompt": "Las calles son cada vez más ruidosas.",
+          "content": {
+            "placeholder": "Escribe en francés...",
+            "accepted_answers": ["Les rues sont de plus en plus bruyantes."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "¡Perfecto! Rues (fem. pl.) -> Bruyantes.",
+            "incorrect": "Recuerda la concordancia del adjetivo 'bruyantes'."
+          }
+        },
+        {
+          "id": "ex_006",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué significa 'Un créneau' en contexto laboral?",
+          "prompt": "Je n'ai pas de ______ disponible pour la réunion.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "créneau" },
+              { "id": "opt_2", "text": "drapeau" },
+              { "id": "opt_3", "text": "château" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. 'Créneau' es una franja horaria o hueco en la agenda.",
+            "incorrect": "'Drapeau' es bandera. Buscamos 'hueco' en el horario."
+          }
+        },
+        {
+          "id": "ex_007",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Forma la frase con 'Avoir du mal à' (Tener dificultades para).",
+          "prompt": null,
+          "content": {
+            "segments": ["J'ai", "du", "mal", "à", "comprendre", "ce", "document"],
+            "correct_order": ["J'ai", "du", "mal", "à", "comprendre", "ce", "document"],
+            "distractors": ["le", "mal"]
+          },
+          "feedback": {
+            "correct": "Bien. 'Avoir du mal à' + infinitivo.",
+            "incorrect": "No olvides la preposición 'à' antes del verbo."
+          }
+        },
+        {
+          "id": "ex_008",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Selecciona el pronombre relativo compuesto (Preposición + Lequel).",
+          "prompt": "C'est le projet ______ je pense.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "auquel" },
+              { "id": "opt_2", "text": "lequel" },
+              { "id": "opt_3", "text": "duquel" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "¡Excelente! Penser À + Le projet -> Auquel.",
+            "incorrect": "El verbo es 'Penser à'. La contracción de 'À + Lequel' es 'Auquel'."
+          }
+        },
+        {
+          "id": "ex_009",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando la voz pasiva y 'De' (Sentimientos).",
+          "prompt": "Él es respetado por todos.",
+          "content": {
+            "placeholder": "...",
+            "accepted_answers": ["Il est respecté de tous.", "Il est respecté par tous."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Bien. Con verbos de sentimiento/estado, se prefiere 'de' (respecté de tous), aunque 'par' se acepta.",
+            "incorrect": "El participio es 'respecté'."
+          }
+        },
+        {
+          "id": "ex_010",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Identifica la expresión para 'Presupuesto ajustado'.",
+          "prompt": "Nous avons un budget ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "serré" },
+              { "id": "opt_2", "text": "large" },
+              { "id": "opt_3", "text": "flou" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. 'Serré' (apretado) significa ajustado.",
+            "incorrect": "'Large' es amplio. 'Flou' es borroso/poco claro."
+          }
+        },
+        {
+          "id": "ex_011",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "¿Es correcto decir 'C'est le plus pire'?",
+          "prompt": "C'est le plus pire scénario.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. Es redundante. Se dice 'C'est le pire scénario'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_012",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena la frase comparativa de igualdad con sustantivos.",
+          "prompt": null,
+          "content": {
+            "segments": ["Il", "y", "a", "autant", "d'avantages", "que", "d'inconvénients"],
+            "correct_order": ["Il", "y", "a", "autant", "d'avantages", "que", "d'inconvénients"],
+            "distractors": ["aussi", "de"]
+          },
+          "feedback": {
+            "correct": "Perfecto. Autant de... que de...",
+            "incorrect": "Recuerda repetir el 'de' antes del segundo sustantivo."
+          }
+        },
+        {
+          "id": "ex_013",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Elige la opción para 'La facturación' (Empresas).",
+          "prompt": "Le ______ a augmenté de 10% cette année.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "chiffre d'affaires" },
+              { "id": "opt_2", "text": "numéro d'affaires" },
+              { "id": "opt_3", "text": "bilan" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "¡Exacto! Chiffre d'affaires (C.A.).",
+            "incorrect": "No se dice 'numéro'. El término financiero es 'Chiffre d'affaires'."
+          }
+        },
+        {
+          "id": "ex_014",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando 'Dont' (Tener ganas de).",
+          "prompt": "Es el libro del que tengo ganas.",
+          "content": {
+            "placeholder": "...",
+            "accepted_answers": ["C'est le livre dont j'ai envie."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Muy bien. 'Avoir envie DE' -> Dont j'ai envie.",
+            "incorrect": "La expresión fija 'avoir envie de' requiere el pronombre 'dont'."
+          }
+        },
+        {
+          "id": "ex_015",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué significa 'Être à découvert'?",
+          "prompt": "Attention, ton compte est ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "à découvert" },
+              { "id": "opt_2", "text": "plein" },
+              { "id": "opt_3", "text": "fermé" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Sí. Significa estar en números rojos (al descubierto).",
+            "incorrect": "Si gastas más de lo que tienes, estás 'à découvert'."
+          }
+        },
+        {
+          "id": "ex_016",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Forma la pasiva: 'Los impuestos serán aumentados'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Les", "impôts", "seront", "augmentés", "par", "l'État"],
+            "correct_order": ["Les", "impôts", "seront", "augmentés", "par", "l'État"],
+            "distractors": ["serons"]
+          },
+          "feedback": {
+            "correct": "Correcto. Futuro simple pasivo (seront augmentés).",
+            "incorrect": "Impôts es masculino plural (augmentés)."
+          }
+        },
+        {
+          "id": "ex_017",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Selecciona el conector para 'No obstante'.",
+          "prompt": "Le marché est difficile. ______, nous avons réussi.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Néanmoins" },
+              { "id": "opt_2", "text": "Car" },
+              { "id": "opt_3", "text": "Puisque" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. 'Néanmoins' (Sin embargo/No obstante).",
+            "incorrect": "Car y Puisque expresan causa. Buscamos oposición/concesión."
+          }
+        },
+        {
+          "id": "ex_018",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "¿'Les matières premières' se refiere a empleados?",
+          "prompt": "Le coût des matières premières a explosé.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. Son las 'materias primas' (madera, metal, petróleo...). Empleados son 'employés'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_019",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Lo que me molesta es el ruido'.",
+          "prompt": "Lo que me molesta es el ruido.",
+          "content": {
+            "placeholder": "...",
+            "accepted_answers": ["Ce qui me dérange, c'est le bruit.", "Ce qui me gêne, c'est le bruit."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "¡Bien! 'Ce qui' actúa como sujeto del verbo 'dérange/gêne'.",
+            "incorrect": "Usa el pronombre relativo demostrativo 'Ce qui' al inicio."
+          }
+        },
+        {
+          "id": "ex_020",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Elige la preposición correcta.",
+          "prompt": "J'ai acheté ce manteau ______ solde.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "en" },
+              { "id": "opt_2", "text": "à" },
+              { "id": "opt_3", "text": "au" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. La expresión es 'En solde' (aunque coloquialmente se oye 'en soldes').",
+            "incorrect": "Usamos la preposición 'en' para el estado de venta."
+          }
+        },
+        {
+          "id": "ex_021",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la frase con 'Lequel' (Elección).",
+          "prompt": null,
+          "content": {
+            "segments": ["Voici", "deux", "modèles,", "lequel", "préférez-vous", "?"],
+            "correct_order": ["Voici", "deux", "modèles,", "lequel", "préférez-vous", "?"],
+            "distractors": ["laquelle"]
+          },
+          "feedback": {
+            "correct": "Bien. 'Modèle' es masculino, así que usamos 'Lequel'.",
+            "incorrect": "Debes concordar el pronombre interrogativo con 'modèle' (masc. sing.)."
+          }
+        },
+        {
+          "id": "ex_022",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "¿Cuál es el antónimo de 'Hausse' (Alza)?",
+          "prompt": "Les prix sont en ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "baisse" },
+              { "id": "opt_2", "text": "montée" },
+              { "id": "opt_3", "text": "croissance" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Exacto. 'Baisse' (bajada).",
+            "incorrect": "Montée y Croissance indican subida."
+          }
+        },
+        {
+          "id": "ex_023",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando 'Mieux' en contexto comparativo.",
+          "prompt": "Es mucho mejor así.",
+          "content": {
+            "placeholder": "...",
+            "accepted_answers": ["C'est beaucoup mieux comme ça.", "C'est bien mieux comme ça."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "¡Perfecto! 'Beaucoup mieux' o 'Bien mieux'.",
+            "incorrect": "No digas 'très mieux'. Usa 'Beaucoup' o 'Bien' para intensificar comparativos."
+          }
+        },
+        {
+          "id": "ex_024",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué documento envías para solicitar un trabajo?",
+          "prompt": "J'ai envoyé mon ______ et ma lettre de motivation.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "CV" },
+              { "id": "opt_2", "text": "PV" },
+              { "id": "opt_3", "text": "CB" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Sí. CV (Curriculum Vitae).",
+            "incorrect": "PV es multa/acta. CB es tarjeta bancaria."
+          }
+        },
+        {
+          "id": "ex_025",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "Verdadero o Falso: 'Postuler' significa renunciar.",
+          "prompt": "Il a postulé pour ce poste.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. 'Postuler' es solicitar/aplicar a un trabajo. Renunciar es 'Démissionner'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_026",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la frase histórica con 'Jadis' (Antaño/En el pasado).",
+          "prompt": null,
+          "content": {
+            "segments": ["Jadis,", "ce", "royaume", "était", "très", "puissant"],
+            "correct_order": ["Jadis,", "ce", "royaume", "était", "très", "puissant"],
+            "distractors": ["est", "serait"]
+          },
+          "feedback": {
+            "correct": "Muy bien. 'Jadis' nos sitúa en un pasado lejano (Imparfait).",
+            "incorrect": "Usa el imperfecto 'était' con el marcador temporal 'Jadis'."
+          }
+        },
+        {
+          "id": "ex_027",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Selecciona la forma correcta para 'La mayoría de'.",
+          "prompt": "La plupart des gens ______ d'accord.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "sont" },
+              { "id": "opt_2", "text": "est" },
+              { "id": "opt_3", "text": "a" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "¡Atención! 'La plupart' lleva el verbo en PLURAL.",
+            "incorrect": "Aunque 'La plupart' parece singular, gramaticalmente exige verbo en plural (sont)."
+          }
+        },
+        {
+          "id": "ex_028",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'La reunión tuvo lugar ayer'.",
+          "prompt": "La reunión tuvo lugar ayer.",
+          "content": {
+            "placeholder": "...",
+            "accepted_answers": ["La réunion a eu lieu hier."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Excelente. 'Avoir lieu' (tener lugar/ocurrir).",
+            "incorrect": "La expresión es 'Avoir lieu'. En pasado: 'A eu lieu'."
+          }
+        },
+        {
+          "id": "ex_029",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué significa 'Un CDD'?",
+          "prompt": "J'ai signé un CDD de 6 mois.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Contrat à Durée Déterminée" },
+              { "id": "opt_2", "text": "Contrat De Direction" },
+              { "id": "opt_3", "text": "Centre De Distribution" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. Es un contrato temporal (Duración Determinada).",
+            "incorrect": "El opuesto es CDI (Indeterminada/Fijo)."
+          }
+        },
+        {
+          "id": "ex_030",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Forma la frase con 'Ce que' (Objeto).",
+          "prompt": null,
+          "content": {
+            "segments": ["Je", "ne", "sais", "pas", "ce", "que", "tu", "veux"],
+            "correct_order": ["Je", "ne", "sais", "pas", "ce", "que", "tu", "veux"],
+            "distractors": ["qui", "ce"]
+          },
+          "feedback": {
+            "correct": "Bien. 'Ce que' es el objeto directo de 'veux'.",
+            "incorrect": "Como 'tu' es el sujeto, usamos el relativo de objeto 'que' -> 'Ce que'."
+          }
+        },
+        {
+          "id": "ex_031",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Elige la opción para 'Hacer la vista gorda' (Ignorar).",
+          "prompt": "Le patron a ______ sur cette erreur.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "fermé les yeux" },
+              { "id": "opt_2", "text": "ouvert la bouche" },
+              { "id": "opt_3", "text": "tourné le dos" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "¡Exacto! 'Fermer les yeux' (Cerrar los ojos) es la expresión idiomática.",
+            "incorrect": "Es equivalente a 'hacer la vista gorda' en español."
+          }
+        },
+        {
+          "id": "ex_032",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "¿Es correcto? 'C'est l'homme qui je parle'.",
+          "prompt": "C'est l'homme qui je parle.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. Si hablas 'A' él -> 'À qui'. Si hablas 'DE' él -> 'Dont'. Nunca 'qui je parle'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_033",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando la pasiva: 'El museo será abierto'.",
+          "prompt": "El museo será abierto por el presidente.",
+          "content": {
+            "placeholder": "...",
+            "accepted_answers": ["Le musée sera ouvert par le président."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Bien. Participio de 'Ouvrir' es 'Ouvert'.",
+            "incorrect": "No confundir con 'Ouvré'. Futuro simple pasivo: Sera ouvert."
+          }
+        },
+        {
+          "id": "ex_034",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué es 'Un sondage'?",
+          "prompt": "Selon le dernier sondage, le président est populaire.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Una encuesta" },
+              { "id": "opt_2", "text": "Una ley" },
+              { "id": "opt_3", "text": "Una sonda" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. Sondage = Encuesta de opinión.",
+            "incorrect": "En política, los 'sondages' miden la popularidad."
+          }
+        },
+        {
+          "id": "ex_035",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la frase relativa de lugar.",
+          "prompt": null,
+          "content": {
+            "segments": ["La", "ville", "où", "j'ai", "grandi", "a", "changé"],
+            "correct_order": ["La", "ville", "où", "j'ai", "grandi", "a", "changé"],
+            "distractors": ["que", "dont"]
+          },
+          "feedback": {
+            "correct": "¡Perfecto! 'Où' reemplaza 'dans la ville'.",
+            "incorrect": "Sujeto (La ville donde crecí) + Verbo principal (a changé)."
+          }
+        },
+        {
+          "id": "ex_036",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Completa con el adjetivo demostrativo adecuado.",
+          "prompt": "J'adore ______ chaussures (femenino plural).",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "ces" },
+              { "id": "opt_2", "text": "cettes" },
+              { "id": "opt_3", "text": "ceux" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "¡Cuidado! 'Cettes' no existe. El plural de Ce/Cet/Cette es siempre CES.",
+            "incorrect": "Para plural (masculino o femenino) siempre usamos 'Ces'."
+          }
+        },
+        {
+          "id": "ex_037",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando 'De moins en moins'.",
+          "prompt": "Hay cada vez menos gente.",
+          "content": {
+            "placeholder": "...",
+            "accepted_answers": ["Il y a de moins en moins de monde.", "Il y a de moins en moins de gens."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Bien hecho. 'De moins en moins DE...'.",
+            "incorrect": "'Monde' o 'Gens' son sustantivos, requieren el 'de' partitivo."
+          }
+        },
+        {
+          "id": "ex_038",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué significa 'Faire la queue'?",
+          "prompt": "Il faut faire la queue à la caisse.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Hacer cola / fila" },
+              { "id": "opt_2", "text": "Discutir" },
+              { "id": "opt_3", "text": "Pagar rápido" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. Faire la queue = Esperar turno en fila.",
+            "incorrect": "Literalmente es 'hacer la cola'."
+          }
+        },
+        {
+          "id": "ex_039",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Construye la frase comparativa compleja.",
+          "prompt": null,
+          "content": {
+            "segments": ["C'est", "plus", "difficile", "qu'on", "ne", "le", "pense"],
+            "correct_order": ["C'est", "plus", "difficile", "qu'on", "ne", "le", "pense"],
+            "distractors": ["que", "pas"]
+          },
+          "feedback": {
+            "correct": "Nivel avanzado: El 'ne' explétif se usa en comparaciones formales.",
+            "incorrect": "'Plus difficile qu'on ne le pense' es una estructura idiomática elegante."
+          }
+        },
+        {
+          "id": "ex_040",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "Analiza: 'Le livre dont je t'ai parlé'.",
+          "prompt": "La frase es correcta.",
+          "content": {
+            "is_correct": true,
+            "explanation": "Correcto. Parler DE quelque chose -> Dont."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_041",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Elige la forma correcta del superlativo (Adverbio).",
+          "prompt": "C'est ce produit qui se vend ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "le mieux" },
+              { "id": "opt_2", "text": "le meilleur" },
+              { "id": "opt_3", "text": "la meilleure" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Exacto. 'Se vendre' es un verbo -> Le mieux (el que mejor se vende).",
+            "incorrect": "No usamos 'meilleur' (adjetivo) para modificar la acción de venderse."
+          }
+        },
+        {
+          "id": "ex_042",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'La empresa fue fundada en 2000'.",
+          "prompt": "La empresa fue fundada en 2000.",
+          "content": {
+            "placeholder": "...",
+            "accepted_answers": ["L'entreprise a été fondée en 2000."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Muy bien. Entreprise (fem) -> Fondée.",
+            "incorrect": "Voz pasiva en pasado: A été fondée."
+          }
+        },
+        {
+          "id": "ex_043",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué significa 'HT' en una factura?",
+          "prompt": "Le prix est de 50€ HT.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Hors Taxe" },
+              { "id": "opt_2", "text": "Haute Tension" },
+              { "id": "opt_3", "text": "Heure Totale" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. Precio sin impuestos (Hors Taxe).",
+            "incorrect": "Lo contrario es TTC (Toutes Taxes Comprises)."
+          }
+        },
+        {
+          "id": "ex_044",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la frase de protesta.",
+          "prompt": null,
+          "content": {
+            "segments": ["Les", "syndicats", "appellent", "à", "la", "grève", "générale"],
+            "correct_order": ["Les", "syndicats", "appellent", "à", "la", "grève", "générale"],
+            "distractors": ["le", "au"]
+          },
+          "feedback": {
+            "correct": "Bien. 'Appeler à la grève' (Convocar huelga).",
+            "incorrect": "Sujeto + Verbo + Preposición + Objeto."
+          }
+        },
+        {
+          "id": "ex_045",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Identifica el relativo para una persona después de preposición.",
+          "prompt": "C'est la collègue avec ______ je travaille.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "qui" },
+              { "id": "opt_2", "text": "que" },
+              { "id": "opt_3", "text": "laquelle" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. Para personas tras preposición corta (avec, pour, sans) usamos 'Qui'.",
+            "incorrect": "'Laquelle' también es posible pero 'Qui' es más común para personas. 'Que' es imposible tras preposición."
+          }
+        },
+        {
+          "id": "ex_046",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "¿'Un devis' es una factura final?",
+          "prompt": "Le client a signé le devis.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. El 'devis' es el presupuesto previo. La factura es la 'Facture'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_047",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce la frase pasiva impersonal con 'On'.",
+          "prompt": "Me han robado el bolso (usando 'On').",
+          "content": {
+            "placeholder": "...",
+            "accepted_answers": ["On m'a volé mon sac.", "On a volé mon sac."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Perfecto. 'On m'a volé mon sac'.",
+            "incorrect": "En francés conversacional, la pasiva de víctima se hace a menudo con 'On' (Alguien me ha robado...)."
+          }
+        },
+        {
+          "id": "ex_048",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Elige la expresión para 'Costar un ojo de la cara'.",
+          "prompt": "Ça coûte ______ de la tête !",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "les yeux" },
+              { "id": "opt_2", "text": "les oreilles" },
+              { "id": "opt_3", "text": "les cheveux" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "¡Jaja, sí! 'Les yeux de la tête' (Los ojos de la cabeza).",
+            "incorrect": "Es la expresión idiomática para algo muy caro."
+          }
+        },
+        {
+          "id": "ex_049",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la frase con 'Se plaindre' (Quejarse) en pasado.",
+          "prompt": null,
+          "content": {
+            "segments": ["Les", "clients", "se", "sont", "plaints", "du", "service"],
+            "correct_order": ["Les", "clients", "se", "sont", "plaints", "du", "service"],
+            "distractors": ["plaindre", "ont"]
+          },
+          "feedback": {
+            "correct": "Excelente. Passé Composé pronominal (Se sont plaints).",
+            "incorrect": "Participio pasado de plaindre: Plaint (con s en plural)."
+          }
+        },
+        {
+          "id": "ex_050",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Gramática B2: Concordancia del adverbio 'Tout'.",
+          "prompt": "Elle était ______ étonnée (totalmente sorprendida).",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "tout" },
+              { "id": "opt_2", "text": "toute" },
+              { "id": "opt_3", "text": "tous" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "¡Difícil! Delante de vocal (étonnée), 'Tout' adverbio permanece invariable.",
+            "incorrect": "Regla especial: 'Tout' solo concuerda (toute) si el adjetivo femenino empieza por consonante (toute petite). Ante vocal es invariable."
+          }
+        }
+      ]
+    }
+    </script>

@@ -1,0 +1,833 @@
+<script type="application/json" id="exercise-data">
+    {
+      "interactive_exercises": [
+        {
+          "id": "ex_b1_001",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Gramática B2: Elige la concordancia del Participio Pasado con el auxiliar Avoir.",
+          "prompt": "Les lettres que j'ai ______ sont sur la table.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "écrit" },
+              { "id": "opt_2", "text": "écrites" },
+              { "id": "opt_3", "text": "écrits" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "¡Excelente! El objeto directo (Les lettres) está antes del verbo, así que hay concordancia.",
+            "incorrect": "Regla de oro: Con 'Avoir', si el COD (que = les lettres) va antes, el participio concuerda."
+          }
+        },
+        {
+          "id": "ex_b1_002",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena la frase negativa con pronombres (El orden es crucial).",
+          "prompt": null,
+          "content": {
+            "segments": ["Je", "ne", "lui", "ai", "rien", "dit", "pas"],
+            "correct_order": ["Je", "ne", "lui", "ai", "rien", "dit"],
+            "distractors": ["pas"]
+          },
+          "feedback": {
+            "correct": "Perfecto. 'Rien' sustituye a 'pas'.",
+            "incorrect": "El orden es: Sujeto + ne + Pronombre COI + Auxiliar + Rien + Participio."
+          }
+        },
+        {
+          "id": "ex_b1_003",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Vocabulario de viaje: ¿Qué haces antes de subir al avión?",
+          "prompt": "Avant de monter dans l'avion, je dois ______ mes bagages.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "décoller" },
+              { "id": "opt_2", "text": "enregistrer" },
+              { "id": "opt_3", "text": "atterrir" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. Enregistrer = Facturar (equipaje).",
+            "incorrect": "Décoller es despegar y Atterrir es aterrizar."
+          }
+        },
+        {
+          "id": "ex_b1_004",
+          "type": "true_false",
+          "difficulty": "hard",
+          "instruction": "Análisis: ¿Hay error de concordancia en este verbo reflexivo?",
+          "prompt": "Elles se sont lavé les mains.",
+          "content": {
+            "is_correct": true,
+            "explanation": "Correcto. NO hay concordancia porque el objeto directo (les mains) está después del verbo."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_b1_005",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando el pronombre 'Y' (lugar).",
+          "prompt": "Voy a ir allí mañana.",
+          "content": {
+            "placeholder": "Usa 'Y' para reemplazar el lugar...",
+            "accepted_answers": ["Je vais y aller demain."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Très bien. 'Je vais y aller'.",
+            "incorrect": "El pronombre 'Y' se coloca antes del infinitivo (aller)."
+          }
+        },
+        {
+          "id": "ex_b1_006",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Geografía: Preposición para países excepciones (terminan en 'e' pero son masculinos).",
+          "prompt": "Nous allons voyager ______ Cambodge cet été.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "en" },
+              { "id": "opt_2", "text": "au" },
+              { "id": "opt_3", "text": "à" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "¡Exacto! Le Cambodge, Le Mexique, Le Mozambique son masculinos -> AU.",
+            "incorrect": "Aunque termine en 'e', Camboya es masculino. Usamos 'Au'."
+          }
+        },
+        {
+          "id": "ex_b1_007",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Construye una frase con la restricción 'Ne... que' (Solamente).",
+          "prompt": null,
+          "content": {
+            "segments": ["Il", "ne", "mange", "que", "des", "légumes", "pas"],
+            "correct_order": ["Il", "ne", "mange", "que", "des", "légumes"],
+            "distractors": ["pas"]
+          },
+          "feedback": {
+            "correct": "Bien. 'Ne... que' significa 'solamente'. No uses 'pas'.",
+            "incorrect": "La estructura restrictiva elimina el 'pas'."
+          }
+        },
+        {
+          "id": "ex_b1_008",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué conector expresa oposición?",
+          "prompt": "Il pleut, ______ je vais sortir me promener.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "c'est pourquoi" },
+              { "id": "opt_2", "text": "pourtant" },
+              { "id": "opt_3", "text": "donc" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. 'Pourtant' (Sin embargo/No obstante).",
+            "incorrect": "'C'est pourquoi' y 'donc' expresan consecuencia."
+          }
+        },
+        {
+          "id": "ex_b1_009",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce la hipótesis (Si + Presente = Futuro).",
+          "prompt": "Si tengo tiempo, vendré.",
+          "content": {
+            "placeholder": "Escribe la frase completa...",
+            "accepted_answers": ["Si j'ai le temps, je viendrai.", "Si j'ai du temps, je viendrai."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Perfecto. 'Je viendrai' (Futuro Simple).",
+            "incorrect": "Recuerda: Si + Présent -> Futur Simple (Viendrai)."
+          }
+        },
+        {
+          "id": "ex_b1_010",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Elige el auxiliar correcto. Verbo transitivo vs intransitivo.",
+          "prompt": "J'______ descendu la poubelle. (Bajé la basura)",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "suis" },
+              { "id": "opt_2", "text": "ai" },
+              { "id": "opt_3", "text": "vais" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "¡Cuidado! 'Descendre' con objeto directo (la basura) usa AVOIR.",
+            "incorrect": "Si bajas 'tú mismo', es Être. Si bajas 'algo' (transitivo), es Avoir."
+          }
+        },
+        {
+          "id": "ex_b1_011",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "Gramática: ¿Está bien usado 'Depuis'?",
+          "prompt": "J'habite ici depuis 5 ans.",
+          "content": {
+            "is_correct": true,
+            "explanation": "Correcto. La acción continúa en el presente, así que usamos Presente + Depuis."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_b1_012",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la frase con doble pronombre (Me lo...).",
+          "prompt": null,
+          "content": {
+            "segments": ["Il", "me", "l'", "a", "donné", "hier"],
+            "correct_order": ["Il", "me", "l'", "a", "donné", "hier"],
+            "distractors": ["le", "lui"]
+          },
+          "feedback": {
+            "correct": "Excelente. Orden: COI (me) + COD (le/l') + Verbo.",
+            "incorrect": "El pronombre indirecto de persona (me) va antes del directo (l')."
+          }
+        },
+        {
+          "id": "ex_b1_013",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Elige la preposición temporal para una acción futura puntual.",
+          "prompt": "Le projet sera terminé ______ deux semaines.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "en" },
+              { "id": "opt_2", "text": "dans" },
+              { "id": "opt_3", "text": "il y a" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. 'Dans' indica el punto en el futuro (dentro de).",
+            "incorrect": "'En' indica cuánto tiempo toma realizar la acción (duración)."
+          }
+        },
+        {
+          "id": "ex_b1_014",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Acabo de llegar'. (Passé Récent).",
+          "prompt": "Acabo de llegar.",
+          "content": {
+            "placeholder": "Usa Venir de...",
+            "accepted_answers": ["Je viens d'arriver.", "Je viens juste d'arriver."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Bien. Venir (presente) + de + infinitivo.",
+            "incorrect": "La estructura es 'Venir de' + Infinitivo."
+          }
+        },
+        {
+          "id": "ex_b1_015",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "¿Cómo se dice 'Yo tampoco'?",
+          "prompt": "- Je n'aime pas le froid. \n- ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Moi aussi" },
+              { "id": "opt_2", "text": "Moi non plus" },
+              { "id": "opt_3", "text": "Moi pas" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Exacto. Para coincidir con una negación usamos 'Moi non plus'.",
+            "incorrect": "'Moi aussi' es para coincidir en afirmativo."
+          }
+        },
+        {
+          "id": "ex_b1_016",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Forma la frase con el pronombre 'EN' (cantidad).",
+          "prompt": "Tú comes mucha fruta.",
+          "content": {
+            "segments": ["Tu", "en", "manges", "beaucoup", "les"],
+            "correct_order": ["Tu", "en", "manges", "beaucoup"],
+            "distractors": ["les"]
+          },
+          "feedback": {
+            "correct": "Bien. 'En' reemplaza 'beaucoup de fruits'.",
+            "incorrect": "El pronombre 'En' se usa para cantidades indeterminadas."
+          }
+        },
+        {
+          "id": "ex_b1_017",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Identifica el participio irregular de 'Peindre' (Pintar).",
+          "prompt": "Picasso a ______ ce tableau.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "peindu" },
+              { "id": "opt_2", "text": "peint" },
+              { "id": "opt_3", "text": "peigni" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. Verbos en -eindre -> -eint.",
+            "incorrect": "Peindre es irregular. El participio es 'Peint'."
+          }
+        },
+        {
+          "id": "ex_b1_018",
+          "type": "true_false",
+          "difficulty": "hard",
+          "instruction": "¿Es correcto el uso de 'Visiter' aquí?",
+          "prompt": "Je vais visiter mes grands-parents.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Incorrecto. 'Visiter' es para lugares. Para personas se dice 'Rendre visite à'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_b1_019",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Hacía buen tiempo' (Imperfecto para descripción).",
+          "prompt": "Hacía buen tiempo.",
+          "content": {
+            "placeholder": "Usa el imperfecto...",
+            "accepted_answers": ["Il faisait beau.", "Il faisait beau temps."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Muy bien. Il faisait (Imparfait) beau.",
+            "incorrect": "Para descripciones en el pasado, usamos el Imperfecto (Il faisait)."
+          }
+        },
+        {
+          "id": "ex_b1_020",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Elige la preposición para una ciudad con artículo.",
+          "prompt": "Je vais ______ Caire (El Cairo).",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "au" },
+              { "id": "opt_2", "text": "à" },
+              { "id": "opt_3", "text": "en" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "¡Correcto! À + Le = Au. (Au Caire, Au Havre).",
+            "incorrect": "Algunas ciudades tienen artículo (Le Caire). Se contrae con À -> Au."
+          }
+        },
+        {
+          "id": "ex_b1_021",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena la pregunta formal con inversión.",
+          "prompt": null,
+          "content": {
+            "segments": ["Où", "allez-vous", "passer", "vos", "vacances", "?"],
+            "correct_order": ["Où", "allez-vous", "passer", "vos", "vacances", "?"],
+            "distractors": ["vous-allez"]
+          },
+          "feedback": {
+            "correct": "Bien. Inversión verbo-sujeto: Allez-vous.",
+            "incorrect": "En preguntas formales, invertimos el verbo y el pronombre."
+          }
+        },
+        {
+          "id": "ex_b1_022",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué significa la expresión 'Poser un lapin'?",
+          "prompt": "Il n'est pas venu, il m'a posé un lapin.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Me regaló una mascota" },
+              { "id": "opt_2", "text": "Me dejó plantado" },
+              { "id": "opt_3", "text": "Llegó tarde" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. Idiomáticamente es no acudir a una cita.",
+            "incorrect": "Literalmente es 'poner un conejo', pero significa dejar plantado."
+          }
+        },
+        {
+          "id": "ex_b1_023",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "Gramática: ¿'Se souvenir' lleva la preposición 'de'?",
+          "prompt": "Je me souviens de mon enfance.",
+          "content": {
+            "is_correct": true,
+            "explanation": "Verdadero. La estructura es 'Se souvenir DE quelque chose'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_b1_024",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando negación: 'Ya no tengo hambre'.",
+          "prompt": "Ya no tengo hambre.",
+          "content": {
+            "placeholder": "Usa 'ne... plus'...",
+            "accepted_answers": ["Je n'ai plus faim."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Exacto. 'Plus' indica el fin de un estado.",
+            "incorrect": "'Pas' es no. 'Plus' es ya no."
+          }
+        },
+        {
+          "id": "ex_b1_025",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Elige el verbo correcto para 'hacer una pregunta'.",
+          "prompt": "Je voudrais te ______ une question.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "faire" },
+              { "id": "opt_2", "text": "demander" },
+              { "id": "opt_3", "text": "poser" }
+            ],
+            "correct_option_id": "opt_3"
+          },
+          "feedback": {
+            "correct": "Correcto. En francés se dice 'Poser une question'.",
+            "incorrect": "No decimos 'Faire une question'. Puedes usar 'Demander quelque chose' pero 'Poser une question'."
+          }
+        },
+        {
+          "id": "ex_b1_026",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la frase con 'Personne' como sujeto.",
+          "prompt": null,
+          "content": {
+            "segments": ["Personne", "n'", "est", "venu", "à", "la", "fête"],
+            "correct_order": ["Personne", "n'", "est", "venu", "à", "la", "fête"],
+            "distractors": ["pas"]
+          },
+          "feedback": {
+            "correct": "Muy bien. Cuando 'Personne' es sujeto, va al inicio.",
+            "incorrect": "Estructura: Personne + ne + verbo."
+          }
+        },
+        {
+          "id": "ex_b1_027",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Participio Pasado: Verbos pronominales con significado pasivo.",
+          "prompt": "Les maisons se sont ______ très vite.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "vendu" },
+              { "id": "opt_2", "text": "vendues" },
+              { "id": "opt_3", "text": "vendus" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. El sujeto (Les maisons) sufre la acción -> Concordancia.",
+            "incorrect": "Como es pasiva refleja (se vendieron), concuerda con el sujeto (femenino plural)."
+          }
+        },
+        {
+          "id": "ex_b1_028",
+          "type": "full_translation",
+          "difficulty": "medium",
+          "instruction": "Traduce: 'Vale la pena'.",
+          "prompt": "Vale la pena.",
+          "content": {
+            "placeholder": "Usa la expresión con 'Valoir'...",
+            "accepted_answers": ["Ça vaut la peine.", "Cela vaut la peine."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Bien. 'Ça vaut la peine'.",
+            "incorrect": "Expresión fija con el verbo Valoir."
+          }
+        },
+        {
+          "id": "ex_b1_029",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "¿Es correcta la preposición?: 'Je vais au Portugal'.",
+          "prompt": "Je vais au Portugal.",
+          "content": {
+            "is_correct": true,
+            "explanation": "Correcto. Portugal es masculino (Le Portugal), por tanto usamos 'Au'."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_b1_030",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Elige la forma correcta del relativo 'Que' vs 'Qui'.",
+          "prompt": "L'homme ______ parle est mon oncle.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "qui" },
+              { "id": "opt_2", "text": "que" },
+              { "id": "opt_3", "text": "où" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. 'Qui' actúa como sujeto del verbo 'parle'.",
+            "incorrect": "'Que' se usa cuando es objeto directo. Aquí necesitamos un sujeto."
+          }
+        },
+        {
+          "id": "ex_b1_031",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Ordena la frase usando el gerundio (En + Participio presente).",
+          "prompt": null,
+          "content": {
+            "segments": ["Il", "a", "appris", "l'anglais", "en", "regardant", "des", "films"],
+            "correct_order": ["Il", "a", "appris", "l'anglais", "en", "regardant", "des", "films"],
+            "distractors": ["regarder"]
+          },
+          "feedback": {
+            "correct": "Excelente. El gerundio indica el modo (cómo lo hizo).",
+            "incorrect": "Gerundio = En + Raíz verbal + ant."
+          }
+        },
+        {
+          "id": "ex_b1_032",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué significa 'Avoir le cafard'?",
+          "prompt": "Je ne sors pas ce soir, j'ai le cafard.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "Tener miedo" },
+              { "id": "opt_2", "text": "Estar deprimido/triste" },
+              { "id": "opt_3", "text": "Tener hambre" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. Estar triste o melancólico.",
+            "incorrect": "Literalmente es 'tener la cucaracha', pero significa estar de bajón."
+          }
+        },
+        {
+          "id": "ex_b1_033",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando 'Il faut que' + Subjuntivo.",
+          "prompt": "Es necesario que vayas.",
+          "content": {
+            "placeholder": "Usa el verbo Aller...",
+            "accepted_answers": ["Il faut que tu ailles.", "Il faut que vous alliez."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "¡Nivel B2! 'Il faut que tu ailles'.",
+            "incorrect": "El subjuntivo de Aller es irregular (aille/ailles/aillent)."
+          }
+        },
+        {
+          "id": "ex_b1_034",
+          "type": "true_false",
+          "difficulty": "medium",
+          "instruction": "Lógica: ¿'La douane' revisa tu salud?",
+          "prompt": "À la douane, on vérifie si tu es malade.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. La aduana (douane) verifica mercancías e impuestos. El control de pasaportes verifica identidad."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_b1_035",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Selecciona el pronombre posesivo correcto.",
+          "prompt": "C'est ta voiture ? Oui, c'est la ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "mienne" },
+              { "id": "opt_2", "text": "tien" },
+              { "id": "opt_3", "text": "tienne" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. Si respondo yo, es 'la mía' (la mienne).",
+            "incorrect": "Voiture es femenino, así que usamos 'la mienne'."
+          }
+        },
+        {
+          "id": "ex_b1_036",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Forma la frase sobre el clima usando 'Il y a'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Il", "y", "a", "beaucoup", "de", "vent", "fait"],
+            "correct_order": ["Il", "y", "a", "beaucoup", "de", "vent"],
+            "distractors": ["fait"]
+          },
+          "feedback": {
+            "correct": "Bien. Con sustantivos (vent, soleil), usamos Il y a.",
+            "incorrect": "No uses 'Il fait' con sustantivos directos, salvo expresiones fijas."
+          }
+        },
+        {
+          "id": "ex_b1_037",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Diferencia entre 'Savoir' y 'Connaître'.",
+          "prompt": "Est-ce que tu ______ conduire ?",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "sais" },
+              { "id": "opt_2", "text": "connais" },
+              { "id": "opt_3", "text": "sache" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. Savoir + Verbo (habilidad).",
+            "incorrect": "'Connaître' se usa con sustantivos (personas, lugares). Para habilidades es 'Savoir'."
+          }
+        },
+        {
+          "id": "ex_b1_038",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Me duele la cabeza'.",
+          "prompt": "Me duele la cabeza.",
+          "content": {
+            "placeholder": "Usa la expresión Avoir mal...",
+            "accepted_answers": ["J'ai mal à la tête."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Bien. 'J'ai mal à la tête'.",
+            "incorrect": "Avoir mal à + parte del cuerpo."
+          }
+        },
+        {
+          "id": "ex_b1_039",
+          "type": "true_false",
+          "difficulty": "hard",
+          "instruction": "Verdadero o Falso: 'Je t'ai manqué' significa 'Te he echado de menos'.",
+          "prompt": "Je t'ai manqué.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. Es al revés. 'Je t'ai manqué' significa 'Tú me has echado de menos a mí' (Yo te he faltado a ti)."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_b1_040",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Qué dices para pedir la cuenta en un restaurante?",
+          "prompt": "S'il vous plaît, ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "le compte" },
+              { "id": "opt_2", "text": "l'addition" },
+              { "id": "opt_3", "text": "la somme" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Exacto. L'addition.",
+            "incorrect": "'Le compte' es la cuenta bancaria. En el restaurante es 'L'addition'."
+          }
+        },
+        {
+          "id": "ex_b1_041",
+          "type": "sentence_builder",
+          "difficulty": "hard",
+          "instruction": "Ordena la frase pasiva: 'El libro fue escrito por Hugo'.",
+          "prompt": null,
+          "content": {
+            "segments": ["Le", "livre", "a", "été", "écrit", "par", "Hugo"],
+            "correct_order": ["Le", "livre", "a", "été", "écrit", "par", "Hugo"],
+            "distractors": ["est"]
+          },
+          "feedback": {
+            "correct": "Perfecto. Voz pasiva compuesta: Auxiliar Être (compuesto) + Participio.",
+            "incorrect": "La estructura es: Sujeto + a été + participio + par..."
+          }
+        },
+        {
+          "id": "ex_b1_042",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Preposiciones con islas. Cuba es singular.",
+          "prompt": "Il va ______ Cuba.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "en" },
+              { "id": "opt_2", "text": "à" },
+              { "id": "opt_3", "text": "aux" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. Islas singulares que no terminan en 'e' usan 'à' (À Cuba, À Madagascar).",
+            "incorrect": "Usamos 'en' para islas grandes femeninas (En Corse) o países."
+          }
+        },
+        {
+          "id": "ex_b1_043",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce usando el futuro simple de 'Voir'.",
+          "prompt": "Veremos qué pasa.",
+          "content": {
+            "placeholder": "Escribe la frase...",
+            "accepted_answers": ["On verra ce qui se passe.", "Nous verrons ce qui se passe."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Bien. Verra/Verrons es la raíz futura de Voir.",
+            "incorrect": "Recuerda la doble 'r' en el futuro de Voir."
+          }
+        },
+        {
+          "id": "ex_b1_044",
+          "type": "true_false",
+          "difficulty": "easy",
+          "instruction": "Semántica: ¿Un 'Boulanger' vende carne?",
+          "prompt": "Le boulanger vend de la viande.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. El 'Boulanger' vende pan. El 'Boucher' vende carne."
+          },
+          "feedback": null
+        },
+        {
+          "id": "ex_b1_045",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "Elige la respuesta correcta para: 'Merci beaucoup'.",
+          "prompt": "- Merci beaucoup pour ton aide. \n- ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "S'il te plaît" },
+              { "id": "opt_2", "text": "Je t'en prie" },
+              { "id": "opt_3", "text": "Pardon" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Correcto. 'Je t'en prie' es una forma elegante de decir 'De nada'.",
+            "incorrect": "'S'il te plaît' es por favor."
+          }
+        },
+        {
+          "id": "ex_b1_046",
+          "type": "sentence_builder",
+          "difficulty": "medium",
+          "instruction": "Construye una frase de obligación personal.",
+          "prompt": null,
+          "content": {
+            "segments": ["Je", "dois", "finir", "ce", "travail", "avant", "demain"],
+            "correct_order": ["Je", "dois", "finir", "ce", "travail", "avant", "demain"],
+            "distractors": ["faut"]
+          },
+          "feedback": {
+            "correct": "Bien. Verbo Devoir + Infinitivo.",
+            "incorrect": "'Il faut' es impersonal. Para 'Yo debo', usa 'Je dois'."
+          }
+        },
+        {
+          "id": "ex_b1_047",
+          "type": "selection_single",
+          "difficulty": "hard",
+          "instruction": "Negación compleja: Ni... ni.",
+          "prompt": "Je n'aime ______ le thé ______ le café.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "pas / et" },
+              { "id": "opt_2", "text": "ni / ni" },
+              { "id": "opt_3", "text": "rien / ou" }
+            ],
+            "correct_option_id": "opt_2"
+          },
+          "feedback": {
+            "correct": "Exacto. 'Je n'aime NI le thé NI le café'.",
+            "incorrect": "Cuando negamos dos elementos, usamos 'Ni... ni' y eliminamos 'pas'."
+          }
+        },
+        {
+          "id": "ex_b1_048",
+          "type": "full_translation",
+          "difficulty": "hard",
+          "instruction": "Traduce: 'Mientras yo dormía, él llegó'.",
+          "prompt": "Mientras yo dormía, él llegó.",
+          "content": {
+            "placeholder": "Usa 'Pendant que'...",
+            "accepted_answers": ["Pendant que je dormais, il est arrivé."],
+            "special_characters": ["é", "è", "à", "ç", "ê", "î", "ô", "ù"]
+          },
+          "feedback": {
+            "correct": "Excelente. Imperfecto (duración) + Passé Composé (acción puntual).",
+            "incorrect": "Dormais (Imparfait) vs Est arrivé (Passé Composé)."
+          }
+        },
+        {
+          "id": "ex_b1_049",
+          "type": "selection_single",
+          "difficulty": "medium",
+          "instruction": "¿Cómo describes a alguien que habla mucho?",
+          "prompt": "Pierre parle tout le temps, il est très ______.",
+          "content": {
+            "options": [
+              { "id": "opt_1", "text": "bavard" },
+              { "id": "opt_2", "text": "timide" },
+              { "id": "opt_3", "text": "paresseux" }
+            ],
+            "correct_option_id": "opt_1"
+          },
+          "feedback": {
+            "correct": "Correcto. Bavard = Charlatán.",
+            "incorrect": "Timide es tímido. Paresseux es perezoso."
+          }
+        },
+        {
+          "id": "ex_b1_050",
+          "type": "true_false",
+          "difficulty": "hard",
+          "instruction": "Gramática: ¿'Meilleur' es lo mismo que 'Mieux'?",
+          "prompt": "Ce gâteau est mieux que l'autre.",
+          "content": {
+            "is_correct": false,
+            "explanation": "Falso. Con sustantivos (gâteau) usamos el adjetivo 'Meilleur'. 'Mieux' es adverbio (para verbos). Debe ser 'Meilleur que'."
+          },
+          "feedback": null
+        }
+      ]
+    }
+    </script>
