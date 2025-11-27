@@ -141,10 +141,11 @@
     <!-- NAVBAR -->
     <nav class="bg-frBlue text-white shadow-lg z-50 relative shrink-0">
         <div class="max-w-5xl mx-auto px-4 h-14 flex justify-between items-center">
-            
+
             <div class="flex items-center gap-4">
                 <!-- Logo / Home -->
-                <div class="flex items-center gap-2 cursor-pointer active:opacity-70 transition" onclick="app.renderMap()">
+                <div class="flex items-center gap-2 cursor-pointer active:opacity-70 transition"
+                    onclick="app.renderMap()">
                     <i class="fa-solid fa-landmark text-gold text-xl"></i>
                     <h1 class="font-bold text-base tracking-wider uppercase hidden sm:block">L'Académie</h1>
                 </div>
@@ -222,7 +223,7 @@
                     this.progress = rawProgress;
                 }
 
-                this.calculateStreak(); 
+                this.calculateStreak();
 
                 // --- NEW: Initialize Map Structure first, then load first batch ---
                 this.initMap();
@@ -738,8 +739,8 @@
                     const exData = JSON.parse(exScript.textContent);
 
                     this.currentScore = 0;
-                    this.currentMaxScore = exData.interactive_exercises 
-                        ? exData.interactive_exercises.filter(ex => ex.type !== 'full_translation').length 
+                    this.currentMaxScore = exData.interactive_exercises
+                        ? exData.interactive_exercises.filter(ex => ex.type !== 'full_translation').length
                         : 0;
                     // BUILD STEPS
                     this.lessonSteps = [];
@@ -1234,10 +1235,11 @@
                 const uid = this.currentLessonMeta.uid;
                 const currentLevel = this.progress[uid] || 0;
                 // Only increase level if not already maxed (optional, but keeps numbers clean)
-                const newLevel = currentLevel + 1; 
+                const newLevel = currentLevel + 1;
                 this.progress[uid] = newLevel;
                 localStorage.setItem('acad_progress', JSON.stringify(this.progress));
-
+                this.sendProgress();
+                
                 // 2. High Score Logic
                 const isPractice = this.currentLessonMeta.type === 'practice';
                 let isNewRecord = false;
@@ -1250,6 +1252,8 @@
                     } else if (savedData && typeof savedData === 'object') {
                         previousBest = savedData.score;
                     }
+
+                    
 
                     if (this.currentScore > previousBest) {
                         this.highScores[uid] = {
@@ -1265,18 +1269,18 @@
                 let colorText = "";
                 let medalIcon = "";
                 let levelName = "";
-                
-                if (newLevel === 1) { 
-                    colorText = "text-bronze"; 
-                    medalIcon = "fa-medal"; 
+
+                if (newLevel === 1) {
+                    colorText = "text-bronze";
+                    medalIcon = "fa-medal";
                     levelName = "Bronze";
-                } else if (newLevel === 2) { 
-                    colorText = "text-silver"; 
-                    medalIcon = "fa-medal"; 
+                } else if (newLevel === 2) {
+                    colorText = "text-silver";
+                    medalIcon = "fa-medal";
                     levelName = "Argent";
-                } else { 
-                    colorText = "text-gold"; 
-                    medalIcon = "fa-crown"; 
+                } else {
+                    colorText = "text-gold";
+                    medalIcon = "fa-crown";
                     levelName = "Or";
                 }
 
@@ -1297,8 +1301,8 @@
 
                 // --- NEW: REPLAY INCENTIVE HTML ---
                 // Define how to replay the CURRENT module
-                const replayCurrentAction = this.currentLessonMeta.type === 'theory' 
-                    ? `app.loadLesson(${this.currentModIndex})` 
+                const replayCurrentAction = this.currentLessonMeta.type === 'theory'
+                    ? `app.loadLesson(${this.currentModIndex})`
                     : `app.loadPractice(${this.currentModIndex})`;
 
                 let nextRankHtml = '';
@@ -1349,10 +1353,10 @@
                             <span class="text-3xl font-bold">${this.currentScore}</span>
                             <span class="text-lg text-gray-400 font-bold">/ ${this.currentMaxScore}</span>
                         </div>
-                        ${isNewRecord 
-                            ? `<div class="text-xs font-bold text-orange-500 mt-2 animate-bounce"><i class="fa-solid fa-trophy"></i> Nouveau Record !</div>` 
-                            : `<div class="text-xs text-gray-400 mt-2">Meilleur: ${previousBest} / ${this.currentMaxScore}</div>`
-                        }
+                        ${isNewRecord
+                        ? `<div class="text-xs font-bold text-orange-500 mt-2 animate-bounce"><i class="fa-solid fa-trophy"></i> Nouveau Record !</div>`
+                        : `<div class="text-xs text-gray-400 mt-2">Meilleur: ${previousBest} / ${this.currentMaxScore}</div>`
+                    }
                     </div>
                 ` : '';
 
@@ -1516,11 +1520,38 @@
                 // Save new state
                 localStorage.setItem('acad_last_visit', today);
                 localStorage.setItem('acad_streak', currentStreak);
-                
+
                 // Update State and UI
                 this.streak = currentStreak;
                 const streakEl = document.getElementById('streak-display');
-                if(streakEl) streakEl.innerText = this.streak + " día(s) de racha";
+                if (streakEl) streakEl.innerText = this.streak + " día(s) de racha";
+            },
+
+            sendProgress() {
+                // 1. Gather current state from the app instance
+                const summary = {
+                    lastCompletedItem: this.currentLessonMeta ? this.currentLessonMeta.uid : 'unknown', // e.g., "1_theory" or "1_practice"
+                    totalModulesUnlocked: Object.keys(this.progress).length, // How many items have > 0 progress
+                    totalVocabulary: this.userVocab.length,
+                    currentStreak: this.streak,
+                    highScoreCount: Object.keys(this.highScores).length,
+                    timestamp: new Date().toISOString()
+                };
+
+                // 2. Prepare Form Data
+                const formData = new FormData();
+                formData.append("entry.571600580", JSON.stringify(summary));
+
+                // 3. Send to Google Form
+                fetch("https://docs.google.com/forms/d/e/1FAIpQLSfDW3YRnP52660mMAtB6Rtcj2cfdyllBRUEIqQxwr4Rpp_ZPQ/formResponse", {
+                    method: "POST",
+                    body: formData,
+                    mode: "no-cors"
+                }).then(() => {
+                    console.log("✅ Progress sent:", summary);
+                }).catch(err => {
+                    console.error("❌ Failed to send progress:", err);
+                });
             },
         };
         app.init();
