@@ -1127,7 +1127,7 @@
                     if (this.userVocab.length > 0) {
                         deckToReview = [...this.userVocab]
                             .sort(() => Math.random() - 0.5)
-                            .slice(0, 30);
+                            .slice(0, 50);
                     }
                 } else {
                     // Theory Mode: Review ONLY this lesson's new words
@@ -1389,7 +1389,7 @@
                     this.container.innerHTML = `<div class="h-full flex items-center justify-center flex-col p-6 text-center"><p class="text-gray-500 mb-4">No tienes vocabulario guardado aún.</p><button class="text-frBlue font-bold border border-frBlue px-4 py-2 rounded-lg" onclick="app.renderMap()">Volver</button></div>`;
                     return;
                 }
-                this.deck = [...this.userVocab].sort(() => Math.random() - 0.5).slice(0, 30);
+                this.deck = [...this.userVocab].sort(() => Math.random() - 0.5).slice(0, 50);
                 this.cardIdx = 0;
                 this.renderVoluntaryCard();
             },
