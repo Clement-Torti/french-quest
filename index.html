@@ -1528,27 +1528,25 @@
             },
 
             sendProgress() {
-                // 1. Gather current state from the app instance
                 const summary = {
-                    lastCompletedItem: this.currentLessonMeta ? this.currentLessonMeta.uid : 'unknown', // e.g., "1_theory" or "1_practice"
-                    totalModulesUnlocked: Object.keys(this.progress).length, // How many items have > 0 progress
+                    lastCompletedItem: this.currentLessonMeta ? this.currentLessonMeta.uid : 'unknown',
+                    totalModulesUnlocked: Object.keys(this.progress).length,
                     totalVocabulary: this.userVocab.length,
                     currentStreak: this.streak,
                     highScoreCount: Object.keys(this.highScores).length,
                     timestamp: new Date().toISOString()
                 };
 
-                // 2. Prepare Form Data
                 const formData = new FormData();
                 formData.append("entry.571600580", JSON.stringify(summary));
 
-                // 3. Send to Google Form
+                // FIXED URL HERE:
                 fetch("https://docs.google.com/forms/d/e/1FAIpQLSfDW3YRnP52660mMAtB6Rtcj2cfdyllBRUEIqQxwr4Rpp_ZPQ/formResponse", {
                     method: "POST",
                     body: formData,
                     mode: "no-cors"
                 }).then(() => {
-                    console.log("✅ Progress sent:", summary);
+                    console.log("✅ Progress sent successfully");
                 }).catch(err => {
                     console.error("❌ Failed to send progress:", err);
                 });
