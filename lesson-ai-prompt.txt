@@ -140,7 +140,7 @@ mira el contenido y la estructura de una leccionX.html:
             </p>
 
             <!-- FRENCH TEXT -->
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-300 font-serif leading-loose">
+            <div class="bg-gray-50 p-6 text-sm md:text-lg rounded-lg border border-gray-300 font-serif leading-loose">
 
                 <p>La salle de conférence de Savoir sent le café fort et le parfum de luxe. Sylvie est assise en bout de table, elle examine des documents avec impatience.</p>
 
