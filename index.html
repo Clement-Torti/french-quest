@@ -1528,10 +1528,14 @@
             },
 
             sendProgress() {
-                const summary = `
+                let summary = `
                 ${new Date().toISOString()} - Lesson: ${this.currentLessonMeta ? this.currentLessonMeta.uid : 'unknown'} - vocab: ${this.userVocab.length} - Current streak: ${this.streak} days`
                 .trim();
 
+                // 2. Check if it is practice mode and append the score
+                if (this.currentLessonMeta && this.currentLessonMeta.type === 'practice') {
+                    summary += ` - Score: ${this.currentScore}/${this.currentMaxScore}`;
+                }
                     const formData = new FormData();
                     formData.append("entry.571600580", summary);
 
