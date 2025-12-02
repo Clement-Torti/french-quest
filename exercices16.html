@@ -401,7 +401,53 @@
     "correct": "Correcto. Eau gazeuse (con gas).",
     "incorrect": "Eau plate es agua sin gas (natural)."
     }
-    }
+    },
+    {
+        "id": "ex_reading_rest_01",
+        "type": "reading_comprehension",
+        "difficulty": "hard",
+        "instruction": "Lisez le texte, réfléchissez aux questions, puis vérifiez.",
+        "prompt": "Un dîner au Petit Bistro",
+        "content": {
+          "text": "Ce soir, Thomas et Sarah vont au restaurant. Ils choisissent une petite table près de la fenêtre. Le serveur arrive et demande : « Vous avez choisi ? ». Thomas regarde l'ardoise sur le mur. Il commande le plat du jour : un steak-frites. Il le veut « à point ». Sarah, elle, ne mange pas de viande. Elle commande une grande salade au fromage de chèvre.<br><br>Pour boire, ils ne veulent pas dépenser trop d'argent. Ils demandent simplement une carafe d'eau, c'est gratuit. À la fin du repas, Thomas demande l'addition. Le service est compris, mais ils laissent un petit pourboire sur la table parce que le serveur était très gentil.",
+          "questions": [
+            {
+              "id": "q1",
+              "prompt": "Que commande Thomas ?",
+              "answer": "Il commande un steak-frites (le plat du jour)."
+            },
+            {
+              "id": "q2",
+              "prompt": "Pourquoi Sarah choisit-elle la salade ?",
+              "answer": "Parce qu'elle ne mange pas de viande."
+            },
+            {
+              "id": "q3",
+              "prompt": "Quelle boisson choisissent-ils ?",
+              "answer": "Ils demandent une carafe d'eau."
+            }
+          ]
+        },
+        "feedback": {
+          "correct": "Bravo ! Vous maîtrisez le vocabulaire du restaurant.",
+          "incorrect": null
+        }
+      },
+      {
+        "id": "ex_speaking_rest_01",
+        "type": "expression",
+        "difficulty": "hard",
+        "instruction": "Pratique orale : Parlez sans vous arrêter.",
+        "prompt": "Sujet libre : 4 minutes",
+        "content": {
+            "theme": "Imagina que eres un crítico gastronómico famoso. <br><br>Describe tu experiencia (buena o mala) en un restaurante nuevo. Habla sobre la comida, el servicio y el ambiente. Usa el vocabulario: <em>l'addition, le serveur, délicieux, froid, l'ambiance</em>.",
+            "duration_seconds": 240
+        },
+        "feedback": {
+          "correct": "Super ! N'oubliez pas d'utiliser le passé (j'ai mangé, c'était...) pour raconter votre histoire.",
+          "incorrect": null
+        }
+      }
     ]
     }
     </script>

@@ -339,7 +339,53 @@
     "correct": "Correcto. Cacahuetes = Cacahuètes.",
     "incorrect": "Pommes son manzanas. Coquilles son conchas."
     }
-    }
+    },
+    {
+        "id": "ex_reading_rest_03",
+        "type": "reading_comprehension",
+        "difficulty": "hard",
+        "instruction": "Lisez le texte sur le problème au restaurant, puis répondez.",
+        "prompt": "Un déjeuner compliqué",
+        "content": {
+          "text": "Il est 13h00 et Marc est dans une <strong>brasserie</strong> très fréquentée. C'est le <strong>coup de feu</strong>, les serveurs courent partout. Marc commande un poulet rôti. Il précise au serveur : « Attention, je suis <strong>allergique aux</strong> cacahuètes, ne mettez pas de sauce satay ».<br><br>Dix minutes plus tard, le serveur apporte l'assiette. Marc regarde et voit des morceaux de cacahuètes sur le poulet. De plus, les frites sont <strong>froides</strong>. Il appelle le serveur : « <strong>Excusez-moi</strong>, <strong>ce n'est pas ce que j'ai commandé</strong>. Il y a des cacahuètes et le plat est froid ». Le serveur est gêné : « Je suis <strong>désolé</strong>, je change votre assiette immédiatement ».",
+          "questions": [
+            {
+              "id": "q1",
+              "prompt": "Quel est le problème principal de Marc avec la nourriture ?",
+              "answer": "Il y a des cacahuètes (il est allergique) et le plat est froid."
+            },
+            {
+              "id": "q2",
+              "prompt": "Pourquoi le service est-il peut-être un peu négligé ?",
+              "answer": "Parce que c'est le « coup de feu » (l'heure de pointe)."
+            },
+            {
+              "id": "q3",
+              "prompt": "Comment réagit le serveur face à la plainte ?",
+              "answer": "Il s'excuse (il est désolé) et propose de changer l'assiette."
+            }
+          ]
+        },
+        "feedback": {
+          "correct": "Bravo ! Vous savez identifier les problèmes et les solutions dans un contexte de restauration.",
+          "incorrect": null
+        }
+      },
+      {
+        "id": "ex_speaking_rest_03",
+        "type": "expression",
+        "difficulty": "hard",
+        "instruction": "Pratique orale : Gérez une situation conflictuelle.",
+        "prompt": "Sujet libre : 4 minutes",
+        "content": {
+            "theme": "Estás en un restaurante y te han servido un plato que no puedes comer. <br><br>Explica al camarero que eres <strong>alérgico</strong> (a los mariscos, nueces o gluten) o que no comes carne (cerdo/vegetariano). Además, menciona que te falta un cubierto (cuchillo o tenedor). Sé firme pero educado. Usa: <em>allergique, il manque, erreur, changer, s'il vous plaît</em>.",
+            "duration_seconds": 240
+        },
+        "feedback": {
+          "correct": "Excellent. L'utilisation de 'Je suis désolé mais...' ou 'Excusez-moi' rend la plainte plus polie.",
+          "incorrect": null
+        }
+      }
     ]
     }
     </script>
