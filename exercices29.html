@@ -246,7 +246,53 @@
     "correct": "Correcto. 'Au bout de' significa 'Al final de'.",
     "incorrect": "'Au coin' es en la esquina. 'À côté' es al lado."
     }
-    }
+    },
+    {
+        "id": "ex_reading_03",
+        "type": "reading_comprehension",
+        "difficulty": "hard",
+        "instruction": "Lisez le dialogue entre un touriste et un habitant, puis répondez.",
+        "prompt": "Demander son chemin",
+        "content": {
+          "text": "<strong>Le touriste :</strong> Excusez-moi de vous déranger, madame. Je cherche le musée d'Art Moderne. J'ai marché tout droit, mais je suis arrivé dans une impasse.<br><br><strong>L'habitante :</strong> Ah, vous n'êtes pas sur le bon chemin ! Le musée n'est pas ici. Vous devez faire demi-tour et retourner jusqu'au feu tricolore.<br><br><strong>Le touriste :</strong> D'accord, et après le feu ?<br><br><strong>L'habitante :</strong> Traversez le pont. Ensuite, prenez la deuxième rue à droite. Le musée est au coin de la rue, juste en face du parc. C'est indiqué sur le panneau là-bas.",
+          "questions": [
+            {
+              "id": "q1",
+              "prompt": "Quel est le problème du touriste au début ?",
+              "answer": "Il est perdu et il est arrivé dans une impasse."
+            },
+            {
+              "id": "q2",
+              "prompt": "Que doit faire le touriste en premier ?",
+              "answer": "Il doit faire demi-tour jusqu'au feu."
+            },
+            {
+              "id": "q3",
+              "prompt": "Où se trouve le musée exactement ?",
+              "answer": "Au coin de la rue, en face du parc."
+            }
+          ]
+        },
+        "feedback": {
+          "correct": "Excellent ! Vous savez vous orienter dans une conversation.",
+          "incorrect": null
+        }
+      },
+      {
+        "id": "ex_speaking_03",
+        "type": "expression",
+        "difficulty": "hard",
+        "instruction": "Pratique orale : Donnez des instructions claires.",
+        "prompt": "Sujet libre : 4 minutes",
+        "content": {
+            "theme": "Imagina que un amigo te llama por teléfono porque está perdido en tu ciudad. <br><br>Explícale cómo llegar desde la estación de tren hasta tu casa (o hasta un lugar famoso). Dale instrucciones detalladas paso a paso. <br>Usa el vocabulario: <em>tout droit, tourner, traverser, feu, en face de, loin d'ici</em>.",
+            "duration_seconds": 240
+        },
+        "feedback": {
+          "correct": "Bravo ! L'utilisation des impératifs (allez, tournez, prenez) est essentielle ici.",
+          "incorrect": null
+        }
+      }
     ]
     }
     </script>

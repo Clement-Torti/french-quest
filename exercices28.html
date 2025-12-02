@@ -246,7 +246,53 @@
     "correct": "¡Correcto! À Amsterdam (ciudad), En Hollande (País femenino).",
     "incorrect": "Hollande termina en 'e', es femenino -> En."
     }
-    }
+    },
+    {
+        "id": "ex_reading_02",
+        "type": "reading_comprehension",
+        "difficulty": "medium",
+        "instruction": "Lisez le carnet de voyage, puis répondez aux questions.",
+        "prompt": "Un été inoubliable",
+        "content": {
+          "text": "Chère maman, <br><br>Je t'écris cette carte postale depuis le sud de l'Europe. Le voyage se passe très bien. Nous avons commencé notre périple <strong>en</strong> Espagne. À Barcelone, l'architecture est incroyable. <br><br>Maintenant, nous sommes <strong>au</strong> Portugal. Hier, nous avons fait de la randonnée dans les montagnes, c'était très dépaysant. Il fait chaud, mais il y a du vent près de l'océan. Demain, nous allons prendre l'avion pour aller <strong>au</strong> Maroc. J'ai hâte de découvrir une nouvelle culture !<br><br>Je t'embrasse, <br>Thomas.",
+          "questions": [
+            {
+              "id": "q1",
+              "prompt": "Où est Thomas au moment où il écrit la carte ?",
+              "answer": "Il est au Portugal."
+            },
+            {
+              "id": "q2",
+              "prompt": "Qu'est-ce que Thomas a fait hier ?",
+              "answer": "Il a fait de la randonnée dans les montagnes."
+            },
+            {
+              "id": "q3",
+              "prompt": "Quelle est la prochaine destination de Thomas ?",
+              "answer": "Il va aller au Maroc."
+            }
+          ]
+        },
+        "feedback": {
+          "correct": "Bravo ! Vous avez bien compris l'itinéraire de Thomas.",
+          "incorrect": null
+        }
+      },
+      {
+        "id": "ex_speaking_02",
+        "type": "expression",
+        "difficulty": "hard",
+        "instruction": "Pratique orale : Parlez sans vous arrêter.",
+        "prompt": "Sujet libre : 4 minutes",
+        "content": {
+            "theme": "Imagina que ganas un boleto de avión para dar la vuelta al mundo. <br><br>Describe tu itinerario ideal: ¿Qué países o ciudades visitarías y por qué? Describe los paisajes y las actividades. <br>Usa el vocabulario: <em>visiter, étranger, paysage, culture, valise, avion</em>.",
+            "duration_seconds": 240
+        },
+        "feedback": {
+          "correct": "Excellent ! N'oubliez pas d'utiliser les prépositions correctes (en, au, aux) pour les pays.",
+          "incorrect": null
+        }
+      }
     ]
     }
     </script>
