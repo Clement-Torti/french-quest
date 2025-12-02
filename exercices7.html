@@ -363,7 +363,53 @@
 "explanation": "Falso. El 'Guichet' es la ventanilla/taquilla para comprar billetes. ¡No te sientes ahí!"
 },
 "feedback": null
-}
+},
+{
+    "id": "ex_reading_nav_02",
+    "type": "reading_comprehension",
+    "difficulty": "hard",
+    "instruction": "Lisez le dialogue, analysez l'itinéraire, puis répondez.",
+    "prompt": "Demander son chemin",
+    "content": {
+      "text": "Paul : Pardon, madame. Je suis un peu perdu. Je cherche la station de métro 'Hôtel de Ville'.<br><br>Dame : Ce n'est pas très loin d'ici. Vous voyez le grand pont, là-bas ?<br><br>Paul : Oui, je le vois.<br><br>Dame : Alors, traversez le pont. Ensuite, continuez tout droit jusqu'au feu rouge. Tournez à gauche et vous allez voir une grande pharmacie. La station est juste devant, à côté de la boulangerie.<br><br>Paul : Merci beaucoup ! Je dois prendre la ligne 1 pour aller au Louvre.<br><br>Dame : Exactement. C'est direct. Bonne journée !",
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Où Paul veut-il aller initialement ?",
+          "answer": "Il cherche la station de métro Hôtel de Ville."
+        },
+        {
+          "id": "q2",
+          "prompt": "Quelle est la première instruction de la dame ?",
+          "answer": "Il faut traverser le pont."
+        },
+        {
+          "id": "q3",
+          "prompt": "Où se trouve la station par rapport à la pharmacie ?",
+          "answer": "Elle est juste devant la pharmacie."
+        }
+      ]
+    },
+    "feedback": {
+      "correct": "Parfait ! Vous avez bien compris les indications de direction.",
+      "incorrect": null
+    }
+  },
+  {
+    "id": "ex_speaking_nav_02",
+    "type": "expression",
+    "difficulty": "hard",
+    "instruction": "Jeu de rôle : Donnez des instructions claires.",
+    "prompt": "Guider un touriste : 4 minutes",
+    "content": {
+        "theme": "Un touriste vous demande comment aller du Musée du Louvre à l'Opéra à pied. <br><br>Expliquez l'itinéraire. Utilisez l'impératif (<em>allez, tournez, traversez</em>) et les prépositions de lieu. Intégrez le vocabulaire : <em>tout droit, carrefour, feux, à gauche, loin</em>.",
+        "duration_seconds": 240
+    },
+    "feedback": {
+      "correct": "Très bien ! L'utilisation de l'impératif est essentielle pour guider quelqu'un.",
+      "incorrect": null
+    }
+  }
 ]
 }
 </script>
