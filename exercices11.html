@@ -333,7 +333,53 @@
     "correct": "Bien. Negación: Ne + Verbo + Pas.",
     "incorrect": "Asegúrate de rodear el verbo conjugado con 'ne' y 'pas'."
     }
-    }
+    },
+    {
+        "id": "ex_reading_shopping",
+        "type": "reading_comprehension",
+        "difficulty": "hard",
+        "instruction": "Lisez le texte sur les achats, réfléchissez aux questions, puis vérifiez.",
+        "prompt": "Une journée de shopping",
+        "content": {
+          "text": "C'est samedi et ce sont les soldes. Sophie va dans un grand magasin de vêtements. Elle a besoin d'une nouvelle veste pour le travail. Elle regarde les prix : il y a des réductions de 50%. C'est bon marché !<br><br>Elle trouve une veste bleue, mais elle n'est pas sûre de la taille. Elle cherche une cabine d'essayage. La veste est trop serrée. Sophie doit trouver la taille au-dessus. Elle demande à un vendeur : « Excusez-moi, avez-vous ce modèle en taille 40 ? ». Le vendeur apporte la veste. C'est parfait.<br><br>À la caisse, il y a la queue. Quand c'est son tour, Sophie sort son portefeuille. La caissière demande : « Vous payez par carte ou en espèces ? ». Sophie répond : « Par carte, s'il vous plaît ».",
+          "questions": [
+            {
+              "id": "q1",
+              "prompt": "Pourquoi Sophie va-t-elle au magasin ?",
+              "answer": "Elle a besoin d'une veste pour le travail (et ce sont les soldes)."
+            },
+            {
+              "id": "q2",
+              "prompt": "Quel est le problème avec la première veste ?",
+              "answer": "Elle est trop serrée (trop petite)."
+            },
+            {
+              "id": "q3",
+              "prompt": "Comment Sophie paie-t-elle ses achats ?",
+              "answer": "Elle paie par carte."
+            }
+          ]
+        },
+        "feedback": {
+          "correct": "Très bien ! Vous maîtrisez le vocabulaire des achats.",
+          "incorrect": null
+        }
+      },
+      {
+        "id": "ex_speaking_shopping",
+        "type": "expression",
+        "difficulty": "hard",
+        "instruction": "Pratique orale : Parlez sans vous arrêter.",
+        "prompt": "Sujet libre : 4 minutes",
+        "content": {
+            "theme": "Imagina que tienes un presupuesto ilimitado en una tienda de lujo. <br><br>Describe qué comprarías, para quién serían los regalos y cómo te tratarían los vendedores. Usa el vocabulario: <em>cher, payer, client, choisir, magnifique, argent</em>.",
+            "duration_seconds": 240
+        },
+        "feedback": {
+          "correct": "Bravo ! Parler de ses désirs aide à utiliser le conditionnel et le vocabulaire descriptif.",
+          "incorrect": null
+        }
+      }
     ]
     }
     </script>

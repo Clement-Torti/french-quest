@@ -332,7 +332,53 @@
     "correct": "Perfecto.",
     "incorrect": "C'est urgent (Es urgente). Il y a (Hay) une fuite."
     }
-    }
+    },
+    {
+        "id": "ex_reading_problems",
+        "type": "reading_comprehension",
+        "difficulty": "hard",
+        "instruction": "Lisez l'histoire de la catastrophe domestique, réfléchissez aux questions, puis vérifiez.",
+        "prompt": "Une soirée catastrophe",
+        "content": {
+          "text": "C'est vendredi soir et je suis fatigué. Je rentre à la maison, mais ma clé est coincée dans la serrure. Impossible d'ouvrir la porte ! Je ne sais pas quoi faire. Je téléphone à mon frère, mais il ne répond pas.<br><br>Heureusement, ma voisine, Madame Durant, arrive. Elle me demande : « Est-ce que vous connaissez un serrurier ? ». Je réponds : « Non, je ne connais personne ici ». Madame Durant est très gentille. Elle connaît un bon serrurier dans le quartier. Elle appelle le professionnel pour moi. Il arrive en 20 minutes et ouvre la porte. Ouf !",
+          "questions": [
+            {
+              "id": "q1",
+              "prompt": "Quel est le problème du narrateur ?",
+              "answer": "Sa clé est coincée dans la serrure (il ne peut pas ouvrir la porte)."
+            },
+            {
+              "id": "q2",
+              "prompt": "Qui aide le narrateur ?",
+              "answer": "Sa voisine, Madame Durant."
+            },
+            {
+              "id": "q3",
+              "prompt": "Est-ce que le narrateur connaît un serrurier ?",
+              "answer": "Non, il ne connaît personne. (C'est la voisine qui connaît un serrurier)."
+            }
+          ]
+        },
+        "feedback": {
+          "correct": "Bravo ! Vous avez bien identifié le problème et l'utilisation de 'Connaître'.",
+          "incorrect": null
+        }
+      },
+      {
+        "id": "ex_speaking_problems",
+        "type": "expression",
+        "difficulty": "hard",
+        "instruction": "Pratique orale : Parlez sans vous arrêter.",
+        "prompt": "Sujet libre : 4 minutes",
+        "content": {
+            "theme": "Imagina que llegas a casa y descubres un desastre. <br><br>Elige una situación: una fuga de agua, un apagón eléctrico (panne de courant) o mucho ruido de los vecinos. Explica qué haces, a quién llamas y si sabes arreglarlo tú mismo. Usa el vocabulario: <em>plombier, électricité, savoir, urgence, aider</em>.",
+            "duration_seconds": 240
+        },
+        "feedback": {
+          "correct": "Excellent ! Raconter une urgence est idéal pour pratiquer les verbes d'action et 'Il faut'.",
+          "incorrect": null
+        }
+      }
     ]
     }
     </script>
