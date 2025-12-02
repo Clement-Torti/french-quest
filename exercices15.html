@@ -336,7 +336,53 @@
     "correct": "Sí. Payer / Régler.",
     "incorrect": "La Caisse es donde se paga."
     }
-    }
+    },
+    {
+        "id": "ex_reading_04",
+        "type": "reading_comprehension",
+        "difficulty": "medium",
+        "instruction": "Lisez le texte sur les courses au supermarché, puis répondez aux questions.",
+        "prompt": "Les courses du samedi",
+        "content": {
+          "text": "Marc est au supermarché. Il prend un caddie à l'entrée parce qu'il a beaucoup de choses à acheter. Il regarde sa liste : il lui faut une plaquette de beurre, un paquet de pâtes et un tube de dentifrice. Il va d'abord au rayon frais.<br><br>Il cherche aussi une boîte de thon pour sa salade, mais il ne trouve pas le bon rayon. Finalement, il prend aussi un pack d'eau. À la caisse, la caissière lui demande s'il veut le ticket de caisse. Marc répond : « Non merci ». Il règle ses achats par carte bancaire sans contact.",
+          "questions": [
+            {
+              "id": "q1",
+              "prompt": "Pourquoi Marc prend-il un caddie ?",
+              "answer": "Parce qu'il a beaucoup de choses à acheter."
+            },
+            {
+              "id": "q2",
+              "prompt": "Qu'est-ce qu'il achète au rayon frais ?",
+              "answer": "Il achète une plaquette de beurre."
+            },
+            {
+              "id": "q3",
+              "prompt": "Comment Marc paie-t-il ?",
+              "answer": "Il règle par carte bancaire (sans contact)."
+            }
+          ]
+        },
+        "feedback": {
+          "correct": "Très bien ! Vous avez bien identifié les produits et les actions.",
+          "incorrect": null
+        }
+      },
+      {
+        "id": "ex_speaking_04",
+        "type": "expression",
+        "difficulty": "hard",
+        "instruction": "Pratique orale : Parlez sans vous arrêter.",
+        "prompt": "Sujet libre : 4 minutes",
+        "content": {
+            "theme": "Imagina que eres un nuevo empleado en un supermercado francés y debes guiar a un cliente perdido.<br><br>Explícale dónde encontrar los productos que busca (lácteos, conservas, higiene) mencionando los tipos de envases correctos (<em>pot, tube, brique</em>). Finalmente, explícale cómo funcionan las cajas automáticas para pagar. Usa el vocabulario: <em>rayon, chercher, espèce, carte, ticket</em>.",
+            "duration_seconds": 240
+        },
+        "feedback": {
+          "correct": "Excellent ! Guider quelqu'un demande de la précision dans le vocabulaire spatial et commercial.",
+          "incorrect": null
+        }
+      }
     ]
     }
     </script>

@@ -333,7 +333,53 @@
     "correct": "Perfecto.",
     "incorrect": "Recuerda la contracción: Un peu de + eau = Un peu d'eau."
     }
-    }
+    },
+    {
+        "id": "ex_reading_03",
+        "type": "reading_comprehension",
+        "difficulty": "medium",
+        "instruction": "Lisez le dialogue à la boulangerie, faites attention aux quantités, puis répondez.",
+        "prompt": "Gourmandise du dimanche",
+        "content": {
+          "text": "C'est dimanche matin. La boulangerie est pleine de monde. C'est enfin le tour de Monsieur Martin.<br><br>— Bonjour ! Je voudrais deux baguettes tradition bien cuites et une douzaine de chouquettes, s'il vous plaît.<br>— Voilà. Et avec ceci ?<br>— Je vais prendre aussi un peu de pain de campagne, coupé en tranches. C'est pour manger avec du fromage.<br>— Très bien. Ce sera tout ?<br>— Oui, merci. Je vous dois combien ?<br>— Ça fait 8,50 €. Vous payez par carte ?<br>— Non, en espèces.",
+          "questions": [
+            {
+              "id": "q1",
+              "prompt": "Qu'est-ce que M. Martin achète pour le fromage ?",
+              "answer": "Il achète du pain de campagne (coupé en tranches)."
+            },
+            {
+              "id": "q2",
+              "prompt": "Combien de chouquettes commande-t-il ?",
+              "answer": "Il commande une douzaine de chouquettes."
+            },
+            {
+              "id": "q3",
+              "prompt": "Comment paie le client ?",
+              "answer": "Il paie en espèces (pas par carte)."
+            }
+          ]
+        },
+        "feedback": {
+          "correct": "Excellent ! Vous maîtrisez le vocabulaire de la boulangerie.",
+          "incorrect": null
+        }
+      },
+      {
+        "id": "ex_speaking_03",
+        "type": "expression",
+        "difficulty": "hard",
+        "instruction": "Pratique orale : Parlez sans vous arrêter.",
+        "prompt": "Sujet libre : 3 minutes",
+        "content": {
+            "theme": "Estás organizando un desayuno sorpresa para tu oficina o tu familia.<br><br>Describe qué lista de compras harías en la panadería. Detalla las cantidades necesarias para todos (mucho pan, pocos dulces, etc.), qué tipos de productos elegirías y cómo pedirías todo al vendedor. Usa el vocabulario: <em>baguette, viennoiserie, assez de, prix, commander</em>.",
+            "duration_seconds": 180
+        },
+        "feedback": {
+          "correct": "Bravo ! Utiliser les partitifs et les quantités à l'oral demande de la concentration.",
+          "incorrect": null
+        }
+      }
     ]
     }
     </script>
